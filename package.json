@@ -1,6 +1,11 @@
 {
-"name":"my-first-web-socket",
-"version":"0.0.1",
-"description":"my first web socket.io app",
-"dependencies":{}
+	"name":"my-first-web-socket",
+	"version":"0.0.1",
+	"description":"my first web socket.io app",
+	"dependencies":{},
+	"repository": {
+		"type":"git",
+		"url":"git+https://github.com/mblaki/gs.git"
+	},
+	"license":"blak"
 }
