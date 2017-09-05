@@ -73,12 +73,11 @@
           $('#messages').append($('<li>').text(msg));
           window.scrollTo(0, document.body.scrollHeight);
         });
-       $(document).ready(function(){
-          $('#join').click(function(){
-              socket.emit('joinGame', $('#username').val(), socket );
+        $('#join').click(function(){
+              socket.emit('joinGame', $('#username').val());
+              return false;
           });
-        });
-        socket.on('joinGame', function(thename, thesocket){          
+        socket.on('joinGame', function(thename){          
             $('#prompt').hide();
             $("#userlist").append($("<li>").text(thename));
             window.scrollTo(0, document.body.scrollHeight);
