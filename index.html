@@ -73,18 +73,18 @@
           $('#messages').append($('<li>').text(msg));
           window.scrollTo(0, document.body.scrollHeight);
         });
-        $(document).ready( function(){
-        $('#join').click(function(){
-              socket.emit('joinGame', $('#username').val());
-              return false;
-          });
-        socket.on('joinGame', function(thename){          
-            $('#prompt').hide();
-            $("#userlist").append($("<li>").text(thename));
-            window.scrollTo(0, document.body.scrollHeight);
-        });
-            
+    $(document).ready( function(){
+	   $('#join').click( function(){
+		  tName = $('#username').val();
+		  joinGame(tName, socket);
+	   });
     });
+
+function joinGame(tName, socket){
+		$('#prompt').hide();
+        $('#userlist').append("New Player: " + tName);
+		socket.emit('joinGame', tName);
+}
     </script>
   </body>
 </html>
