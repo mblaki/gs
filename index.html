@@ -74,10 +74,15 @@
           window.scrollTo(0, document.body.scrollHeight);
         });
       });
-    $("#join").onclick(function(){
-        $('#userlist').append($('<li>').text($("#username").val()));
-        $("#prompt").hide();
+    $(document).ready( function () {
+    $("#join").click(function(){
+       joinGame($("#username").val());
     });
+    });
+    function joinGame(name){
+        $('#userlist').append($('<li>').text(name));
+        $("#prompt").hide();
+    }
     </script>
   </body>
 </html>
