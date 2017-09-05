@@ -9,16 +9,15 @@ app.get('/', function(req, res){
 
 io.on('connection', function(socket){
     socket.on('chat message', function(msg){
-    io.emit('chat message', msg);
+      io.emit('chat message', msg);
   });
     
-  socket.on('joinGame', function(username){
+    socket.on('joinGame', function(username){
       console.log("Player: " + username + " has connected");
-      socket.on('joinGame', function(username){
       io.emit('joinGame', username);          
-      });
 });
 });
+
 http.listen(port, function(){
   console.log('listening on *:' + port);
 });
