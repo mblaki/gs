@@ -73,6 +73,7 @@
           $('#messages').append($('<li>').text(msg));
           window.scrollTo(0, document.body.scrollHeight);
         });
+        $(document).ready( function(){
         $('#join').click(function(){
               socket.emit('joinGame', $('#username').val());
               return false;
@@ -82,6 +83,8 @@
             $("#userlist").append($("<li>").text(thename));
             window.scrollTo(0, document.body.scrollHeight);
         });
+            
+    });
     </script>
   </body>
 </html>
