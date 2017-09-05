@@ -9,7 +9,10 @@
       form input {padding: 10px; width: 80%; margin-right: .5%; }
       form button { background: rgb(130, 224, 255); border: none; padding: 10px; }
       #messages { list-style-type: none; margin: 0; padding: 0; float:right }
-      #messages li { padding: 5px 10px; }
+      #messages li { 
+          padding: 5px 10px;
+          width: 40%;
+        }
       #messages li:nth-child(odd) { background: #eee; }
       #messages { margin-bottom: 40px }
     .name-prompt{
@@ -72,15 +75,11 @@
         });
        $(document).ready(function(){
           $('#join').click(function(){
-              name= $('#username').val();
-              joinGame(name, socket);
+              $('#prompt').hide();
+              $("#userlist").append($("<li>").text(u_name));
+              socket.emit('joinGame', $('#username').val(), socket );
           });
         });
-        function joinGame(u_name, socket){
-            $('#prompt').hide();
-            $().append("New User: " + u_name);
-            socket.emit('joinGame', u_name);
-        }
     </script>
   </body>
 </html>
