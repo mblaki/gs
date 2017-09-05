@@ -5,35 +5,81 @@
     <style>
       * { margin: 0; padding: 0; box-sizing: border-box; }
       body { font: 13px Helvetica, Arial; }
-      form { background: #000; padding: 3px; position: fixed; bottom: 0; width: 100%; }
-      form input { border: 0; padding: 10px; width: 90%; margin-right: .5%; }
-      form button { width: 9%; background: rgb(130, 224, 255); border: none; padding: 10px; }
+      form { background: #000; padding: 3px;  bottom: 0; right:0; width: 50%; position:fixed}
+      form input {padding: 10px; width: 80%; margin-right: .5%; }
+      form button { background: rgb(130, 224, 255); border: none; padding: 10px; }
       #messages { list-style-type: none; margin: 0; padding: 0; }
       #messages li { padding: 5px 10px; }
       #messages li:nth-child(odd) { background: #eee; }
       #messages { margin-bottom: 40px }
+    .name-prompt{
+	   position: absolute;
+	   top: 200px;
+	   left: 50%;
+	   margin-left: -200px;
+	   width: 400px;
+	   background-color: #eee;
+	   z-index: 2;
+	   padding: 10px;
+    }
+    #users{
+        width:50%;   
+        background: lightgray;
+        float:left;
+        height: 100vh;
+    }
+    #chat{
+        position: fixed;
+        width:40%; 
+        float:right;
+        height: 100vh;
+    }
     </style>
   </head>
   <body>
+      <div id="prompt" class="name-prompt">
+		<div class="input-group">
+	      <input id="username" type="text" placeholder="Type Your Name" autocomplete="off">
+	      <span class="input-group-btn">
+	        <input id="join" class="btn btn-primary" type="submit" value="Join the Simulation">
+	      </span>
+	    </div>
+	</div>
+    <div id = "users">
+    <h1>User List: </h1>
+        <ul id="userlist"></ul>
+    </div>
+    <div id = "chat">
     <ul id="messages"></ul>
     <form action="">
       <input id="m" autocomplete="off" /><button>Send</button>
     </form>
+    </div>
     <script src="https://cdn.socket.io/socket.io-1.2.0.js"></script>
     <script src="https://code.jquery.com/jquery-1.11.1.js"></script>
     <script>
-      $(function () {
-        var socket = io();
+        var name='';
+        var socket = io.connect('http://snowhite.co.za:3000');
         $('form').submit(function(){
           socket.emit('chat message', $('#m').val());
           $('#m').val('');
           return false;
         });
-        socket.on('chat message', function(msg){
+        socket.on('chat message', function(msg){          
           $('#messages').append($('<li>').text(msg));
           window.scrollTo(0, document.body.scrollHeight);
         });
-      });
+       $(document).ready(function(){
+          $('#join').click(function(){
+              name= $('#username').val();
+              joinGame(name, socket);
+          });
+        });
+        function joinGame(u_name, socket){
+            $('#prompt').hide();
+            $().append("New User: " + u_name);
+            socket.emit('joinGame', u_name);
+        }
     </script>
   </body>
 </html>
