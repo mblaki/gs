@@ -75,10 +75,13 @@
         });
        $(document).ready(function(){
           $('#join').click(function(){
-              $('#prompt').hide();
-              $("#userlist").append($("<li>").text(u_name));
               socket.emit('joinGame', $('#username').val(), socket );
           });
+        });
+        socket.on('joinGame', function(thename, thesocket){          
+            $('#prompt').hide();
+            $("#userlist").append($("<li>").text(thename));
+            window.scrollTo(0, document.body.scrollHeight);
         });
     </script>
   </body>
