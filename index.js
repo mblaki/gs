@@ -13,8 +13,7 @@ io.on('connection', function(socket){
   });
     
     socket.on('joinGame', function(username){
-      console.log("Player: " + username + " has connected");
-      io.emit('joinGame', username);          
+      console.log("Player: " + username + " has connected");          
 });
 });
 
