@@ -83,7 +83,6 @@
 function joinGame(tName, socket){
 		$('#prompt').hide();
         $('#userlist').append("New Player: " + tName);
-		socket.emit('joinGame', tName);
 }
     </script>
   </body>
