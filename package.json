@@ -1,14 +1,17 @@
 {
-  "name": "my-first-web-socket",
-  "version": "0.0.1",
-  "description": "my first web socket.io app",
-  "dependencies": {
-    "express": "^4.13.3",
-    "socket.io": "^1.7.4"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/mblaki/gs.git"
-  },
-  "license": "MIT"
+	"name":"my-first-web-socket",
+	"version":"0.0.1",
+	"description":"my first web socket.io app",
+	"dependencies":{
+    "express":"^4.15.2",
+    "socket.io":"^1.7.3"
+    },
+	"repository": {
+		"type":"git",
+		"url":"git+https://github.com/mblaki/gs.git"
+	},
+	"license":"MIT",
+    "scripts": {
+        "start": "node index.js"
+    }
 }
