@@ -62,7 +62,6 @@
     <script src="https://cdn.socket.io/socket.io-1.2.0.js"></script>
     <script src="https://code.jquery.com/jquery-1.11.1.js"></script>
     <script>
-        var name='';
         var socket = io();
         $('form').submit(function(){
           socket.emit('chat message', $('#m').val());
@@ -73,17 +72,6 @@
           $('#messages').append($('<li>').text(msg));
           window.scrollTo(0, document.body.scrollHeight);
         });
-    $(document).ready( function(){
-	   $('#join').click( function(){
-		  tName = $('#username').val();
-		  joinGame(tName, socket);
-	   });
-    });
-
-function joinGame(tName, socket){
-		$('#prompt').hide();
-        $('#userlist').append("New Player: " + tName);
-}
     </script>
   </body>
 </html>
