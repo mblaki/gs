@@ -18,7 +18,7 @@ io.on('connection', function(socket){
       io.emit('joinGame', username);          
       });
 });
-
+});
 http.listen(port, function(){
   console.log('listening on *:' + port);
 });
