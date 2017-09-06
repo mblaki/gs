@@ -84,15 +84,6 @@
 	    </div>
 	</div>
     <div id = "users">
-         <div id="London" class="tabcontent">
-  <h3>London</h3>
-  <p>London is the capital city of England.</p>
-</div>
-
-<div id="Paris" class="tabcontent">
-  <h3>Paris</h3>
-  <p>Paris is the capital of France.</p>
-</div>
         <div id="userlist"></div>
     </div>
       <div id ="map">
@@ -152,8 +143,8 @@
         socket.on('user join', function(lname){
             if(gname == 'Instructor'){
                 $('#userlist').append($('<h1> '+lname + ' joined </h1>'));
-              //  $("#chat").append("<div id ='"+lname+" class ='tabcontent'><ul id='messages'></ul></div>");
-                $('#buts').append('<button class="tablinks" type = "button" value="'+lname+'" id = "'+lname+'  onclick="tempp()">'+lname+'</button>');
+                $("#chat").append("<div id ='"+lname+" class ='tabcontent'><ul id='messages'></ul></div>");
+                $('#buts').append('<button class="tablinks" type = "button" value="'+lname+'" id = "'+lname+'"  onclick="tempp()">'+lname+'</button>');
             } else if (gname == lname){
                 $('#map').append($('<h1> '+lname + 's SCREEN </h1>'));
             }
