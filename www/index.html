@@ -77,14 +77,13 @@
         });
       });
     $(document).ready( function () {
-    $("#join").click(function(){g
+    $("#join").click(function(){
         gname = $("#username").val();
+        $("#prompt").hide();
         if (gname == "Instructor"){
             socket.emit('instructor join');
-             $("#prompt").hide();
         } else {
             socket.emit('user join', gname);
-             $("#prompt").hide();
         }
      //   joinGame(name);
     });
