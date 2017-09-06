@@ -91,7 +91,7 @@
       </div>
     <div id = "chat" class= "tab">
     <h1>Chat Section:</h1>
-    <ul id="messages"></ul>
+    
     <form action="">
       <input id="m" autocomplete="off" /><button>Send</button>
     </form>
@@ -122,14 +122,14 @@
             socket.emit('instructor join');
             $("#users").width("20%");
             $("#users").css("float","left");
-            $("#map").width("20%");
+            $("#map").width("45%");
             $("#map").css("float","left");
             $("#chat").width("30%");
             $("#chat").css("float","right");
         } else {
             socket.emit('user join', gname);
             $("#users").hide();
-            $("#map").width("70%");
+            $("#map").width("65%");
             $("#map").css("float","left");
             $("#chat").width("30%");
             $("#chat").css("float","right");
@@ -142,7 +142,8 @@
         socket.on('user join', function(lname){
             if(gname == 'Instructor'){
                 $('#userlist').append($('<h1> '+lname + ' joined </h1>'));
-                $('#users').append('<input class="tablinks" type = "button" value="'+lname+'" id = "'+lname+'  onclick="setDest(this.value)"/>');
+                $("#chat").append("<div id ='"+lname+" class ='tabcontent'><ul id='messages'></ul></div>");
+                $('#users').append('<button class="tablinks" type = "button" value="'+lname+'" id = "'+lname+'  onclick="setDest(this.value)">'+lname+'</button>');
             } else if (gname == lname){
                 $('#users').append($('<h1> '+lname + 's SCREEN </h1>'));
             }
