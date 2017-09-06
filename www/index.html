@@ -7,7 +7,7 @@
       body { font: 13px Helvetica, Arial; }
       form { background: #000; padding: 3px;  bottom: 0; right:0; width: 30%; position:fixed}
       form input {padding: 10px; width: 75%; margin-right: .5%; }
-      form button { background: rgb(130, 224, 255); border: none; padding: 0; }
+      form button { background: rgb(130, 224, 255); border: none; padding: 0; width:10% }
       #messages { list-style-type: none; margin: 0; padding: 0; float:right }
       #messages li { 
           padding: 5px 10px;
@@ -91,7 +91,6 @@
       </div>
     <div id = "chat" class= "tab">
     <h1>Chat Section:</h1>
-    
     <form action="">
       <input id="m" autocomplete="off" /><button>Send</button>
     </form>
@@ -143,7 +142,7 @@
             if(gname == 'Instructor'){
                 $('#userlist').append($('<h1> '+lname + ' joined </h1>'));
                 $("#chat").append("<div id ='"+lname+" class ='tabcontent'><ul id='messages'></ul></div>");
-                $('#users').append('<input class="tablinks" type = "button" value="'+lname+'" id = "'+lname+'  onclick="setDest(event, this.value)">');
+                $('#users').append('<button class="tablinks" type = "button" value="'+lname+'" id = "'+lname+'  onclick="setDest(event, this.value)">But</button>');
             } else if (gname == lname){
                 $('#map').append($('<h1> '+lname + 's SCREEN </h1>'));
             }
