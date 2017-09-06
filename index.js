@@ -20,13 +20,14 @@ io.on('connection', function(socket){
             io.emit('user join', name);
         });
     
-    socket.on('chat message', function(msg, name){
+    socket.on('chat message', function(msg, name, dest){
     console.log(name+ " sent a chat msg, bitch");
     if ( name == "Instructor") {
-        clients["marco"].emit('chat message', msg, name);
+        clients[dest].emit('chat message', msg, name, dest);
+        clients["Instructor"].emit('chat message', msg, name, dest);
     } else {
-        clients["Instructor"].emit('chat message', msg, name);
-        clients[name].emit('chat message', msg, name);
+        clients["Instructor"].emit('chat message', msg, name, dest);
+        clients[name].emit('chat message', msg, name, dest);
     }
   });
 });

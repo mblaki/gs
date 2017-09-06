@@ -64,14 +64,15 @@
     <script src="https://code.jquery.com/jquery-1.11.1.js"></script>
     <script>
     var gname="";
+    var dest="Instructor";
     var socket = io();
       $(function () {
         $('form').submit(function(){
-          socket.emit('chat message', $('#m').val(), gname);
+          socket.emit('chat message', $('#m').val(), gname, dest);
           $('#m').val('');
           return false;
         });
-        socket.on('chat message', function(msg, name){
+        socket.on('chat message', function(msg, name, dest){
                 $('#messages').append($('<li>').text(name+" says: " + msg));
                 window.scrollTo(0, document.body.scrollHeight);
             
@@ -87,13 +88,22 @@
             socket.emit('user join', gname);
         }
     });
+        $(".selectUser").click(function(){
+        dest = $('.selectedUser').val();
+        $("#prompt").hide();
+        if (gname == "Instructor"){
+            socket.emit('instructor join');
+        } else {
+            socket.emit('user join', gname);
+        }
+    });
         socket.on('instructor join', function(){
             $('#users').append($('<h1> INSTRUCTOR SCREEN </h1>'));
         });
         socket.on('user join', function(lname){
             if(gname == 'Instructor'){
                 $('#users').append($('<h1> '+lname + ' joined </h1>'));
-                $('#userlist').append('<button id="'+lname+'">'+lname+'</button>');
+                $('#userlist').append('<input class="selectUser" type = "button" value="'+lname+'">'+lname+'/>');
             } else if (gname == lname){
                 $('#users').append($('<h1> '+lname + 's SCREEN </h1>'));
             }
