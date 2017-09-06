@@ -144,12 +144,12 @@
             if(gname == 'Instructor'){
                 $('#userlist').append($('<h1> '+lname + ' joined </h1>'));
                 $("#chat").append("<div id ='"+lname+" class ='tabcontent'><ul id='messages'></ul></div>");
-                $('#buts').append('<button class="tablinks" type = "button" value="'+lname+'" id = "'+lname+'"  onclick="tempp()">'+lname+'</button>');
+                $('#buts').append('<button class="tablinks" type = "button" value="'+lname+'" id = "'+lname+'"  onclick="setDest(event, this.value)">'+lname+'</button>');
             } else if (gname == lname){
                 $('#map').append($('<h1> '+lname + 's SCREEN </h1>'));
             }
         });
-    $(".tablinks").click(function(evt, val){
+    function setDest(evt, val){
          var i, tabcontent, tablinks;
          alert("Dest: " + val);
          dest = val;
@@ -163,7 +163,7 @@
          }
          document.getElementById(val).style.display = "block";
          evt.currentTarget.className += " active";
-    });
+    }
         function tempp(){
             alert("pushed btu");
         }
