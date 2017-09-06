@@ -12,15 +12,15 @@ io.on('connection', function(socket){
     if (clients.length == 0){
         clients.push(socket);
         socket.on('instructor join', function(){
-        console.log("the instructor has started the simulation");
-        io.emit('instructor join');
+            console.log("the instructor has started the simulation");
+            io.emit('instructor join');
         });
         
     } else {
-        clients.push(socket); 
+        clients.push(socket);
         socket.on('user join', function(){
-        console.log("a user has joined");
-        io.emit('user join');
+            console.log("a user has joined");
+            io.emit('user join');
         });
     }
     
