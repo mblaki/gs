@@ -24,7 +24,6 @@ io.on('connection', function(socket){
         console.log(name+ " sent a chat msg, bitch");
         clients["Instructor"].emit('chat message', msg, name);
         clients[name].emit('chat message', msg, name);
-    }
   });
 });
 
