@@ -23,10 +23,12 @@ io.on('connection', function(socket){
     socket.on('chat message', function(msg, name){
     console.log(name+ " sent a chat msg, bitch");
     if ( name == "Instructor") {
-        clients[name].emit('chat message', msg, name);
+        console.log("Instructor ->" +msg);
+        io.emit('chat message', msg, name);
     } else {
         clients["Instructor"].emit('chat message', msg, name);
-       // clients[name].emit('chat message', msg, name);
+        clients[name].emit('chat message', msg, name);
+        console.log(name +"->" + msg);
     }
   });
 });
