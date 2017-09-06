@@ -51,7 +51,7 @@
 	</div>
     <div id = "users">
  
-        <ul id="userlist"></ul>
+        <div id="userlist"></div>
     </div>
       <h1>Chat Section:</h1>
     <div id = "chat">
@@ -76,24 +76,29 @@
         });
       });
     $(document).ready( function () {
+    var name="";
     $("#join").click(function(){
-        if ($("#username").val() == "Instructor"){
+        name = $("#username").val();
+        if (name == "Instructor"){
             socket.emit('instructor join');
         } else {
-            socket.emit('user join');
+            socket.emit('user join', name);
         }
-        joinGame($("#username").val());
+        joinGame(name);
     });
         socket.on('instructor join', function(){
             $('#users').append($('<h1> INSTRUCTOR SCREEN </h1>'));
         });
-        socket.on('user join', function(){
-            $('#users').append($('<h1> USER SCREEN </h1>'));
+        socket.on('user join', function(name){
+            
+            $('#users').append($('<h1> '+name + 's SCREEN </h1>'));
         });
     });
     function joinGame(name){
-        $('#users').append('<button id="'+name+'">'+name+'</button>');
-        $("#prompt").hide();
+        if ( name == Instructor) {
+            $('#userlist').append('<button id="'+name+'">'+name+'</button>');
+            $("#prompt").hide();
+        }
     }
     </script>
   </body>

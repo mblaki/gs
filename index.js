@@ -14,9 +14,9 @@ io.on('connection', function(socket){
             console.log("the instructor has started the simulation");
             io.emit('instructor join');
         });
-        socket.on('user join', function(){
+        socket.on('user join', function(name){
             console.log("a user has joined");
-            io.emit('user join');
+            io.emit('user join'n name);
         });
     
   socket.on('chat message', function(msg){
