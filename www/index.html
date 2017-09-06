@@ -91,7 +91,6 @@
         });
         socket.on('user join', function(lname){
             if(gname == 'Instructor'){
-                alert("Instructor sees: " + lname);
                 $('#users').append($('<h1> '+lname + ' joined </h1>'));
                 $('#userlist').append('<button id="'+lname+'">'+lname+'</button>');
             } else if (gname == lname){
