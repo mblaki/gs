@@ -158,7 +158,7 @@
                 $('#map').append($('<h1> '+lname + 's SCREEN </h1>'));
             }
         });
-    function setDest(evt, val){
+    $(".tablinks").click function(evt, val){
          var i, tabcontent, tablinks;
          alert("Dest: " + val);
          dest = val;
@@ -172,9 +172,6 @@
          }
          document.getElementById(val).style.display = "block";
          evt.currentTarget.className += " active";
-    }
-    function tempp(){
-        alert("button pushed");
     }
     </script>
   </body>
