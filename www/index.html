@@ -72,7 +72,6 @@
           return false;
         });
         socket.on('chat message', function(msg){
-          $('#users').append($('<h1> USER SCREEN </h1>'));
           $('#messages').append($('<li>').text(msg));
           window.scrollTo(0, document.body.scrollHeight);
         });
@@ -84,7 +83,10 @@
     });
         socket.on('instructor join', function(){
             $('#users').append($('<h1> INSTRUCTOR SCREEN </h1>'));
-        })
+        });
+        socket.on('user join', function(){
+            $('#users').append($('<h1> USER SCREEN </h1>'));
+        });
     });
     function joinGame(name){
         $('#users').append('<button id="'+name+'">'+name+'</button>');

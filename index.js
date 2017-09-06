@@ -8,7 +8,7 @@ app.get('/', function(req, res){
   res.sendFile(__dirname + '/www/index.html');
 });
 io.on('connection', function(socket){
-    console.log("user connected and clietns[] length= " + clients.length);
+    console.log("clients[] length= " + clients.length);
     if (clients.length == 0){
         clients.push(socket);
         socket.on('instructor join', function(){
@@ -17,7 +17,11 @@ io.on('connection', function(socket){
         });
         
     } else {
-        clients.push(socket);    
+        clients.push(socket); 
+        socket.on('user join', function(){
+        console.log("a user has joined");
+        io.emit('user join');
+        });
     }
     
   socket.on('chat message', function(msg){
