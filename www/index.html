@@ -85,26 +85,20 @@
         } else {
             socket.emit('user join', gname);
         }
-     //   joinGame(name);
     });
         socket.on('instructor join', function(){
             $('#users').append($('<h1> INSTRUCTOR SCREEN </h1>'));
         });
         socket.on('user join', function(lname){
-            $('#users').append($('<h1> '+lname + 's SCREEN </h1>'));
             if(gname == 'Instructor'){
                 alert("Instructor sees: " + lname);
+                $('#users').append($('<h1> '+lname + 's SCREEN </h1>'));
                 $('#userlist').append('<button id="'+lname+'">'+lname+'</button>');
+            } else if (gname == lname){
+                $('#users').append($('<h1> '+lname + 's SCREEN </h1>'));
             }
         });
     });
-    function joinGame(name){
-        alert("HYYHYH   " + name );
-        if ( name == Instructor) {
-            
-        }
-       
-    }
     </script>
   </body>
 </html>
