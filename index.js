@@ -18,10 +18,10 @@ io.on('connection', function(socket){
         
     } else {
         clients.push(socket);
-        socket.on('user join', function(){
+    //    socket.on('user join', function(){
             console.log("a user has joined");
-            io.emit('user join');
-        });
+     //       io.emit('user join');
+   //     });
     }
     
   socket.on('chat message', function(msg){

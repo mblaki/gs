@@ -79,14 +79,15 @@
     $(document).ready( function () {
     $("#join").click(function(){
         socket.emit('instructor join');
+   //     socket.emit('user join');
         joinGame($("#username").val());
     });
         socket.on('instructor join', function(){
             $('#users').append($('<h1> INSTRUCTOR SCREEN </h1>'));
         });
-        socket.on('user join', function(){
-            $('#users').append($('<h1> USER SCREEN </h1>'));
-        });
+   //     socket.on('user join', function(){
+   //         $('#users').append($('<h1> USER SCREEN </h1>'));
+  //      });
     });
     function joinGame(name){
         $('#users').append('<button id="'+name+'">'+name+'</button>');
