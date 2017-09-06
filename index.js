@@ -16,7 +16,7 @@ io.on('connection', function(socket){
         });
         socket.on('user join', function(name){
             console.log("a user has joined");
-            io.emit('user join'n name);
+            io.emit('user join', name);
         });
     
   socket.on('chat message', function(msg){
