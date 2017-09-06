@@ -36,6 +36,7 @@
     #map{
         visibility: hidden;
         background: lightblue;
+        height: 100vh;
     }
     </style>
   </head>
@@ -86,18 +87,18 @@
         if (gname == "Instructor"){
             socket.emit('instructor join');
             $("#users").width("20%");
-            $("#users").css.("float","left");
+            $("#users").css("float","left");
             $("#map").width("20%");
-            $("#map").css.("float","left");
+            $("#map").css("float","left");
             $("#chat").width("30%");
             $("#chat").css.("float","right");
         } else {
             socket.emit('user join', gname);
             $("#users").hide();
             $("#map").width("70%");
-            $("#map").css.("float","left");
+            $("#map").css."float","left");
             $("#chat").width("30%");
-            $("#chat").css.("float","right");
+            $("#chat").css("float","right");
         }
     });
     });
