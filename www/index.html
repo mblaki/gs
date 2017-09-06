@@ -25,19 +25,18 @@
 	   padding: 10px;
     }
     #users{
-        width:50%;   
         background: lightgray;
-        float:left;
         height: 100vh;
     }
     #chat{
-        width:50%; 
         height: 100vh;
         background: lightgreen;
         margin:auto;
-        float: left;
     }
-
+    #map{
+        visibility: hidden;
+        background: lightblue;
+    }
     </style>
   </head>
   <body>
@@ -52,8 +51,11 @@
     <div id = "users">
         <div id="userlist"></div>
     </div>
-      <h1>Chat Section:</h1>
+      <div id ="map">
+        
+      </div>
     <div id = "chat">
+    <h1>Chat Section:</h1>
     <ul id="messages"></ul>
     <form action="">
       <input id="m" autocomplete="off" /><button>Send</button>
@@ -83,8 +85,19 @@
         $("#prompt").hide();
         if (gname == "Instructor"){
             socket.emit('instructor join');
+            $("#users").width(20%);
+            $("#users").css.("float","left");
+            $("#map").width(20%);
+            $("#map").css.("float","left");
+            $("#chat").width(30%);
+            $("#chat").css.("float","right");
         } else {
             socket.emit('user join', gname);
+            $("#users").hide();
+            $("#map").width(70%);
+            $("#map").css.("float","left");
+            $("#chat").width(30%);
+            $("#chat").css.("float","right");
         }
     });
     });
