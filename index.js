@@ -2,13 +2,13 @@ var app = require('express')();
 var http = require('http').Server(app);
 var io = require('socket.io')(http);
 var port = process.env.PORT || 8020;
-//client[0] is the server GUIfor the Instructor, all other clients are Players
+//client["Instructor"] is the webpage for the Instructor, all other clients are Players
 var clients=[];
 app.get('/', function(req, res){
   res.sendFile(__dirname + '/www/index.html');
 });
 io.on('connection', function(socket){
-    console.log("clients[] length= " + clients.length);
+    console.log("clients[] length= " + Object.keys(clients).length);
         socket.on('instructor join', function(){
             console.log("the instructor has started the simulation");
             clients["Instructor"]= socket;
@@ -21,10 +21,7 @@ io.on('connection', function(socket){
         });
     
     socket.on('chat message', function(msg, name){
-    console.log(name+ " sent a chat msg, bitch");
-    if ( name == "Instructor") {
-        clients[name].emit('chat message', msg, name);
-    } else {
+        console.log(name+ " sent a chat msg, bitch");
         clients["Instructor"].emit('chat message', msg, name);
         clients[name].emit('chat message', msg, name);
     }
