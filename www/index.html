@@ -6,8 +6,8 @@
       * { margin: 0; padding: 0; box-sizing: border-box; }
       body { font: 13px Helvetica, Arial; }
       form { background: #000; padding: 3px;  bottom: 0; right:0; width: 30%; position:fixed}
-      form input {padding: 10px; width: 75%; margin-right: .5%; }
-      form button { background: rgb(130, 224, 255); border: none; padding: 0; width:10% }
+      form input { width: 75%; }
+      form button { background: rgb(130, 224, 255); border: none; padding: 0;}
       #messages { list-style-type: none; margin: 0; padding: 0; float:right }
       #messages li { 
           padding: 5px 10px;
@@ -90,7 +90,15 @@
         
       </div>
     <div id = "chat" class= "tab">
-    <h1>Chat Section:</h1>
+        <div id="London" class="tabcontent">
+  <h3>London</h3>
+  <p>London is the capital city of England.</p>
+</div>
+
+<div id="Paris" class="tabcontent">
+  <h3>Paris</h3>
+  <p>Paris is the capital of France.</p>
+</div>
     <form action="">
       <input id="m" autocomplete="off" /><button>Send</button>
     </form>
