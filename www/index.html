@@ -67,7 +67,7 @@
     var socket = io();
       $(function () {
         $('form').submit(function(){
-          socket.emit('chat message', $('#m').val(), $("#username").val());
+          socket.emit('chat message', $('#m').val(), gname);
           $('#m').val('');
           return false;
         });
@@ -78,7 +78,6 @@
       });
     $(document).ready( function () {
     $("#join").click(function(){
-        alert("ICU");
         gname = $("#username").val();
         $("#prompt").hide();
         if (gname == "Instructor"){
