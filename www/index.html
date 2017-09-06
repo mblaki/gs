@@ -72,8 +72,10 @@
           return false;
         });
         socket.on('chat message', function(msg, name){
-          $('#messages').append($('<li>').text(name+" says: " + msg));
-          window.scrollTo(0, document.body.scrollHeight);
+            if (name == gname) {
+                $('#messages').append($('<li>').text(name+" says: " + msg));
+                window.scrollTo(0, document.body.scrollHeight);
+            }
         });
       });
     $(document).ready( function () {
