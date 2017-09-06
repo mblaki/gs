@@ -90,15 +90,14 @@
             $('#users').append($('<h1> INSTRUCTOR SCREEN </h1>'));
         });
         socket.on('user join', function(name){
-            
             $('#users').append($('<h1> '+name + 's SCREEN </h1>'));
         });
     });
     function joinGame(name){
         if ( name == Instructor) {
             $('#userlist').append('<button id="'+name+'">'+name+'</button>');
-            $("#prompt").hide();
         }
+        $("#prompt").hide();
     }
     </script>
   </body>
