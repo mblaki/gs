@@ -19,7 +19,7 @@ io.on('connection', function(socket){
             io.emit('user join', name);
         });
     
-  socket.on('chat message', function(msg){
+  clients[0].on('chat message', function(msg){
     console.log("chat msg sents");
     io.emit('chat message', msg);
   });
