@@ -8,8 +8,18 @@ app.get('/', function(req, res){
   res.sendFile(__dirname + '/www/index.html');
 });
 io.on('connection', function(socket){
-    console.log("user connected")
-    clients.push(socket);
+    console.log("user connected and clietns[] length= " + clients.length);
+    if (clients.length == 0){
+        clients.push(socket);
+        socket.on('instructor join', function(){
+        console.log("the instructor has started the simulation");
+        io.emit('instructor join');
+        });
+        
+    } else {
+        clients.push(socket);    
+    }
+    
   socket.on('chat message', function(msg){
     console.log("chat msg sents");
     io.emit('chat message', msg);

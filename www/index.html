@@ -51,7 +51,7 @@
 	    </div>
 	</div>
     <div id = "users">
-    <h1>User List: </h1>
+ 
         <ul id="userlist"></ul>
     </div>
       <h1>Chat Section:</h1>
@@ -71,15 +71,20 @@
           $('#m').val('');
           return false;
         });
-        socket.on('chat message', function(msg){    
+        socket.on('chat message', function(msg){
+          $('#users').append($('<h1> USER SCREEN </h1>'));
           $('#messages').append($('<li>').text(msg));
           window.scrollTo(0, document.body.scrollHeight);
         });
       });
     $(document).ready( function () {
     $("#join").click(function(){
-       joinGame($("#username").val());
+        socket.emit('instructor join');
+        joinGame($("#username").val());
     });
+        socket.on('instructor join', function(){
+            $('#users').append($('<h1> INSTRUCTOR SCREEN </h1>'));
+        })
     });
     function joinGame(name){
         $('#users').append('<button id="'+name+'">'+name+'</button>');
