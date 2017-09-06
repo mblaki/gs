@@ -85,18 +85,18 @@
         $("#prompt").hide();
         if (gname == "Instructor"){
             socket.emit('instructor join');
-            $("#users").width(20%);
+            $("#users").width("20%");
             $("#users").css.("float","left");
-            $("#map").width(20%);
+            $("#map").width("20%");
             $("#map").css.("float","left");
-            $("#chat").width(30%);
+            $("#chat").width("30%");
             $("#chat").css.("float","right");
         } else {
             socket.emit('user join', gname);
             $("#users").hide();
-            $("#map").width(70%);
+            $("#map").width("70%");
             $("#map").css.("float","left");
-            $("#chat").width(30%);
+            $("#chat").width("30%");
             $("#chat").css.("float","right");
         }
     });
