@@ -95,7 +95,7 @@
         socket.on('user join', function(lname){
             if(gname == 'Instructor'){
                 $('#users').append($('<h1> '+lname + ' joined </h1>'));
-                $('#userlist').append('<input class="selectUser" type = "button" value="'+lname+'" onclick="this.value"/>');
+                $('#userlist').append('<input class="selectUser" type = "button" value="'+lname+'" onclick="setDest(this.value)"/>');
             } else if (gname == lname){
                 $('#users').append($('<h1> '+lname + 's SCREEN </h1>'));
             }
