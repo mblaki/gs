@@ -88,14 +88,6 @@
             socket.emit('user join', gname);
         }
     });
-        $(".selectUser").click(function(){
-        dest = $('.selectedUser').val();
-        $("#prompt").hide();
-        if (gname == "Instructor"){
-            socket.emit('instructor join');
-        } else {
-            socket.emit('user join', gname);
-        }
     });
         socket.on('instructor join', function(){
             $('#users').append($('<h1> INSTRUCTOR SCREEN </h1>'));
@@ -103,13 +95,16 @@
         socket.on('user join', function(lname){
             if(gname == 'Instructor'){
                 $('#users').append($('<h1> '+lname + ' joined </h1>'));
-                $('#userlist').append('<input class="selectUser" type = "button" value="'+lname+'"/>');
-                alert("Destination set: " + $('.selectedUser').val());
+                $('#userlist').append('<input class="selectUser" type = "button" value="'+lname+'" onclick="this.value"/>');
             } else if (gname == lname){
                 $('#users').append($('<h1> '+lname + 's SCREEN </h1>'));
             }
         });
     });
+    function setDest(val){
+        alert("Dest set: " + val);
+        dest = val;
+    }
     </script>
   </body>
 </html>
