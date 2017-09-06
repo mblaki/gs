@@ -26,7 +26,7 @@ io.on('connection', function(socket){
         io.emit('chat message', msg, name);
     } else {
         clients["Instructor"].emit('chat message', msg, name);
-        clients[name].emit('chat message', msg, name);
+        clients["marco"].emit('chat message', msg, name);
     }
   });
 });
