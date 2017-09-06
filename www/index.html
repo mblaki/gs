@@ -63,7 +63,7 @@
     <script src="https://cdn.socket.io/socket.io-1.2.0.js"></script>
     <script src="https://code.jquery.com/jquery-1.11.1.js"></script>
     <script>
-    var name="";
+    var gname="";
     var socket = io();
       $(function () {
         $('form').submit(function(){
@@ -77,28 +77,34 @@
         });
       });
     $(document).ready( function () {
-    $("#join").click(function(){
-        name = $("#username").val();
-        if (name == "Instructor"){
+    $("#join").click(function(){g
+        gname = $("#username").val();
+        if (gname == "Instructor"){
             socket.emit('instructor join');
+             $("#prompt").hide();
         } else {
-            socket.emit('user join', name);
+            socket.emit('user join', gname);
+             $("#prompt").hide();
         }
         joinGame(name);
     });
         socket.on('instructor join', function(){
             $('#users').append($('<h1> INSTRUCTOR SCREEN </h1>'));
         });
-        socket.on('user join', function(name){
-            $('#users').append($('<h1> '+name + 's SCREEN </h1>'));
+        socket.on('user join', function(lname){
+            $('#users').append($('<h1> '+lname + 's SCREEN </h1>'));
+            if(gname == 'Instructor'){
+                alert("Instructor sees: " + lname);
+                $('#userlist').append('<button id="'+lname+'">'+lname+'</button>');
+            }
         });
     });
     function joinGame(name){
         alert("HYYHYH   " + name );
         if ( name == Instructor) {
-            $('#userlist').append('<button id="'+name+'">'+name+'</button>');
+            
         }
-        $("#prompt").hide();
+       
     }
     </script>
   </body>
