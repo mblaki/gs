@@ -146,6 +146,7 @@
                 $("#chat").append("<div id ='"+lname+" class ='tabcontent'><ul id='messages'></ul></div>");
                 $('#buts').append('<button class="tablinks" type = "button" value="'+lname+'" id = "'+lname+'"  onclick="setDest(event, this.value)">'+lname+'</button>');
             } else if (gname == lname){
+                 $("#chat").append("<div id ='"+lname+" class ='tabcontent'><ul id='messages'></ul></div>");
                 $('#map').append($('<h1> '+lname + 's SCREEN </h1>'));
             }
         });

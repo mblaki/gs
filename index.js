@@ -23,8 +23,8 @@ io.on('connection', function(socket){
     socket.on('chat message', function(msg, name, dest){
     console.log(name+ " sent a chat msg to " + dest);
     if ( name == "Instructor") {
-        io.emit('chat message', msg, name, dest);
-      //  clients["Instructor"].emit('chat message', msg, name, dest);
+        clients[dest].emit('chat message', msg, name, dest);
+        clients["Instructor"].emit('chat message', msg, name, dest);
     } else {
         clients["Instructor"].emit('chat message', msg, name, dest);
         clients[name].emit('chat message', msg, name, dest);
