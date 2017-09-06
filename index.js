@@ -1,7 +1,7 @@
 var app = require('express')();
 var http = require('http').Server(app);
 var io = require('socket.io')(http);
-var port = process.env.PORT || 8010;
+var port = process.env.PORT || 8020;
 //client[0] is the server GUIfor the Instructor, all other clients are Players
 var clients=[];
 app.get('/', function(req, res){
@@ -18,10 +18,10 @@ io.on('connection', function(socket){
         
     } else {
         clients.push(socket);
-    //    socket.on('user join', function(){
+        socket.on('user join', function(){
             console.log("a user has joined");
-     //       io.emit('user join');
-   //     });
+            io.emit('user join');
+        });
     }
     
   socket.on('chat message', function(msg){
