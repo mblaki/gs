@@ -14,7 +14,7 @@ io.on('connection', function(socket){
             console.log("the instructor has started the simulation");
             io.emit('instructor join');
         });
-        clients[0].on('user join', function(name){
+        socket.on('user join', function(name){
             console.log("a user has joined");
             io.emit('user join', name);
         });
