@@ -11,6 +11,7 @@ io.on('connection', function(socket){
     console.log("user connected")
     clients.push(socket);
   socket.on('chat message', function(msg){
+    console.log("chat msg sents");
     socket.emit('chat message', msg);
   });
 });
