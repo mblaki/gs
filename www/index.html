@@ -7,7 +7,7 @@
       body { font: 13px Helvetica, Arial; }
       form { background: #000; padding: 3px;  bottom: 0; right:0; width: 30%; position:fixed}
       form input { width: 75%; }
-      form button { background: rgb(130, 224, 255); border: none; padding: 0;}
+      form button { background: rgb(130, 224, 255); border: none; padding: 0;width:20%;}
       #messages { list-style-type: none; margin: 0; padding: 0; float:right }
       #messages li { 
           padding: 5px 10px;
@@ -83,14 +83,8 @@
 	      </span>
 	    </div>
 	</div>
-    <div id = "users">
-        <div id="userlist"></div>
-    </div>
-      <div id ="map">
-        
-      </div>
-    <div id = "chat" class= "tab">
-        <div id="London" class="tabcontent">
+    <div id = "users" class= "tab">
+         <div id="London" class="tabcontent">
   <h3>London</h3>
   <p>London is the capital city of England.</p>
 </div>
@@ -99,6 +93,13 @@
   <h3>Paris</h3>
   <p>Paris is the capital of France.</p>
 </div>
+        <div id="userlist"></div>
+    </div>
+      <div id ="map">
+        
+      </div>
+    <div id = "chat" >
+       
     <form action="">
       <input id="m" autocomplete="off" /><button>Send</button>
     </form>
