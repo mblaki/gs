@@ -9,20 +9,25 @@ app.get('/', function(req, res){
 });
 io.on('connection', function(socket){
     console.log("clients[] length= " + clients.length);
-        clients.push(socket);
         socket.on('instructor join', function(){
             console.log("the instructor has started the simulation");
+            clients["Instructor"]= socket;
             io.emit('instructor join');
         });
-        socket.on('user join', function(name){
-            console.log("a user has joined");
+        socket.on('user join', function(name){       
+            clients[name]= socket;
+            console.log(name + " has joined");
             io.emit('user join', name);
         });
     
-    socket.on('chat message', function(msg){
+    socket.on('chat message', function(msg, name){
     console.log("chat msg sents");
-    clients[0].emit('chat message', msg);
-    clients[clients.indexOf(socket)].emit('chat message', msg);
+    if ( name == "Instructor") {
+        clients[name].emit('chat message', msg, name);
+    } else {
+        clients["Instructor"].emit('chat message', msg);
+        clients[name].emit('chat message', msg, name);
+    }
   });
 });
 
