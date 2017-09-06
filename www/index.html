@@ -50,7 +50,6 @@
 	    </div>
 	</div>
     <div id = "users">
- 
         <div id="userlist"></div>
     </div>
       <h1>Chat Section:</h1>
@@ -94,8 +93,8 @@
         });
         socket.on('user join', function(lname){
             if(gname == 'Instructor'){
-                $('#users').append($('<h1> '+lname + ' joined </h1>'));
-                $('#userlist').append('<input class="selectUser" type = "button" value="'+lname+'" onclick="setDest(this.value)"/>');
+                $('#userlist').append($('<h1> '+lname + ' joined </h1>'));
+                $('#users').append('<input class="selectUser" type = "button" value="'+lname+'" onclick="setDest(this.value)"/>');
             } else if (gname == lname){
                 $('#users').append($('<h1> '+lname + 's SCREEN </h1>'));
             }
