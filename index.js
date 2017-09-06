@@ -21,7 +21,7 @@ io.on('connection', function(socket){
         });
     
     socket.on('chat message', function(msg, name, dest){
-    console.log(name+ " sent a chat msg, bitch");
+    console.log(name+ " sent a chat msg to " + dest);
     if ( name == "Instructor") {
         clients[dest].emit('chat message', msg, name, dest);
         clients["Instructor"].emit('chat message', msg, name, dest);

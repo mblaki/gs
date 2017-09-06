@@ -151,8 +151,7 @@
         });
     function setDest(evt, val){
          var i, tabcontent, tablinks;
-         alert("Dest: " + val);
-         dest = val;
+         this.dest = val;
          tabcontent = document.getElementsByClassName("tabcontent");
          for (i = 0; i < tabcontent.length; i++) {
             tabcontent[i].style.display = "none";
@@ -164,9 +163,6 @@
          document.getElementById(val).style.display = "block";
          evt.currentTarget.className += " active";
     }
-        function tempp(){
-            alert("pushed btu");
-        }
     </script>
   </body>
 </html>
