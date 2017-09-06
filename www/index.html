@@ -32,10 +32,13 @@
         height: 100vh;
     }
     #chat{
-        width:40%; 
-        float:right;
+        width:50%; 
         height: 100vh;
+        background: lightgreen;
+        margin:auto;
+        float: left;
     }
+
     </style>
   </head>
   <body>
@@ -51,9 +54,8 @@
     <h1>User List: </h1>
         <ul id="userlist"></ul>
     </div>
+      <h1>Chat Section:</h1>
     <div id = "chat">
-    <h1>Chat Section:</h1>
-    <br>
     <ul id="messages"></ul>
     <form action="">
       <input id="m" autocomplete="off" /><button>Send</button>
@@ -62,7 +64,7 @@
     <script src="https://cdn.socket.io/socket.io-1.2.0.js"></script>
     <script src="https://code.jquery.com/jquery-1.11.1.js"></script>
     <script>
-    var socket = io();
+    var socket = io.connect("http://139.59.179.121:8010");
       $(function () {
         $('form').submit(function(){
           socket.emit('chat message', $('#m').val());
@@ -80,7 +82,7 @@
     });
     });
     function joinGame(name){
-        $('#userlist').append($('<li>').text(name));
+        $('#users').append('<button id="'+name+'">'+name+'</button>');
         $("#prompt").hide();
     }
     </script>
