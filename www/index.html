@@ -78,6 +78,7 @@
       });
     $(document).ready( function () {
     $("#join").click(function(){
+        alert("ICU");
         gname = $("#username").val();
         $("#prompt").hide();
         if (gname == "Instructor"){
@@ -92,7 +93,7 @@
         socket.on('user join', function(lname){
             if(gname == 'Instructor'){
                 alert("Instructor sees: " + lname);
-                $('#users').append($('<h1> '+lname + 's SCREEN </h1>'));
+                $('#users').append($('<h1> '+lname + ' joined </h1>'));
                 $('#userlist').append('<button id="'+lname+'">'+lname+'</button>');
             } else if (gname == lname){
                 $('#users').append($('<h1> '+lname + 's SCREEN </h1>'));
