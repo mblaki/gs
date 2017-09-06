@@ -21,7 +21,7 @@ io.on('connection', function(socket){
     
     socket.on('chat message', function(msg){
     console.log("chat msg sents");
-    io.clients[0].emit('chat message', msg);
+    clients[0].emit('chat message', msg);
   });
 });
 
