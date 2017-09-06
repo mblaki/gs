@@ -21,11 +21,11 @@ io.on('connection', function(socket){
         });
     
     socket.on('chat message', function(msg, name){
-    console.log("chat msg sents");
+    console.log(name+ " sent a chat msg, bitch");
     if ( name == "Instructor") {
         clients[name].emit('chat message', msg, name);
     } else {
-        clients["Instructor"].emit('chat message', msg);
+        clients["Instructor"].emit('chat message', msg, name);
         clients[name].emit('chat message', msg, name);
     }
   });
