@@ -29,7 +29,6 @@
         height: 100vh;
     }
     #chat{
-        height: 100vh;
         background: lightgreen;
         margin:auto;
     }
@@ -72,6 +71,9 @@
         border: 3px solid #ccc;
         border-top: none;
     } 
+    #buts{
+        width:30%;    
+        }
     </style>
   </head>
   <body>
@@ -90,9 +92,10 @@
     </div>
       
     <div id ="map"></div>
-      
+    
+    <div id="buts" class="tab"></div>
     <div id = "chat" >
-       <div id="buts" class="tab"></div>
+       
     </div>
       
     <form action="">
@@ -113,7 +116,7 @@
           return false;
         });
         socket.on('chat message', function(msg, name, dest){
-                $('#chat div').append($('<p>').text(name+" says: " + msg));
+                $('#'+name).append($('<p>').text(name+" says: " + msg));
                 window.scrollTo(0, document.body.scrollHeight);
             
         });
