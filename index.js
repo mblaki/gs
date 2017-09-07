@@ -7,8 +7,12 @@ var clients=[];
 app.get('/', function(req, res){
   res.sendFile(__dirname + '/www/index.html');
 });
+
 io.on('connection', function(socket){
     console.log("clients[] length= " + Object.keys(clients).length);
+        socket.on("disconnect", function(){
+            console.log("user disconnected");
+        });
         socket.on('instructor join', function(){
             console.log("the instructor has started the simulation");
             clients["Instructor"]= socket;
@@ -18,18 +22,17 @@ io.on('connection', function(socket){
             clients[name]= socket;
             console.log(name + " has joined");
             io.emit('user join', name);
+        });   
+        socket.on('chat message', function(msg, name, dest){
+            console.log(name+ " sent a chat msg to " + dest);
+            if ( name == "Instructor") {
+                clients[dest].emit('chat message', msg, name, dest);
+                clients["Instructor"].emit('chat message', msg, name, dest);
+            } else {
+                clients["Instructor"].emit('chat message', msg, name, dest);
+                clients[name].emit('chat message', msg, name, dest);
+            }
         });
-    
-    socket.on('chat message', function(msg, name, dest){
-    console.log(name+ " sent a chat msg to " + dest);
-    if ( name == "Instructor") {
-        clients[dest].emit('chat message', msg, name, dest);
-        clients["Instructor"].emit('chat message', msg, name, dest);
-    } else {
-        clients["Instructor"].emit('chat message', msg, name, dest);
-        clients[name].emit('chat message', msg, name, dest);
-    }
-  });
 });
 
 http.listen(port, function(){
