@@ -116,9 +116,8 @@
           return false;
         });
         socket.on('chat message', function(msg, name, dest){
-                $('.tabcontent #'+ name).append($('<p>').text(name+" says: " + msg));
-                window.scrollTo(0, document.body.scrollHeight);
-            
+            $("#"+name+":tabcontent").append($('<p>').text(name+" says: " + msg));
+            window.scrollTo(0, document.body.scrollHeight);
         });
       });
     $(document).ready( function () {
