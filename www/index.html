@@ -134,7 +134,7 @@
           return false;
         });
         socket.on('chat message', function(msg, name, dest){
-            $("#"+name).append($('<p>').text(name+" says: " + msg));
+            $("#messages").append($('<p>').text(name+" says: " + msg));
             $("#map").append($('<p>').text(name+" says: " + msg));
             window.scrollTo(0, document.body.scrollHeight);
         });
