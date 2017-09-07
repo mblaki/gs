@@ -69,12 +69,13 @@
     .tabcontent {
         display: none;
         padding: 6px 12px;
-        border: 1px solid #ccc;
+        border: 3px solid #ccc;
         border-top: none;
     } 
     </style>
   </head>
   <body>
+      
       <div id="prompt" class="name-prompt">
 		<div class="input-group">
 	      <input id="username" type="text" placeholder="Type Your Name" autocomplete="off">
@@ -83,22 +84,24 @@
 	      </span>
 	    </div>
 	</div>
+      
     <div id = "users">
         <div id="userlist"></div>
     </div>
-      <div id ="map">
-        
-      </div>
-    <div id = "chat" >
-       <div id="buts" class= "tab">
-        
-        </div>
+      
+    <div id ="map"></div>
+      
+    <div id = "chat" class="tab" >
+       <div id="buts" class= "tablinks"   onclick="setDest(event, this.value)"> </div>
+    </div>
+      
     <form action="">
       <input id="m" autocomplete="off" /><button>Send</button>
     </form>
-</div>
+      
     <script src="https://cdn.socket.io/socket.io-1.2.0.js"></script>
     <script src="https://code.jquery.com/jquery-1.11.1.js"></script>
+      
     <script>
     var gname="";
     var dest="Instructor";
@@ -143,8 +146,8 @@
         socket.on('user join', function(lname){
             if(gname == 'Instructor'){
                 $('#userlist').append($('<h1> '+lname + ' joined </h1>'));
-                $("#chat").append("<div background ='red' id ='"+lname+" class ='tabcontent'><ul id='messages'></ul></div>");
-                $('#buts').append('<button class="tablinks" type = "button" value="'+lname+'" id = "'+lname+'"  onclick="setDest(event, this.value)">'+lname+'</button>');
+                $("#chat").append("<div id ='"+lname+" class ='tabcontent'><ul id='messages'></ul></div>");
+                $('#buts').append('<button class="tablinks" type = "button" value="'+lname+'" id = "'+lname+'"lname+'</button>');
             } else if (gname == lname){
                  $("#chat").append("<div id ='"+lname+" class ='tabcontent'><p id='messages'></p></div>");
                 $('#map').append($('<h1> '+lname + 's SCREEN </h1>'));
