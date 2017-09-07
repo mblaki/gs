@@ -113,7 +113,7 @@
           return false;
         });
         socket.on('chat message', function(msg, name, dest){
-                $('#'+name).append($('<p>').text(name+" says: " + msg));
+                $('#chat div').append($('<p>').text(name+" says: " + msg));
                 window.scrollTo(0, document.body.scrollHeight);
             
         });
@@ -146,8 +146,8 @@
         socket.on('user join', function(lname){
             if(gname == 'Instructor'){
                 $('#userlist').append($('<h1> '+lname + ' joined </h1>'));
-                $('#buts').append('<button class="tablinks" type = "button" value="'+lname+'  onclick="setDest(event, this.value)">'+lname+'</button>');
-                $("#chat").append("<div id ='"+lname+" class ='tabcontent'><ul id='messages'></ul></div>");
+                $('#buts').append('<button class="tablinks" type = "button" value="'+lname+'" id = "'+lname+'"  onclick="setDest(event, this.value)">'+lname+'</button>');
+                $("#chat").append("<div id ='"+lname+" class ='tabcontent'><p id='messages'></p></div>");
             } else if (gname == lname){
                  $("#chat").append("<div id ='"+lname+" class ='tabcontent'><p id='messages'></p></div>");
                 $('#map').append($('<h1> '+lname + 's SCREEN </h1>'));
