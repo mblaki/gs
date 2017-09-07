@@ -92,7 +92,7 @@
     <div id ="map"></div>
       
     <div id = "chat" class="tab" >
-       <div id="buts" class= "tablinks"   onclick="setDest(event, this.value)"> </div>
+       <div id="buts" class= "tablinks" > </div>
     </div>
       
     <form action="">
@@ -139,6 +139,11 @@
             $("#chat").css("float","right");
         }
     });
+        
+    $(".tablinks").click(function(){
+        dest= this.id;
+        setDest(event, dest);
+    })
     });
         socket.on('instructor join', function(){
             $('#users').append($('<h1> INSTRUCTOR SCREEN </h1>'));
@@ -155,7 +160,7 @@
         });
     function setDest(evt, val){
          var i, tabcontent, tablinks;
-         this.dest = val;
+         dest = val;
          tabcontent = document.getElementsByClassName("tabcontent");
          for (i = 0; i < tabcontent.length; i++) {
             tabcontent[i].style.display = "none";
@@ -167,6 +172,7 @@
          document.getElementById(val).style.display = "block";
          evt.currentTarget.className += " active";
     }
+        
     </script>
   </body>
 </html>
