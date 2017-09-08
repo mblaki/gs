@@ -171,7 +171,7 @@
         socket.on('user join', function(lname){
             if(gname == 'Instructor'){
                 var newChat = document.createElement('div');
-                newChat.className('tabcontent');
+                newChat.setAttribute('class', 'tabcontent');
                 newChat.setAttribute('id', lname);
                 newChat.style.background= "pink";
                 newchat.append("<p id='messages></p>");
