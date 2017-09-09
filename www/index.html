@@ -97,6 +97,7 @@
     </div>
       
     <div id = "chat" >  
+<div id="0" class="tabcontent"></div>
 <div id="1" class="tabcontent"></div>
 <div id="2" class="tabcontent"></div>
 <div id="3" class="tabcontent"></div>
@@ -124,10 +125,10 @@
         });
         socket.on('chat message', function(msg, name, dest){
             if (name == 'Instructor'){
-                 $("#"+clientList.indexOf(name)).append($('<p>').text(name+" says: " + msg));
+                 $("#"+clientList.indexOf(dest)).append($('<p>').text(name+" says: " + msg));
                 $("#map").append($('<p>').text(name+" says: " + msg));
             } else {
-                $("#messages").append($('<p>').text(name+" says: " + msg));
+                $("#chat").append($('<p>').text(name+" says: " + msg));
                 $("#map").append($('<p>').text(name+" says: " + msg));
             }
             window.scrollTo(0, document.body.scrollHeight);
