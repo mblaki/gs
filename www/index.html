@@ -122,8 +122,9 @@
       
     <script src="https://cdn.socket.io/socket.io-1.2.0.js"></script>
     <script src="https://code.jquery.com/jquery-1.11.1.js"></script>
-      
+    
     <script>
+    // Onload and Mess
     var gname="";
     var dest="Instructor";
     var socket = io();
@@ -170,12 +171,12 @@
         });
         socket.on('user join', function(lname){
             if(gname == 'Instructor'){
-                var newChat = document.createElement('div');
+                var newChat = document.createElement('div'); //new html source element
                 newChat.setAttribute('class', 'tabcontent');
                 newChat.setAttribute('id', lname);
                 newChat.style.background= "pink";
-                newChat.append("<p id='messages></p>");
-                document.body.appendChild(newChat);
+                newChat.append("<p id='messages'></p>");
+                document.body.appendChild(newChat); // js -> html source
                 $('#userlist').append($('<h1> '+lname + ' joined </h1>'));
                 $('#buts').append('<button class="tablinks" type = "button" value="'+lname+'" id = "b'+lname+'"  onclick="setDest(event, this.value)">'+lname+'</button>');
               //  $("#chat").append("<div id ='"+lname+" class ='tabcontent'><p id='messages></p></div>");
