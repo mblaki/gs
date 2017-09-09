@@ -137,6 +137,7 @@
         socket.on('chat message', function(msg, name, dest){
             if (name == 'Instructor'){
                  $("#"+name).append($('<p>').text(name+" says: " + msg));
+                $("#map").append($('<p>').text(name+" says: " + msg));
             } else {
                 $("#messages").append($('<p>').text(name+" says: " + msg));
                 $("#map").append($('<p>').text(name+" says: " + msg));
@@ -172,10 +173,12 @@
         socket.on('user join', function(lname){
             if(gname == 'Instructor'){
                 var newChat = document.createElement('div'); //new html source element
+                var newP = document.createElement('p'); //new html source element
                 newChat.setAttribute('class', 'tabcontent');
                 newChat.setAttribute('id', lname);
+                newChat.setAttribute('id', 'messages');
                 newChat.style.background= "pink";
-                newChat.append("<p id='messages'></p>");
+                newChat.append(newP);
                 document.body.appendChild(newChat); // js -> html source
                 $('#userlist').append($('<h1> '+lname + ' joined </h1>'));
                 $('#buts').append('<button class="tablinks" type = "button" value="'+lname+'" id = "b'+lname+'"  onclick="setDest(event, this.value)">'+lname+'</button>');
