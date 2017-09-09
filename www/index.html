@@ -124,7 +124,7 @@
         });
         socket.on('chat message', function(msg, name, dest){
             if (name == 'Instructor'){
-                 $("#"+clientList.indexOf(lname)).append($('<p>').text(name+" says: " + msg));
+                 $("#"+clientList.indexOf(name)).append($('<p>').text(name+" says: " + msg));
                 $("#map").append($('<p>').text(name+" says: " + msg));
             } else {
                 $("#messages").append($('<p>').text(name+" says: " + msg));
@@ -181,7 +181,7 @@
     function setDest(evt, val){
          var i, tabcontent, tablinks;
          this.dest = val;
-        alert("ID= " + val);
+        alert("ID= " + val + "Div ID= " + clientList.indexOf(val));
          tabcontent = document.getElementsByClassName("tabcontent");
          for (i = 0; i < tabcontent.length; i++) {
             tabcontent[i].style.display = "none";
