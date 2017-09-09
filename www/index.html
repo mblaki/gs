@@ -93,10 +93,7 @@
       
     <div id ="map"></div>
     
-    <div id="buts" class="tab">
-      <button class="tablinks" onclick="setDest(event, 'London')">London</button>
-  <button class="tablinks" onclick="setDest(event, 'Paris')">Paris</button>
-  <button class="tablinks" onclick="setDest(event, 'Tokyo')">Tokyo</button>  
+    <div id="buts" class="tab"> 
     </div>
       
     <div id = "chat" >  
@@ -194,7 +191,7 @@
             tablinks[i].className = tablinks[i].className.replace(" active", "");
          }
         if (val != null) {
-            document.getElementById("#"+val).style.display = "block";
+            document.getElementById(clientList.indexOf(val)).style.display = "block";
         }
          evt.currentTarget.className += " active";
     }
