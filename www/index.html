@@ -127,7 +127,7 @@
             if (gname == 'Instructor'){
                 console.log(" msg from  "+ name +"appending to tab: " + clientList.indexOf(name) );
                 if(name == "Instructor"){
-                    $("#"+clientList.indexOf(dest)).append($('<p>').text(name+" says: " + msg));
+                    $("#"+clientList.indexOf(dest)).append($('<p background-color="blue">').text(name+" says: " + msg));
                 } else {
                     $("#"+clientList.indexOf(name)).append($('<p>').text(name+" says: " + msg));
                 }
