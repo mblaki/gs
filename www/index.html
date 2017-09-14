@@ -127,14 +127,11 @@
             if (name == 'Instructor'){
                  $("#"+clientList.indexOf(dest)).append($('<p>').text(name+" says: " + msg));
                 $("#map").append($('<p>').text(name+" says: " + msg));
-            } 
-            if (gname = name) {
-                $("#chat").append($('<p>').text(name+" says: " + msg));
-                $("#map").append($('<p>').text(name+" gn = nm  " + msg));
-            }
-            if (gname = dest) {
-                $("#chat").append($('<p>').text(name+"  says: " + msg));
-                $("#map").append($('<p>').text(name+" gn = dst " + msg));
+            } else {
+                if (gname = name) {
+                    $("#chat").append($('<p>').text(name+" says: " + msg));
+                    $("#map").append($('<p>').text(name+" gn = nm  " + msg));
+                }
             }
             window.scrollTo(0, document.body.scrollHeight);
         });
