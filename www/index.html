@@ -128,9 +128,13 @@
                  $("#"+clientList.indexOf(dest)).append($('<p>').text(name+" says: " + msg));
                 $("#map").append($('<p>').text(name+" says: " + msg));
             } 
-            if (dest = lname) {
+            if (gname = name) {
                 $("#chat").append($('<p>').text(name+" says: " + msg));
-                $("#map").append($('<p>').text(name+" says: " + msg));
+                $("#map").append($('<p>').text(name+" gn = nm  " + msg));
+            }
+            if (gname = dest) {
+                $("#chat").append($('<p>').text(name+"  says: " + msg));
+                $("#map").append($('<p>').text(name+" gn = dst " + msg));
             }
             window.scrollTo(0, document.body.scrollHeight);
         });
