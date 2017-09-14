@@ -7,13 +7,29 @@
       body { font: 13px Helvetica, Arial; }
       form { background: #000; padding: 3px;  bottom: 0; right:0; width: 30%; position:fixed}
       form input { width: 75%; }
-      form button { background: rgb(130, 224, 255); border: none;width:24%;float:right;}
-      #messages { list-style-type: none; margin: 0; padding: 0; float:right }
-      #messages li { 
-          padding: 5px 10px;
+      form button { 
+          background: rgb(130, 224, 255); 
+          border: none;
+          width:24%;
+          float:right;}
+      #messages { 
+          list-style-type: none; 
+          margin: 0; 
+          padding: 0;
+          width:100%;
+          margin-bottom: 40px 
         }
-      #messages p:nth-child(odd) { background: #eee; }
-      #messages { margin-bottom: 40px }
+      #messages p { 
+          padding: 10px 10px 10px 10px;
+          background-color:#ccffcc; 
+          text-align:left; 
+          border: 1px solid; 
+          border-radius: 5px; 
+          padding:5px; 
+          clear:both; 
+          border-top-style:none;
+        }
+
     .name-prompt{
 	   position: absolute;
 	   top: 200px;
@@ -29,7 +45,7 @@
         height: 100vh;
     }
     #chat{
-        background: lightgreen;
+        background: #26734d;
         margin:auto;
     }
     #map{
@@ -45,7 +61,7 @@
 
     /* Style the buttons inside the tab */
     div.tab button {
-        background-color: inherit;
+        background-color: #26734d;
         float: left;
         border: none;
         outline: none;
@@ -56,21 +72,30 @@
 
     /* Change background color of buttons on hover */
     div.tab button:hover {
-        background-color: #ddd;
+        background-color: #40bf80;
     }
 
     /* Create an active/current tablink class */
     div.tab button.active {
-        background-color: #ccc;
+        background-color: #40bf80;
+        border-width: 1px;
+        border-color: white;
+        border-style: solid;
     }
 
     /* Style the tab content */
     .tabcontent {
         display: none;
-        padding: 6px 12px;
         border: 3px solid #ccc;
         border-top: none;
         height: 50vh;
+        width:100%;
+    }
+    .tabcontent p {
+        padding: 6px 12px;
+        border-top: none;
+        
+        
     } 
     #buts{
         width:30%;    
@@ -128,16 +153,16 @@
             if (gname == 'Instructor'){
                 console.log(" msg from  "+ name +"appending to tab: " + clientList.indexOf(name) );
                 if(name == "Instructor"){
-                    $("#"+clientList.indexOf(dest)).append($('<p style="width:100%; background-color:#ccffcc; text-align:right; border: 1px solid; border-radius: 5px; padding:5px; clear:both; border-bottom-style:none;">').text(msg));
+                    $("#"+clientList.indexOf(dest)).append($('<p style="float:right;background-color:#ccffcc;">').text(msg));
                 } else {
-                    $("#"+clientList.indexOf(name)).append($('<p style="width:100%; background-color:#f2f2f2; border: 1px solid; border-radius: 5px; padding:5px; clear:both; border-bottom-style: none;">').text(msg));
+                    $("#"+clientList.indexOf(name)).append($('<p style="float:right;background-color:#f2f2f2;">').text(msg));
                 }
                 $("#map").append($('<p>').text(msg));
             } else {
                     if (name == "Instructor"){
-                        $("#chat").append($('<p  style="width:100%;background-color:#f2f2f2; border: 1px solid; border-radius: 5px; padding:5px;clear:both;border-bottom-style: none;">').text(msg));
+                        $("#chat").append($('<p  style="float:right;background-color:#f2f2f2;">').text(msg));
                     } else {
-                        $("#chat").append($('<p style="width:100%;background-color:#ccffcc; text-align:right; border: 1px solid; border-radius: 5px; padding:5px;clear:both;border-bottom-style: none;">').text(msg));
+                        $("#chat").append($('<p style="float:right;background-color:#ccffcc;">').text(msg));
                         
                     }
                     $("#map").append($('<p>').text(name+" gn = nm  " + msg));
@@ -170,23 +195,15 @@
     });
     });
         socket.on('instructor join', function(){
-            $('#users').append($('<h1> INSTRUCTOR SCREEN </h1>'));
+            if (gname == "Instructor"){
+                $('#users').append($('<h1> COMMANDS </h1>'));
+            }
         });
         socket.on('user join', function(lname){
             if(gname == 'Instructor'){
-          //      var newChat = document.createElement('div'); //new html source element
-            //    var newP = document.createElement('p'); //new html source element
-              //  newChat.setAttribute('class', 'tabcontent');
-            //    newChat.setAttribute('id', lname);
-              //  newChat.setAttribute('id', 'messages');
-                //newChat.style.background= "pink";
-            //    newChat.append(newP);
-              //  document.body.appendChild(newChat); // js -> html source
                 clientList[c_index]= lname;
                 c_index += 1;
-                $('#userlist').append($('<h1> '+lname + ' joined </h1>'));
                 $('#buts').append('<button class="tablinks" type = "button" value="'+lname+'" id = "b'+lname+'"  onclick="setDest(event, this.value)">'+lname+'</button>');
-              //  $("#chat").append("<div id ='"+lname+" class ='tabcontent'><p id='messages></p></div>");
             } else if (gname == lname && gname != "Instructor"){
                  $("#chat").append("<div id ='"+lname+" class ='tabcontent'><p id='messages'></p></div>");
                 $('#map').append($('<h1> '+lname + 's SCREEN </h1>'));
