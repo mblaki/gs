@@ -70,6 +70,7 @@
         padding: 6px 12px;
         border: 3px solid #ccc;
         border-top: none;
+        height: 50vh;
     } 
     #buts{
         width:30%;    
@@ -127,16 +128,16 @@
             if (gname == 'Instructor'){
                 console.log(" msg from  "+ name +"appending to tab: " + clientList.indexOf(name) );
                 if(name == "Instructor"){
-                    $("#"+clientList.indexOf(dest)).append($('<p style="background-color:#ccffcc; float:right; border: 2px solid; border-radius: 5px; padding:5px;">').text(msg));
+                    $("#"+clientList.indexOf(dest)).append($('<p style="background-color:#ccffcc; float:right; border: 2px solid; border-radius: 5px; padding:5px;clear:both">').text(msg));
                 } else {
-                    $("#"+clientList.indexOf(name)).append($('<p style="background-color:#f2f2f2; border: 2px solid; border-radius: 5px; padding:5px;">').text(name+": " + msg));
+                    $("#"+clientList.indexOf(name)).append($('<p style="background-color:#f2f2f2; border: 2px solid; border-radius: 5px; padding:5px; clear:both">').text(name+": " + msg));
                 }
                 $("#map").append($('<p>').text(name+" says: " + msg));
             } else {
                     if (name = Instructor){
-                        $("#chat").append($('<p  style="background-color:#f2f2f2; border: 2px solid; border-radius: 5px; padding:5px;">').text(name+" says: " + msg));
+                        $("#chat").append($('<p  style="background-color:#f2f2f2; border: 2px solid; border-radius: 5px; padding:5px;clear:both">').text(name+" says: " + msg));
                     } else {
-                        $("#chat").append($('<p style="background-color:#ccffcc; float:right; border: 2px solid; border-radius: 5px; padding:5px;">').text(name+" says: " + msg));
+                        $("#chat").append($('<p style="background-color:#ccffcc; float:right; border: 2px solid; border-radius: 5px; padding:5px;clear:both">').text(name+" says: " + msg));
                         
                     }
                     $("#map").append($('<p>').text(name+" gn = nm  " + msg));
