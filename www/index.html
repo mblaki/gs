@@ -85,17 +85,12 @@
         width:100%;
     }
     .tabcontent p {
-        padding: 6px 12px;
         border-top: none;
-        padding: 10px 10px 10px 10px;
-        background-color:#ccffcc; 
         text-align:left; 
         border: 1px solid; 
         border-radius: 5px; 
-        padding:5px; 
         clear:both; 
         border-top-style:none;
-        
     } 
     #buts{
         width:30%;    
@@ -162,7 +157,7 @@
                     if (name == "Instructor"){
                         $("#0").append($('<p  style="float:left;background-color:#f2f2f2;">').text(msg));
                     } else {
-                        $("#chat").append($('<p style="float:right;background-color:#ccffcc;">').text(msg));
+                        $("#0").append($('<p style="float:right;background-color:#ccffcc;">').text(msg));
                         
                     }
                     $("#map").append($('<p>').text(name+" gn = nm  " + msg));
@@ -181,14 +176,14 @@
             $("#users").css("float","left");
             $("#map").width("45%");
             $("#map").css("float","left");
-            $("#chat").width("30%");
+            $("#chat").width("35%");
             $("#chat").css("float","right");
         } else {
             socket.emit('user join', gname);
             $("#users").hide();
             $("#map").width("65%");
             $("#map").css("float","left");
-            $("#chat").width("30%");
+            $("#chat").width("35%");
             $("#chat").css("float","right");
              $("#chat").css("height","50vh");
         }
@@ -206,6 +201,8 @@
                 $('#buts').append('<button class="tablinks" type = "button" value="'+lname+'" id = "b'+lname+'"  onclick="setDest(event, this.value)">'+lname+'</button>');
             } else if (gname == lname && gname != "Instructor"){
                 $('#map').append($('<h1> '+lname + 's SCREEN </h1>'));
+                $('#buts').append($('<h3> INSTRUCTOR </h3>'));
+                $("#0").css("display","block");
             }
         });
     function setDest(evt, val){
