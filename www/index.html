@@ -128,16 +128,16 @@
             if (gname == 'Instructor'){
                 console.log(" msg from  "+ name +"appending to tab: " + clientList.indexOf(name) );
                 if(name == "Instructor"){
-                    $("#"+clientList.indexOf(dest)).append($('<p style="width:100%;background-color:#ccffcc; align="right"; border: 1px solid; border-radius: 5px; padding:5px;clear:both;border-bottom-style: none;">').text(msg));
+                    $("#"+clientList.indexOf(dest)).append($('<p style="width:100%; background-color:#ccffcc; align=right; border: 1px solid; border-radius: 5px; padding:5px; clear:both; border-bottom-style:none;">').text(msg));
                 } else {
-                    $("#"+clientList.indexOf(name)).append($('<p style="width:100%;background-color:#f2f2f2; border: 1px solid; border-radius: 5px; padding:5px; clear:both;border-bottom-style: none;">').text(msg));
+                    $("#"+clientList.indexOf(name)).append($('<p style="width:100%; background-color:#f2f2f2; border: 1px solid; border-radius: 5px; padding:5px; clear:both; border-bottom-style: none;">').text(msg));
                 }
                 $("#map").append($('<p>').text(msg));
             } else {
                     if (name = "Instructor"){
                         $("#chat").append($('<p  style="width:100%;background-color:#f2f2f2; border: 1px solid; border-radius: 5px; padding:5px;clear:both;border-bottom-style: none;">').text(msg));
                     } else {
-                        $("#chat").append($('<p style="width:100%;background-color:#ccffcc; align="right"; border: 1px solid; border-radius: 5px; padding:5px;clear:both;border-bottom-style: none;">').text(msg));
+                        $("#chat").append($('<p style="width:100%;background-color:#ccffcc; align=right; border: 1px solid; border-radius: 5px; padding:5px;clear:both;border-bottom-style: none;">').text(msg));
                         
                     }
                     $("#map").append($('<p>').text(name+" gn = nm  " + msg));
