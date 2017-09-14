@@ -124,7 +124,7 @@
           return false;
         });
         socket.on('chat message', function(msg, name, dest){
-            if (name == 'Instructor'){
+            if (gname == 'Instructor'){
                  $("#"+clientList.indexOf(dest)).append($('<p>').text(name+" says: " + msg));
                 $("#map").append($('<p>').text(name+" says: " + msg));
             } else {
