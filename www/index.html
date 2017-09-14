@@ -127,7 +127,8 @@
             if (name == 'Instructor'){
                  $("#"+clientList.indexOf(dest)).append($('<p>').text(name+" says: " + msg));
                 $("#map").append($('<p>').text(name+" says: " + msg));
-            } else {
+            } 
+            if (dest = lname) {
                 $("#chat").append($('<p>').text(name+" says: " + msg));
                 $("#map").append($('<p>').text(name+" says: " + msg));
             }
@@ -174,7 +175,7 @@
                 $('#userlist').append($('<h1> '+lname + ' joined </h1>'));
                 $('#buts').append('<button class="tablinks" type = "button" value="'+lname+'" id = "b'+lname+'"  onclick="setDest(event, this.value)">'+lname+'</button>');
               //  $("#chat").append("<div id ='"+lname+" class ='tabcontent'><p id='messages></p></div>");
-            } else if (gname == lname){
+            } else if (gname == lname && gname != "Instructor"){
                  $("#chat").append("<div id ='"+lname+" class ='tabcontent'><p id='messages'></p></div>");
                 $('#map').append($('<h1> '+lname + 's SCREEN </h1>'));
             }
@@ -182,7 +183,7 @@
     function setDest(evt, val){
          var i, tabcontent, tablinks;
          this.dest = val;
-        alert("ID= " + val + "Div ID= " + clientList.indexOf(val));
+         console.log("Tab id=" + val);
          tabcontent = document.getElementsByClassName("tabcontent");
          for (i = 0; i < tabcontent.length; i++) {
             tabcontent[i].style.display = "none";
