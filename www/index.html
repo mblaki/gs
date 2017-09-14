@@ -125,7 +125,12 @@
         });
         socket.on('chat message', function(msg, name, dest){
             if (gname == 'Instructor'){
-                 $("#"+clientList.indexOf(name)).append($('<p>').text(name+" says: " + msg));
+                console.log(" msg from  "+ name +"appending to tab: " + clientList.indexOf(name) );
+                if(name == "Instructor"){
+                    $("#"+clientList.indexOf(dest)).append($('<p>').text(name+" says: " + msg));
+                } else {
+                    $("#"+clientList.indexOf(name)).append($('<p>').text(name+" says: " + msg));
+                }
                 $("#map").append($('<p>').text(name+" says: " + msg));
             } else {
                 
