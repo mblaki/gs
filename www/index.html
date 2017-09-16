@@ -45,6 +45,12 @@
     #map{
         background: lightblue;
         height: 100vh;
+        display:block;
+    }
+    #list{
+        background: gray;
+        height: 100vh;
+        display:none;
     }
      /* Style the tab */
     div.tab {
@@ -95,6 +101,11 @@
     } 
     #buts{
         width:30%;    
+    }
+    .toggle{
+        position: absolute;
+        top:20px;
+        left:25%;
         }
     </style>
   </head>
@@ -113,7 +124,13 @@
         <div id="userlist"></div>
     </div>
       
-    <div id ="map"></div>
+    <div id ="map">
+        <button class = "toggle" onclick="changeMap(1)"> User List </button>
+    </div>
+        
+    <div id ="list">
+        <button class = "toggle" onclick="changeMap(0)"> Map </button>
+    </div>
     
     <div id="buts" class="tab"> 
     </div>
@@ -139,6 +156,16 @@
     var clientList=[];
     var c_index=0;
     var socket = io();
+    var mapOrList = 0;
+    function changeMap(p){
+        if (p == 0) {
+            $("#map").css("display","block");
+            $("#list").css("display","none");
+        } else {
+            $("#map").css("display","none");
+            $("#list").css("display","block");
+        }
+    }
       $(function () {
         $('form').submit(function(){
           socket.emit('chat message', $('#m').val(), gname, dest);
@@ -175,16 +202,16 @@
             socket.emit('instructor join');
             $("#users").width("20%");
             $("#users").css("float","left");
-            $("#map").width("45%");
+            $("#map").width("55%");
             $("#map").css("float","left");
-            $("#chat").width("35%");
+            $("#chat").width("25%");
             $("#chat").css("float","right");
         } else {
             socket.emit('user join', gname);
             $("#users").hide();
-            $("#map").width("65%");
+            $("#map").width("75%");
             $("#map").css("float","left");
-            $("#chat").width("35%");
+            $("#chat").width("25%");
             $("#chat").css("float","right");
         }
     });
@@ -201,7 +228,7 @@
                 $('#buts').append('<button class="tablinks" type = "button" value="'+lname+'" id = "b'+lname+'"  onclick="setDest(event, this.value)">'+lname+'</button>');
             } else if (gname == lname && gname != "Instructor"){
                 $('#map').append($('<h1> '+lname + 's SCREEN </h1>'));
-                $('#buts').append($('<h3> INSTRUCTOR </h3>'));
+                $('#buts').css("display","none");
                 $("#0").css("display","block");
             }
         });
