@@ -24,10 +24,6 @@
           width:100%;
           margin-bottom: 40px 
         }
-      #messages p { 
-          
-        }
-
     .name-prompt{
 	   position: absolute;
 	   top: 200px;
@@ -46,6 +42,8 @@
         background: #26734d;
         margin:auto;
         height: 100vh;
+        overflow:auto;
+        padding-top:15px;
     }
     #map{
         background: lightblue;
@@ -97,6 +95,7 @@
         border-top: none;
         width:100%;
     }
+    /* Style the message bubble */
     .tabcontent p {
         border-top: none;
         text-align:left; 
@@ -105,7 +104,8 @@
         clear:both;
         margin: 0px 5% 0px 5%;
         padding: 10px 10px 10px 10px;
-    } 
+    }
+    /* Instructor chat buttons*/
     #buts { 
         width:25%;    
     }
@@ -134,7 +134,7 @@
 	      </span>
 	    </div>
 	</div>
-      <textarea id="t"></textarea>
+      <div id="t"></div>
     <div id = "users">
         <h3>Warnings:</h3>
             <input type="checkbox" id="SW" name="waters" value="Shallow Waters Ahead">
@@ -248,9 +248,10 @@
         }
     });
     $("#broadcast").click(function(){
+        $('#t').empty();
         $('#users :checked').each(function() {
             warningList.push($(this).val());
-            $('#t').val(warningList);
+            $('#t').append($('<p>').text($(this).val()));
         });
     });
     });
