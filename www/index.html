@@ -5,13 +5,13 @@
     <style>
       * { margin: 0; padding: 0; box-sizing: border-box; }
       body { font: 13px Helvetica, Arial; }
-      form { background: #000; padding: 3px;  bottom: 0; right:0; width: 30%; position:fixed}
+      form { background: #000; padding: 3px;  bottom: 0; right:0; width: 25%; position:fixed}
       form input { 
           width: 75%;
           height: 30px;
         }
       form button { 
-          background: rgb(130, 224, 255); 
+          background: rgb(150, 240, 150); 
           border: none;
           width:25%;
           float:right;
@@ -244,12 +244,13 @@
             $("#map").css("float","left");
             $("#chat").width("25%");
             $("#chat").css("float","right");
+            $(".toggle").css("display","none");
         }
     });
     $("#broadcast").click(function(){
         $('#users :checked').each(function() {
             warningList.push($(this).val());
-            $('#t').val(allVals);
+            $('#t').val(warningList);
         });
     });
     });
