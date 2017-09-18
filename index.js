@@ -43,7 +43,7 @@ io.on('connection', function(socket){
         socket.on('all broadcast', function(warningList){
             console.log("the instructor has made an all broadcast");
             clients.forEach(function(value){
-                console.log("selected: "+value);
+                console.log("selectedtttt   :    "+value);
                 clients[value].emit('all broadcast', warningList);
             });
         });

@@ -268,7 +268,6 @@
         }
     });
     $("#all_broadcast").click(function(){
-        $('.all').empty();
         $('#users :checked').each(function() {
             warningList.push($(this).val());
         });
@@ -276,7 +275,6 @@
         warningList.length = 0;
     });
     $("#select_broadcast").click(function(){
-        $('.selected').empty();
         selected= ["AAA", "BBB"];
         $('#users :checked').each(function() {
             warningList.push($(this).val());
