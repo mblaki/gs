@@ -33,6 +33,20 @@ io.on('connection', function(socket){
                 clients[name].emit('chat message', msg, name, dest);
             }
         });
+        socket.on('select broadcast', function(selectedArr){
+            console.log("the instructor has made a selected broadcast");
+            selectedArr.forEach(function(value){
+                console.log("selected: "+value);
+                clients[value].emit('select broadcast');
+            });
+        });
+        socket.on('all broadcast', function(){
+            console.log("the instructor has made an all broadcast");
+            clients.forEach(function(value){
+                console.log("selected: "+value);
+                client[value].emit('all broadcast');
+            });
+        });
 });
 
 http.listen(port, function(){

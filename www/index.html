@@ -137,22 +137,39 @@
       <div id="t"></div>
     <div id = "users">
         <h3>Warnings:</h3>
-            <input type="checkbox" id="SW" name="waters" value="Shallow Waters Ahead">
+            <input class="selected" type="checkbox" id="SW" name="waters" value="Shallow Waters Ahead">
             <label for="SW">Shallow Waters Ahead</label>
         <br>
-            <input type="checkbox" id="P" name="Pirates" value="Pirate Danger">
+            <input class="selected" type="checkbox" id="P" name="Pirates" value="Pirate Danger">
             <label for="P">Pirate Danger</label>
         <br>
-            <input type="checkbox" id="H" name="hurricane" value="Hurricane">
+            <input class="selected" type="checkbox" id="H" name="hurricane" value="Hurricane">
             <label for="H">Hurricane Approaching</label>
         <br>
-            <input type="checkbox" id="W" name="whirlpool" value="Whirl Pool">
+            <input class="selected" type="checkbox" id="W" name="whirlpool" value="Whirl Pool">
             <label for="W">Whirl Pool</label>
         <br>
-            <input type="checkbox" id="F" name="fog" value="Fog Ahead">
+            <input class="selected" type="checkbox" id="F" name="fog" value="Fog Ahead">
             <label for="SW">Fog Ahead</label>
         <br>
-            <button id="broadcast">Broadcast</button>
+            <button id="select_broadcast">Broadcast Selected</button>
+        <br>
+            <input class="all" type="checkbox" id="SW" name="waters" value="Shallow Waters Ahead">
+            <label for="SW">Shallow Waters Ahead</label>
+        <br>
+            <input class="all" type="checkbox" id="P" name="Pirates" value="Pirate Danger">
+            <label for="P">Pirate Danger</label>
+        <br>
+            <input class="all" type="checkbox" id="H" name="hurricane" value="Hurricane">
+            <label for="H">Hurricane Approaching</label>
+        <br>
+            <input class="all" type="checkbox" id="W" name="whirlpool" value="Whirl Pool">
+            <label for="W">Whirl Pool</label>
+        <br>
+            <input class="all" type="checkbox" id="F" name="fog" value="Fog Ahead">
+            <label for="SW">Fog Ahead</label>
+        <br>
+            <button id="all_broadcast">Broadcast All</button>
     </div>
       
     <div id ="map">
@@ -187,7 +204,8 @@
     var clientList=[];
     var c_index=0;
     var socket = io();
-    var warningList = []
+    var warningList = [];
+    var selected = [];
     function changeMap(p){
         if (p == 0) {
             $("#map").css("display","block");
@@ -247,12 +265,22 @@
             $(".toggle").css("display","none");
         }
     });
-    $("#broadcast").click(function(){
-        $('#t').empty();
+    $("#all_broadcast").click(function(){
+        $('.all').empty();
         $('#users :checked').each(function() {
             warningList.push($(this).val());
-            $('#t').append($('<p>').text($(this).val()));
         });
+        socket.emit('all broadcast', warningList);
+        warningList.length = 0;
+    });
+    $("#select_broadcast").click(function(){
+        $('.selected').empty();
+        selected= ["AAA", "BBB"];
+        $('#users :checked').each(function() {
+            warningList.push($(this).val());
+        });
+        socket.emit('select broadcast', selected, warningList);
+        warningList.length = 0;
     });
     });
         socket.on('instructor join', function(){
@@ -271,6 +299,22 @@
                 $('#map').append($('<h1> '+lname + 's SCREEN </h1>'));
                 $('#buts').css("display","none");
                 $("#0").css("display","block");
+            }
+        });
+         socket.on('all broadcast', function(warningList){
+            console.log("broadcast to all recieved");
+            if (gname != "Instructor"){
+                warningList.forEach(function(value){
+                    $('#t').append($('<p>').text(value));
+                });
+            }
+        });
+        socket.on('select broadcast', function(selected, warningList){
+            console.log(" recieved selected bcast gname is: " + gname);
+            if ($.inArray(gname, selected) > -1){
+                warningList.forEach(function(value){
+                    $('#t').append($('<p>').text(value));
+                });
             }
         });
     function setDest(evt, val){
