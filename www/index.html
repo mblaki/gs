@@ -271,7 +271,7 @@
         $('#users :checked').each(function() {
             warningList.push($(this).val());
         });
-        socket.emit('all broadcast', clientList, warningList);
+        socket.emit('all broadcast', warningList);
         warningList.length = 0;
     });
     $("#select_broadcast").click(function(){
@@ -302,7 +302,7 @@
                 $("#0").css("display","block");
             }
         });
-         socket.on('all broadcast', function(clientList, warningList){
+         socket.on('all broadcast', function(warningList){
             console.log("broadcast to all recieved");
             if (gname != "Instructor"){
                 $('#t').empty();
