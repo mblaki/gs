@@ -268,7 +268,7 @@
         }
     });
     $("#all_broadcast").click(function(){
-        $('#users :checked').each(function() {
+        $('#.all :checked').each(function() {
             warningList.push($(this).val());
         });
         socket.emit('all broadcast', warningList);
@@ -276,7 +276,7 @@
     });
     $("#select_broadcast").click(function(){
         selected= ["AAA", "BBB"];
-        $('#users :checked').each(function() {
+        $('.selected :checked').each(function() {
             warningList.push($(this).val());
         });
         socket.emit('select broadcast', selected, warningList);
