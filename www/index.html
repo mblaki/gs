@@ -4,13 +4,13 @@
     <title>Simulation Game</title>
     <style>
       * { margin: 0; padding: 0; box-sizing: border-box; }
-      body { font: 13px Helvetica, Arial; }
-      form { background: #000; padding: 3px;  bottom: 0; right:0; width: 25%; position:fixed}
-      form input { 
+      body { font: 13px Helvetica, Arial; background: #26734d; }
+      #chatInput { background: #000; padding: 3px;  bottom: 0; right:0; width: 25%; position:fixed}
+      #chatInput input { 
           width: 75%;
           height: 30px;
         }
-      form button { 
+      #chatInput button { 
           background: rgb(150, 240, 150); 
           border: none;
           width:25%;
@@ -41,7 +41,6 @@
     #chat{
         background: #26734d;
         margin:auto;
-        height: 100vh;
         overflow:auto;
         padding-top:15px;
     }
@@ -139,6 +138,7 @@
       <div id="t"></div>
     <div id = "users">
         <h3>Warnings:</h3>
+        <form id = "select">
             <input class="selected" type="checkbox" id="SW" name="waters" value="Shallow Waters Ahead">
             <label for="SW">Shallow Waters Ahead</label>
         <br>
@@ -154,26 +154,30 @@
             <input class="selected" type="checkbox" id="F" name="fog" value="Fog Ahead">
             <label for="SW">Fog Ahead</label>
         <br>
+
+    
             <button id="select_broadcast">Broadcast Selected</button>
+        </form>
         <br>
-            <input class="all" type="checkbox" id="SW" name="waters" value="Shallow Waters Ahead">
+        <form id="all">
+            <input  type="checkbox" id="SW" name="waters" value="Shallow Waters Ahead">
             <label for="SW">Shallow Waters Ahead</label>
         <br>
-            <input class="all" type="checkbox" id="P" name="Pirates" value="Pirate Danger">
+            <input  type="checkbox" id="P" name="Pirates" value="Pirate Danger">
             <label for="P">Pirate Danger</label>
         <br>
-            <input class="all" type="checkbox" id="H" name="hurricane" value="Hurricane">
+            <input type="checkbox" id="H" name="hurricane" value="Hurricane">
             <label for="H">Hurricane Approaching</label>
         <br>
-            <input class="all" type="checkbox" id="W" name="whirlpool" value="Whirl Pool">
+            <input type="checkbox" id="W" name="whirlpool" value="Whirl Pool">
             <label for="W">Whirl Pool</label>
         <br>
-            <input class="all" type="checkbox" id="F" name="fog" value="Fog Ahead">
+            <input type="checkbox" id="F" name="fog" value="Fog Ahead">
             <label for="SW">Fog Ahead</label>
         <br>
             <button id="all_broadcast">Broadcast All</button>
+        </form>
     </div>
-      
     <div id ="map">
         <button class = "toggle" onclick="changeMap(1)"> User List </button>
     </div>
@@ -192,7 +196,7 @@
 <div id="3" class="tabcontent"></div>
 <div id="4" class="tabcontent"></div>
 </div>
-    <form action="">
+    <form action="" id="chatInput">
       <input id="m" autocomplete="off" /><button id="send">Send</button>
     </form>
       
@@ -218,7 +222,7 @@
         }
     }
       $(function () {
-        $('form').submit(function(){
+        $('#chatInput').submit(function(){
           socket.emit('chat message', $('#m').val(), gname, dest);
           $('#m').val('');
           return false;
@@ -268,25 +272,28 @@
         }
     });
     $("#all_broadcast").click(function(){
-        $('#.all :checked').each(function() {
-            warningList.push($(this).val());
+            $('#all :checked').each(function() {
+            if(jQuery.inArray($(this).val(), warningList) == -1){
+              warningList.push($(this).val());   
+            }
         });
         socket.emit('all broadcast', warningList);
-      //  warningList.length = 0;
+        return false;
     });
     $("#select_broadcast").click(function(){
-        selected= ["AAA", "BBB"];
-        $('.selected :checked').each(function() {
-            warningList.push($(this).val());
-        });
-     //   socket.emit('select broadcast', selected, warningList);
         warningList.length = 0;
+            $('#users :checked').each(function() {
+                console.log("appending new warnings  " + $(this).val() + " for " + gname);
+                warningList.push($(this).val());  
+            });
+        socket.emit('select broadcast', selected, warningList);
     });
         
     });
         socket.on('instructor join', function(){
             console.log("instructor join emit");
             if (gname == "Instructor"){
+                selected = ['AAA'];
                 console.log("instructor join emit gname = Instructor");
             }
         });
@@ -303,24 +310,26 @@
             }
         });
          socket.on('all broadcast', function(warningList){
-            console.log("broadcast to all recieved");
-            if (gname != "Instructor"){
-                $('#t').empty();
+             if (gname != "Instructor"){
+              console.log("broadcast to all recieved");
                 warningList.forEach(function(value){
                     $('#t').append($('<p>').text(value));
                 });
+            } else {
+                console.log("instructor igores own bcast");
             }
         });
-   //     socket.on('select broadcast', function(selected, warningList){
-    //        console.log(" recieved selected bcast gname is: " + gname);
-    //        $('#t').empty();
-//            if ($.inArray(gname, selected) > -1){
-//                warningList.forEach(function(value){
-//                    console.log(" append value " + value);
-//                    $('#t').append($('<p>').text(value));
-//                });
-//            }
-//        });
+        socket.on('select broadcast', function(selected, warningList){
+            if (gname != "Instructor"){
+            console.log(" recieved selected bcast gname is: " + gname);
+            warningList.forEach(function(value){
+                console.log(" append value " + value);
+                $('#t').append($('<p>').text(value));
+            });
+            } else {
+                console.log("instructor igores own bcast");
+            }
+        });
     function setDest(evt, val){
          var i, tabcontent, tablinks;
          this.dest = val;
