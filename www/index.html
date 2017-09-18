@@ -272,14 +272,14 @@
             warningList.push($(this).val());
         });
         socket.emit('all broadcast', warningList);
-        warningList.length = 0;
+      //  warningList.length = 0;
     });
     $("#select_broadcast").click(function(){
         selected= ["AAA", "BBB"];
         $('.selected :checked').each(function() {
             warningList.push($(this).val());
         });
-        socket.emit('select broadcast', selected, warningList);
+     //   socket.emit('select broadcast', selected, warningList);
         warningList.length = 0;
     });
         
@@ -311,16 +311,16 @@
                 });
             }
         });
-        socket.on('select broadcast', function(selected, warningList){
-            console.log(" recieved selected bcast gname is: " + gname);
-            $('#t').empty();
-            if ($.inArray(gname, selected) > -1){
-                warningList.forEach(function(value){
-                    console.log(" append value " + value);
-                    $('#t').append($('<p>').text(value));
-                });
-            }
-        });
+   //     socket.on('select broadcast', function(selected, warningList){
+    //        console.log(" recieved selected bcast gname is: " + gname);
+    //        $('#t').empty();
+//            if ($.inArray(gname, selected) > -1){
+//                warningList.forEach(function(value){
+//                    console.log(" append value " + value);
+//                    $('#t').append($('<p>').text(value));
+//                });
+//            }
+//        });
     function setDest(evt, val){
          var i, tabcontent, tablinks;
          this.dest = val;
