@@ -121,6 +121,8 @@
 	    left: 50%;
 	    margin-left: -200px;
 	    width: 400px;
+        border-style: solid;
+        border-width: 5px;
     }
     </style>
   </head>
@@ -313,6 +315,7 @@
             console.log(" recieved selected bcast gname is: " + gname);
             if ($.inArray(gname, selected) > -1){
                 warningList.forEach(function(value){
+                    console.log(" append value " + value
                     $('#t').append($('<p>').text(value));
                 });
             }

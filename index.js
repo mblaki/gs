@@ -33,18 +33,18 @@ io.on('connection', function(socket){
                 clients[name].emit('chat message', msg, name, dest);
             }
         });
-        socket.on('select broadcast', function(selectedArr){
+        socket.on('select broadcast', function(selected, warningList){
             console.log("the instructor has made a selected broadcast");
-            selectedArr.forEach(function(value){
+            selected.forEach(function(value){
                 console.log("selected: "+value);
-                clients[value].emit('select broadcast');
+                clients[value].emit('select broadcast', selected, warningList);
             });
         });
-        socket.on('all broadcast', function(){
+        socket.on('all broadcast', function(warningList){
             console.log("the instructor has made an all broadcast");
             clients.forEach(function(value){
                 console.log("selected: "+value);
-                client[value].emit('all broadcast');
+                client[value].emit('all broadcast', warningList);
             });
         });
 });
