@@ -306,6 +306,7 @@
          socket.on('all broadcast', function(warningList){
             console.log("broadcast to all recieved");
             if (gname != "Instructor"){
+                $('#t').empty();
                 warningList.forEach(function(value){
                     $('#t').append($('<p>').text(value));
                 });
@@ -313,6 +314,7 @@
         });
         socket.on('select broadcast', function(selected, warningList){
             console.log(" recieved selected bcast gname is: " + gname);
+            $('#t').empty();
             if ($.inArray(gname, selected) > -1){
                 warningList.forEach(function(value){
                     console.log(" append value " + value);

@@ -44,7 +44,7 @@ io.on('connection', function(socket){
             console.log("the instructor has made an all broadcast");
             clients.forEach(function(value){
                 console.log("selected: "+value);
-                client[value].emit('all broadcast', warningList);
+                clients[value].emit('all broadcast', warningList);
             });
         });
 });
