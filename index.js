@@ -40,7 +40,7 @@ io.on('connection', function(socket){
                 clients[value].emit('select broadcast', selected, warningList);
             });
         });
-        socket.on('all broadcast', function(warningList){
+        socket.on('all broadcast', function(clientList, warningList){
             console.log("the instructor has made an all broadcast");
             clients.forEach(function(value){
                 console.log("selectedtttt   :    "+value);
