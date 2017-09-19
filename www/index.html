@@ -4,13 +4,13 @@
     <title>Simulation Game</title>
     <style>
       * { margin: 0; padding: 0; box-sizing: border-box; }
-      body { font: 13px Helvetica, Arial; background: #26734d; }
-      #chatInput { background: #000; padding: 3px;  bottom: 0; right:0; width: 25%; position:fixed}
-      #chatInput input { 
+      body { font: 13px Helvetica, Arial; }
+      form { background: #000; padding: 3px;  bottom: 0; right:0; width: 25%; position:fixed}
+      form input { 
           width: 75%;
           height: 30px;
         }
-      #chatInput button { 
+      form button { 
           background: rgb(150, 240, 150); 
           border: none;
           width:25%;
@@ -41,6 +41,7 @@
     #chat{
         background: #26734d;
         margin:auto;
+        height: 100vh;
         overflow:auto;
         padding-top:15px;
     }
@@ -120,8 +121,6 @@
 	    left: 50%;
 	    margin-left: -200px;
 	    width: 400px;
-        border-style: solid;
-        border-width: 5px;
     }
     </style>
   </head>
@@ -138,32 +137,10 @@
       <div id="t"></div>
     <div id = "users">
         <h3>Warnings:</h3>
-        <form id = "select">
-            <input class="selected" type="checkbox" id="SW" name="waters" value="Shallow Waters Ahead">
+            <input type="checkbox" id="SW" name="waters" value="Shallow Waters Ahead">
             <label for="SW">Shallow Waters Ahead</label>
         <br>
-            <input class="selected" type="checkbox" id="P" name="Pirates" value="Pirate Danger">
-            <label for="P">Pirate Danger</label>
-        <br>
-            <input class="selected" type="checkbox" id="H" name="hurricane" value="Hurricane">
-            <label for="H">Hurricane Approaching</label>
-        <br>
-            <input class="selected" type="checkbox" id="W" name="whirlpool" value="Whirl Pool">
-            <label for="W">Whirl Pool</label>
-        <br>
-            <input class="selected" type="checkbox" id="F" name="fog" value="Fog Ahead">
-            <label for="SW">Fog Ahead</label>
-        <br>
-
-    
-            <button id="select_broadcast">Broadcast Selected</button>
-        </form>
-        <br>
-        <form id="all">
-            <input  type="checkbox" id="SW" name="waters" value="Shallow Waters Ahead">
-            <label for="SW">Shallow Waters Ahead</label>
-        <br>
-            <input  type="checkbox" id="P" name="Pirates" value="Pirate Danger">
+            <input type="checkbox" id="P" name="Pirates" value="Pirate Danger">
             <label for="P">Pirate Danger</label>
         <br>
             <input type="checkbox" id="H" name="hurricane" value="Hurricane">
@@ -175,9 +152,9 @@
             <input type="checkbox" id="F" name="fog" value="Fog Ahead">
             <label for="SW">Fog Ahead</label>
         <br>
-            <button id="all_broadcast">Broadcast All</button>
-        </form>
+            <button id="broadcast">Broadcast</button>
     </div>
+      
     <div id ="map">
         <button class = "toggle" onclick="changeMap(1)"> User List </button>
     </div>
@@ -196,7 +173,7 @@
 <div id="3" class="tabcontent"></div>
 <div id="4" class="tabcontent"></div>
 </div>
-    <form action="" id="chatInput">
+    <form action="">
       <input id="m" autocomplete="off" /><button id="send">Send</button>
     </form>
       
@@ -210,8 +187,7 @@
     var clientList=[];
     var c_index=0;
     var socket = io();
-    var warningList = [];
-    var selected = [];
+    var warningList = []
     function changeMap(p){
         if (p == 0) {
             $("#map").css("display","block");
@@ -222,7 +198,7 @@
         }
     }
       $(function () {
-        $('#chatInput').submit(function(){
+        $('form').submit(function(){
           socket.emit('chat message', $('#m').val(), gname, dest);
           $('#m').val('');
           return false;
@@ -271,29 +247,17 @@
             $(".toggle").css("display","none");
         }
     });
-    $("#all_broadcast").click(function(){
-            $('#all :checked').each(function() {
-            if(jQuery.inArray($(this).val(), warningList) == -1){
-              warningList.push($(this).val());   
-            }
+    $("#broadcast").click(function(){
+        $('#t').empty();
+        $('#users :checked').each(function() {
+            warningList.push($(this).val());
+            $('#t').append($('<p>').text($(this).val()));
         });
-        socket.emit('all broadcast', warningList);
-        return false;
     });
-    $("#select_broadcast").click(function(){
-        warningList.length = 0;
-            $('#users :checked').each(function() {
-                console.log("appending new warnings  " + $(this).val() + " for " + gname);
-                warningList.push($(this).val());  
-            });
-        socket.emit('select broadcast', selected, warningList);
-    });
-        
     });
         socket.on('instructor join', function(){
             console.log("instructor join emit");
             if (gname == "Instructor"){
-                selected = ['AAA'];
                 console.log("instructor join emit gname = Instructor");
             }
         });
@@ -307,27 +271,6 @@
                 $('#map').append($('<h1> '+lname + 's SCREEN </h1>'));
                 $('#buts').css("display","none");
                 $("#0").css("display","block");
-            }
-        });
-         socket.on('all broadcast', function(warningList){
-             if (gname != "Instructor"){
-              console.log("broadcast to all recieved");
-                warningList.forEach(function(value){
-                    $('#t').append($('<p>').text(value));
-                });
-            } else {
-                console.log("instructor igores own bcast");
-            }
-        });
-        socket.on('select broadcast', function(selected, warningList){
-            if (gname != "Instructor"){
-            console.log(" recieved selected bcast gname is: " + gname);
-            warningList.forEach(function(value){
-                console.log(" append value " + value);
-                $('#t').append($('<p>').text(value));
-            });
-            } else {
-                console.log("instructor igores own bcast");
             }
         });
     function setDest(evt, val){
