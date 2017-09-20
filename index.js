@@ -53,7 +53,10 @@ io.on('connection', function(socket){
             });
         });
 });
-
+function gameLoop(){
+    io.emit("game loop");
+}
+setInterval(gameLoop, 1000);
 //http.listen(port, function(){
   //console.log('listening on *:' + port);
 //});

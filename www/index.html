@@ -181,6 +181,7 @@
       
     <div id ="map">
         <button class = "toggle" onclick="changeMap(1)"> User List </button>
+        <img src="top.png" id = "avatar">
     </div>
         
     <div id ="list">
@@ -294,6 +295,7 @@
             console.log("instructor join emit");
             if (gname == "Instructor"){
                 console.log("instructor join emit gname = Instructor");
+                $("#avatar").hide();
             }
         });
         socket.on('user join', function(lname){
@@ -372,6 +374,12 @@
     }
     var initX = 0;
     var initY = 0;
+        socket.on('game loop', function(){
+            if (gname != "Instructor") {
+                initY += 10;
+                document.getElementById('map').style.backgroundPositionY = initY + "px";
+            }
+        });
     $(document).keydown(function(e){
     if(e.keyCode == 38) {//up
         console.log("up pressed");
