@@ -229,7 +229,9 @@
     var warningList = [];
     var myWarningList = [];
     var selected = [];
-        
+    var img = new Image();
+    img.src = 'islands.svg';
+    document.getElementById("off").getContext('2d').drawImage(img, 0, 0, img.width, img.height);
     function changeMap(p){
         if (p == 0) {
             $("#map").css("display","block");
@@ -340,11 +342,6 @@
                 $('#map').append($('<h1> '+lname + 's SCREEN </h1>'));
                 $('#buts').css("display","none");
                 $("#0").css("display","block");
-   
-                 
-                var img = new Image();
-                img.src = 'islands.svg';
-                document.getElementById("off").getContext('2d').drawImage(img, 0, 0, img.width, img.height);
             }
         });
         socket.on('all broadcast', function(warningList){
