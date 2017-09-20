@@ -249,21 +249,18 @@
         }
     });
     $("#Abroadcast").click(function(){
-        if (gname != 'Instructor') {
+        console.log("all pressed");
             $('#users :checked').each(function() {
                 warningList.push($(this).val());
             });
             socket.emit('all broadcast', warningList);
-        }
     });
     $("#Sbroadcast").click(function(){
         var selected = ["AAA", "BBB"];
-        if (gname != 'Instructor') {
             $('#users :checked').each(function() {
                 warningList.push($(this).val());
             });
             socket.emit('select broadcast', selected, warningList);
-        }
     });
     });
         socket.on('instructor join', function(){
