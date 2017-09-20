@@ -58,6 +58,7 @@
         position: absolute;
         bottom:50px;
         left:50%;
+        z-index: 10;
     }
     #list{
         background: gray;
@@ -189,9 +190,9 @@
       
     <canvas id ="map">
         <button class = "toggle" onclick="changeMap(1)"> User List </button>
-        <img src="top.png" id = "avatar">
-    </canvas>
         
+    </canvas>
+        <img src="top.png" id = "avatar">
     <div id ="list">
         <button class = "toggle" onclick="changeMap(0)"> Map </button>
     </div>
