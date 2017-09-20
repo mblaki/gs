@@ -10,6 +10,10 @@
           width: 75%;
           height: 30px;
         }
+        #off{
+            width:1540px;
+            height: 1000px;
+        }
       form button { 
           background: rgb(150, 240, 150); 
           border: none;
@@ -210,6 +214,7 @@
     <form action="">
       <input id="m" autocomplete="off" /><button id="send">Send</button>
     </form>
+      <canvas id = "off"></canvas>
     <script src="https://cdn.socket.io/socket.io-1.2.0.js"></script>
     <script src="https://code.jquery.com/jquery-1.11.1.js"></script>
     
@@ -339,11 +344,7 @@
                  
                 var img = new Image();
                 img.src = 'islands.svg';
-                var canvas = document.createElement('canvas');
-                canvas.id = "off";
-                canvas.width = img.width;
-                canvas.height = img.height;
-                canvas.getContext('2d').drawImage(img, 0, 0, img.width, img.height);
+                document.getElementById("off").getContext('2d').drawImage(img, 0, 0, img.width, img.height);
             }
         });
         socket.on('all broadcast', function(warningList){
