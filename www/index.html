@@ -113,7 +113,7 @@
     }
     #buts button{ 
         height: 30px;
-        vertical-align: middle;
+        padding-bottom: 10px;
     }
     /* Instructor toggle map or user list */
     .toggle {
@@ -186,7 +186,8 @@
     <form action="">
       <input id="m" autocomplete="off" /><button id="send">Send</button>
     </form>
-      
+      <embed src="mario1.wav" autostart="false" width="0" height="0" id="incomeMessage"
+enablejavascript="true">
     <script src="https://cdn.socket.io/socket.io-1.2.0.js"></script>
     <script src="https://code.jquery.com/jquery-1.11.1.js"></script>
     
@@ -220,11 +221,15 @@
                 if(name == "Instructor"){
                     $("#"+clientList.indexOf(dest)).append($('<p style="float:right;background-color:#ccffcc;">').text(msg));
                 } else {
+                    var audio = new Audio('www/mario1.wav');
+                    audio.play();
                     $("#"+clientList.indexOf(name)).append($('<p style="float:left;background-color:#f2f2f2;">').text(msg));
                 }
                 $("#map").append($('<p>').text(msg));
             } else {
                     if (name == "Instructor"){
+                        var audio = new Audio('www/mario1.wav');
+                        audio.play();
                         $("#0").append($('<p  style="float:left;background-color:#f2f2f2;">').text(msg));
                     } else {
                         $("#0").append($('<p style="float:right;background-color:#ccffcc;">').text(msg));
@@ -285,8 +290,9 @@
             if(gname == 'Instructor'){
                 clientList[c_index]= lname;
                 console.log("user join clientList " + c_index + " = " + lname);
-                c_index += 1;
+                $("#" + c_index).append('<h2>').text(lname);
                 $('#buts').append('<button class="tablinks" type = "button" value="'+lname+'" id = "b'+lname+'"  onclick="setDest(event, this.value)">'+lname+'</button>');
+                c_index += 1;
             } else if (gname == lname && gname != "Instructor"){
                 $('#map').append($('<h1> '+lname + 's SCREEN </h1>'));
                 $('#buts').css("display","none");
