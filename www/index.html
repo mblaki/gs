@@ -121,6 +121,8 @@
 	    left: 50%;
 	    margin-left: -200px;
 	    width: 400px;
+        text-align: center;
+        font-size: 20pt;
     }
     </style>
   </head>
@@ -188,7 +190,8 @@
     var clientList=[];
     var c_index=0;
     var socket = io();
-    var warningList = []
+    var warningList = [];
+    var myWarningList = [];
     function changeMap(p){
         if (p == 0) {
             $("#map").css("display","block");
@@ -250,6 +253,7 @@
     });
     $("#Abroadcast").click(function(){
         console.log("all pressed");
+        warningList.length = 0;
             $('#users :checked').each(function() {
                 warningList.push($(this).val());
             });
@@ -257,6 +261,7 @@
     });
     $("#Sbroadcast").click(function(){
         var selected = ["AAA", "BBB"];
+        warningList.length = 0;
             $('#users :checked').each(function() {
                 warningList.push($(this).val());
             });
@@ -283,9 +288,12 @@
         });
         socket.on('all broadcast', function(warningList){
              if (gname != "Instructor"){
+              
               $('#t').empty();
               console.log("broadcast to all recieved");
-              warningList.forEach(function(value){
+              myWarningList.length = 0;
+              myWarningList = warningList;
+              myWarningList.forEach(function(value){
                     $('#t').append($('<p>').text(value));
                });
             } else {
@@ -296,7 +304,9 @@
              if (gname != "Instructor"){
               $('#t').empty();
               console.log("broadcast to all recieved");
-              warningList.forEach(function(value){
+              myWarningList.length = 0;
+              myWarningList = warningList;
+              myWarningList.forEach(function(value){
                     $('#t').append($('<p>').text(value));
                });
             } else {
