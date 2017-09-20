@@ -4,12 +4,10 @@ var io = require('socket.io')(http);
 var port = process.env.PORT || 8020;
 //client["Instructor"] is the webpage for the Instructor, all other clients are Players
 var clients=[];
-app.get('/', function(req, res){
-    res.sendFile(__dirname + '/www/mario1.wav');
-});
-app.get('/', function(req, res){
-    res.sendFile(__dirname + '/www/index.html');
-});
+//app.get('/', function(req, res){
+  //  res.sendFile(__dirname + '/www/index.html');
+//});
+app.use(express.static(__dirname + '/www'));
 
 io.on('connection', function(socket){
     console.log("clients[] length= " + Object.keys(clients).length);
