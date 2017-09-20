@@ -7,7 +7,7 @@ var clients=[];
 //app.get('/', function(req, res){
   //  res.sendFile(__dirname + '/www/index.html');
 //});
-app.use(app.static(__dirname + '/www'));
+app.use(http.static(__dirname + '/www'));
 
 io.on('connection', function(socket){
     console.log("clients[] length= " + Object.keys(clients).length);
