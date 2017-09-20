@@ -11,7 +11,7 @@ var clients=[];
   //  res.sendFile(__dirname + '/www/index.html');
 //});
 app.use(express.static(__dirname + '/www'));
-var server = app.listen(process.env.PORT || 8082, function () {
+var server = app.listen(process.env.PORT || 8020, function () {
 	var port = server.address().port;
 	console.log('Server running at port %s', port);
 });
