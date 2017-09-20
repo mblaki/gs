@@ -56,7 +56,7 @@ io.on('connection', function(socket){
 function gameLoop(){
     io.emit("game loop");
 }
-setInterval(gameLoop, 1000);
+setInterval(gameLoop, 500);
 //http.listen(port, function(){
   //console.log('listening on *:' + port);
 //});

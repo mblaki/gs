@@ -335,14 +335,15 @@
                 $('#map').append($('<h1> '+lname + 's SCREEN </h1>'));
                 $('#buts').css("display","none");
                 $("#0").css("display","block");
-                var canvas = document.getElementById('map');
-                var context = canvas.getContext('2d');
-                var imageObj = new Image();
-
-                imageObj.onload = function() {
-                      context.drawImage(imageObj, 1539, 1000);
-                 };
-                 imageObj.src = 'islands.svg';
+   
+                 
+                var img = new Image();
+                img.src = 'islands.svg';
+                var canvas = document.createElement('canvas');
+                canvas.id = "off";
+                canvas.width = img.width;
+                canvas.height = img.height;
+                canvas.getContext('2d').drawImage(img, 0, 0, img.width, img.height);
             }
         });
         socket.on('all broadcast', function(warningList){
@@ -402,7 +403,7 @@
         
       initY += 10;
       document.getElementById('map').style.backgroundPositionY = initY + "px";
-        var e=document.getElementById("map");
+        var e=document.getElementById("off");
         var c = e.getContext('2d');
         var p = c.getImageData(initX, initY, 1, 1).data; 
         console.log("p0: " + p[0] + " p1: " + p[1] + " p2: " + p[2] + " p3: " + p[3]);
