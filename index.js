@@ -6,6 +6,7 @@ var port = process.env.PORT || 8020;
 var clients=[];
 app.get('/', function(req, res){
   res.sendFile(__dirname + '/www/index.html');
+    res.sendFile(__dirname + '/www/mario.wav');
 });
 
 io.on('connection', function(socket){
