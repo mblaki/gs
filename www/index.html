@@ -65,14 +65,14 @@
         background-color: #f1f1f1;
     }
 
-    /* Style the buttons inside the tab */
+    /* Style the buttons inside the tab */ /////
     div.tab button {
         background-color: #26734d;
         float: left;
         border: none;
         outline: none;
         cursor: pointer;
-        padding: 14px 16px;
+        padding:0;
         transition: 0.3s;
     }
 
@@ -114,7 +114,6 @@
     }
     #buts button{ 
         height: 30px;
-        line-height: 15px;
     }
     /* Instructor toggle map or user list */
     .toggle {
@@ -134,9 +133,8 @@
     }
     #users div:hover{
         border-style: solid;
-        border-width: 5px;
+        border-width: 2px;
         border-color: white;
-        height: 60px;
         cursor: pointer;
    }
     #users div{
@@ -206,7 +204,7 @@
     <script src="https://code.jquery.com/jquery-1.11.1.js"></script>
     
     <script>
-    // Onload and Mess
+    // Onload and Message
     var gname="";
     var dest="Instructor";
     var clientList=[];
@@ -287,7 +285,6 @@
             socket.emit('all broadcast', warningList);
     });
     $("#Sbroadcast").click(function(){
-        var selected = ["AAA", "BBB"];
         warningList.length = 0;
             $('#users :checked').each(function() {
                 warningList.push($(this).val());
