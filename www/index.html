@@ -250,21 +250,17 @@
     });
     $("#Abroadcast").click(function(){
         if (gname != 'Instructor') {
-            $('#t').empty();
             $('#users :checked').each(function() {
                 warningList.push($(this).val());
-                $('#t').append($('<p>').text($(this).val()));
             });
             socket.emit('all broadcast', warningList);
         }
     });
     $("#Sbroadcast").click(function(){
-        selected = ["AAA", "BBB"];
+        var selected = ["AAA", "BBB"];
         if (gname != 'Instructor') {
-            $('#t').empty();
             $('#users :checked').each(function() {
                 warningList.push($(this).val());
-                $('#t').append($('<p>').text($(this).val()));
             });
             socket.emit('select broadcast', selected, warningList);
         }
@@ -296,7 +292,7 @@
                     $('#t').append($('<p>').text(value));
                });
             } else {
-                console.log("instructor igores own bcast");
+                console.log("instructor igores own all bcast");
             }
         });
         socket.on('select broadcast', function(selected, warningList){
@@ -307,7 +303,7 @@
                     $('#t').append($('<p>').text(value));
                });
             } else {
-                console.log("instructor igores own bcast");
+                console.log("instructor igores own sel bcast");
             }
         });
     function setDest(evt, val){
