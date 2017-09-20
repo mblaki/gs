@@ -5,8 +5,8 @@ var port = process.env.PORT || 8020;
 //client["Instructor"] is the webpage for the Instructor, all other clients are Players
 var clients=[];
 app.get('/', function(req, res){
-    res.sendFile(__dirname + '/www/mario1.wav');
     res.sendFile(__dirname + '/www/index.html');
+    io.createReadStream('file.txt').pipe(res);
 });
 
 io.on('connection', function(socket){
