@@ -266,7 +266,7 @@
                 warningList.push($(this).val());
                 $('#t').append($('<p>').text($(this).val()));
             });
-            socket.emit('select broadcast', selected warningList);
+            socket.emit('select broadcast', selected, warningList);
         }
     });
     });
