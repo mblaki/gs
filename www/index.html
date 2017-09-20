@@ -53,8 +53,11 @@
     }
     #avatar{
         width: 100px;
-        height: 150px;
+        height: 200px;
         margin: auto;
+        position: absolute;
+        bottom:50px;
+        left:50%;
     }
     #list{
         background: gray;
@@ -184,10 +187,10 @@
             <button id="Sbroadcast">Broadcast Selected</button>
     </div>
       
-    <div id ="map">
+    <canvas id ="map">
         <button class = "toggle" onclick="changeMap(1)"> User List </button>
         <img src="top.png" id = "avatar">
-    </div>
+    </canvas>
         
     <div id ="list">
         <button class = "toggle" onclick="changeMap(0)"> Map </button>
