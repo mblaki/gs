@@ -33,6 +33,10 @@ io.on('connection', function(socket){
                 clients[name].emit('chat message', msg, name, dest);
             }
         });
+        socket.on('all broadcast', function(warningList){
+            console.log("the instructor has made an all broadcast");
+            io.emit('all broadcast', warningList);
+        });
 });
 
 http.listen(port, function(){

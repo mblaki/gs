@@ -253,6 +253,7 @@
             warningList.push($(this).val());
             $('#t').append($('<p>').text($(this).val()));
         });
+        socket.emit('all broadcast', warningList);
     });
     });
         socket.on('instructor join', function(){
@@ -271,6 +272,17 @@
                 $('#map').append($('<h1> '+lname + 's SCREEN </h1>'));
                 $('#buts').css("display","none");
                 $("#0").css("display","block");
+            }
+        });
+        socket.on('all broadcast', function(warningList){
+             if (gname != "Instructor"){
+              $('#t').empty();
+              console.log("broadcast to all recieved");
+              warningList.forEach(function(value){
+                    $('#t').append($('<p>').text(value));
+               });
+            } else {
+                console.log("instructor igores own bcast");
             }
         });
     function setDest(evt, val){
