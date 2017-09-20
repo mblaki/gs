@@ -374,20 +374,21 @@
     var initY = 0;
     $(document).keydown(function(e){
     if(e.keyCode == 38) {//up
+        console.log("up pressed");
       initY += 10;
-      document.getElementsByID('#map').style.backgroundPositionY = initY + "px";
+      document.getElementByID('#map').style.backgroundPositionY = initY + "px";
     }
     else if(e.keyCode == 40) {//down
       initY -= 10;
-      document.getElementsByID('#map').style.backgroundPositionY = initY + "px";
+      document.getElementByID('#map').style.backgroundPositionY = initY + "px";
     }
     else if(e.keyCode == 37) {//left
       initX += 10;
-      document.getElementsByID('#map').style.backgroundPositionX = initX + "px";
+      document.getElementByID('#map').style.backgroundPositionX = initX + "px";
     }
     else if(e.keyCode == 39) {//right
       initX -= 10;
-      document.getElementsByID('#map').style.backgroundPositionX = initX + "px";
+      document.getElementByID('#map').style.backgroundPositionX = initX + "px";
     }
 });
     </script>
