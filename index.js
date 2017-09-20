@@ -1,14 +1,21 @@
-var app = require('express')();
-var http = require('http').Server(app);
-var io = require('socket.io')(http);
+//var app = require('express')();
+//var http = require('http').Server(app);
+//var io = require('socket.io')(http);
+var express = require('express');
+var app = express();
 var port = process.env.PORT || 8020;
+
 //client["Instructor"] is the webpage for the Instructor, all other clients are Players
 var clients=[];
 //app.get('/', function(req, res){
   //  res.sendFile(__dirname + '/www/index.html');
 //});
-app.use(http.static(__dirname + '/www'));
-
+app.use(express.static(__dirname + '/www'));
+var server = app.listen(process.env.PORT || 8082, function () {
+	var port = server.address().port;
+	console.log('Server running at port %s', port);
+});
+var io = require('socket.io')(server);
 io.on('connection', function(socket){
     console.log("clients[] length= " + Object.keys(clients).length);
         socket.on("disconnect", function(){
@@ -47,6 +54,6 @@ io.on('connection', function(socket){
         });
 });
 
-http.listen(port, function(){
-  console.log('listening on *:' + port);
-});
+//http.listen(port, function(){
+  //console.log('listening on *:' + port);
+//});
