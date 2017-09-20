@@ -52,13 +52,11 @@ io.on('connection', function(socket){
                 clients[value].emit('select broadcast', selected, warningList);
             });
         });
-    function gameLoop(){
+});
+function gameLoop(){
     io.emit("game loop");
 }
-    setInterval(gameLoop, 1000);
-});
-
-
+setInterval(gameLoop, 1000);
 //http.listen(port, function(){
   //console.log('listening on *:' + port);
 //});
