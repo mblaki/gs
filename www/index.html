@@ -37,6 +37,7 @@
     #users{
         background: lightgray;
         height: 100vh;
+        overflow: auto;
     }
     #chat{
         background: #26734d;
@@ -131,6 +132,21 @@
         text-align: center;
         font-size: 20pt;
     }
+    #users div:hover{
+        border-style: solid;
+        border-width: 5px;
+        border-color: white;
+        height: 60px;
+        cursor: pointer;
+   }
+    #users div{
+        width:100%;
+        text-align: center;
+        height: 50px;
+        vertical-align: middle;
+        padding-top: 15px;
+   }
+
     </style>
   </head>
   <body>
@@ -198,6 +214,7 @@
     var socket = io();
     var warningList = [];
     var myWarningList = [];
+    var selected = []
     function changeMap(p){
         if (p == 0) {
             $("#map").css("display","block");
@@ -290,6 +307,19 @@
                 console.log("user join clientList " + c_index + " = " + lname);
                 $("#" + c_index).append('<h3 style="clear:both;">'+ lname +'</h3>');
                 $('#buts').append('<button class="tablinks" type = "button" value="'+lname+'" id = "b'+lname+'"  onclick="setDest(event, this.value)">'+lname+'</button>');
+                var element = document.createElement("div");
+                    element.setAttribute("id", lname);
+                    element.innerHTML = lname;
+                    element.onclick = function () {
+                        if ($.inArray(lname, selected) == -1){
+                            selected.push(lname);
+                            console.log(lname + " deselected");
+                        } else {
+                            selected.splice($.inArray(lname, selected),1);
+                            console.log(lname + " deselected");
+                        }
+                    }
+                    $("#users").append(element);
                 c_index += 1;
             } else if (gname == lname && gname != "Instructor"){
                 $('#map').append($('<h1> '+lname + 's SCREEN </h1>'));
