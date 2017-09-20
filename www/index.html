@@ -340,7 +340,7 @@
                 var imageObj = new Image();
 
                 imageObj.onload = function() {
-                      context.drawImage(imageObj, 1539, 10000);
+                      context.drawImage(imageObj, 1539, 1000);
                  };
                  imageObj.src = 'islands.svg';
             }
@@ -405,7 +405,7 @@
         var e=document.getElementById("map");
         var c = e.getContext('2d');
         var p = c.getImageData(initX, initY, 1, 1).data; 
-        console.log("p0 " + p[0] + "p1 " + p[1] + "p2 " + p[2] + "p3 " + p[3]);
+        console.log("p0: " + p[0] + " p1: " + p[1] + " p2: " + p[2] + " p3: " + p[3]);
     }
     else if(e.keyCode == 40) {//down
       initY -= 10;
