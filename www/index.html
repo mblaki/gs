@@ -42,6 +42,7 @@
         background: lightgray;
         height: 100vh;
         overflow: auto;
+        min-width: 60px;
     }
     #chat{
         background: #26734d;
@@ -49,11 +50,13 @@
         height: 100vh;
         overflow:auto;
         padding-top:30px;
+        min-width: 165px;
     }
     #map{
         background-image: url(islands.svg); 
         height: 100vh;
         display:block;
+        min-width:75px; 
     }
     #avatar{
         width: 100px;
@@ -69,7 +72,7 @@
         height: 100vh;
         display:none;
         width: 55%;
-        float:left;
+        min-width:75;
     }
      /* Style the tab */
     div.tab {
@@ -341,20 +344,21 @@
                  var img = new Image();
                 img.onload = function(){
                     // create a hidden canvas, exactly the size of our small image
-                    var hidden_canvas = document.createElement("canvas");
-                    hidden_canvas.width = img.width;
-                    hidden_canvas.height = img.height;
+                  //  var hidden_canvas = document.createElement("canvas");
+                    var hidden_canvas = document.getElementById("list")
+                    hidden_canvas.width = 853;
+                    hidden_canvas.height = 400;
                     var hidden_context = hidden_canvas.getContext("2d");        
 
                     // draw the image on the hidden canvas
                     hidden_context.drawImage(img, 0, 0);
 
                     // set up the visible canvas
-                    var visible_canvas = document.getElementById("list");
-                    var visible_context = visible_canvas.getContext("2d");
+                   // var visible_canvas = document.getElementById("list");
+                 //   var visible_context = visible_canvas.getContext("2d");
 
                     // draw on the visible canvas using the image from the hidden canvas
-                    visible_context.drawImage(hidden_canvas,0,0);    
+                  //  visible_context.drawImage(hidden_canvas,0,0);    
                 };
 
                 img.src = "line.jpg";
@@ -463,7 +467,7 @@
             initY = 480;
         }
         if (initX < -1){
-            initX= 852;
+            initX= 10;
         }
       document.getElementById('map').style.backgroundPositionX = initX + "px";
     }
