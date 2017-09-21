@@ -407,10 +407,10 @@
     var initX = 0;
     var initY = 0;
         socket.on('game loop', function(){
-            if (gname != "Instructor") {
+
                 initY += 10;
                 document.getElementById('map').style.backgroundPositionY = initY + "px";
-            }
+            
         });
     $(document).keydown(function(e){
     if(e.keyCode == 38) {//up
