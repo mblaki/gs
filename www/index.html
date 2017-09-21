@@ -133,7 +133,7 @@
         position: absolute;
         top:20px;
         left:25%;
-        z-index: 2;
+        z-index: 10;
     }
     #bigmap{
         max-width: 100%;
@@ -417,7 +417,7 @@
         
       initY += 10;
       document.getElementById('map').style.backgroundPositionY = initY + "px";
-        var e=document.getElementById("off");
+        var e=document.getElementById("list");
         var c = e.getContext('2d');
         var p = c.getImageData(initX, initY, 1, 1).data; 
         console.log("p0: " + p[0] + " p1: " + p[1] + " p2: " + p[2] + " p3: " + p[3]);
