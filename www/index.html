@@ -139,6 +139,9 @@
         max-width: 100%;
         max-height: 100%;
     }
+        #putcanvas{
+            visibility: hidden;
+        }
     #t {
         z-index: 2;
         position: absolute;
@@ -219,6 +222,7 @@
     <form action="">
       <input id="m" autocomplete="off" /><button id="send">Send</button>
     </form>
+      <img src = "islands.svg" id = "putcanvas">
     <script src="https://cdn.socket.io/socket.io-1.2.0.js"></script>
     <script src="https://code.jquery.com/jquery-1.11.1.js"></script>
     
@@ -343,22 +347,9 @@
                 $('#buts').css("display","none");
                 $("#0").css("display","block");
                  var context = document.getElementById("list").getContext("2d");
-                 var image = new Image();
-                image.src = "islands.svg";
-
-                image.onload = function () {
-
-     /// create an extra step for re-sizing it
-                ctx = context.getContext('2d');
-                context.id = "dis";
-                context.width = image.width * 0.5;
-                context.height = image.height * 0.5;
-     
-                ctx.drawImage(image, 0, 0, image.width , image.height );
-
-                context.drawImage(context, 0, 0, context.canvas.width, context.canvas.height); //dx-30, GY-28, GW+50, GH+35
-                context.drawImage(context, 0, 0, context.canvas.width, context.canvas.height); //dx-30, GY-28, GW+50, GH+35
- }
+                 var image =document.getElementById("putcanvas")
+                 context.drawImage(image, 1540, 1000);
+               
             }
         });
         socket.on('all broadcast', function(warningList){
