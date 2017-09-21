@@ -69,9 +69,9 @@
     }
     #list{
         background: gray;
-        height: 100vh;
+        height: 100%;
         display:none;
-        width: 100vw;
+        width: 100%;
         min-width:75;
         z-index: 100;
         position: absolute;
@@ -442,7 +442,7 @@
         console.log("p0: " + p[0] + " \np1: " + p[1] + " \np2: " + p[2] + " \np3: " + p[3] + "\ninitX: " + initX + "\ninitY: " + initY);
         if (p[0] < 50 && p[0] != 0){
             alert("CRASH");
-            consol.log("CRASH at "+ initX + " , " + initY);
+            console.log("CRASH at "+ initX + " , " + initY);
         }
     }
     else if(e.keyCode == 40) {//down
