@@ -197,15 +197,14 @@
             <button id="Sbroadcast">Broadcast Selected</button>
     </div>
       
-    <canvas id ="map">
+    <div id ="map">
         <button class = "toggle" onclick="changeMap(1)"> User List </button>
-        
-    </canvas>
+    </div>
         <img src="top.png" id = "avatar">
-    <div id ="list">
+    <canvas id ="list">
         <button class = "toggle" onclick="changeMap(0)"> Map </button>
         <img src="islands.svg" id = "bigmap">
-    </div>
+    </canvas>
     
     <div id="buts" class="tab"> 
     </div>
@@ -220,7 +219,6 @@
     <form action="">
       <input id="m" autocomplete="off" /><button id="send">Send</button>
     </form>
-      <canvas id = "off"></canvas>
     <script src="https://cdn.socket.io/socket.io-1.2.0.js"></script>
     <script src="https://code.jquery.com/jquery-1.11.1.js"></script>
     
@@ -235,9 +233,6 @@
     var warningList = [];
     var myWarningList = [];
     var selected = [];
-    var img = new Image();
-    img.src = 'islands.svg';
-    document.getElementById("off").getContext('2d').drawImage(img, 0, 0, img.width, img.height);
     function changeMap(p){
         if (p == 0) {
             $("#map").css("display","block");
@@ -272,7 +267,6 @@
                         
                     }
             }
-            window.scrollTo(0, document.body.scrollHeight);
         });
       });
     $(document).ready( function () {
