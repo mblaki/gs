@@ -423,6 +423,12 @@
         if (initX > 1539){
             initX= 0;
         }
+        if(initY < -1){
+            initY = 0;
+        }
+        if (initX < -1){
+            initX= 0;
+        }
       document.getElementById('map').style.backgroundPositionY = initY + "px";
         var e=document.getElementById("list");
         var c = e.getContext('2d');
