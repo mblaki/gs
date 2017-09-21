@@ -440,7 +440,7 @@
         var c = e.getContext('2d');
         var p = c.getImageData(initX+50, initY+100, 1, 1).data; 
         console.log("p0: " + p[0] + " \np1: " + p[1] + " \np2: " + p[2] + " \np3: " + p[3] + "\ninitX: " + initX + "\ninitY: " + initY);
-        if (p[0] < 50){
+        if (p[0] < 50 && p[0] != 0){
             alert("CRASH");
         }
     }
