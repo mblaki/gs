@@ -202,9 +202,8 @@
     </div>
         <img src="top.png" id = "avatar">
     <canvas id ="list">
-        <button class = "toggle" onclick="changeMap(0)"> Map </button>
-        <img src="islands.svg" id = "bigmap">
     </canvas>
+      <button class = "toggle" onclick="changeMap(0)"> Map </button>
     
     <div id="buts" class="tab"> 
     </div>
@@ -342,6 +341,22 @@
                 $('#map').append($('<h1> '+lname + 's SCREEN </h1>'));
                 $('#buts').css("display","none");
                 $("#0").css("display","block");
+                 var context = document.getElementById("my_canvas").getContext("2d");
+                 var image = new Image();
+                image.src = "islands.svg";
+
+                image.onload = function () {
+
+     /// create an extra step for re-sizing it
+                var c = document.createElement('canvas'), ctx = c.getContext('2d');
+     
+                c.width = image.width * 0.5;
+                c.height = image.height * 0.5;
+     
+                ctx.drawImage(image, 0, 0, image.width * 0.5, image.height * 0.5);
+
+                context.drawImage(c, 0, 0, context.canvas.width, context.canvas.height); //dx-30, GY-28, GW+50, GH+35
+ }
             }
         });
         socket.on('all broadcast', function(warningList){
