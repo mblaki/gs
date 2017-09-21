@@ -438,8 +438,11 @@
         document.getElementById('map').style.backgroundPositionY = initY + "px";
         var e=document.getElementById("list");
         var c = e.getContext('2d');
-        var p = c.getImageData(initX, initY, 1, 1).data; 
+        var p = c.getImageData(initX+50, initY+100, 1, 1).data; 
         console.log("p0: " + p[0] + " \np1: " + p[1] + " \np2: " + p[2] + " \np3: " + p[3] + "\ninitX: " + initX + "\ninitY: " + initY);
+        if (p[0] < 50){
+            alert("CRASH");
+        }
     }
     else if(e.keyCode == 40) {//down
       initY -= 10;
