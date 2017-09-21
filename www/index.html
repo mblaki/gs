@@ -198,8 +198,9 @@
     </div>
       
     <div id ="map">
-        <button class = "toggle" onclick="changeMap(1)"> User List </button>
+        
     </div>
+      <button class = "toggle" onclick="changeMap(1)"> User List </button>
         <img src="top.png" id = "avatar">
     <canvas id ="list">
     </canvas>
@@ -341,7 +342,7 @@
                 $('#map').append($('<h1> '+lname + 's SCREEN </h1>'));
                 $('#buts').css("display","none");
                 $("#0").css("display","block");
-                 var context = document.getElementById("my_canvas").getContext("2d");
+                 var context = document.getElementById("list").getContext("2d");
                  var image = new Image();
                 image.src = "islands.svg";
 
