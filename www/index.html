@@ -10,10 +10,6 @@
           width: 75%;
           height: 30px;
         }
-        #off{
-            width:1540px;
-            height: 1000px;
-        }
       form button { 
           background: rgb(150, 240, 150); 
           border: none;
@@ -75,6 +71,8 @@
         min-width:75;
         z-index: 100;
         position: absolute;
+        bottom:0;
+        left:0;
     }
      /* Style the tab */
     div.tab {
@@ -414,10 +412,10 @@
     var initX = 0;
     var initY = 0;
         socket.on('game loop', function(){
-
+            if(gname != "Instructor") {
                 initY += 10;
                 document.getElementById('map').style.backgroundPositionY = initY + "px";
-            
+            }
         });
     $(document).keydown(function(e){
     if(e.keyCode == 38) {//up
