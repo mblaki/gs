@@ -16,7 +16,14 @@
 
     $(document).keydown(function(e){
     if(e.keyCode == 38) {//up
-        
+    var l=document.getElementById("list");
+    var ctx=l.getContext("2d");
+    ctx.beginPath();
+    ctx.moveTo(0,0);
+    ctx.lineTo(300,300);
+    ctx.lineWidth = 100;
+    ctx.strokeStyle = '#ffff00';
+    ctx.stroke();
       initY += 10;
       cy -= 10;
         if(initY >canvasHeight){
