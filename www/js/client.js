@@ -4,19 +4,23 @@
     var positionInfo = 0;
     var canvasHeight = 0;
     var canvasWidth = 0;
-    $(document).ready(function() { /* code here */ 
+    window.addEventListener('load', function() {
         canvas = document.getElementById('list');
         positionInfo = canvas.getBoundingClientRect();
         canvasHeight = positionInfo.height;
         canvasWidth = positionInfo.width;
+        var w = canvas.width;
+        var h = canvas.height;
+        alert("canvasHeight: " + canvasHeight + " -- canvasWidth: " + canvasWidth + " w- " + w + " h- " + h);
+    }, false);
+   
+    socket.on('game loop', function(){
+        if(gname != "Instructor") {
+            initY += 10;
+            document.getElementById('map').style.backgroundPositionY = initY + "px";
+        }
     });
-alert("canvasHeight: " + canvasHeight + " -- canvasWidth: " + canvasWidth);
-        socket.on('game loop', function(){
-            if(gname != "Instructor") {
-                initY += 10;
-                document.getElementById('map').style.backgroundPositionY = initY + "px";
-            }
-        });
+
     $(document).keydown(function(e){
     if(e.keyCode == 38) {//up
         
