@@ -6,7 +6,7 @@
     var socket = io();
     var warningList = [];
     var myWarningList = [];
-    var selected = [];
+    var selected = "";
     var canvasHeight = 720; // change this to change map image
     var canvasWidth = 1280; // chage this to chage map image
     function changeMap(p){
@@ -88,6 +88,7 @@
             if (gname == "Instructor"){
                 console.log("instructor join emit gname = Instructor");
                 $("#avatar").hide();
+                $('#buts').append('<button class="tablinks" type = "button" value="all" id = "all"  onclick="setDest(event, this.value)"> ALL </button>');
             }
         });
         socket.on('user join', function(lname){
@@ -95,7 +96,7 @@
                 clientList[c_index]= lname;
                 console.log("user join clientList " + c_index + " = " + lname);
                 $("#" + c_index).append('<h3 style="clear:both;">'+ lname +'</h3>');
-                $('#buts').append('<button class="tablinks" type = "button" value="'+lname+'" id = "b'+lname+'"  onclick="setDest(event, this.value)">'+lname+'</button>');
+                $('#10').append('<button class="tablinks" type = "button" value="'+lname+'" id = "b'+lname+'"  onclick="setDest(event, this.value)">'+lname+'</button>');
                 var element = document.createElement("div");
                     element.setAttribute("id", lname);
                     element.innerHTML = lname;
@@ -172,6 +173,7 @@
     function setDest(evt, val){
          var i, tabcontent, tablinks;
          this.dest = val;
+         select = val;
          console.log("Tab id=" + val);
          tabcontent = document.getElementsByClassName("tabcontent");
          for (i = 0; i < tabcontent.length; i++) {

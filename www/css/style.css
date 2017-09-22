@@ -86,6 +86,8 @@
     div.tab button {
         background-color: #26734d;
         float: left;
+        width:100%;
+        clear:both;
         border: none;
         outline: none;
         cursor: pointer;
