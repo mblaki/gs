@@ -83,7 +83,7 @@
     }
 
     /* Style the buttons inside the tab */ /////
-    div.tab button {
+    #buts {
         background-color: #26734d;
         float: left;
         width:100%;
@@ -94,14 +94,23 @@
         padding:0;
         transition: 0.3s;
     }
+    #buts button{ 
+        height: 50px;
+        float: left;
+        width:100%;
+        clear:both;
+        cursor: pointer;
+        padding:0;
+        transition: 0.3s;
+    }
 
     /* Change background color of buttons on hover */
-    div.tab button:hover {
+    #buts button:hover {
         background-color: #40bf80;
     }
 
     /* Create an active/current tablink class */
-    div.tab button.active {
+    #buts button.active {
         background-color: #40bf80;
     }
 
@@ -120,7 +129,7 @@
         margin: 0px 5% 0px 5%;
         padding: 10px 10px 10px 10px;
     }
-    /* Instructor chat buttons*/
+    /* Instructor chat buttons
     #buts { 
         width:25%; 
         position: fixed;
@@ -134,6 +143,7 @@
     #buts button{ 
         height: 30px;
     }
+*/
     /* Instructor toggle map or user list */
     .toggle {
         position: absolute;

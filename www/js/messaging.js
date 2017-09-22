@@ -97,6 +97,8 @@
                 console.log("user join clientList " + c_index + " = " + lname);
                 $("#" + c_index).append('<h3 style="clear:both;">'+ lname +'</h3>');
                 $('#10').append('<button class="tablinks" type = "button" value="'+lname+'" id = "b'+lname+'"  onclick="setDest(event, this.value)">'+lname+'</button>');
+                
+                /*
                 var element = document.createElement("div");
                     element.setAttribute("id", lname);
                     element.innerHTML = lname;
@@ -114,6 +116,8 @@
                         }
                     }
                     $("#users").append(element);
+                */
+                
                 c_index += 1;
             } else if (gname == lname && gname != "Instructor"){
                 $('#map').append($('<h1> '+lname + 's SCREEN </h1>'));
@@ -184,7 +188,12 @@
             tablinks[i].className = tablinks[i].className.replace(" active", "");
          }
         if (val != null) {
-            document.getElementById(clientList.indexOf(val)).style.display = "block";
+            if (val == 'all'){
+                document.getElementById("#10").style.display = "block";
+                selected = "all";
+            } else {
+                document.getElementById(clientList.indexOf(val)).style.display = "block";
+            }
         }
          evt.currentTarget.className += " active";
     }
