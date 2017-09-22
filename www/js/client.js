@@ -1,10 +1,10 @@
 
     var canvasHeight = 2010; // change this to change map image
     var canvasWidth = 3468; // change this to change map image
-    var initX = 0;
-    var initY = canvasHeight;
-    var cx = 0;
-    var cy = 0;
+    var initX =  1734;
+    var initY = 1005;
+    var cx = 1734;
+    var cy = 1005;
    
     socket.on('game loop', function(){
         if(gname != "Instructor") {
