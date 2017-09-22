@@ -137,8 +137,12 @@
                     // draw on the visible canvas using the image from the hidden canvas
                   //  visible_context.drawImage(hidden_canvas,0,0);    
                 };
-
-                img.src = "../img/dot.jpg";
+                /*
+                
+                To change map chang ethis path!
+                
+                */
+                img.src = "../img/mercator.jpg"; 
                
             }
         });

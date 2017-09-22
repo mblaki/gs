@@ -44,7 +44,7 @@
         min-width: 165px;
     }
     #map{
-        background-image: url(../img/dot.jpg); 
+        background-image: url(../img/mercator.jpg); 
         height: 100vh;
         display:block;
         min-width:75px; 

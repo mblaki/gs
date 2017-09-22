@@ -28,15 +28,8 @@
         if (initX < -1){
             initX= canvasWidth;
         }
+        detectCollision(initX,initY);
         document.getElementById('map').style.backgroundPositionY = initY + "px";
-        var e=document.getElementById("list");
-        var c = e.getContext('2d');
-        var p = c.getImageData(initX-50, initY-50, 1, 1).data; 
-        console.log("p0: " + p[0] + " \np1: " + p[1] + " \np2: " + p[2] + " \np3: " + p[3] + "\ninitX: " + initX + "\ninitY: " + initY);
-        if (p[0] < 50 && p[0] != 0){
-            alert("CRASH");
-            console.log("CRASH at "+ initX + " , " + initY);
-        }
     }
     else if(e.keyCode == 40) {//down
       initY -= 10;
@@ -52,6 +45,7 @@
         if (initX < -1){
             initX= canvasWidth;
         }
+        detectCollision(initX,initY);
       document.getElementById('map').style.backgroundPositionY = initY + "px";
     }
     else if(e.keyCode == 37) {//left
@@ -68,6 +62,7 @@
         if (initX < -1){
             initX= canvasWidth;
         }
+        detectCollision(initX,initY);
         document.getElementById('map').style.backgroundPositionX = initX + "px";
     }
     else if(e.keyCode == 39) {//right
@@ -84,6 +79,18 @@
         if (initX < -1){
             initX= canvasWidth;
         }
+        detectCollision(initX,initY);
         document.getElementById('map').style.backgroundPositionX = initX + "px";
     }
 });
+
+function detectCollision(x,y){
+    var e=document.getElementById("list");
+    var c = e.getContext('2d');
+    var p = c.getImageData(x-50, y-50, 1, 1).data; 
+    console.log("p0: " + p[0] + " \np1: " + p[1] + " \np2: " + p[2] + " \np3: " + p[3] + "\ninitX: " + x + "\ninitY: " + y);
+    if (p[2] < 200 && p[2] != 0){
+        alert("CRASH");
+        console.log("CRASH at "+ x + " , " + y);
+    }
+}
