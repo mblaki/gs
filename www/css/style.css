@@ -46,9 +46,10 @@
     #map{
         background-image: url(../img/mercator.jpg);
         background-position: 1734px 1005px;
-        height: 100vh;
+        height: 100%;
         display:block;
-        min-width:75px; 
+        min-width:75px;
+        overflow: hidden;
     }
     #avatar{
         width: 100px;

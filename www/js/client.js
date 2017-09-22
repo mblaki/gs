@@ -1,16 +1,16 @@
 
     var canvasHeight = 2010; // change this to change map image
     var canvasWidth = 3468; // change this to change map image
-    var initX =  1734;
-    var initY = 1005;
-    var cx = 1734;
-    var cy = 1005;
+    var initX =  0;
+    var initY = 0;
+    var cx = 0;
+    var cy = 0;
    
     socket.on('game loop', function(){
         if(gname != "Instructor") {
             initY += 10;
             cy -= 10;
-            document.getElementById('map').style.backgroundPositionY = initY + "px";
+            document.getElementById('map').style.backgroundPositionY = initY;
         }
     });
 
@@ -20,7 +20,7 @@
     var ctx=l.getContext("2d");
     ctx.beginPath();
     ctx.moveTo(0,0);
-    ctx.lineTo(300,300);
+    ctx.lineTo(1734,1005);
     ctx.lineWidth = 100;
     ctx.strokeStyle = '#ffff00';
     ctx.stroke();
@@ -44,15 +44,15 @@
         if (cx > canvasWidth){
             cx= 0;
         }
-        if(cy < -1){
+        if(cy < 0){
             cy = canvasHeight;
         }
-        if (cx < -1){
+        if (cx < 0){
             cx= canvasWidth;
         }
         
         detectCollision(cx,cy);
-        document.getElementById('map').style.backgroundPositionY = initY + "px";
+        document.getElementById('map').style.backgroundPositionY = initY;
     }
     else if(e.keyCode == 40) {//down
       initY -= 10;
@@ -82,7 +82,7 @@
             cx= canvasWidth;
         }
         detectCollision(cx,cy);
-      document.getElementById('map').style.backgroundPositionY = initY + "px";
+      document.getElementById('map').style.backgroundPositionY = initY;
     }
     else if(e.keyCode == 37) {//left
       initX += 10;
@@ -112,7 +112,7 @@
             cx=  canvasWidth;
         }
         detectCollision(cx,cy);
-        document.getElementById('map').style.backgroundPositionX = initX + "px";
+        document.getElementById('map').style.backgroundPositionX = initX;
     }
     else if(e.keyCode == 39) {//right
       initX -= 10;
@@ -142,7 +142,7 @@
             cx= canvasWidth;
         }
         detectCollision(cx,cy);
-        document.getElementById('map').style.backgroundPositionX = initX + "px";
+        document.getElementById('map').style.backgroundPositionX = initX;
     }
 });
 

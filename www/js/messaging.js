@@ -143,7 +143,7 @@
                 
                 */
                 img.src = "../img/mercator.jpg"; 
-               
+               console.log("w:"+img.width +"\nh " + img.height);
             }
         });
 
