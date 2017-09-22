@@ -83,7 +83,6 @@
                 $("#avatar").hide();
                 $('#buts').append('<button class="tablinks" type = "button" id = "all"  onclick="setDest(event, "all")"> ALL </button>');
                 document.getElementById("10").style.display = "block";
-                document.getElementById("broadcast").html = "Broadcast All";
             }
         });
         socket.on('user join', function(lname){
@@ -91,7 +90,7 @@
                 clientList[c_index]= lname;
                 console.log("user join clientList " + c_index + " = " + lname);
                 $("#" + c_index).append('<h3 style="clear:both;">'+ lname +'</h3>');
-                $('#10').append('<button class="tablinks" type = "button" value="'+lname+'" id = "b'+lname+'"  onclick="setDest(event,'+lname+' )">'+lname+'</button>');
+                $('#10').append('<button class="tablinks" type = "button" value="'+lname+'onclick="setDest(event,this.value)">'+lname+'</button>');
                 
                 /*
                 var element = document.createElement("div");
@@ -163,7 +162,7 @@
          this.dest = val;
          this.selected = val;
          console.log("Tab id= " + val);
-        console.log("selected= " + selected);
+         console.log("selected= " + selected);
          tabcontent = document.getElementsByClassName("tabcontent");
          for (i = 0; i < tabcontent.length; i++) {
             tabcontent[i].style.display = "none";
@@ -172,7 +171,6 @@
          for (i = 0; i < tablinks.length; i++) {
             tablinks[i].className = tablinks[i].className.replace(" active", "");
          }
-        if (val != null) {
             if (val == 'all'){
                 document.getElementById("10").style.display = "block";
                 document.getElementById("broadcast").html = "Broadcast All";
@@ -180,6 +178,5 @@
                 document.getElementById(clientList.indexOf(val)).style.display = "block";
                 document.getElementById("broadcast").html = "Broadcast to" + val;
             }
-        }
          evt.currentTarget.className += " active";
     }
