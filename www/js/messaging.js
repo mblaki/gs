@@ -143,10 +143,23 @@
             }
         });
 
-        socket.on('broadcast', function(selected, warningList){
+        socket.on('abroadcast', function(warningList){
              if (gname != "Instructor"){
               console.log("broadcast recieved to " + selected);
-              if (selected == "all" || selected == gname) {
+                $('#t').empty();
+                myWarningList.length = 0;
+                myWarningList = warningList;
+                myWarningList.forEach(function(value){
+                    $('#t').append($('<p>').text(value));
+                });
+            } else {
+                console.log(" ALL BCast");
+            }
+        });
+        socket.on('sbroadcast', function(select, warningList){
+             if (gname != "Instructor"){
+              console.log("broadcast recieved to " + selected);
+              if (gname == select ) {
                 $('#t').empty();
                 myWarningList.length = 0;
                 myWarningList = warningList;
@@ -155,7 +168,7 @@
                 });
               } 
             } else {
-                console.log("instructor gnore server response but selected=" +selected);
+                console.log("instructor gnore server response but selected=" +select);
             }
         });
     function setDest(evt, val){
