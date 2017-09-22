@@ -1,0 +1,164 @@
+* { margin: 0; padding: 0; box-sizing: border-box; }
+      body { font: 13px Helvetica, Arial; }
+      form { background: #000; padding: 3px;  bottom: 0; right:0; width: 25%; position:fixed}
+      form input { 
+          width: 75%;
+          height: 30px;
+        }
+      form button { 
+          background: rgb(150, 240, 150); 
+          border: none;
+          width:25%;
+          float:right;
+          height: 30px;
+        }
+      #messages { 
+          list-style-type: none; 
+          margin: 0; 
+          padding: 0;
+          width:100%;
+          margin-bottom: 40px 
+        }
+    .name-prompt{
+	   position: absolute;
+	   top: 200px;
+	   left: 50%;
+	   margin-left: -200px;
+	   width: 400px;
+	   background-color: #eee;
+	   z-index: 4;
+	   padding: 10px;
+    }
+    #users{
+        background: lightgray;
+        height: 100vh;
+        overflow: auto;
+        min-width: 60px;
+    }
+    #chat{
+        background: #26734d;
+        margin:auto;
+        height: 100vh;
+        overflow:auto;
+        padding-top:30px;
+        min-width: 165px;
+    }
+    #map{
+        background-image: url(../img/dot.jpg); 
+        height: 100vh;
+        display:block;
+        min-width:75px; 
+    }
+    #avatar{
+        width: 100px;
+        height: 200px;
+        margin: auto;
+        position: absolute;
+        bottom:0;
+        left:0;
+        z-index: 10;
+    }
+/*
+
+ Canvas element that shows the entire map. 
+ If changing map edit width and height to the new images width and height
+
+*/
+    #list{
+        background: gray;
+        width: 1280px;    
+        height: 720px;
+        display:none;
+        min-width:75;
+        z-index: 100;
+        position: absolute;
+        bottom:0;
+        left:0;
+    }
+     /* Style the tab */
+    div.tab {
+        overflow: hidden;
+        border: 1px solid #ccc;
+        background-color: #f1f1f1;
+    }
+
+    /* Style the buttons inside the tab */ /////
+    div.tab button {
+        background-color: #26734d;
+        float: left;
+        border: none;
+        outline: none;
+        cursor: pointer;
+        padding:0;
+        transition: 0.3s;
+    }
+
+    /* Change background color of buttons on hover */
+    div.tab button:hover {
+        background-color: #40bf80;
+    }
+
+    /* Create an active/current tablink class */
+    div.tab button.active {
+        background-color: #40bf80;
+    }
+
+    /* Style the tab content */
+    .tabcontent {
+        display: none;
+        width:100%;
+    }
+    /* Style the message bubble */
+    .tabcontent p {
+        border-top: none;
+        text-align:left; 
+        border: 1px solid; 
+        border-radius: 5px; 
+        clear:both;
+        margin: 0px 5% 0px 5%;
+        padding: 10px 10px 10px 10px;
+    }
+    /* Instructor chat buttons*/
+    #buts { 
+        width:25%; 
+        position: fixed;
+        top:0;
+        right:0;
+        max-height: 30px;
+    }
+    #buts:hover{ 
+        max-height: 100%;
+    }
+    #buts button{ 
+        height: 30px;
+    }
+    /* Instructor toggle map or user list */
+    .toggle {
+        position: absolute;
+        top:20px;
+        left:25%;
+        z-index: 200;
+    }
+    #t {
+        z-index: 2;
+        position: absolute;
+	    top: 50px;
+	    left: 50%;
+	    margin-left: -200px;
+	    width: 400px;
+        text-align: center;
+        font-size: 20pt;
+    }
+    #users div:hover{
+        border-style: solid;
+        border-width: 2px;
+        border-color: white;
+        cursor: pointer;
+   }
+    #users div{
+        width:100%;
+        text-align: center;
+        height: 50px;
+        vertical-align: middle;
+        padding-top: 15px;
+   }
