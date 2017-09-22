@@ -64,6 +64,10 @@
  If changing map edit width and height to the new images width and height
 
 */
+    #broadcast{
+    height: 30px;
+    width:100%;
+}
     #list{
         background: gray;
         width: 1280px;    
@@ -91,11 +95,12 @@
         border: none;
         outline: none;
         cursor: pointer;
-        padding:0;
+        padding:0 0 10px 0;
         transition: 0.3s;
+        
     }
     .tablinks { 
-        height: 50px;
+        height: 40px;
         float: left;
         width:100%;
         clear:both;
@@ -103,7 +108,9 @@
         padding:0;
         transition: 0.3s;
     }
-
+    .tablinks:hover {
+        background-color: #40bf80;
+    }
     /* Change background color of buttons on hover */
     #buts button:hover {
         background-color: #40bf80;
@@ -118,6 +125,7 @@
     .tabcontent {
         display: none;
         width:100%;
+        align-content: center;
     }
     /* Style the message bubble */
     .tabcontent p {

@@ -67,20 +67,13 @@
           //  $(".toggle").css("display","none");
         }
     });
-    $("#Abroadcast").click(function(){
-        console.log("all pressed");
+
+    $("#broadcast").click(function(){
         warningList.length = 0;
             $('#users :checked').each(function() {
                 warningList.push($(this).val());
             });
-            socket.emit('all broadcast', warningList);
-    });
-    $("#Sbroadcast").click(function(){
-        warningList.length = 0;
-            $('#users :checked').each(function() {
-                warningList.push($(this).val());
-            });
-            socket.emit('select broadcast', selected, warningList);
+            socket.emit('broadcast', selected, warningList);
     });
     });
         socket.on('instructor join', function(){
@@ -89,6 +82,10 @@
                 console.log("instructor join emit gname = Instructor");
                 $("#avatar").hide();
                 $('#buts').append('<button class="tablinks" type = "button" value="all" id = "all"  onclick="setDest(event, this.value)"> ALL </button>');
+                document.getElementById("10").style.display = "block";
+                document.getElementById("broadcast").html = "Broadcast All";
+                selected = "all";
+                
             }
         });
         socket.on('user join', function(lname){
@@ -147,25 +144,12 @@
                
             }
         });
-        socket.on('all broadcast', function(warningList){
-             if (gname != "Instructor"){
-              
-              $('#t').empty();
-              console.log("broadcast to all recieved");
-              myWarningList.length = 0;
-              myWarningList = warningList;
-              myWarningList.forEach(function(value){
-                    $('#t').append($('<p>').text(value));
-               });
-            } else {
-                console.log("instructor igores own all bcast");
-            }
-        });
+
         socket.on('broadcast', function(selected, warningList){
              if (gname != "Instructor"){
-              $('#t').empty();
               console.log("broadcast recieved");
               if (selected == "all" || selected == gname) {
+                $('#t').empty();
                 myWarningList.length = 0;
                 myWarningList = warningList;
                 myWarningList.forEach(function(value){
@@ -192,9 +176,12 @@
         if (val != null) {
             if (val == 'all'){
                 document.getElementById("10").style.display = "block";
+                document.getElementById("broadcast").html = "Broadcast All";
                 selected = "all";
+                
             } else {
                 document.getElementById(clientList.indexOf(val)).style.display = "block";
+                document.getElementById("broadcast").html = "Broadcast to" + val;
             }
         }
          evt.currentTarget.className += " active";
