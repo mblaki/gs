@@ -7,10 +7,8 @@
     var warningList = [];
     var myWarningList = [];
     var selected = [];
-    var canvas = document.getElementById('list');
-    var positionInfo = canvas.getBoundingClientRect();
-    var canvasHeight = positionInfo.height;
-    var canvasWidth = positionInfo.width;
+    var canvasHeight = 720; // change this to change map image
+    var canvasWidth = 1280; // chage this to chage map image
     function changeMap(p){
         if (p == 0) {
             $("#map").css("display","block");

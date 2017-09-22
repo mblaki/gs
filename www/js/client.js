@@ -1,18 +1,9 @@
     var initX = 0;
     var initY = 0;
-    var canvas;
-    var positionInfo = 0;
-    var canvasHeight = 0;
-    var canvasWidth = 0;
-    window.addEventListener('load', function() {
-        canvas = document.getElementById('list');
-        positionInfo = canvas.getBoundingClientRect();
-        canvasHeight = positionInfo.height;
-        canvasWidth = positionInfo.width;
-        var w = canvas.width;
-        var h = canvas.height;
-        alert("canvasHeight: " + canvasHeight + " -- canvasWidth: " + canvasWidth + " w- " + w + " h- " + h);
-    }, false);
+
+    var canvasHeight = 720; // change this to change map image
+    var canvasWidth = 1280; // change this to change map image
+
    
     socket.on('game loop', function(){
         if(gname != "Instructor") {
