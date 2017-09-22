@@ -34,8 +34,12 @@ io.on('connection', function(socket){
         socket.on('chat message', function(msg, name, dest){
             console.log(name+ " sent a chat msg to " + dest);
             if ( name == "Instructor") {
-                clients[dest].emit('chat message', msg, name, dest);
-                clients["Instructor"].emit('chat message', msg, name, dest);
+                if (dest == "all"){
+                    io.emit('chat message', msg, name, dest);
+                } else {
+                    clients[dest].emit('chat message', msg, name, dest);
+                    clients["Instructor"].emit('chat message', msg, name, dest);
+                }
             } else {
                 clients["Instructor"].emit('chat message', msg, name, dest);
                 clients[name].emit('chat message', msg, name, dest);
@@ -47,10 +51,8 @@ io.on('connection', function(socket){
         });
         socket.on('select broadcast', function(selected, warningList){
             console.log("the instructor has made a selected broadcast");
-            selected.forEach(function(value){
                 console.log("selected: "+value);
-                clients[value].emit('select broadcast', selected, warningList);
-            });
+                clients[selected].emit('select broadcast', selected, warningList);
         });
 });
 function gameLoop(){
