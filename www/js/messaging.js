@@ -91,7 +91,7 @@
                 clientList[c_index]= lname;
                 console.log("user join clientList " + c_index + " = " + lname);
                 $("#" + c_index).append('<h3 style="clear:both;">'+ lname +'</h3>');
-                $('#10').append('<button class="tablinks" type = "button" value="'+lname+'" id = "b'+lname+'"  onclick="setDest(event, this.value)">'+lname+'</button>');
+                $('#10').append('<button class="tablinks" type = "button" value="'+lname+'" id = "b'+lname+'"  onclick="setDest(event,'+lname+' )">'+lname+'</button>');
                 
                 /*
                 var element = document.createElement("div");
