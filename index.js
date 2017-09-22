@@ -49,8 +49,10 @@ io.on('connection', function(socket){
             console.log("the instructor has made a broadcast");
             if (selected = "all"){
                 io.emit('broadcast', selected, warningList);
+                 console.log("the instructor has made an all broadcast");
             } else {
                 clients[selected].emit('broadcast', selected, warningList);
+                 console.log("the instructor has made a selected bcast: " + selected);
             }
         });
 });
