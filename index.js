@@ -45,14 +45,13 @@ io.on('connection', function(socket){
                 clients[name].emit('chat message', msg, name, dest);
             }
         });
-        socket.on('all broadcast', function(warningList){
-            console.log("the instructor has made an alllll broadcast");
-            io.emit('all broadcast', warningList);
-        });
-        socket.on('select broadcast', function(selected, warningList){
-            console.log("the instructor has made a selected broadcast");
-                console.log("selected: "+value);
-                clients[selected].emit('select broadcast', selected, warningList);
+        socket.on('broadcast', function(selected, warningList){
+            console.log("the instructor has made a broadcast");
+            if (selected = "all"){
+                io.emit('broadcast', selected, warningList);
+            } else {
+                clients[selected].emit('broadcast', selected, warningList);
+            }
         });
 });
 function gameLoop(){

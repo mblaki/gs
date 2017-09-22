@@ -94,7 +94,7 @@
         padding:0;
         transition: 0.3s;
     }
-    #buts button{ 
+    .tablinks { 
         height: 50px;
         float: left;
         width:100%;

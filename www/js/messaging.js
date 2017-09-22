@@ -161,15 +161,17 @@
                 console.log("instructor igores own all bcast");
             }
         });
-        socket.on('select broadcast', function(selected, warningList){
+        socket.on('broadcast', function(selected, warningList){
              if (gname != "Instructor"){
               $('#t').empty();
-              console.log("broadcast to all recieved");
-              myWarningList.length = 0;
-              myWarningList = warningList;
-              myWarningList.forEach(function(value){
+              console.log("broadcast recieved");
+              if (selected == "all" || selected == gname) {
+                myWarningList.length = 0;
+                myWarningList = warningList;
+                myWarningList.forEach(function(value){
                     $('#t').append($('<p>').text(value));
-               });
+                });
+              } 
             } else {
                 console.log("instructor igores own sel bcast");
             }
