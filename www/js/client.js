@@ -109,7 +109,7 @@
             cy = canvasHeight;
         }
         if (cx < -1){
-            cx= cy;
+            cx=  canvasWidth;
         }
         detectCollision(cx,cy);
         document.getElementById('map').style.backgroundPositionX = initX + "px";
