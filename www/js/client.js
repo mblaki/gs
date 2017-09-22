@@ -44,7 +44,7 @@
             cx= canvasWidth;
         }
         
-        detectCollision(cx,initY);
+        detectCollision(cx,cy);
         document.getElementById('map').style.backgroundPositionY = initY + "px";
     }
     else if(e.keyCode == 40) {//down
@@ -78,7 +78,7 @@
         if (cx < -1){
             cx= canvasWidth;
         }
-        detectCollision(cx,initY);
+        detectCollision(cx,cy);
       document.getElementById('map').style.backgroundPositionY = initY + "px";
     }
     else if(e.keyCode == 37) {//left
@@ -110,7 +110,7 @@
             cy = canvasHeight;
         }
         if (cx < -1){
-            cx= canvasWidth;
+            cx= cy;
         }
         detectCollision(cx,initY);
         document.getElementById('map').style.backgroundPositionX = initX + "px";
@@ -146,7 +146,7 @@
         if (cx < -1){
             cx= canvasWidth;
         }
-        detectCollision(cx,initY);
+        detectCollision(cx,cy);
         document.getElementById('map').style.backgroundPositionX = initX + "px";
     }
 });
