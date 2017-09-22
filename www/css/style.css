@@ -40,7 +40,7 @@
         margin:auto;
         height: 100vh;
         overflow:auto;
-        padding-top:30px;
+        padding-top:10px;
         min-width: 165px;
     }
     #map{

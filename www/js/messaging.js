@@ -189,7 +189,7 @@
          }
         if (val != null) {
             if (val == 'all'){
-                document.getElementById("#10").style.display = "block";
+                document.getElementById("10").style.display = "block";
                 selected = "all";
             } else {
                 document.getElementById(clientList.indexOf(val)).style.display = "block";
