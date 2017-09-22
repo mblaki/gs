@@ -73,7 +73,7 @@
             $('#users :checked').each(function() {
                 warningList.push($(this).val());
             });
-            consol.log("click: selected= " +selected + "dest = " + dest);
+            console.log("click: selected= " +selected + "dest = " + dest);
             socket.emit('broadcast', selected, warningList);
     });
     });
