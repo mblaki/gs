@@ -187,10 +187,10 @@
          }
             if (val == 'all'){
                 document.getElementById("10").style.display = "block";
-                document.getElementById("broadcast").value = val;
+                $("#broadcast").text("Broadcast All");
             } else {
                 document.getElementById(clientList.indexOf(val)).style.display = "block";
-                document.getElementById("broadcast").value = val;
+                $("#broadcast").text("Broadcast " + val);
             }
          evt.currentTarget.className += " active";
     }
