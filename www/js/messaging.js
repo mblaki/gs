@@ -145,7 +145,7 @@
 
         socket.on('broadcast', function(selected, warningList){
              if (gname != "Instructor"){
-              console.log("broadcast recieved");
+              console.log("broadcast recieved to " + selected);
               if (selected == "all" || selected == gname) {
                 $('#t').empty();
                 myWarningList.length = 0;
@@ -155,7 +155,7 @@
                 });
               } 
             } else {
-                console.log("instructor igores own sel bcast");
+                console.log("instructor gnore server response but selected=" +selected);
             }
         });
     function setDest(evt, val){
