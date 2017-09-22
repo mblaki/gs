@@ -73,7 +73,7 @@
             $('#users :checked').each(function() {
                 warningList.push($(this).val());
             });
-            console.log("click: selected= " +selected + "dest = " + dest);
+            console.log("click: selected= " +selected + " dest = " + dest);
             socket.emit('broadcast', selected, warningList);
     });
     });
@@ -174,10 +174,10 @@
          }
             if (val == 'all'){
                 document.getElementById("10").style.display = "block";
-                document.getElementById("broadcast").html = "Broadcast All";
+                document.getElementById("broadcast").value = val;
             } else {
                 document.getElementById(clientList.indexOf(val)).style.display = "block";
-                document.getElementById("broadcast").html = "Broadcast to" + val;
+                document.getElementById("broadcast").value = val;
             }
          evt.currentTarget.className += " active";
     }
