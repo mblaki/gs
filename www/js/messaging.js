@@ -81,11 +81,10 @@
             if (gname == "Instructor"){
                 console.log("instructor join emit gname = Instructor");
                 $("#avatar").hide();
-                $('#buts').append('<button class="tablinks" type = "button" value="all" id = "all"  onclick="setDest(event, this.value)"> ALL </button>');
+                $('#buts').append('<button class="tablinks" type = "button" id = "all"  onclick="setDest(event, "all")"> ALL </button>');
                 document.getElementById("10").style.display = "block";
                 document.getElementById("broadcast").html = "Broadcast All";
                 selected = "all";
-                
             }
         });
         socket.on('user join', function(lname){
