@@ -7,8 +7,8 @@
     var warningList = [];
     var myWarningList = [];
     var selected = "all";
-    var canvasHeight = 720; // change this to change map image
-    var canvasWidth = 1280; // chage this to chage map image
+    var canvasHeight = 2010; // change this to change map image
+    var canvasWidth = 3468; // chage this to chage map image
     function changeMap(p){
         if (p == 0) {
             $("#map").css("display","block");
