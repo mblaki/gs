@@ -162,8 +162,9 @@
     function setDest(evt, val){
          var i, tabcontent, tablinks;
          this.dest = val;
-         selected = val;
-         console.log("Tab id=" + val);
+         this.selected = val;
+         console.log("Tab id= " + val);
+        console.log("selected= " + selected);
          tabcontent = document.getElementsByClassName("tabcontent");
          for (i = 0; i < tabcontent.length; i++) {
             tabcontent[i].style.display = "none";
