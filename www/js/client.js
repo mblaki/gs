@@ -30,25 +30,25 @@
             initY = 0;
         }
         if (initX > canvasWidth){
-            initX= 0;
+            initX = 0;
         }
-        if(initY < -1){
+        if(initY < 0){
             initY = canvasHeight;
         }
-        if (initX < -1){
-            initX= canvasWidth;
+        if (initX < 0){
+            initX = canvasWidth;
         }
         if(cy >canvasHeight){
             cy = 0;
         }
         if (cx > canvasWidth){
-            cx= 0;
+            cx = 0;
         }
         if(cy < 0){
             cy = canvasHeight;
         }
         if (cx < 0){
-            cx= canvasWidth;
+            cx = canvasWidth;
         }
         
         detectCollision(cx,cy);
@@ -61,26 +61,27 @@
             initY = 0;
         }
         if (initX > canvasWidth){
-            initX= 0;
+            initX = 0;
         }
-        if(initY < -1){
+        if(initY < 0){
             initY = canvasHeight;
         }
-        if (initX < -1){
-            initX= canvasWidth;
+        if (initX < 0){
+            initX = canvasWidth;
         }
         if(cy >canvasHeight){
             cy = 0;
         }
         if (cx > canvasWidth){
-            cx= 0;
+            cx = 0;
         }
-        if(cy < -1){
+        if(cy < 0){
             cy = canvasHeight;
         }
-        if (cx < -1){
-            cx= canvasWidth;
+        if (cx < 0){
+            cx = canvasWidth;
         }
+        
         detectCollision(cx,cy);
       document.getElementById('map').style.backgroundPositionY = initY;
     }
@@ -91,26 +92,27 @@
             initY = 0;
         }
         if (initX > canvasWidth){
-            initX= 0;
+            initX = 0;
         }
-        if(initY < -1){
+        if(initY < 0){
             initY = canvasHeight;
         }
-        if (initX < -1){
-            initX= canvasWidth;
+        if (initX < 0){
+            initX = canvasWidth;
         }
         if(cy >canvasHeight){
             cy = 0;
         }
         if (cx > canvasWidth){
-            cx= 0;
+            cx = 0;
         }
-        if(cy < -1){
+        if(cy < 0){
             cy = canvasHeight;
         }
-        if (cx < -1){
-            cx=  canvasWidth;
+        if (cx < 0){
+            cx = canvasWidth;
         }
+        
         detectCollision(cx,cy);
         document.getElementById('map').style.backgroundPositionX = initX;
     }
@@ -121,26 +123,27 @@
             initY = 0;
         }
         if (initX > canvasWidth){
-            initX= 0;
+            initX = 0;
         }
-        if(initY < -1){
+        if(initY < 0){
             initY = canvasHeight;
         }
-        if (initX < -1){
-            initX= canvasWidth;
+        if (initX < 0){
+            initX = canvasWidth;
         }
         if(cy >canvasHeight){
             cy = 0;
         }
         if (cx > canvasWidth){
-            cx= 0;
+            cx = 0;
         }
-        if(cy < -1){
+        if(cy < 0){
             cy = canvasHeight;
         }
-        if (cx < -1){
-            cx= canvasWidth;
+        if (cx < 0){
+            cx = canvasWidth;
         }
+        
         detectCollision(cx,cy);
         document.getElementById('map').style.backgroundPositionX = initX;
     }
