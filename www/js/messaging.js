@@ -163,7 +163,7 @@
     function setDest(evt, val){
          var i, tabcontent, tablinks;
          this.dest = val;
-         select = val;
+         selected = val;
          console.log("Tab id=" + val);
          tabcontent = document.getElementsByClassName("tabcontent");
          for (i = 0; i < tabcontent.length; i++) {
@@ -177,8 +177,6 @@
             if (val == 'all'){
                 document.getElementById("10").style.display = "block";
                 document.getElementById("broadcast").html = "Broadcast All";
-                selected = "all";
-                
             } else {
                 document.getElementById(clientList.indexOf(val)).style.display = "block";
                 document.getElementById("broadcast").html = "Broadcast to" + val;

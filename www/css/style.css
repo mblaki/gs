@@ -65,9 +65,9 @@
 
 */
     #broadcast{
-    height: 30px;
-    width:100%;
-}
+        height: 30px;
+        width:100%;
+    }
     #list{
         background: gray;
         width: 1280px;    
@@ -95,7 +95,7 @@
         border: none;
         outline: none;
         cursor: pointer;
-        padding:0 0 10px 0;
+        padding:0;
         transition: 0.3s;
         
     }
@@ -125,7 +125,6 @@
     .tabcontent {
         display: none;
         width:100%;
-        align-content: center;
     }
     /* Style the message bubble */
     .tabcontent p {
