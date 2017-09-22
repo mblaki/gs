@@ -73,6 +73,7 @@
             $('#users :checked').each(function() {
                 warningList.push($(this).val());
             });
+            consol.log("click: selected= " +selected + "dest = " + dest);
             socket.emit('broadcast', selected, warningList);
     });
     });
@@ -160,7 +161,7 @@
     function setDest(evt, val){
          var i, tabcontent, tablinks;
          this.dest = val;
-         this.selected = val;
+         selected = val;
          console.log("Tab id= " + val);
          console.log("selected= " + selected);
          tabcontent = document.getElementsByClassName("tabcontent");
