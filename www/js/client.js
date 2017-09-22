@@ -1,9 +1,15 @@
     var initX = 0;
     var initY = 0;
-    var canvas = document.getElementById('list');
-    var positionInfo = canvas.getBoundingClientRect();
-    var canvasHeight = positionInfo.height;
-    var canvasWidth = positionInfo.width;
+    var canvas;
+    var positionInfo = 0;
+    var canvasHeight = 0;
+    var canvasWidth = 0;
+    $(document).ready(function() { /* code here */ 
+        canvas = document.getElementById('list');
+        positionInfo = canvas.getBoundingClientRect();
+        canvasHeight = positionInfo.height;
+        canvasWidth = positionInfo.width;
+    });
 alert("canvasHeight: " + canvasHeight + " -- canvasWidth: " + canvasWidth);
         socket.on('game loop', function(){
             if(gname != "Instructor") {
