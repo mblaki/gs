@@ -52,19 +52,15 @@
       cy +=10;
         if(initY >canvasHeight){
             initY = 0;
-            cy = 0
         }
         if (initX > canvasWidth){
             initX= 0;
-            cx = 0;
         }
         if(initY < -1){
             initY = canvasHeight;
-            cy = canvasHeight
         }
         if (initX < -1){
             initX= canvasWidth;
-            cx =canvasWidth;
         }
         if(cy >canvasHeight){
             cy = 0;
@@ -86,19 +82,15 @@
        cx -= 10;
         if(initY >canvasHeight){
             initY = 0;
-            cy = 0
         }
         if (initX > canvasWidth){
             initX= 0;
-            cx = 0;
         }
         if(initY < -1){
             initY = canvasHeight;
-            cy = canvasHeight
         }
         if (initX < -1){
             initX= canvasWidth;
-            cx =canvasWidth;
         }
         if(cy >canvasHeight){
             cy = 0;
@@ -112,7 +104,7 @@
         if (cx < -1){
             cx= cy;
         }
-        detectCollision(cx,initY);
+        detectCollision(cx,cy);
         document.getElementById('map').style.backgroundPositionX = initX + "px";
     }
     else if(e.keyCode == 39) {//right
@@ -120,19 +112,15 @@
       cx += 10;
         if(initY >canvasHeight){
             initY = 0;
-            cy = 0
         }
         if (initX > canvasWidth){
             initX= 0;
-            cx = 0;
         }
         if(initY < -1){
             initY = canvasHeight;
-            cy = canvasHeight
         }
         if (initX < -1){
             initX= canvasWidth;
-            cx =canvasWidth;
         }
         if(cy >canvasHeight){
             cy = 0;
