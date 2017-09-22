@@ -53,7 +53,7 @@
             socket.emit('instructor join');
             $("#users").width("20vw");
             $("#users").css("float","left");
-            $("#map").width("5vw");
+            $("#map").width("55vw");
             $("#map").css("float","left");
             $("#chat").width("25vw");
             $("#chat").css("float","right");

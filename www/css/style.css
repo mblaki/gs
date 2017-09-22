@@ -39,13 +39,12 @@
         background: #26734d;
         margin:auto;
         height: 100vh;
-        overflow:auto;
         padding-top:10px;
         min-width: 165px;
+        overflow-x: hidden;
     }
     #map{
         background-image: url(../img/mercator.jpg);
-        background-position: 1734px 1005px;
         height: 100vh;
         display:block;
         min-width:75px;
