@@ -1,6 +1,7 @@
     var initX = 0;
     var initY = 0;
-
+    var xc = 0;
+    var cy = 0;
     var canvasHeight = 2010; // change this to change map image
     var canvasWidth = 3468; // change this to change map image
 
@@ -8,6 +9,7 @@
     socket.on('game loop', function(){
         if(gname != "Instructor") {
             initY += 10;
+            cy -= 10;
             document.getElementById('map').style.backgroundPositionY = initY + "px";
         }
     });
@@ -16,70 +18,90 @@
     if(e.keyCode == 38) {//up
         
       initY += 10;
+      cy -= 10;
         if(initY >canvasHeight){
             initY = 0;
+            cy = 0
         }
         if (initX > canvasWidth){
             initX= 0;
+            cx = 0;
         }
         if(initY < -1){
             initY = canvasHeight;
+            cy = canvasHeight
         }
         if (initX < -1){
             initX= canvasWidth;
+            cx =canvasWidth;
         }
-        detectCollision(initX,initY);
+        
+        detectCollision(cx,cy);
         document.getElementById('map').style.backgroundPositionY = initY + "px";
     }
     else if(e.keyCode == 40) {//down
       initY -= 10;
-        if(initY > canvasHeight){
+      cy +=10;
+        if(initY >canvasHeight){
             initY = 0;
+            cy = 0
         }
         if (initX > canvasWidth){
             initX= 0;
+            cx = 0;
         }
         if(initY < -1){
             initY = canvasHeight;
+            cy = canvasHeight
         }
         if (initX < -1){
             initX= canvasWidth;
+            cx =canvasWidth;
         }
-        detectCollision(initX,initY);
+        detectCollision(cx,cy);
       document.getElementById('map').style.backgroundPositionY = initY + "px";
     }
     else if(e.keyCode == 37) {//left
       initX += 10;
-        if(initY > canvasHeight){
+       cx -= 10;
+        if(initY >canvasHeight){
             initY = 0;
+            cy = 0
         }
         if (initX > canvasWidth){
             initX= 0;
+            cx = 0;
         }
         if(initY < -1){
             initY = canvasHeight;
+            cy = canvasHeight
         }
         if (initX < -1){
             initX= canvasWidth;
+            cx =canvasWidth;
         }
-        detectCollision(initX,initY);
+        detectCollision(cx,cy);
         document.getElementById('map').style.backgroundPositionX = initX + "px";
     }
     else if(e.keyCode == 39) {//right
       initX -= 10;
-        if(initY > canvasHeight){
+        if(initY >canvasHeight){
             initY = 0;
+            cy = 0
         }
         if (initX > canvasWidth){
             initX= 0;
+            cx = 0;
         }
         if(initY < -1){
             initY = canvasHeight;
+            cy = canvasHeight
         }
         if (initX < -1){
             initX= canvasWidth;
+            cx =canvasWidth;
         }
-        detectCollision(initX,initY);
+        detectCollision(cx,cy);
         document.getElementById('map').style.backgroundPositionX = initX + "px";
     }
 });
