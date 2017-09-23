@@ -24,7 +24,7 @@
     ctx.lineWidth = 100;
     ctx.strokeStyle = '#ffff00';
     ctx.stroke();
-      initY += bg_increment=5.5;
+      initY += bg_increment;
       cy -= 10;
         if(initY >canvasHeight){
             initY = 0;
@@ -60,7 +60,7 @@
         document.getElementById('map').style.backgroundPositionY = initY+ "px";
     }
     else if(e.keyCode == 40) {//down
-      initY -= bg_increment=5.5;
+      initY -= bg_increment;
       cy +=10;
                 if(initY >canvasHeight){
             initY = 0;
@@ -83,7 +83,7 @@
       document.getElementById('map').style.backgroundPositionY = initY+ "px";
     }
     else if(e.keyCode == 37) {//left
-      initX += bg_increment=5.5;
+      initX += bg_increment;
        cx -= 10;
         if(initY >canvasHeight){
             initY = 0;
@@ -106,7 +106,7 @@
         document.getElementById('map').style.backgroundPositionX = initX + "px";
     }
     else if(e.keyCode == 39) {//right
-      initX -= bg_increment=5.5;
+      initX -= bg_increment;
       cx += 10;
                 if(initY >canvasHeight){
             initY = 0;
