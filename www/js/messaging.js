@@ -55,14 +55,14 @@
             $("#users").css("float","left");
             $("#map").width("55vw");
             $("#map").css("float","left");
-            $("#chat").width("25vw");
+            $("#chat").width("25%");
             $("#chat").css("float","right");
         } else {
             socket.emit('user join', gname);
             $("#users").hide();
             $("#map").width("75vw");
             $("#map").css("float","left");
-            $("#chat").width("25vw");
+            $("#chat").width("25%");
             $("#chat").css("float","right");
           //  $(".toggle").css("display","none");
         }
