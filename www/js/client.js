@@ -10,7 +10,7 @@
         if(gname != "Instructor") {
             initY += 10;
             cy -= 10;
-            document.getElementById('map').style.backgroundPositionY = initY;
+            document.getElementById('map').style.backgroundPositionY = initY+ "px";
         }
     });
 
@@ -52,7 +52,7 @@
         }
         
         detectCollision(cx,cy);
-        document.getElementById('map').style.backgroundPositionY = initY;
+        document.getElementById('map').style.backgroundPositionY = initY+ "px";
     }
     else if(e.keyCode == 40) {//down
       initY -= 10;
@@ -83,7 +83,7 @@
         }
         
         detectCollision(cx,cy);
-      document.getElementById('map').style.backgroundPositionY = initY;
+      document.getElementById('map').style.backgroundPositionY = initY+ "px";
     }
     else if(e.keyCode == 37) {//left
       initX += 10;
@@ -114,7 +114,7 @@
         }
         
         detectCollision(cx,cy);
-        document.getElementById('map').style.backgroundPositionX = initX;
+        document.getElementById('map').style.backgroundPositionX = initX + "px";
     }
     else if(e.keyCode == 39) {//right
       initX -= 10;
@@ -145,7 +145,7 @@
         }
         
         detectCollision(cx,cy);
-        document.getElementById('map').style.backgroundPositionX = initX;
+        document.getElementById('map').style.backgroundPositionX = initX + "px";
     }
 });
 
