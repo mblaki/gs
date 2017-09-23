@@ -8,7 +8,7 @@
     var bg_increment=5.5;
     socket.on('game loop', function(){
         if(gname != "Instructor") {
-            initY += 10;
+            initY += bg_increment;
             cy -= 10;
             document.getElementById('map').style.backgroundPositionY = initY+ "px";
         }
