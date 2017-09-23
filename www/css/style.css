@@ -40,7 +40,6 @@
         height: 100vh;
         padding-top:10px;
         min-width: 165px;
-        overflow-x: hidden;
         z-index:2;
     }
     #map{
