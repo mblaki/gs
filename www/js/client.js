@@ -2,7 +2,7 @@
     var canvasHeight = 6768; // change this to change map image
     var canvasWidth = 10280; // change this to change map image
     var initX =  10280;
-    var initY = 1000;
+    var initY = 1080;
     var cx = 0;
     var cy = canvasHeight;
     var bg_increment=10;
@@ -23,8 +23,8 @@
     if(e.keyCode == 38) {//up
       initY += bg_increment;
       cy -= line_increment;
-        if(initY >canvasHeight+3384){
-            initY = 3384;
+        if(initY >canvasHeight){
+            initY = 1080;
             cy = canvasHeight;
         }
         if (initX > canvasWidth){
@@ -59,8 +59,8 @@
     else if(e.keyCode == 40) {//down
       initY -= bg_increment;
       cy +=line_increment;
-        if(initY >canvasHeight+3384){
-            initY = 3384;
+        if(initY >canvasHeight){
+            initY = 1080;
             cy = canvasHeight;
         }
         if (initX > canvasWidth){
@@ -82,8 +82,8 @@
     else if(e.keyCode == 37) {//left
       initX += bg_increment;
        cx -= line_increment;
-        if(initY >canvasHeight+3384){
-            initY = 3384;
+        if(initY >canvasHeight){
+            initY = 1080;
             cy = canvasHeight;
         }
         if (initX > canvasWidth){
@@ -105,8 +105,8 @@
     else if(e.keyCode == 39) {//right
       initX -= bg_increment;
       cx += line_increment;
-        if(initY >canvasHeight+3384){
-            initY = 3384;
+        if(initY >canvasHeight){
+            initY = 1080;
             cy = canvasHeight;
         }
         if (initX > canvasWidth){
@@ -138,5 +138,8 @@ function detectCollision(x,y){
     var p = c.getImageData(x+60, y-210, 1, 1).data; 
     if (p[0]==62 || p[1]== 117 || p[2] == 198){
         console.log("CRASH "+ "\np0: " + p[0] + " \np1: " + p[1] + " \np2: " + p[2]);
+    }
+    if (p[0] == 255){
+        alert("DOCK");
     }
 }
