@@ -52,7 +52,6 @@
         }
         
         detectCollision(cx,cy);
-        console.log("Y " + initY);
         document.getElementById('map').style.backgroundPositionY = initY;
     }
     else if(e.keyCode == 40) {//down
@@ -84,7 +83,6 @@
         }
         
         detectCollision(cx,cy);
-        console.log("Y " + initY);
       document.getElementById('map').style.backgroundPositionY = initY;
     }
     else if(e.keyCode == 37) {//left
