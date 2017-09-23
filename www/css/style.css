@@ -43,7 +43,7 @@
         z-index:2;
     }
     #map{
-        background-image: url(../img/mercator.jpg);
+        background-image: url(../img/big.png);
         background-attachment: fixed;
         height: 100vh;
         display:block;

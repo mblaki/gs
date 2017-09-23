@@ -7,8 +7,8 @@
     var warningList = [];
     var myWarningList = [];
     var selected = "all";
-    var canvasHeight = 2010; // change this to change map image
-    var canvasWidth = 3468; // chage this to chage map image
+    var canvasHeight = 6768; // change this to change map image
+    var canvasWidth = 10280; // change this to change map image
     function changeMap(p){
         if (p == 0) {
             $("#map").css("display","block");
@@ -142,7 +142,7 @@
                 To change map chang ethis path!
                 
                 */
-                img.src = "../img/mercator.jpg"; 
+                img.src = "../img/big.png"; 
               // console.log("w:"+img.width +"\nh " + img.height);
             }
         });
