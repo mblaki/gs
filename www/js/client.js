@@ -134,8 +134,8 @@ function detectCollision(x,y){
     var l=document.getElementById("list");
     var ctx=l.getContext("2d");
     ctx.beginPath();
-    ctx.moveTo(x-10,y-10);
-    ctx.lineTo(x,y);
+    ctx.moveTo(x-60,y-210);
+    ctx.lineTo(x-50,y-200);
     ctx.lineWidth = 10;
     ctx.strokeStyle = '#ff0000';
     ctx.stroke();
