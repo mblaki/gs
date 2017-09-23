@@ -1,7 +1,7 @@
 
     var canvasHeight = 2010; // change this to change map image
     var canvasWidth = 3468; // change this to change map image
-    var initX =  0;
+    var initX =  3468;
     var initY = 0;
     var cx = 0;
     var cy = canvasHeight;
