@@ -59,7 +59,7 @@
             $("#chat").css("float","right");
         } else {
             socket.emit('user join', gname);
-            $("#users").hide();
+            $("#users").css("display", "none");
             $("#map").width("75%");
             $("#map").css("float","left");
             $("#chat").width("25%");
