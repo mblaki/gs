@@ -4,7 +4,7 @@
     var initX =  0;
     var initY = 0;
     var cx = 0;
-    var cy = 0;
+    var cy = 1105.5;
    
     socket.on('game loop', function(){
         if(gname != "Instructor") {
