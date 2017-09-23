@@ -51,16 +51,16 @@
         $("#prompt").hide();
         if (gname == "Instructor"){
             socket.emit('instructor join');
-            $("#users").width("20vw");
+            $("#users").width("20%");
             $("#users").css("float","left");
-            $("#map").width("55vw");
+            $("#map").width("55%");
             $("#map").css("float","left");
             $("#chat").width("25%");
             $("#chat").css("float","right");
         } else {
             socket.emit('user join', gname);
             $("#users").hide();
-            $("#map").width("75vw");
+            $("#map").width("75%");
             $("#map").css("float","left");
             $("#chat").width("25%");
             $("#chat").css("float","right");
