@@ -59,7 +59,7 @@
     else if(e.keyCode == 40) {//down
       initY -= bg_increment;
       cy +=line_increment;
-                if(initY >canvasHeight){
+        if(initY >canvasHeight+1005){
             initY = 1005;
             cy = canvasHeight;
         }
@@ -82,7 +82,7 @@
     else if(e.keyCode == 37) {//left
       initX += bg_increment;
        cx -= line_increment;
-        if(initY >canvasHeight){
+        if(initY >canvasHeight+1005){
             initY = 1005;
             cy = canvasHeight;
         }
@@ -105,7 +105,7 @@
     else if(e.keyCode == 39) {//right
       initX -= bg_increment;
       cx += line_increment;
-        if(initY >canvasHeight){
+        if(initY >canvasHeight+1005){
             initY = 1005;
             cy = canvasHeight;
         }
