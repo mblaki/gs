@@ -129,14 +129,14 @@
 function detectCollision(x,y){
     
     //ctx.moveTo(x-60,y-210);
-    ctx.lineTo(x-50,y-200);
+    ctx.lineTo(x+50,y-200);
     ctx.lineWidth = 10;
     ctx.strokeStyle = "rgb(0, 0, 222)";
     ctx.stroke();
     var e=document.getElementById("list");
     var c = e.getContext('2d');
-    var p = c.getImageData(x-50, y-200, 1, 1).data; 
-    if (p[2] < 200 && p[2] != 0 && p[0] != 255){
+    var p = c.getImageData(x+55, y-205, 1, 1).data; 
+    if (p[2] < 200 && p[2] != 0){
         console.log("CRASH "+ "\np0: " + p[0] + " \np1: " + p[1] + " \np2: " + p[2]);
     }
 }
