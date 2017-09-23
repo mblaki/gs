@@ -163,5 +163,6 @@ function detectCollision(x,y){
     var p = c.getImageData(x-50, y-50, 1, 1).data; 
     if (p[2] < 200 && p[2] != 0){
         console.log("CRASH "+ "\np0: " + p[0] + " \np1: " + p[1] + " \np2: " + p[2]);
+        alert("CRASH");
     }
 }
