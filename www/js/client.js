@@ -5,7 +5,7 @@
     var initY = 0;
     var cx = 0;
     var cy = canvasHeight;
-   
+    var bg_increment=5.5;
     socket.on('game loop', function(){
         if(gname != "Instructor") {
             initY += 10;
@@ -24,7 +24,7 @@
     ctx.lineWidth = 100;
     ctx.strokeStyle = '#ffff00';
     ctx.stroke();
-      initY += 10;
+      initY += var bg_increment=5.5;
       cy -= 10;
         if(initY >canvasHeight){
             initY = 0;
@@ -60,7 +60,7 @@
         document.getElementById('map').style.backgroundPositionY = initY+ "px";
     }
     else if(e.keyCode == 40) {//down
-      initY -= 10;
+      initY -= var bg_increment=5.5;
       cy +=10;
                 if(initY >canvasHeight){
             initY = 0;
@@ -83,7 +83,7 @@
       document.getElementById('map').style.backgroundPositionY = initY+ "px";
     }
     else if(e.keyCode == 37) {//left
-      initX += 10;
+      initX += var bg_increment=5.5;
        cx -= 10;
         if(initY >canvasHeight){
             initY = 0;
@@ -106,7 +106,7 @@
         document.getElementById('map').style.backgroundPositionX = initX + "px";
     }
     else if(e.keyCode == 39) {//right
-      initX -= 10;
+      initX -= var bg_increment=5.5;
       cx += 10;
                 if(initY >canvasHeight){
             initY = 0;
@@ -124,7 +124,6 @@
             initX = canvasWidth;
             cx = 0;
         }
-        
         detectCollision(cx,cy);
         document.getElementById('map').style.backgroundPositionX = initX + "px";
     }
