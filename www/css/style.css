@@ -37,11 +37,11 @@
     }
     #chat{
         background: #26734d;
-        margin:auto;
         height: 100vh;
         padding-top:10px;
         min-width: 165px;
         overflow-x: hidden;
+        z-index:2;
     }
     #map{
         background-image: url(../img/mercator.jpg);
