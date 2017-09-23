@@ -2,7 +2,7 @@
     var canvasHeight = 6768; // change this to change map image
     var canvasWidth = 10280; // change this to change map image
     var initX =  10280;
-    var initY = 0;
+    var initY = 3384;
     var cx = 0;
     var cy = canvasHeight;
     var bg_increment=10;
@@ -136,7 +136,7 @@ function detectCollision(x,y){
     var e=document.getElementById("list");
     var c = e.getContext('2d');
     var p = c.getImageData(x+60, y-210, 1, 1).data; 
-    if (p[2] < 200 && p[2] != 0){
+    if (p[0]==62 || p[1]== 117 || p[2] == 198){
         console.log("CRASH "+ "\np0: " + p[0] + " \np1: " + p[1] + " \np2: " + p[2]);
     }
 }
