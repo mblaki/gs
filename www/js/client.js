@@ -6,10 +6,11 @@
     var cx = 0;
     var cy = canvasHeight;
     var bg_increment=10;
+    var line_increment = 5.5;
     socket.on('game loop', function(){
         if(gname != "Instructor") {
             initY += bg_increment;
-            cy -= 10;
+            cy -= line_increment;
             document.getElementById('map').style.backgroundPositionY = initY+ "px";
         }
     });
@@ -25,7 +26,7 @@
     ctx.strokeStyle = '#ffff00';
     ctx.stroke();
       initY += bg_increment;
-      cy -= 10;
+      cy -= line_increment;
         if(initY >canvasHeight){
             initY = 0;
             cy = canvasHeight;
@@ -61,7 +62,7 @@
     }
     else if(e.keyCode == 40) {//down
       initY -= bg_increment;
-      cy +=10;
+      cy +=line_increment;
                 if(initY >canvasHeight){
             initY = 0;
             cy = canvasHeight;
@@ -84,7 +85,7 @@
     }
     else if(e.keyCode == 37) {//left
       initX += bg_increment;
-       cx -= 10;
+       cx -= line_increment;
         if(initY >canvasHeight){
             initY = 0;
             cy = canvasHeight;
@@ -107,7 +108,7 @@
     }
     else if(e.keyCode == 39) {//right
       initX -= bg_increment;
-      cx += 10;
+      cx += line_increment;
                 if(initY >canvasHeight){
             initY = 0;
             cy = canvasHeight;
