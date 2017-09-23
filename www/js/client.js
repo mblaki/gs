@@ -5,7 +5,7 @@
     var initY = 0;
     var cx = 0;
     var cy = canvasHeight;
-    var bg_increment=5.5;
+    var bg_increment=10;
     socket.on('game loop', function(){
         if(gname != "Instructor") {
             initY += bg_increment;

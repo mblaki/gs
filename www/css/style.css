@@ -44,6 +44,7 @@
     }
     #map{
         background-image: url(../img/mercator.jpg);
+        background-attachment: fixed;
         background-position: absolute;
         height: 100vh;
         display:block;
