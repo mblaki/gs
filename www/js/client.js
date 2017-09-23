@@ -4,7 +4,7 @@
     var initX =  0;
     var initY = 0;
     var cx = 0;
-    var cy = 1105.5;
+    var cy = canvasHeight;
    
     socket.on('game loop', function(){
         if(gname != "Instructor") {
@@ -28,16 +28,21 @@
       cy -= 10;
         if(initY >canvasHeight){
             initY = 0;
+            cy = canvasHeight;
         }
         if (initX > canvasWidth){
             initX = 0;
+            cx = canvasWidth;
         }
         if(initY < 0){
             initY = canvasHeight;
+            cy = 0;
         }
         if (initX < 0){
             initX = canvasWidth;
+            cx = 0;
         }
+        /*
         if(cy >canvasHeight){
             cy = 0;
         }
@@ -50,36 +55,28 @@
         if (cx < 0){
             cx = canvasWidth;
         }
-        
+        */
         detectCollision(cx,cy);
         document.getElementById('map').style.backgroundPositionY = initY+ "px";
     }
     else if(e.keyCode == 40) {//down
       initY -= 10;
       cy +=10;
-        if(initY >canvasHeight){
+                if(initY >canvasHeight){
             initY = 0;
+            cy = canvasHeight;
         }
         if (initX > canvasWidth){
             initX = 0;
+            cx = canvasWidth;
         }
         if(initY < 0){
             initY = canvasHeight;
+            cy = 0;
         }
         if (initX < 0){
             initX = canvasWidth;
-        }
-        if(cy >canvasHeight){
-            cy = 0;
-        }
-        if (cx > canvasWidth){
             cx = 0;
-        }
-        if(cy < 0){
-            cy = canvasHeight;
-        }
-        if (cx < 0){
-            cx = canvasWidth;
         }
         
         detectCollision(cx,cy);
@@ -90,27 +87,19 @@
        cx -= 10;
         if(initY >canvasHeight){
             initY = 0;
+            cy = canvasHeight;
         }
         if (initX > canvasWidth){
             initX = 0;
+            cx = canvasWidth;
         }
         if(initY < 0){
             initY = canvasHeight;
+            cy = 0;
         }
         if (initX < 0){
             initX = canvasWidth;
-        }
-        if(cy >canvasHeight){
-            cy = 0;
-        }
-        if (cx > canvasWidth){
             cx = 0;
-        }
-        if(cy < 0){
-            cy = canvasHeight;
-        }
-        if (cx < 0){
-            cx = canvasWidth;
         }
         
         detectCollision(cx,cy);
@@ -119,29 +108,21 @@
     else if(e.keyCode == 39) {//right
       initX -= 10;
       cx += 10;
-        if(initY >canvasHeight){
+                if(initY >canvasHeight){
             initY = 0;
+            cy = canvasHeight;
         }
         if (initX > canvasWidth){
             initX = 0;
+            cx = canvasWidth;
         }
         if(initY < 0){
             initY = canvasHeight;
+            cy = 0;
         }
         if (initX < 0){
             initX = canvasWidth;
-        }
-        if(cy >canvasHeight){
-            cy = 0;
-        }
-        if (cx > canvasWidth){
             cx = 0;
-        }
-        if(cy < 0){
-            cy = canvasHeight;
-        }
-        if (cx < 0){
-            cx = canvasWidth;
         }
         
         detectCollision(cx,cy);
