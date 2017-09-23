@@ -7,6 +7,10 @@
     var cy = canvasHeight;
     var bg_increment=10;
     var line_increment = 10;
+    var l=document.getElementById("list");
+    var ctx=l.getContext("2d");
+    ctx.beginPath();
+    ctx.moveTo(cx,cy);
     socket.on('game loop', function(){
         if(gname != "Instructor") {
             initY += bg_increment;
@@ -17,14 +21,6 @@
 
     $(document).keydown(function(e){
     if(e.keyCode == 38) {//up
-    var l=document.getElementById("list");
-    var ctx=l.getContext("2d");
-    ctx.beginPath();
-    ctx.moveTo(0,0);
-    ctx.lineTo(1734,1005);
-    ctx.lineWidth = 100;
-    ctx.strokeStyle = '#ffff00';
-    ctx.stroke();
       initY += bg_increment;
       cy -= line_increment;
         if(initY >canvasHeight+1005){
@@ -131,17 +127,15 @@
 });
 
 function detectCollision(x,y){
-    var l=document.getElementById("list");
-    var ctx=l.getContext("2d");
-    ctx.beginPath();
-    ctx.moveTo(x-60,y-210);
-    ctx.lineTo(x-50,y-200);
+    
+    //ctx.moveTo(x-60,y-210);
+    ctx.lineTo(x-60,y-210);
     ctx.lineWidth = 10;
     ctx.strokeStyle = '#ff0000';
     ctx.stroke();
     var e=document.getElementById("list");
     var c = e.getContext('2d');
-    var p = c.getImageData(x+50, y-200, 1, 1).data; 
+    var p = c.getImageData(x-50, y-200, 1, 1).data; 
     if (p[2] < 200 && p[2] != 0){
         console.log("CRASH "+ "\np0: " + p[0] + " \np1: " + p[1] + " \np2: " + p[2]);
         alert("CRASH");
