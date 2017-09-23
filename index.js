@@ -3,7 +3,7 @@
 //var io = require('socket.io')(http);
 var express = require('express');
 var app = express();
-var port = process.env.PORT || 8021;
+var port = process.env.PORT || 8022;
 
 //client["Instructor"] is the webpage for the Instructor, all other clients are Players
 var clients=[];
@@ -11,7 +11,7 @@ var clients=[];
   //  res.sendFile(__dirname + '/www/index.html');
 //});
 app.use(express.static(__dirname + '/www'));
-var server = app.listen(process.env.PORT || 8021, function () {
+var server = app.listen(process.env.PORT || 8022, function () {
 	var port = server.address().port;
 	console.log('Server running at port %s', port);
 });
