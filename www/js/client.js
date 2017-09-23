@@ -2,7 +2,7 @@
     var canvasHeight = 6768; // change this to change map image
     var canvasWidth = 10280; // change this to change map image
     var initX =  10280;
-    var initY = 0;
+    var initY = 6768;
     var cx = 0;
     var cy = canvasHeight;
     var bg_increment=10;
