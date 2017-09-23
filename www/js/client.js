@@ -27,7 +27,7 @@
     ctx.stroke();
       initY += bg_increment;
       cy -= line_increment;
-        if(initY >canvasHeight){
+        if(initY >canvasHeight+1005){
             initY = 1005;
             cy = canvasHeight;
         }
