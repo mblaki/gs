@@ -54,8 +54,8 @@
         height: 200px;
         margin: auto;
         position: absolute;
-        bottom:0;
-        left:0;
+        bottom:100px;
+        left:50px;
         z-index: 10;
     }
 #controls{
@@ -63,7 +63,7 @@
         height: 100px;
         position: absolute;
         bottom:0;
-        right:30%;
+        left:0;
         z-index: 10;
 }
 .c_but{
@@ -178,7 +178,7 @@
         z-index: 200;
     }
 #smallmap{
-    visibility: hidden;
+    display:none;
 }
     #t {
         z-index: 2;

@@ -56,7 +56,7 @@
         angle += 4.5;
         if (increment < -10) {
             increment = -10;
-            angle = 45;
+            angle = -45;
         }
         $("#avatar").rotate(angle);
     });
