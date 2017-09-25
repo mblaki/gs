@@ -20,7 +20,7 @@ if (gname != "Instructor"){
 } else {
     var can_list = document.getElementsByTagName("canvas");
     for (var i = 0; i< can_list.length; i++){
-        var ctx_l[i]=can_list[i].getContext("2d");
+        ctx_l[i]=can_list[i].getContext("2d");
         ctx_l[i].beginPath();
         ctx_l[i].moveTo(cx+offset+50,cy-400);
     }
