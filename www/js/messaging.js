@@ -13,13 +13,13 @@
         if (p == 0) {
             $("#map").css("display","block");
             $("#list").css("display","none");
-            $("#bigmap").css("display","none");
-            $("#smallmap").css("display","block");
+            $("#bigmap").css("display","block");
+            $("#smallmap").css("display","none");
         } else {
             $("#map").css("display","none");
             $("#list").css("display","block");
-            $("#smallmap").css("display","none");
-            $("#bigmap").css("display","block");
+            $("#smallmap").css("display","block");
+            $("#bigmap").css("display","none");
         }
     }
         

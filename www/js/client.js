@@ -7,6 +7,7 @@
     var cy = canvasHeight;
     var increment=0;
     var line_increment = 0;
+    var angle = 0;
     var l=document.getElementById("list");
     var ctx=l.getContext("2d");
     ctx.beginPath();
@@ -14,8 +15,8 @@
 
     socket.on('game loop', function(iX, iY){
         if(gname != "Instructor") {
-            initY += iY-increment;
-            cy -= iY-increment;
+            initY += iY+increment;
+            cy -= iY+increment;
             initX += increment;
             cx -= increment;
             document.getElementById('map').style.backgroundPositionY = initY+ "px";
@@ -42,17 +43,22 @@
 
     $("#l_but").click(function(){
         increment +=2;
+        angle-=4.5;
         if (increment > 10) {
             increment = 10;
+            angle = 45;
         }
-        console.log("screen height n width: " + screen.height + ", " + screen.width + " or " + window.screen.availHeight);
+        $("#avatar").rotate(angle);
     });
 
     $("#r_but").click(function(){
         increment -=2;
+        angle += 4.5;
         if (increment < -10) {
             increment = -10;
+            angle = 45;
         }
+        $("#avatar").rotate(angle);
     });
 
     $(document).keydown(function(e){
@@ -174,8 +180,5 @@ function detectCollision(x,y){
     var p = c.getImageData(x+60, y-210, 1, 1).data; 
     if (p[0]==62 || p[1]== 117 || p[2] == 198){
         console.log("CRASH "+ "\np0: " + p[0] + " \np1: " + p[1] + " \np2: " + p[2]);
-    }
-    if (p[0] == 255){
-        alert("DOCK");
     }
 }
