@@ -64,7 +64,7 @@
     if(e.keyCode == 38) {//up
       initY += 10+increment;
       cy -= 10+increment;
-        if(initY >canvasHeight+screen.height{
+        if(initY >canvasHeight+screen.height){
             initY = screen.height;
             cy = canvasHeight;
         }
