@@ -31,7 +31,7 @@
             if(initY < 0){
                 alert("BOTTOM BORDER");
             }
-            if (initX < 0){
+            if (initX+canvasWidth < 0){
                 alert("LEFT BORDER");
             }
             document.getElementById('map').style.backgroundPositionY = initY+ "px";
