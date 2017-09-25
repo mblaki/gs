@@ -62,10 +62,10 @@
 
     $(document).keydown(function(e){
     if(e.keyCode == 38) {//up
-      initY += bg_increment;
-      cy -= line_increment;
-        if(initY >canvasHeight+1080){
-            initY = 1080;
+      initY += 10+increment;
+      cy -= 10+increment;
+        if(initY >canvasHeight+screen.height{
+            initY = screen.height;
             cy = canvasHeight;
         }
         if (initX > canvasWidth){
@@ -170,13 +170,17 @@
 function detectCollision(x,y){
     
     //ctx.moveTo(x-60,y-210);
+    if (x!=0 || y != 0){
     ctx.lineTo(x+50+offset,y-300);
     ctx.lineWidth = 10;
     ctx.strokeStyle = "rgb(0, 0, 222)";
     ctx.stroke();
+    }
+  
     var e=document.getElementById("list");
     var c = e.getContext('2d');
-    var p = c.getImageData(x+offset, y-310, 1, 1).data; 
+    var p = c.getImageData(x+offset, y-310, 1, 1).data;
+    console.log("\np0: " + p[0] + " \np1: " + p[1] + " \np2: " + p[2]);
     if (p[0]==62 || p[1]== 117 || p[2] == 198){
         console.log("CRASH "+ "\np0: " + p[0] + " \np1: " + p[1] + " \np2: " + p[2]);
     }
