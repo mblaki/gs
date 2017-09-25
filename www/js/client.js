@@ -20,8 +20,7 @@
             cy -= iY+increment;
             initX += increment;
             cx -= increment;
-            document.getElementById('map').style.backgroundPositionY = initY+ "px";
-            document.getElementById('map').style.backgroundPositionX = initX+ "px";
+            
             if(initY >canvasHeight+screen.height){
                 initY = screen.height
                 cy = canvasHeight;
@@ -38,6 +37,8 @@
                 initX = canvasWidth;
                 cx = 0;
             }
+            document.getElementById('map').style.backgroundPositionY = initY+ "px";
+            document.getElementById('map').style.backgroundPositionX = initX+ "px";
             detectCollision(cx,cy);
         }
     });
@@ -170,12 +171,11 @@
 function detectCollision(x,y){
     
     //ctx.moveTo(x-60,y-210);
-    if (x!=0 || y != 0){
+
     ctx.lineTo(x+offset,y-300);
     ctx.lineWidth = 10;
     ctx.strokeStyle = "rgb(0, 0, 222)";
     ctx.stroke();
-    }
   
     var e=document.getElementById("list");
     var c = e.getContext('2d');
