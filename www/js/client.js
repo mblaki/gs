@@ -23,20 +23,16 @@
             cx -= increment;
             
             if(initY >canvasHeight+screen.height){
-                initY = screen.height
-                cy = canvasHeight;
+                alert("TOP BORDER");
             }
             if (initX > canvasWidth){
-                initX = 0;
-                cx = canvasWidth;
+                alert("RIGHT BORDER");
             }
             if(initY < 0){
-                initY = canvasHeigh;
-                cy = 0;
+                alert("BOTTOM BORDER");
             }
             if (initX < 0){
-                initX = canvasWidth;
-                cx = 0;
+                alert("LEFT BORDER");
             }
             document.getElementById('map').style.backgroundPositionY = initY+ "px";
             document.getElementById('map').style.backgroundPositionX = initX+ "px";
@@ -180,7 +176,7 @@ function detectCollision(x,y){
   
     var e=document.getElementById("list");
     var c = e.getContext('2d');
-    var p = c.getImageData(x+offset, y-300, 1, 1).data;
+    var p = c.getImageData(x+offset+50, y-300, 1, 1).data;
     console.log("\np0: " + p[0] + " \np1: " + p[1] + " \np2: " + p[2]);
     if (p[0]==62 || p[1]== 117 || p[2] == 198){
         console.log("CRASH "+ "\np0: " + p[0] + " \np1: " + p[1] + " \np2: " + p[2]);
