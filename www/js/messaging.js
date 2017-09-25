@@ -96,7 +96,9 @@
                 console.log("user join clientList " + c_index + " = " + lname);
                 $("#" + c_index).append('<h3 style="clear:both;">'+ lname +'</h3>');
                 $('#10').append('<button class="tablinks" type = "button" value="'+lname+'"onclick="setDest(event,this.value)">'+lname+'</button>');
-                var new_can = document.createElement("canvas");;
+                var new_can = document.createElement("canvas");
+               // new_can.setAttribute("width","100vw");
+              //  new_can.setAttribute("height","100vh");
                 new_can.setAttribute("display","none");
                 new_can.setAttribute("z-index","100");
                 new_can.setAttribute("position","absolute");
@@ -108,36 +110,61 @@
                 img.onload = function(){
                     // create a hidden canvas, exactly the size of our small image
                   //  var hidden_canvas = document.createElement("canvas");
-                   new_can.width = canvasWidth;
+                   // var hidden_canvas = document.getElementById("list")
+                    new_can.width = canvasWidth;
                     new_can.height = canvasHeight;
                     var hidden_context = new_can.getContext("2d");        
+
                     // draw the image on the hidden canvas
-                    hidden_context.drawImage(img, 0, 0);  
+                    hidden_context.drawImage(img, 0, 0);
                 };
                 /*
                 To change map chang ethis path!
                 */
-                img.src = "../img/big.png";
+                img.src = "../img/big.png"; 
+              // console.log("w:"+img.width +"\nh " + img.height);
+                /*
+                var element = document.createElement("div");
+                    element.setAttribute("id", lname);
+                    element.innerHTML = lname;
+                    element.onclick = function () {
+                        if ($.inArray(lname, selected) == -1){
+                            selected.push(lname);
+                            console.log(lname + " deselected");
+                            $(this).css("border-style", "solid");
+                            $(this).css("border-width", "2px");
+                            $(this).css("border-color", "white");
+                        } else {
+                            selected.splice($.inArray(lname, selected),1);
+                            console.log(lname + " deselected");
+                            $(this).css("border-style", "none");
+                        }
+                    }
+                    $("#users").append(element);
+                */
+                
                 c_index += 1;
             } else if (gname == lname && gname != "Instructor"){
                 $('#map').append($('<h1> '+lname + 's SCREEN </h1>'));
                 $('#buts').css("display","none");
                 $("#0").css("display","block");
                  var img = new Image();
-                img.onload = function(){
+                  img.onload = function(){
                     // create a hidden canvas, exactly the size of our small image
                   //  var hidden_canvas = document.createElement("canvas");
-                    var hidden_canvas = document.getElementById("large")
+                    var hidden_canvas = document.getElementById("list")
                     hidden_canvas.width = canvasWidth;
                     hidden_canvas.height = canvasHeight;
                     var hidden_context = hidden_canvas.getContext("2d");        
+
                     // draw the image on the hidden canvas
-                    hidden_context.drawImage(img, 0, 0);  
+                    hidden_context.drawImage(img, 0, 0);
                 };
                 /*
                 To change map chang ethis path!
                 */
                 img.src = "../img/big.png"; 
+              // console.log("w:"+img.width +"\nh " + img.height);
             }
         });
 
@@ -179,7 +206,7 @@
          can_content = document.getElementsByClassName("can_class");
          for (i = 0; i < tabcontent.length; i++) {
             tabcontent[i].style.display = "none";
-            can_content[i].style.display = "none";
+             can_content[i].style.display = "none";
          }
          tablinks = document.getElementsByClassName("tablinks");
          for (i = 0; i < tablinks.length; i++) {
