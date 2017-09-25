@@ -8,7 +8,8 @@
     var increment=0;
     var line_increment = 0;
     var angle = 0.0;
-    var offset = 3736 *0.55*0.5;
+    var offset = screen.width *0.55*0.5;
+    console.log("client: + " + screen.width *0.55*0.5)
     var l=document.getElementById("list");
     var ctx=l.getContext("2d");
     ctx.beginPath();
@@ -179,7 +180,7 @@ function detectCollision(x,y){
   
     var e=document.getElementById("list");
     var c = e.getContext('2d');
-    var p = c.getImageData(x+offset, y-310, 1, 1).data;
+    var p = c.getImageData(x+offset, y-300, 1, 1).data;
     console.log("\np0: " + p[0] + " \np1: " + p[1] + " \np2: " + p[2]);
     if (p[0]==62 || p[1]== 117 || p[2] == 198){
         console.log("CRASH "+ "\np0: " + p[0] + " \np1: " + p[1] + " \np2: " + p[2]);

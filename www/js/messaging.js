@@ -69,6 +69,7 @@
             $("#chat").css("float","right");
             $("#avatar").css("left", screen.width*0.55*0.5 +"px");
             $("#controls").css("left", screen.width*0.55*0.5 +"px");
+            console.log("messaging: " + screen.width*0.55*0.5);
         }
     });
 
