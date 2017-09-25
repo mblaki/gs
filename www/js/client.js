@@ -19,9 +19,6 @@
         if(gname != "Instructor") {
             initY += iY+increment;
             cy =cy - (iY+increment);
-            initX += increment;
-            cx = cx + increment;
-            
             if(cy >canvasHeight){
                 alert("TOP BORDER");
             }
@@ -44,6 +41,8 @@
         if (increment < 10) {
             increment +=2;
             angle-=4.5;
+            initX += increment;
+            cx = cx + increment;
             $("#avatar").rotate(angle);
         }
         
@@ -53,6 +52,8 @@
         if (increment > -10) {
             increment -=2;
             angle += 4.5;
+            initX += increment;
+            cx += increment;
             $("#avatar").rotate(angle);
         }
         
