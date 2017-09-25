@@ -9,12 +9,13 @@
     var line_increment = 0;
     var angle = 0.0;
     var offset = screen.width *0.55*0.5;
-    console.log("client: + " + screen.width *0.55*0.5);
-    var l=document.getElementById("list");
-    var ctx=l.getContext("2d");
-    ctx.beginPath();
-    ctx.moveTo(cx+offset+50,cy-400);
-
+    console.log("client: + " + screen.width *0.55*0.5)
+    $(document).ready( function () {
+        var l=document.getElementById("list");
+        var ctx = l.getContext("2d");
+        ctx.beginPath();
+        ctx.moveTo(cx+offset+50,cy-400);
+     });
     socket.on('game loop', function(iX, iY){
         if(gname != "Instructor") {
             initY += iY;
@@ -184,7 +185,7 @@ function detectCollision(x,y){
     var c = e.getContext('2d');
     var p = c.getImageData(x+offset+60, y-400, 1, 1).data;
     console.log("\np0: " + p[0] + " \np1: " + p[1] + " \np2: " + p[2]);
-    if (p[0]==24 || p[1]== 119 || p[2] == 192){
+    if (p[0]==64 || p[1]== 119 || p[2] == 198){
         console.log("CRASH "+ "\np0: " + p[0] + " \np1: " + p[1] + " \np2: " + p[2]);
     }
 }
