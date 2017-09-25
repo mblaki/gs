@@ -17,10 +17,10 @@
 
     socket.on('game loop', function(iX, iY){
         if(gname != "Instructor") {
-            initY += iY+increment;
-            cy =cy - (iY+increment);
+            initY += iY;
+            cy =cy - iY;
             initX += increment;
-            cx += increment;
+            cx -= increment;
             if(cy >canvasHeight){
                 alert("TOP BORDER");
             }
