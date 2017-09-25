@@ -41,8 +41,8 @@
         if (increment < 10) {
             increment +=2;
             angle-=4.5;
-            initX += increment;
-            cx = cx + increment;
+            initX += 2;
+            cx += 2;
             $("#avatar").rotate(angle);
         }
         
@@ -52,8 +52,8 @@
         if (increment > -10) {
             increment -=2;
             angle += 4.5;
-            initX += increment;
-            cx += increment;
+            initX += 2;
+            cx -= 2;
             $("#avatar").rotate(angle);
         }
         
