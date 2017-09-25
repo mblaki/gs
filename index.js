@@ -57,6 +57,10 @@ io.on('connection', function(socket){
                  console.log("the instructor has made a selected bcast: " + selected);
             }
         });
+        socket.on('update', function(iX, cx, iY, cy, cname){
+                clients["Instructor"].emit('paint', clients.indexOf(cname) , cx, cy);
+                 console.log("the is lokknig for coords " + selected);
+        });
 });
 function gameLoop(){
     io.emit("game loop", instrX, instrY);

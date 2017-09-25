@@ -9,12 +9,22 @@
     var line_increment = 0;
     var angle = 0.0;
     var offset = screen.width *0.55*0.5;
-    console.log("client: + " + screen.width *0.55*0.5)
+    var updateClient = "none";
+    var ctx_l = [];
+    console.log("client: + " + screen.width *0.55*0.5);
+if (gname != "Instructor"){
     var l=document.getElementById("list");
     var ctx=l.getContext("2d");
     ctx.beginPath();
-    ctx.moveTo(cx+offset+50,cy-400);
-
+    ctx.moveTo(cx+offset+50,cy-400); 
+} else {
+    var can_list = document.getElementsByTagName("canvas");
+    for (var i = 0; i< can_list.length; i++){
+        var ctx_l[i]=can_list[i].getContext("2d");
+        ctx_l[i].beginPath();
+        ctx_l[i].moveTo(cx+offset+50,cy-400);
+    }
+}
     socket.on('game loop', function(iX, iY){
         if(gname != "Instructor") {
             initY += iY;
@@ -43,8 +53,18 @@
             document.getElementById('map').style.backgroundPositionY = initY+ "px";
             document.getElementById('map').style.backgroundPositionX = initX+ "px";
             detectCollision(cx,cy);
+            socket.emit("update", initX, cx, initY, cy, gname);
         }
     });
+    socket.on('paint', function(gname, cx, cy){
+        //var e=document.getElementById("c"+gname);
+        var e = ctx_l[gname]
+         ctx_l[gname].lineTo(cx+offset+50,cy-400);
+         ctx_l[gname].lineWidth = 10;
+         ctx_l[gname].strokeStyle = "rgb(0, 0, 222)";
+         ctx_l[gname].stroke();
+    });
+
 
     $("#l_but").click(function(){
         if (increment < 10) {

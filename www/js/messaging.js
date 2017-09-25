@@ -98,7 +98,7 @@
                 
                 var img = new Image();
                 img.onload = function(){
-                    var hidden_canvas = document.getElementById("list")
+                    var hidden_canvas = document.getElementById("c"+ c_index);
                     hidden_canvas.width = canvasWidth;
                     hidden_canvas.height = canvasHeight;
                     var hidden_context = hidden_canvas.getContext("2d");        
@@ -185,4 +185,5 @@
                 $("#broadcast").text("Broadcast " + val);
             }
          evt.currentTarget.className += " active";
+         socket.emit('get_coords', val);
     }
