@@ -23,9 +23,9 @@
             if (increment == 0){
                 
             } else if (increment<0){
-                cx -= Math.abs(increment);
+                cx += Math.abs(increment);
             }else if (increment >0){
-                cx += Math.abs(increment);          
+                cx -= Math.abs(increment);          
             }
             
             if(cy >canvasHeight){
