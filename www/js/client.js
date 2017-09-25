@@ -8,7 +8,7 @@
     var increment=0;
     var line_increment = 0;
     var angle = 0.0;
-    var offset = screen.width *0.55*0.5;
+    var offset = 3736 *0.55*0.5;
     var l=document.getElementById("list");
     var ctx=l.getContext("2d");
     ctx.beginPath();
