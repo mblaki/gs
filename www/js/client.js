@@ -13,7 +13,7 @@
     var l=document.getElementById("list");
     var ctx=l.getContext("2d");
     ctx.beginPath();
-    ctx.moveTo(cx+offset+50,cy-300);
+    ctx.moveTo(cx+offset+50,cy-400);
 
     socket.on('game loop', function(iX, iY){
         if(gname != "Instructor") {
@@ -22,7 +22,7 @@
             initX += increment;
             cx -= increment;
             
-            if(initY >canvasHeight+screen.height){
+            if(initY >canvasHeight){
                 alert("TOP BORDER");
             }
             if (initX > canvasWidth){
@@ -31,7 +31,7 @@
             if(initY < 0){
                 alert("BOTTOM BORDER");
             }
-            if (initX+canvasWidth < 0){
+            if (initX < offset+50){
                 alert("LEFT BORDER");
             }
             document.getElementById('map').style.backgroundPositionY = initY+ "px";
@@ -169,14 +169,14 @@ function detectCollision(x,y){
     
     //ctx.moveTo(x-60,y-210);
 
-    ctx.lineTo(x+offset+50,y-300);
+    ctx.lineTo(x+offset+50,y-400);
     ctx.lineWidth = 10;
     ctx.strokeStyle = "rgb(0, 0, 222)";
     ctx.stroke();
   
     var e=document.getElementById("list");
     var c = e.getContext('2d');
-    var p = c.getImageData(x+offset+50, y-300, 1, 1).data;
+    var p = c.getImageData(x+offset+50, y-400, 1, 1).data;
     console.log("\np0: " + p[0] + " \np1: " + p[1] + " \np2: " + p[2]);
     if (p[0]==62 || p[1]== 117 || p[2] == 198){
         console.log("CRASH "+ "\np0: " + p[0] + " \np1: " + p[1] + " \np2: " + p[2]);

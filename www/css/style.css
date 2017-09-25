@@ -44,7 +44,6 @@
     }
     #map{
         background-image: url(../img/big.png);
-        background-attachment: fixed;
         height: 100vh;
         display:block;
         min-width:75px;
