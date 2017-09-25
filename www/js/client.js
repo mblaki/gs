@@ -13,7 +13,7 @@
     var l=document.getElementById("list");
     var ctx=l.getContext("2d");
     ctx.beginPath();
-    ctx.moveTo(cx+offset,cy+300);
+    ctx.moveTo(cx+offset+50,cy-300);
 
     socket.on('game loop', function(iX, iY){
         if(gname != "Instructor") {
@@ -173,7 +173,7 @@ function detectCollision(x,y){
     
     //ctx.moveTo(x-60,y-210);
 
-    ctx.lineTo(x+offset,y-300);
+    ctx.lineTo(x+offset+50,y-300);
     ctx.lineWidth = 10;
     ctx.strokeStyle = "rgb(0, 0, 222)";
     ctx.stroke();
