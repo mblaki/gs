@@ -52,7 +52,7 @@ var offset = screen.width *0.55*0.5;
     });
 
     $("#r_but").click(function(){
-        if (increment < -10) {
+        if (increment > -10) {
             increment -=2;
             angle += 4.5;
             $("#avatar").rotate(angle);
