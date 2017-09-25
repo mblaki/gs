@@ -58,13 +58,19 @@
         left:0;
         z-index: 10;
     }
-.c_but{
+#controls{
         width: 200px;
         height: 100px;
         position: absolute;
         bottom:0;
         right:0;
         z-index: 10;
+}
+#r_but{
+    float:right;
+}
+#l_but{
+    float:left;
 }
 /*
 
