@@ -5,18 +5,48 @@
     var initY = 1080;
     var cx = 0;
     var cy = canvasHeight;
-    var bg_increment=10;
-    var line_increment = 10;
+    var increment=0;
+    var line_increment = 0;
     var l=document.getElementById("list");
     var ctx=l.getContext("2d");
     ctx.beginPath();
     ctx.moveTo(cx,cy);
-    socket.on('game loop', function(){
+
+    socket.on('game loop', function(iX, iY){
         if(gname != "Instructor") {
-            initY += bg_increment;
-            cy -= line_increment;
+            initY += iY;
+            cy -= iY;
+            initX += increment;
+            cx -= increment;
             document.getElementById('map').style.backgroundPositionY = initY+ "px";
+            document.getElementById('map').style.backgroundPositionY = initX+ "px";
+            if(initY >canvasHeight+1080){
+                initY = 1080;
+                cy = canvasHeight;
+            }
+            if (initX > canvasWidth){
+                initX = 0;
+                cx = canvasWidth;
+            }
+            if(initY < 0){
+                initY = canvasHeigh;
+                cy = 0;
+            }
+            if (initX < 0){
+                initX = canvasWidth;
+                cx = 0;
+            }
+            detectCollision(cx,cy);
         }
+    });
+
+    $("#l_but").click(function(){
+        increment +=5;
+        console.log("screen height n width: " + screen.height + ", " + screen.width + " or " + window.screen.availHeight);
+    });
+
+    $("#r_but").click(function(){
+        increment -=5;
     });
 
     $(document).keydown(function(e){

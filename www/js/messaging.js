@@ -64,7 +64,7 @@
             $("#map").css("float","left");
             $("#chat").width("25%");
             $("#chat").css("float","right");
-          //  $(".toggle").css("display","none");
+            console.log("screen height n width: " + screen.height + ", " + screen.width + " or " + window.screen.availHeight);
         }
     });
 

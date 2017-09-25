@@ -7,6 +7,8 @@ var port = process.env.PORT || 8005;
 
 //client["Instructor"] is the webpage for the Instructor, all other clients are Players
 var clients=[];
+var instrX = 0;
+var instrY = 0;
 //app.get('/', function(req, res){
   //  res.sendFile(__dirname + '/www/index.html');
 //});
@@ -57,7 +59,7 @@ io.on('connection', function(socket){
         });
 });
 function gameLoop(){
-    io.emit("game loop");
+    io.emit("game loop", instrX, intrY);
 }
 setInterval(gameLoop, 500);
 //http.listen(port, function(){

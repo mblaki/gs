@@ -58,6 +58,14 @@
         left:0;
         z-index: 10;
     }
+.c_but{
+        width: 200px;
+        height: 100px;
+        position: absolute;
+        bottom:0;
+        right:0;
+        z-index: 10;
+}
 /*
 
  Canvas element that shows the entire map. 
