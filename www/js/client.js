@@ -1,7 +1,7 @@
 
     var canvasHeight = 3456; // change this to change map image
     var canvasWidth = 3736; // change this to change map image
-    var initX =  3736;
+    var initX =  0;
     var initY = 1080;
     var cx = 0;
     var cy = canvasHeight;
@@ -19,7 +19,7 @@
             initX += increment;
             cx -= increment;
             document.getElementById('map').style.backgroundPositionY = initY+ "px";
-            document.getElementById('map').style.backgroundPositionY = initX+ "px";
+            document.getElementById('map').style.backgroundPositionX = initX+ "px";
             if(initY >canvasHeight+1080){
                 initY = 1080;
                 cy = canvasHeight;
