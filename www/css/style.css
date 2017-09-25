@@ -63,7 +63,7 @@
         height: 100px;
         position: absolute;
         bottom:0;
-        right:0;
+        right:30%;
         z-index: 10;
 }
 #r_but{
@@ -84,7 +84,7 @@
     }
     #list{
         background: gray;
-        width: 100%;    
+        width: 100vw;    
         height: 100vh;
         display:none;
         min-width:75;
@@ -100,7 +100,7 @@
         background-color: #f1f1f1;
     }
 
-    /* Style the buttons inside the tab */ /////
+    /* Style the buttons inside the tab */ 
     #buts {
         background-color: #26734d;
         float: left;
