@@ -23,7 +23,7 @@
             if (increment == 0){
                 
             } else if (increment<0){
-                cx += Math.abs(increment);
+                cx -= Math.abs(increment);
             }else if (increment >0){
                 cx += Math.abs(increment);          
             }
@@ -179,6 +179,7 @@ function detectCollision(x,y){
     ctx.lineWidth = 10;
     ctx.strokeStyle = "rgb(0, 0, 222)";
     ctx.stroke();
+  
     var e=document.getElementById("list");
     var c = e.getContext('2d');
     var p = c.getImageData(x+offset+60, y-410, 1, 1).data;
