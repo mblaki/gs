@@ -59,7 +59,7 @@ io.on('connection', function(socket){
         });
 });
 function gameLoop(){
-    io.emit("game loop", instrX, intrY);
+    io.emit("game loop", instrX, instrY);
 }
 setInterval(gameLoop, 500);
 //http.listen(port, function(){
