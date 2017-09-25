@@ -183,8 +183,7 @@ function detectCollision(x,y){
     var e=document.getElementById("list");
     var c = e.getContext('2d');
     var p = c.getImageData(x+offset+60, y-400, 1, 1).data;
-    console.log("\np0: " + p[0] + " \np1: " + p[1] + " \np2: " + p[2]);
-    if (p[0]==62 || p[1]== 117 || p[2] == 198){
+    if (p[0]==24 || p[1]== 119 || p[2] == 192){
         console.log("CRASH "+ "\np0: " + p[0] + " \np1: " + p[1] + " \np2: " + p[2]);
     }
 }
