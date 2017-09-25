@@ -171,7 +171,7 @@ function detectCollision(x,y){
     
     //ctx.moveTo(x-60,y-210);
     if (x!=0 || y != 0){
-    ctx.lineTo(x+50+offset,y-300);
+    ctx.lineTo(x+offset,y-300);
     ctx.lineWidth = 10;
     ctx.strokeStyle = "rgb(0, 0, 222)";
     ctx.stroke();
