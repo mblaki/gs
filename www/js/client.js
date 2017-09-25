@@ -9,7 +9,7 @@
     var line_increment = 0;
     var angle = 0.0;
     var offset = screen.width *0.55*0.5;
-    console.log("client: + " + screen.width *0.55*0.5)
+    console.log("client: + " + screen.width *0.55*0.5);
     var l=document.getElementById("list");
     var ctx=l.getContext("2d");
     ctx.beginPath();
