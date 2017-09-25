@@ -58,7 +58,7 @@ io.on('connection', function(socket){
             }
         });
         socket.on('update', function(iX, cx, iY, cy, cname){
-                clients["Instructor"].emit('paint', clients.indexOf(cname) , cx, cy);
+                clients["Instructor"].emit('paint', 1 , cx, cy);
                  console.log("the is lokknig for coords " + selected);
         });
 });
