@@ -2,7 +2,7 @@
     var canvasHeight = 3456; // change this to change map image
     var canvasWidth = 3736; // change this to change map image
     var initX =  0;
-    var initY = 1080;
+    var initY = screen.height;
     var cx = 0;
     var cy = canvasHeight;
     var increment=0;
@@ -14,14 +14,14 @@
 
     socket.on('game loop', function(iX, iY){
         if(gname != "Instructor") {
-            initY += iY;
-            cy -= iY;
+            initY += iY-increment/2;
+            cy -= iY-increment/2;
             initX += increment;
             cx -= increment;
             document.getElementById('map').style.backgroundPositionY = initY+ "px";
             document.getElementById('map').style.backgroundPositionX = initX+ "px";
-            if(initY >canvasHeight+1080){
-                initY = 1080;
+            if(initY >canvasHeight+screen.height){
+                initY = screen.height
                 cy = canvasHeight;
             }
             if (initX > canvasWidth){
@@ -41,12 +41,18 @@
     });
 
     $("#l_but").click(function(){
-        increment +=5;
+        increment +=2;
+        if (increment > 10) {
+            increment = 10;
+        }
         console.log("screen height n width: " + screen.height + ", " + screen.width + " or " + window.screen.availHeight);
     });
 
     $("#r_but").click(function(){
-        increment -=5;
+        increment -=2;
+        if (increment < -10) {
+            increment = -10;
+        }
     });
 
     $(document).keydown(function(e){

@@ -13,9 +13,11 @@
         if (p == 0) {
             $("#map").css("display","block");
             $("#list").css("display","none");
+            $("#bigmap").css("display","none");
         } else {
             $("#map").css("display","none");
-            $("#list").css("display","block");
+            $("#list").css("display","block");\
+            $("#smallmap").css("display","none");
         }
     }
         
@@ -27,7 +29,6 @@
         });
         socket.on('chat message', function(msg, name, dest){
             if (gname == 'Instructor'){
-                console.log(" msg from  "+ name +"appending to tab: " + clientList.indexOf(name) );
                 if(name == "Instructor"){
                     $("#"+clientList.indexOf(dest)).append($('<p style="float:right;background-color:#ccffcc;">').text(msg));
                 } else {
@@ -64,7 +65,6 @@
             $("#map").css("float","left");
             $("#chat").width("25%");
             $("#chat").css("float","right");
-            console.log("screen height n width: " + screen.height + ", " + screen.width + " or " + window.screen.availHeight);
         }
     });
 
@@ -73,7 +73,6 @@
             $('#users :checked').each(function() {
                 warningList.push($(this).val());
             });
-            console.log("click: selected= " +selected + " dest = " + dest);
             socket.emit('broadcast', selected, warningList);
     });
     });
