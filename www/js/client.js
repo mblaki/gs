@@ -22,16 +22,16 @@
             initX += increment;
             cx -= increment;
             
-            if(initY >canvasHeight){
+            if(cy >canvasHeight){
                 alert("TOP BORDER");
             }
-            if (initX > canvasWidth){
+            if (cx > canvasWidth){
                 alert("RIGHT BORDER");
             }
             if(initY < 0){
                 alert("BOTTOM BORDER");
             }
-            if (initX < offset+50){
+            if (cx < offset+50){
                 alert("LEFT BORDER");
             }
             document.getElementById('map').style.backgroundPositionY = initY+ "px";
