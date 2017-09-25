@@ -10,12 +10,11 @@
     var angle = 0.0;
     var offset = screen.width *0.55*0.5;
     console.log("client: + " + screen.width *0.55*0.5)
-    $(document).ready( function () {
-        var l=document.getElementById("list");
-        var ctx = l.getContext("2d");
-        ctx.beginPath();
-        ctx.moveTo(cx+offset+50,cy-400);
-     });
+    var l=document.getElementById("list");
+    var ctx=l.getContext("2d");
+    ctx.beginPath();
+    ctx.moveTo(cx+offset+50,cy-400);
+
     socket.on('game loop', function(iX, iY){
         if(gname != "Instructor") {
             initY += iY;
@@ -26,7 +25,7 @@
             } else if (increment<0){
                 cx += Math.abs(increment);
             }else if (increment >0){
-                cx -= Math.abs(increment);          
+                cx += Math.abs(increment);          
             }
             
             if(cy >canvasHeight){
@@ -180,12 +179,11 @@ function detectCollision(x,y){
     ctx.lineWidth = 10;
     ctx.strokeStyle = "rgb(0, 0, 222)";
     ctx.stroke();
-  
     var e=document.getElementById("list");
     var c = e.getContext('2d');
-    var p = c.getImageData(x+offset+60, y-400, 1, 1).data;
+    var p = c.getImageData(x+offset+60, y-410, 1, 1).data;
     console.log("\np0: " + p[0] + " \np1: " + p[1] + " \np2: " + p[2]);
-    if (p[0]==64 || p[1]== 119 || p[2] == 198){
+    if (p[0]==62 || p[1]== 117 || p[2] == 198){
         console.log("CRASH "+ "\np0: " + p[0] + " \np1: " + p[1] + " \np2: " + p[2]);
     }
 }

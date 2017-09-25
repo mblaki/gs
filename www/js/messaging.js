@@ -121,6 +121,7 @@
                 $('#map').append($('<h1> '+lname + 's SCREEN </h1>'));
                 $('#buts').css("display","none");
                 $("#0").css("display","block");
+                $("#list").css("background", "black");
                  var img = new Image();
                 img.onload = function(){
                     // create a hidden canvas, exactly the size of our small image
