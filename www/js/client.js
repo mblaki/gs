@@ -10,7 +10,7 @@
     var angle = 0.0;
     var offset = screen.width *0.55*0.5;
     console.log("client: + " + screen.width *0.55*0.5)
-    var l=document.getElementById("list");
+    var l=document.getElementById("large");
     var ctx=l.getContext("2d");
     ctx.beginPath();
     ctx.moveTo(cx+offset+50,cy-400);

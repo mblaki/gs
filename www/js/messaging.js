@@ -127,7 +127,7 @@
                 img.onload = function(){
                     // create a hidden canvas, exactly the size of our small image
                   //  var hidden_canvas = document.createElement("canvas");
-                    var hidden_canvas = document.getElementById("list")
+                    var hidden_canvas = document.getElementById("large")
                     hidden_canvas.width = canvasWidth;
                     hidden_canvas.height = canvasHeight;
                     var hidden_context = hidden_canvas.getContext("2d");        
