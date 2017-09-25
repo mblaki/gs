@@ -14,8 +14,8 @@
 
     socket.on('game loop', function(iX, iY){
         if(gname != "Instructor") {
-            initY += iY-increment/2;
-            cy -= iY-increment/2;
+            initY += iY-increment;
+            cy -= iY-increment;
             initX += increment;
             cx -= increment;
             document.getElementById('map').style.backgroundPositionY = initY+ "px";

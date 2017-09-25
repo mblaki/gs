@@ -14,10 +14,12 @@
             $("#map").css("display","block");
             $("#list").css("display","none");
             $("#bigmap").css("display","none");
+            $("#smallmap").css("display","block");
         } else {
             $("#map").css("display","none");
             $("#list").css("display","block");
             $("#smallmap").css("display","none");
+            $("#bigmap").css("display","block");
         }
     }
         
