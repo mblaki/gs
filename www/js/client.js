@@ -31,7 +31,7 @@
             if(initY < 0){
                 alert("BOTTOM BORDER");
             }
-            if (cx < offset+50){
+            if (cx < offset+300){
                 alert("LEFT BORDER");
             }
             document.getElementById('map').style.backgroundPositionY = initY+ "px";
