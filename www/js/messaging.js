@@ -69,7 +69,6 @@
             $("#chat").css("float","right");
             $("#avatar").css("left", screen.width*0.55*0.5 +"px");
             $("#controls").css("left", screen.width*0.55*0.5 +"px");
-            console.log("messaging: " + screen.width*0.55*0.5);
         }
     });
 
@@ -96,15 +95,7 @@
                 console.log("user join clientList " + c_index + " = " + lname);
                 $("#" + c_index).append('<h3 style="clear:both;">'+ lname +'</h3>');
                 $('#10').append('<button class="tablinks" type = "button" value="'+lname+'"onclick="setDest(event,this.value)">'+lname+'</button>');
-                var new_can = document.createElement("canvas");
-                new_can.setAttribute("width","100vw");
-                new_can.setAttribute("height","100vh");
-                new_can.setAttribute("display","none");
-                new_can.setAttribute("z-index","100");
-                new_can.setAttribute("position","absolute");
-                new_can.setAttribute("bottom","0");
-                new_can.setAttribute("left","0");
-                new_can.setAttribute("id","can"+lname);
+                
                 /*
                 var element = document.createElement("div");
                     element.setAttribute("id", lname);
@@ -206,7 +197,6 @@
                 $("#broadcast").text("Broadcast All");
             } else {
                 document.getElementById(clientList.indexOf(val)).style.display = "block";
-                document.getElementById("can"+clientList[val]).style.display = "block";
                 $("#broadcast").text("Broadcast " + val);
             }
          evt.currentTarget.className += " active";
