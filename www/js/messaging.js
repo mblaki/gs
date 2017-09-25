@@ -16,7 +16,7 @@
             $("#bigmap").css("display","none");
         } else {
             $("#map").css("display","none");
-            $("#list").css("display","block");\
+            $("#list").css("display","block");
             $("#smallmap").css("display","none");
         }
     }
