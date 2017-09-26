@@ -82,14 +82,18 @@ io.on('connection', function(socket){
                 bgX= bg_x;
                 bgY= bg_y
             }
-        })
+        });
+        socket.on('change increment', function(x,y){
+                instrX = x;
+                instrY = y;
+        });
         function gameLoop(){
             io.emit("game loop", instrX, instrY);
             if (game_start){
                 clients["Instructor"].emit("update line", currently_selected,curr_x, curr_y, curr_angl, bgX, bgY);
             }
         }
-        setInterval(gameLoop, 500);
+        //setInterval(gameLoop, 500);
 });
 
 //http.listen(port, function(){

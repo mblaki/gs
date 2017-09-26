@@ -68,7 +68,7 @@
             $("#map").css("float","left");
             $("#chat").width("25%");
             $("#chat").css("float","right");
-            $("#avatar").css("margin-left", "30%");
+            $("#avatar").css("margin-left", "20%");
             $("#avatar").css("left", screen.width*0.55*0.5 +"px");
             $("#controls").css("left", screen.width*0.55*0.5 +"px");
             $(".c_but").css("visibility", "hidden");
@@ -95,6 +95,12 @@
             });
             socket.emit('broadcast', selected, warningList);
     });
+     $("#apply").click(function(){
+            var nY = $("#Y_vel").val();
+            var nX = $("#Y_vel").val();
+            socket.emit('change increment', nX, nY);
+    });
+        
     });
         socket.on('instructor join', function(y_increment, x_increment){
             console.log("instructor join emit");
@@ -112,7 +118,6 @@
                 $('#10').append('<button class="tablinks" type = "button" value="'+lname+'"onclick="setDest(event,this.value)">'+lname+'</button>');             
                 c_index += 1;
             } else if (gname == lname && gname != "Instructor"){
-                $('#map').append($('<h1> '+lname + 's SCREEN </h1>'));
                 $('#buts').css("display","none");
                 $("#0").css("display","block");
                 $("#list").css("background", "black");
