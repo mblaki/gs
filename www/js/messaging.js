@@ -158,7 +158,6 @@
             };
 
         imageObj.src = imgData;
-      }
         });
     function setDest(evt, val){
          var i, tabcontent, tablinks;
