@@ -26,6 +26,7 @@
                 initY += iY/2;
                 cy -= iY/2;
             } else {
+                console.log("iY: " + iY + " iX: " + iX)
                 initY += iY;
                 cy -= iY;
             }

@@ -98,8 +98,8 @@
             socket.emit('broadcast', selected, warningList);
     });
      $("#apply").click(function(){
-            var nY = $("#Y_vel").val();
-            var nX = $("#Y_vel").val();
+            var nY = parseFloat($("#Y_vel").val());
+            var nX = parseFloat($("#Y_vel").val());
             socket.emit('change increment', nX, nY);
     });
     $(".dock").click(function(){
