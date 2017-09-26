@@ -149,7 +149,7 @@
                 console.log("instructor gnore server response but selected=" +select);
             }
         });
-        socket.on('paint canvas', function(imgData x, y){
+        socket.on('paint canvas', function(imgData, x, y){
             var canvas = document.getElementById('list');
             // load image from data url
             canvas.width = canvasWidth;
