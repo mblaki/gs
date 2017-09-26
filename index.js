@@ -80,7 +80,7 @@ io.on('connection', function(socket){
         function gameLoop(){
             io.emit("game loop", instrX, instrY);
             if (game_start){
-                clients["Instructor"].emit("update line", curr_x, curr_y);
+                clients["Instructor"].emit("update line", currently_selected,curr_x, curr_y);
             }
         }
         setInterval(gameLoop, 500);
