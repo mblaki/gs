@@ -210,14 +210,18 @@
  socket.on('dock', function(name, type){
      if (type == 0){
          $("#but"+gname).text(gname + "- Successful Dock");
+         console.log(gname+" win");
      } else if (type == 1) {
          $("#but"+gname).text(gname);
      } else if (type == 2 ){
         $("#but"+gname).text(gname + "- Docking");
+         console.log(gname+" good dock");
      } else if (type == 3 ){
         $("#but"+gname).text(gname + "- Failed (Out of Bounds)");
+         console.log(gname+" border");
      } else if (type == 4 ){
         $("#but"+gname).text(gname + "- Failed (Crash)");
+         console.log(gname+" crash");
      }
     });
     function setDest(evt, val){
