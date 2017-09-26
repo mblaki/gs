@@ -14,6 +14,7 @@
     var y_pos = -1;
     var Y_INC = 0;
     var X_INC = 0;
+    var game_start = false;
     function changeMap(p){
         if (p == 0) {
             $("#avatar").show();
@@ -73,6 +74,7 @@
             $(".c_but").css("visibility", "hidden");
             $("#compass").css("display", "none");
             $("#needle").css("display", "none");
+            game_start = true;
         } else {
             socket.emit('user join', gname);
             $("#users").css("display", "none");
@@ -82,6 +84,7 @@
             $("#chat").css("float","right");
             $("#avatar").css("left", screen.width*0.55*0.5+100 +"px");
             $("#controls").css("left", screen.width*0.55*0.5+100 +"px");
+            game_start = true;
         }
     });
 
