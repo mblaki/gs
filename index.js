@@ -58,7 +58,7 @@ io.on('connection', function(socket){
             }
         });
         socket.on('paint canvas',function(imgData){
-            clients["instructor"].emit('paint canvas', imgData);
+            clients["Instructor"].emit('paint canvas', imgData);
             console.log("paint canvas with img data");
         });
         socket.on('give update',function(selected){
