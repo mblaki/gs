@@ -9,6 +9,8 @@
     var selected = "all";
     var canvasHeight = 3456; // change this to change map image
     var canvasWidth = 3736; // change this to change map image
+    var x_pos = -1;
+    var y_pos = -1;
     function changeMap(p){
         if (p == 0) {
             $("#map").css("display","block");
@@ -146,10 +148,23 @@
                 console.log("instructor gnore server response but selected=" +select);
             }
         });
+        socket.on('paint canvas', function(imgData){
+            var canvas = document.getElementById('list');
+            var context = canvas.getContext('2d');
+            // load image from data url
+            var imageObj = new Image();
+                imageObj.onload = function() {
+                context.drawImage(this, 0, 0);
+            };
+
+        imageObj.src = imgData;
+      }
+        });
     function setDest(evt, val){
          var i, tabcontent, tablinks;
          this.dest = val;
          selected = val;
+         socket.emit('give update', selected);
          console.log("Tab id= " + val);
          console.log("selected= " + selected);
          tabcontent = document.getElementsByClassName("tabcontent");

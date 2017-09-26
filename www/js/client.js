@@ -47,7 +47,13 @@
             detectCollision(cx,cy);
         }
     });
-
+    socket.on('give update', function(selected){
+       if (gname == selected) {
+           var my_c=document.getElementById("list");
+           var my_data= my_c.toDataURL();
+           socket.emit('paint canvas', my_data);
+       } 
+    });
 
     $("#l_but").click(function(){
         if (increment < 10) {

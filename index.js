@@ -57,6 +57,9 @@ io.on('connection', function(socket){
                  console.log("the instructor has made a selected bcast: " + selected);
             }
         });
+        socket.on('paint canvas',function(imgData){
+            clients["instructor"].emit('paint canvas', imgData);
+        });
 });
 function gameLoop(){
     io.emit("game loop", instrX, instrY);
