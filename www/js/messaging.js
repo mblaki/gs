@@ -163,7 +163,7 @@
             imageObj.src = imgData;
         });
     socket.on('update line', function(s_selected, x, y){
-        if (s_selected != 'all' && gname == "Instructor"){
+        if (s_selected != 'all' && gname == "Instructor" && x != -1){
             var canvas = document.getElementById('list');
             var ctx = canvas.getContext("2d");
             ctx.lineTo(x+offset+50,y-400);

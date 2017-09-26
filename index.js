@@ -12,6 +12,7 @@ var instrY = 10;
 var currently_selected="";
 var curr_x= -1;
 var curr_y= -1;
+var game_start = false;
 //app.get('/', function(req, res){
   //  res.sendFile(__dirname + '/www/index.html');
 //});
@@ -30,6 +31,7 @@ io.on('connection', function(socket){
             console.log("the instructor has started the simulation");
             clients["Instructor"]= socket;
             io.emit('instructor join');
+            game_start = true;
         });
         socket.on('user join', function(name){       
             clients[name]= socket;
@@ -77,7 +79,7 @@ io.on('connection', function(socket){
         })
         function gameLoop(){
             io.emit("game loop", instrX, instrY);
-            if (clients[].length != 0){
+            if (game_start){
                 clients["Instructor"].emit("update line", curr_x, curr_y);
             }
         }
