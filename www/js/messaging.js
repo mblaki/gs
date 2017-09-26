@@ -102,11 +102,13 @@
             var nX = $("#Y_vel").val();
             socket.emit('change increment', nX, nY);
     });
-    $("#apply").click(function(){
+    $(".dock").click(function(){
             if (dock_ON == true) {
                 dock_ON = false;
+                $(".dock").css("background-color", "lightgray");
             } else {
                 dock_ON = true;
+                $(".dock").css("background-color", "blue");
             }
     });
         

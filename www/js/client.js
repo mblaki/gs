@@ -39,18 +39,6 @@
                 cx -= Math.abs(Xincrement + iX);          
             }
             
-            if(cy >canvasHeight){
-                alert("TOP BORDER");
-            }
-            if (cx > canvasWidth){
-                alert("RIGHT BORDER");
-            }
-            if(initY < 0){
-                alert("BOTTOM BORDER");
-            }
-            if (cx +offset+50 < 0){
-                alert("LEFT BORDER");
-            }
             document.getElementById('map').style.backgroundPositionY = initY+ "px";
             document.getElementById('map').style.backgroundPositionX = initX+ "px";
             detectCollision(cx,cy);
@@ -103,7 +91,7 @@ function detectCollision(x,y){
     if (p[0]==62 || p[1]== 117 || p[2] == 198 || p[0]==24 || p[1]== 119 || p[2] == 192){
         if(dock_ON){
             alert("docked");
-        }else {
+        } else {
             alert("GAMEOVER. YOU CRASHED");
             window.location.reload(true);
         }
