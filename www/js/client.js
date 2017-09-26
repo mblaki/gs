@@ -60,9 +60,9 @@
     $("#l_but").click(function(){
         if (angle < 45 && angle > -45) {
             Xincrement +=2;
-            if (cx != 0 ){
-                angle = Math.atan(cy/cx);
-                angle = angle *(180/Math.PI);
+            if (cx-2 != 0 ){
+                angle = Math.atan(cy/cx-2);
+                angle = 90 - angle *(180/Math.PI);
             }else {
                 angle = 0;
             }
@@ -76,9 +76,9 @@
     $("#r_but").click(function(){
         if (angle < 45 && angle > -45) {
             Xincrement -=2;
-            if (cx != 0 ){
-                angle = Math.atan(cy/cx);
-                angle = angle *(180/Math.PI);
+            if (cx-2 != 0 ){
+                angle = Math.atan(cy/cx-2);
+                angle = 90 - angle *(180/Math.PI);
             }else {
                 angle = 0;
             }
