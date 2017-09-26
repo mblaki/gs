@@ -32,10 +32,10 @@
             Yincrement = iY;
             if (Xincrement<0){
                 cx += Math.abs(Xincrement + iX);
-                initX -= Math.abs(iX);
+                initX -= Math.abs(Xincrement + iX);
             }else if (Xincrement >0){
                 cx -= Math.abs(Xincrement + iX);
-                initX += Math.abs(iX);
+                initX += Math.abs(Xincrement + iX);
             } else {
                 if (iX <0){
                     cx += Math.abs(iX); 
