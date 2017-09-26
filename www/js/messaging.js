@@ -106,9 +106,11 @@
             if (dock_ON == true) {
                 dock_ON = false;
                 $(".dock").css("background-color", "lightgray");
+                socket.emit('dock', gname, 1);
             } else {
                 dock_ON = true;
                 $(".dock").css("background-color", "blue");
+                socket.emit('dock', gname, 2);
             }
     });
         
@@ -126,7 +128,7 @@
                 clientList[c_index]= lname;
                 console.log("user join clientList " + c_index + " = " + lname);
                 $("#" + c_index).append('<h3 style="clear:both;">'+ lname +'</h3>');
-                $('#10').append('<button class="tablinks" type = "button" value="'+lname+'"onclick="setDest(event,this.value)">'+lname+'</button>');             
+                $('#10').append('<button class="tablinks" type = "button" value="'+lname+'"onclick="setDest(event,this.value)"'+'id="but'+lname+'">'+lname+'</button>');             
                 c_index += 1;
             } else if (gname == lname && gname != "Instructor"){
                 $('#buts').css("display","none");
@@ -204,7 +206,20 @@
             document.getElementById('map').style.backgroundPositionX = bg_x+ "px";
             $("#avatar").rotate(ang);
         }
-    })
+    });
+ socket.on('dock', function(name, type){
+     if (type == 0){
+         $("#but"+gname).text(gname + "- Successful Dock");
+     } else if (type == 1) {
+         $("#but"+gname).text(gname);
+     } else if (type == 2 ){
+        $("#but"+gname).text(gname + "- Docking");
+     } else if (type == 3 ){
+        $("#but"+gname).text(gname + "- Failed (Out of Bounds)");
+     } else if (type == 4 ){
+        $("#but"+gname).text(gname + "- Failed (Crash)");
+     }
+    });
     function setDest(evt, val){
          var i, tabcontent, tablinks;
          this.dest = val;

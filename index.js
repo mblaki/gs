@@ -87,6 +87,9 @@ io.on('connection', function(socket){
                 instrX = x;
                 instrY = y;
         });
+       socket.on('dock', function(gname,type){
+                clients["Instructor"].emit('dock', gname, type);
+        });
         function gameLoop(){
             io.emit("game loop", instrX, instrY);
             if (game_start){
