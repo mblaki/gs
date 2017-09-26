@@ -71,7 +71,7 @@
             $("#chat").css("float","right");
             $("#avatar").css("margin-left", "20%");
             $("#avatar").css("left", screen.width*0.55*0.5 +100+"px");
-            $("#controls").css("left", screen.width*0.55*0.5 +100+"px");
+            $("#controls").css("left", screen.width*0.55*0.5 +"px");
             $(".c_but").css("visibility", "hidden");
             $(".dock").css("visibility", "hidden");
             $("#compass").css("display", "none");
@@ -85,7 +85,7 @@
             $("#chat").width("25%");
             $("#chat").css("float","right");
             $("#avatar").css("left", screen.width*0.55*0.5+100 +"px");
-            $("#controls").css("left", screen.width*0.55*0.5+100 +"px");
+            $("#controls").css("left", screen.width*0.55*0.5 +"px");
             game_start = true;
         }
     });
@@ -98,8 +98,8 @@
             socket.emit('broadcast', selected, warningList);
     });
      $("#apply").click(function(){
-            var nY = parseFloat($("#Y_vel").val());
-            var nX = parseFloat($("#X_vel").val());
+            var nY = parseFloat($("#Y_vel").val()) *-1.0;
+            var nX = parseFloat($("#X_vel").val())*-1.0;
             socket.emit('change increment', nX, nY);
     });
     $(".dock").click(function(){
@@ -210,19 +210,19 @@
  socket.on('dock', function(name, type){
      console.log("name: " + name + "type: " + type)
      if (type == 0){
-         $("#but"+name).text(gname + "- Successful Dock");
+         $("#but"+name).text(name + "- Successful Dock");
          console.log(gname+" win");
      } else if (type == 1) {
-         $("#but"+name).text(gname);
+         $("#but"+name).text(name);
          console.log("type 1");
      } else if (type == 2 ){
-        $("#but"+name).text(gname + "- Docking");
+        $("#but"+name).text(name + "- Docking");
          console.log(gname+" good dock");
      } else if (type == 3 ){
-        $("#but"+name).text(gname + "- Failed (Out of Bounds)");
+        $("#but"+name).text(name + "- Failed (Out of Bounds)");
          console.log(gname+" border");
      } else if (type == 4 ){
-        $("#but"+name).text(gname + "- Failed (Crash)");
+        $("#but"+name).text(name + "- Failed (Crash)");
          console.log(gname+" crash");
      }
     });
