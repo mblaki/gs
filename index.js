@@ -75,12 +75,13 @@ io.on('connection', function(socket){
                 curr_y = y;
             }
         })
+        function gameLoop(){
+            io.emit("game loop", instrX, instrY);
+            clients["Instructor"].emit("update line", curr_x, curr_y);
+        }
+        setInterval(gameLoop, 500);
 });
-function gameLoop(){
-    io.emit("game loop", instrX, instrY);
-    clients["Instructor"].emit("update line", curr_x, curr_y);
-}
-setInterval(gameLoop, 500);
+
 //http.listen(port, function(){
   //console.log('listening on *:' + port);
 //});
