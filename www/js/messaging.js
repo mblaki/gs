@@ -99,7 +99,7 @@
     });
      $("#apply").click(function(){
             var nY = parseFloat($("#Y_vel").val());
-            var nX = parseFloat($("#Y_vel").val());
+            var nX = parseFloat($("#X_vel").val());
             socket.emit('change increment', nX, nY);
     });
     $(".dock").click(function(){
