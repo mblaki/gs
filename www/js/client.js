@@ -26,14 +26,17 @@
                 initY += iY/2;
                 cy -= iY/2;
             } else {
-                console.log("iY: " + iY + " iX: " + iX)
                 initY += iY;
                 cy -= iY;
             }
             Yincrement = iY;
             initX += (Xincrement + iX);
             if (Xincrement == 0){
-                
+                if (iX <0){
+                    cx += Math.abs(iX);    
+                } else {
+                    cx -= Math.abs(iX);
+                }
             } else if (Xincrement<0){
                 cx += Math.abs(Xincrement + iX);
             }else if (Xincrement >0){
