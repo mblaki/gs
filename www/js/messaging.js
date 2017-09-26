@@ -1,4 +1,5 @@
     var audio = new Audio('../sound/mario1.wav');
+    var offset = screen.width *0.55*0.5;
     var gname="";
     var dest="Instructor";
     var clientList=[];
@@ -148,7 +149,7 @@
                 console.log("instructor gnore server response but selected=" +select);
             }
         });
-        socket.on('paint canvas', function(imgData){
+        socket.on('paint canvas', function(imgData x, y){
             var canvas = document.getElementById('list');
             // load image from data url
             canvas.width = canvasWidth;
@@ -158,9 +159,19 @@
                 imageObj.onload = function() {
                 context.drawImage(this, 0, 0);
             };
-
-        imageObj.src = imgData;
+            context.moveTo(x,y);
+            imageObj.src = imgData;
         });
+    socket.on('update line', function(s_selected, x, y){
+        if (s_selected != 'all' && gname == "Instructor"){
+            var canvas = document.getElementById('list');
+            var ctx = canvas.getContext("2d");
+            ctx.lineTo(x+offset+50,y-400);
+            ctx.lineWidth = 10;
+            ctx.strokeStyle = "rgb(0, 0, 222)";
+            ctx.stroke();
+        }
+    })
     function setDest(evt, val){
          var i, tabcontent, tablinks;
          this.dest = val;

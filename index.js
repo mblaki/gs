@@ -9,6 +9,9 @@ var port = process.env.PORT || 8005;
 var clients=[];
 var instrX = 0;
 var instrY = 10;
+var currently_selected="";
+var curr_x= -1;
+var curr_y= -1;
 //app.get('/', function(req, res){
   //  res.sendFile(__dirname + '/www/index.html');
 //});
@@ -62,12 +65,20 @@ io.on('connection', function(socket){
             console.log("paint canvas with img data");
         });
         socket.on('give update',function(selected){
+            currently_selected = selected;
             clients[selected].emit('give update', selected);
             console.log("get update from: " + selected );
         });
+        socket.on('update line', function(selected, x, y){
+            if (currently_selected == selected) {
+                curr_x = x;
+                curr_y = y;
+            }
+        })
 });
 function gameLoop(){
     io.emit("game loop", instrX, instrY);
+    clients["Instructor"].emit("update line", curr_x curr_y);
 }
 setInterval(gameLoop, 500);
 //http.listen(port, function(){
