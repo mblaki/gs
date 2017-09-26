@@ -30,8 +30,13 @@
                 cy -= iY;
             }
             Yincrement = iY;
-            
-            if (Xincrement == 0){
+            if (Xincrement<0){
+                cx += Math.abs(Xincrement + iX);
+                initX -= Math.abs(iX);
+            }else if (Xincrement >0){
+                cx -= Math.abs(Xincrement + iX);
+                initX += Math.abs(iX);
+            } else {
                 if (iX <0){
                     cx += Math.abs(iX); 
                     initX -= Math.abs(iX);
@@ -39,12 +44,6 @@
                     cx -= Math.abs(iX);
                     initX += Math.abs(iX);
                 }
-            } else if (Xincrement<0){
-                cx += Math.abs(Xincrement + iX);
-                initX -= Math.abs(iX);
-            }else if (Xincrement >0){
-                cx -= Math.abs(Xincrement + iX);
-                initX += Math.abs(iX);
             }
             
             document.getElementById('map').style.backgroundPositionY = initY+ "px";

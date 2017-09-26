@@ -208,19 +208,21 @@
         }
     });
  socket.on('dock', function(name, type){
+     console.log("name: " + name + "type: " + type)
      if (type == 0){
-         $("#but"+gname).text(gname + "- Successful Dock");
+         $("#but"+name).text(gname + "- Successful Dock");
          console.log(gname+" win");
      } else if (type == 1) {
-         $("#but"+gname).text(gname);
+         $("#but"+name).text(gname);
+         console.log("type 1");
      } else if (type == 2 ){
-        $("#but"+gname).text(gname + "- Docking");
+        $("#but"+name).text(gname + "- Docking");
          console.log(gname+" good dock");
      } else if (type == 3 ){
-        $("#but"+gname).text(gname + "- Failed (Out of Bounds)");
+        $("#but"+name).text(gname + "- Failed (Out of Bounds)");
          console.log(gname+" border");
      } else if (type == 4 ){
-        $("#but"+gname).text(gname + "- Failed (Crash)");
+        $("#but"+name).text(gname + "- Failed (Crash)");
          console.log(gname+" crash");
      }
     });
