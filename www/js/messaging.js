@@ -163,7 +163,6 @@
          var i, tabcontent, tablinks;
          this.dest = val;
          selected = val;
-         socket.emit('give update', selected);
          console.log("Tab id= " + val);
          console.log("selected= " + selected);
          tabcontent = document.getElementsByClassName("tabcontent");
@@ -180,7 +179,7 @@
             } else {
                 document.getElementById(clientList.indexOf(val)).style.display = "block";
                 $("#broadcast").text("Broadcast " + val);
+                socket.emit('give update', selected);
             }
          evt.currentTarget.className += " active";
-         socket.emit('get_coords', val);
     }
