@@ -94,23 +94,7 @@
                 clientList[c_index]= lname;
                 console.log("user join clientList " + c_index + " = " + lname);
                 $("#" + c_index).append('<h3 style="clear:both;">'+ lname +'</h3>');
-                $('#10').append('<button class="tablinks" type = "button" value="'+lname+'"onclick="setDest(event,this.value)">'+lname+'</button>');
-                
-                var img = new Image();
-                img.onload = function(){
-                    var hidden_canvas = document.getElementById("c"+ c_index);
-                    hidden_canvas.width = canvasWidth;
-                    hidden_canvas.height = canvasHeight;
-                    var hidden_context = hidden_canvas.getContext("2d");        
-
-                    // draw the image on the hidden canvas
-                    hidden_context.drawImage(img, 0, 0);
-                };
-                /*
-                To change map chang ethis path!
-                */
-                img.src = "../img/big.png"; 
-                
+                $('#10').append('<button class="tablinks" type = "button" value="'+lname+'"onclick="setDest(event,this.value)">'+lname+'</button>');             
                 c_index += 1;
             } else if (gname == lname && gname != "Instructor"){
                 $('#map').append($('<h1> '+lname + 's SCREEN </h1>'));
@@ -123,12 +107,11 @@
                     hidden_canvas.width = canvasWidth;
                     hidden_canvas.height = canvasHeight;
                     var hidden_context = hidden_canvas.getContext("2d");        
-
                     // draw the image on the hidden canvas
                     hidden_context.drawImage(img, 0, 0);
                 };
                 /*
-                To change map chang ethis path!
+                To change map change this path!
                 */
                 img.src = "../img/big.png"; 
               // console.log("w:"+img.width +"\nh " + img.height);

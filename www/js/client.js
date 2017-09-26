@@ -12,19 +12,9 @@
     var updateClient = "none";
     var ctx_l = [];
     console.log("client: + " + screen.width *0.55*0.5);
-if (gname != "Instructor"){
     var l=document.getElementById("list");
     var ctx=l.getContext("2d");
-    ctx.beginPath();
-    ctx.moveTo(cx+offset+50,cy-400); 
-} else {
-    var can_list = document.getElementsByTagName("canvas");
-    for (var i = 0; i< can_list.length; i++){
-        ctx_l[i]=can_list[i].getContext("2d");
-        ctx_l[i].beginPath();
-        ctx_l[i].moveTo(cx+offset+50,cy-400);
-    }
-}
+    ctx.beginPath(); 
     socket.on('game loop', function(iX, iY){
         if(gname != "Instructor") {
             initY += iY;
@@ -194,7 +184,7 @@ if (gname != "Instructor"){
 function detectCollision(x,y){
     
     //ctx.moveTo(x-60,y-210);
-
+    ctx.moveTo(cx+offset+50,cy-400);
     ctx.lineTo(x+offset+50,y-400);
     ctx.lineWidth = 10;
     ctx.strokeStyle = "rgb(0, 0, 222)";
