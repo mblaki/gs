@@ -59,7 +59,7 @@
 
     $("#l_but").click(function(){
         if (angle < 45 && angle > -45) {
-            increment +=2;
+            Xincrement +=2;
             if (cx != 0 ){
                 angle = Math.atan(cy/cx);
                 angle = angle *(180/Math.PI);
@@ -75,7 +75,7 @@
 
     $("#r_but").click(function(){
         if (angle < 45 && angle > -45) {
-            increment -=2;
+            Xincrement -=2;
             if (cx != 0 ){
                 angle = Math.atan(cy/cx);
                 angle = angle *(180/Math.PI);
@@ -88,112 +88,6 @@
         
     });
 
-    $(document).keydown(function(e){
-    if(e.keyCode == 38) {//up
-      initY += 10+increment;
-      cy -= 10+increment;
-        if(initY >canvasHeight+screen.height){
-            initY = screen.height;
-            cy = canvasHeight;
-        }
-        if (initX > canvasWidth){
-            initX = 0;
-            cx = canvasWidth;
-        }
-        if(initY < 0){
-            initY = canvasHeigh;
-            cy = 0;
-        }
-        if (initX < 0){
-            initX = canvasWidth;
-            cx = 0;
-        }
-        /*
-        if(cy >canvasHeight){
-            cy = 0;
-        }
-        if (cx > canvasWidth){
-            cx = 0;
-        }
-        if(cy < 0){
-            cy = canvasHeight;
-        }
-        if (cx < 0){
-            cx = canvasWidth;
-        }
-        */
-        detectCollision(cx,cy);
-        document.getElementById('map').style.backgroundPositionY = initY+ "px";
-    }
-    else if(e.keyCode == 40) {//down
-      initY -= bg_increment;
-      cy +=line_increment;
-        if(initY >canvasHeight+1080){
-            initY = 1080;
-            cy = canvasHeight;
-        }
-        if (initX > canvasWidth){
-            initX = 0;
-            cx = canvasWidth;
-        }
-        if(initY < 0){
-            initY = canvasHeight;
-            cy = 0;
-        }
-        if (initX < 0){
-            initX = canvasWidth;
-            cx = 0;
-        }
-        
-        detectCollision(cx,cy);
-      document.getElementById('map').style.backgroundPositionY = initY+ "px";
-    }
-    else if(e.keyCode == 37) {//left
-      initX += bg_increment;
-       cx -= line_increment;
-        if(initY >canvasHeight+1080){
-            initY = 1080;
-            cy = canvasHeight;
-        }
-        if (initX > canvasWidth){
-            initX = 0;
-            cx = canvasWidth;
-        }
-        if(initY < 0){
-            initY = canvasHeight;
-            cy = 0;
-        }
-        if (initX < 0){
-            initX = canvasWidth;
-            cx = 0;
-        }
-        
-        detectCollision(cx,cy);
-        document.getElementById('map').style.backgroundPositionX = initX + "px";
-    }
-    else if(e.keyCode == 39) {//right
-      initX -= bg_increment;
-      cx += line_increment;
-        if(initY >canvasHeight+1080){
-            initY = 1080;
-            cy = canvasHeight;
-        }
-        if (initX > canvasWidth){
-            initX = 0;
-            cx = canvasWidth;
-        }
-        if(initY < 0){
-            initY = canvasHeight;
-            cy = 0;
-        }
-        if (initX < 0){
-            initX = canvasWidth;
-            cx = 0;
-        }
-        detectCollision(cx,cy);
-        document.getElementById('map').style.backgroundPositionX = initX + "px";
-    }
-});
 
 function detectCollision(x,y){
     
