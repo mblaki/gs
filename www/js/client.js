@@ -12,9 +12,11 @@
     var updateClient = "none";
     var ctx_l = [];
     console.log("client: + " + screen.width *0.55*0.5);
+
     var l=document.getElementById("list");
     var ctx=l.getContext("2d");
-    ctx.beginPath(); 
+    ctx.beginPath();
+    ctx.moveTo(cx+offset+50,cy-400);
     socket.on('game loop', function(iX, iY){
         if(gname != "Instructor") {
             initY += iY;
@@ -43,16 +45,7 @@
             document.getElementById('map').style.backgroundPositionY = initY+ "px";
             document.getElementById('map').style.backgroundPositionX = initX+ "px";
             detectCollision(cx,cy);
-            socket.emit("update", initX, cx, initY, cy, gname);
         }
-    });
-    socket.on('paint', function(gname, cx, cy){
-        //var e=document.getElementById("c"+gname);
-        var e = ctx_l[gname]
-         ctx_l[gname].lineTo(cx+offset+50,cy-400);
-         ctx_l[gname].lineWidth = 10;
-         ctx_l[gname].strokeStyle = "rgb(0, 0, 222)";
-         ctx_l[gname].stroke();
     });
 
 
@@ -184,7 +177,7 @@
 function detectCollision(x,y){
     
     //ctx.moveTo(x-60,y-210);
-    ctx.moveTo(cx+offset+50,cy-400);
+
     ctx.lineTo(x+offset+50,y-400);
     ctx.lineWidth = 10;
     ctx.strokeStyle = "rgb(0, 0, 222)";
