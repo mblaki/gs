@@ -6,12 +6,14 @@
     var cx = 0;
     var cy = canvasHeight;
     var Xincrement=0;
+    var Yincrement=0;
     var line_increment = 0;
     var angle = 0.0;
     var out_of_bounds = 0;
    // var offset = screen.width *0.55*0.5;
     var updateClient = "none";
     var ctx_l = [];
+    var stopper = 0;
     console.log("client: + " + screen.width *0.55*0.5);
 
     var l=document.getElementById("list");
@@ -20,6 +22,7 @@
     ctx.moveTo(cx+offset+50,cy-400);
     socket.on('game loop', function(iX, iY){
         if(gname != "Instructor") {
+            Yincrement = iY;
             initY += iY;
             cy    -= iY;
             initX += (Xincrement + iX);
@@ -58,32 +61,22 @@
     });
 
     $("#l_but").click(function(){
-        if (angle < 45 && angle > -45) {
-            Xincrement +=2;
-            if (cx-2 != 0 ){
-                angle = Math.atan(cy/cx-2);
-                angle = 90 - angle *(180/Math.PI);
-            }else {
-                angle = 0;
-            }
+        if (stopper < 5){
+            Xincrement += (Yincrement*0.2);
+            angle -= 9;
             $("#avatar").rotate(angle);
             $("#needle").rotate(angle);
+            stopper +=1;
         }
-        
-        
     });
 
     $("#r_but").click(function(){
-        if (angle < 45 && angle > -45) {
-            Xincrement -=2;
-            if (cx-2 != 0 ){
-                angle = Math.atan(cy/cx-2);
-                angle = 90 - angle *(180/Math.PI);
-            }else {
-                angle = 0;
-            }
+        if (stopper > -5) {
+            Xincrement -= (Yincrement*0.2);
+            angle += 9;
             $("#avatar").rotate(angle);
             $("#needle").rotate(angle);
+            stopper -= 1;
         }
         
     });
