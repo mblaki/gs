@@ -61,6 +61,7 @@
             increment +=2;
             angle-=4.5;
             $("#avatar").rotate(angle);
+            $("#needle").rotate(angle);
         }
         
     });
@@ -70,6 +71,7 @@
             increment -=2;
             angle += 4.5;
             $("#avatar").rotate(angle);
+            $("#needle").rotate(angle);
         }
         
     });

@@ -14,6 +14,7 @@
     var y_pos = -1;
     function changeMap(p){
         if (p == 0) {
+            $("#avatar").show();
             $("#map").css("display","block");
             $("#list").css("display","none");
             $("#bigmap").css("display","block");
@@ -23,6 +24,7 @@
             $("#list").css("display","block");
             $("#smallmap").css("display","block");
             $("#bigmap").css("display","none");
+            $("#avatar").hide();
         }
     }
         
@@ -63,6 +65,9 @@
             $("#map").css("float","left");
             $("#chat").width("25%");
             $("#chat").css("float","right");
+            $("#avatar").css("left", screen.width*0.55*0.5 +"px");
+            $("#controls").css("left", screen.width*0.55*0.5 +"px");
+            $(".c_but").css("visibility", "hidden");
         } else {
             socket.emit('user join', gname);
             $("#users").css("display", "none");
@@ -87,7 +92,6 @@
             console.log("instructor join emit");
             if (gname == "Instructor"){
                 console.log("instructor join emit gname = Instructor");
-                $("#avatar").hide();
                 $('#buts').append('<button class="tablinks" type = "button" id = "all" value = "all"  onclick="setDest(event,this.value)"> ALL </button>');
                 document.getElementById("10").style.display = "block";
             }
@@ -160,9 +164,11 @@
                 context.drawImage(this, 0, 0);
             };
             context.moveTo(x,y);
+            context.font = "30px Arial";
+            contex.fillText(selected,10,50);
             imageObj.src = imgData;
         });
-    socket.on('update line', function(s_selected, x, y){
+    socket.on('update line', function(s_selected, x, y,bg_x, bg_y){
         if (s_selected != 'all' && gname == "Instructor" && x != -1){
             var canvas = document.getElementById('list');
             var ctx = canvas.getContext("2d");
@@ -170,6 +176,8 @@
             ctx.lineWidth = 10;
             ctx.strokeStyle = "rgb(0, 0, 222)";
             ctx.stroke();
+            document.getElementById('map').style.backgroundPositionY = bg_y+ "px";
+            document.getElementById('map').style.backgroundPositionX = bg_x+ "px";
         }
     })
     function setDest(evt, val){
