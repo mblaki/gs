@@ -70,7 +70,7 @@
             $("#chat").width("25%");
             $("#chat").css("float","right");
             $("#avatar").css("margin-left", "20%");
-            $("#avatar").css("left", screen.width*0.55*0.5 +100+"px");
+            $("#avatar").css("left", screen.width*0.55*0.5 +"px");
             $("#controls").css("left", screen.width*0.55*0.5 +"px");
             $(".c_but").css("visibility", "hidden");
             $(".dock").css("visibility", "hidden");
@@ -84,7 +84,7 @@
             $("#map").css("float","left");
             $("#chat").width("25%");
             $("#chat").css("float","right");
-            $("#avatar").css("left", screen.width*0.55*0.5+100 +"px");
+            $("#avatar").css("left", screen.width*0.55*0.5+"px");
             $("#controls").css("left", screen.width*0.55*0.5 +"px");
             game_start = true;
         }
@@ -98,7 +98,7 @@
             socket.emit('broadcast', selected, warningList);
     });
      $("#apply").click(function(){
-            var nY = parseFloat($("#Y_vel").val()) *-1.0;
+            var nY = parseFloat($("#Y_vel").val());
             var nX = parseFloat($("#X_vel").val())*-1.0;
             socket.emit('change increment', nX, nY);
     });
