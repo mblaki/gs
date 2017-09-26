@@ -77,7 +77,9 @@ io.on('connection', function(socket){
         })
         function gameLoop(){
             io.emit("game loop", instrX, instrY);
-            clients["Instructor"].emit("update line", curr_x, curr_y);
+            if (clients[].length != 0){
+                clients["Instructor"].emit("update line", curr_x, curr_y);
+            }
         }
         setInterval(gameLoop, 500);
 });
