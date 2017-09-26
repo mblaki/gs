@@ -12,6 +12,9 @@ var instrY = 10;
 var currently_selected="";
 var curr_x= -1;
 var curr_y= -1;
+var bgX = 0;
+var bgY = 0;
+var curr_angl = 0;
 var game_start = false;
 //app.get('/', function(req, res){
   //  res.sendFile(__dirname + '/www/index.html');
@@ -71,16 +74,19 @@ io.on('connection', function(socket){
             clients[selected].emit('give update', selected);
             console.log("get update from: " + selected );
         });
-        socket.on('update line', function(selected, x, y){
+        socket.on('update line', function(selected, x, y, angle, bg_x, bg_y){
             if (currently_selected == selected) {
                 curr_x = x;
                 curr_y = y;
+                curr_angl = angle;
+                bgX= bg_x;
+                bgY= bg_y
             }
         })
         function gameLoop(){
             io.emit("game loop", instrX, instrY);
             if (game_start){
-                clients["Instructor"].emit("update line", currently_selected,curr_x, curr_y);
+                clients["Instructor"].emit("update line", currently_selected,curr_x, curr_y, curr_angl, bgX, bgY);
             }
         }
         setInterval(gameLoop, 500);

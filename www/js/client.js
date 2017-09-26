@@ -45,7 +45,7 @@
             document.getElementById('map').style.backgroundPositionY = initY+ "px";
             document.getElementById('map').style.backgroundPositionX = initX+ "px";
             detectCollision(cx,cy);
-            socket.emit('update line', gname, cx, cy);
+            socket.emit('update line', gname, cx, cy, angle, initX, initY);
         }
     });
     socket.on('give update', function(selected){

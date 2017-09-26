@@ -1,5 +1,5 @@
     var audio = new Audio('../sound/mario1.wav');
-    var offset = screen.width *0.55*0.5;
+    var offset = screen.width *0.55*0.5+100;
     var gname="";
     var dest="Instructor";
     var clientList=[];
@@ -68,6 +68,8 @@
             $("#avatar").css("left", screen.width*0.55*0.5 +"px");
             $("#controls").css("left", screen.width*0.55*0.5 +"px");
             $(".c_but").css("visibility", "hidden");
+            $("#compass").css("display", "none");
+            $("#needle").css("display", "none");
         } else {
             socket.emit('user join', gname);
             $("#users").css("display", "none");
@@ -75,8 +77,8 @@
             $("#map").css("float","left");
             $("#chat").width("25%");
             $("#chat").css("float","right");
-            $("#avatar").css("left", screen.width*0.55*0.5 +"px");
-            $("#controls").css("left", screen.width*0.55*0.5 +"px");
+            $("#avatar").css("left", screen.width*0.55*0.5+100 +"px");
+            $("#controls").css("left", screen.width*0.55*0.5+100 +"px");
         }
     });
 
@@ -168,7 +170,7 @@
             contex.fillText(selected,10,50);
             imageObj.src = imgData;
         });
-    socket.on('update line', function(s_selected, x, y,bg_x, bg_y){
+    socket.on('update line', function(s_selected, x, y,ang,bg_x, bg_y){
         if (s_selected != 'all' && gname == "Instructor" && x != -1){
             var canvas = document.getElementById('list');
             var ctx = canvas.getContext("2d");
@@ -178,6 +180,7 @@
             ctx.stroke();
             document.getElementById('map').style.backgroundPositionY = bg_y+ "px";
             document.getElementById('map').style.backgroundPositionX = bg_x+ "px";
+            $("#avatar").rotate(angle);
         }
     })
     function setDest(evt, val){
