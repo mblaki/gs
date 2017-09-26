@@ -150,8 +150,10 @@
         });
         socket.on('paint canvas', function(imgData){
             var canvas = document.getElementById('list');
-            var context = canvas.getContext('2d');
             // load image from data url
+            canvas.width = canvasWidth;
+            canvas.height = canvasHeight;
+            var context = canvas.getContext("2d");
             var imageObj = new Image();
                 imageObj.onload = function() {
                 context.drawImage(this, 0, 0);
