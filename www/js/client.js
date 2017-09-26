@@ -97,10 +97,12 @@ function detectCollision(x,y){
     console.log("\np0: " + p[0] + " \np1: " + p[1] + " \np2: " + p[2]);
     if (p[0]==62 || p[1]== 117 || p[2] == 198 || p[0]==24 || p[1]== 119 || p[2] == 192){
         alert("GAMEOVER. YOU CRASHED");
+        location.reload(true);
     } else if (p[1]== 0 && game_start){
         out_of_bounds +=1;
     }
     if (out_of_bounds > 10 && game_start){
         alert("GAMEOVER. OUT OF BOUNDS");
+        location.reload(true);
     }
 }

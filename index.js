@@ -8,7 +8,7 @@ var port = process.env.PORT || 8005;
 //client["Instructor"] is the webpage for the Instructor, all other clients are Players
 var clients=[];
 var instrX = 0;
-var instrY = 10;
+var instrY = 5;
 var currently_selected="";
 var curr_x= -1;
 var curr_y= -1;
