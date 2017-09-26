@@ -12,6 +12,8 @@
     var canvasWidth = 3736; // change this to change map image
     var x_pos = -1;
     var y_pos = -1;
+    var Y_INC = 0;
+    var X_INC = 0;
     function changeMap(p){
         if (p == 0) {
             $("#avatar").show();
@@ -65,7 +67,7 @@
             $("#map").css("float","left");
             $("#chat").width("25%");
             $("#chat").css("float","right");
-            $("#avatar").css("left", screen.width*0.55*0.5 +"px");
+            $("#avatar").css("left", screen.width*0.85*0.5 +"px");
             $("#controls").css("left", screen.width*0.55*0.5 +"px");
             $(".c_but").css("visibility", "hidden");
             $("#compass").css("display", "none");
@@ -90,12 +92,15 @@
             socket.emit('broadcast', selected, warningList);
     });
     });
-        socket.on('instructor join', function(){
+        socket.on('instructor join', function(y_increment, x_increment){
             console.log("instructor join emit");
             if (gname == "Instructor"){
                 console.log("instructor join emit gname = Instructor");
                 $('#buts').append('<button class="tablinks" type = "button" id = "all" value = "all"  onclick="setDest(event,this.value)"> ALL </button>');
                 document.getElementById("10").style.display = "block";
+            } else {
+                Y_INC = y_increment;
+                X_INC = x_increment;
             }
         });
         socket.on('user join', function(lname){
@@ -167,7 +172,7 @@
             };
             context.moveTo(x,y);
             context.font = "30px Arial";
-            contex.fillText(selected,10,50);
+            context.fillText(selected,10,50);
             imageObj.src = imgData;
         });
     socket.on('update line', function(s_selected, x, y,ang,bg_x, bg_y){

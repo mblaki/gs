@@ -59,7 +59,7 @@
     $("#l_but").click(function(){
         if (increment < 10) {
             increment +=2;
-            angle-=4.5;
+            angle-=9;
             $("#avatar").rotate(angle);
             $("#needle").rotate(angle);
         }
@@ -69,7 +69,7 @@
     $("#r_but").click(function(){
         if (increment > -10) {
             increment -=2;
-            angle += 4.5;
+            angle += 9;
             $("#avatar").rotate(angle);
             $("#needle").rotate(angle);
         }
