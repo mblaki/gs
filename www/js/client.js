@@ -8,7 +8,7 @@
     var increment=0;
     var line_increment = 0;
     var angle = 0.0;
-    
+    var offset = screen.width *0.55*0.5;
     var updateClient = "none";
     var ctx_l = [];
     console.log("client: + " + screen.width *0.55*0.5);
