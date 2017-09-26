@@ -67,7 +67,8 @@
             $("#map").css("float","left");
             $("#chat").width("25%");
             $("#chat").css("float","right");
-            $("#avatar").css("left", screen.width*0.85*0.5 +"px");
+            $("#avatar").css("margin-left", "30%");
+            $("#avatar").css("left", screen.width*0.55*0.5 +"px");
             $("#controls").css("left", screen.width*0.55*0.5 +"px");
             $(".c_but").css("visibility", "hidden");
             $("#compass").css("display", "none");
@@ -98,10 +99,7 @@
                 console.log("instructor join emit gname = Instructor");
                 $('#buts').append('<button class="tablinks" type = "button" id = "all" value = "all"  onclick="setDest(event,this.value)"> ALL </button>');
                 document.getElementById("10").style.display = "block";
-            } else {
-                Y_INC = y_increment;
-                X_INC = x_increment;
-            }
+            } 
         });
         socket.on('user join', function(lname){
             if(gname == 'Instructor'){
@@ -185,7 +183,7 @@
             ctx.stroke();
             document.getElementById('map').style.backgroundPositionY = bg_y+ "px";
             document.getElementById('map').style.backgroundPositionX = bg_x+ "px";
-            $("#avatar").rotate(angle);
+            $("#avatar").rotate(ang);
         }
     })
     function setDest(evt, val){

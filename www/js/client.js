@@ -5,9 +5,10 @@
     var initY = screen.height;
     var cx = 0;
     var cy = canvasHeight;
-    var increment=0;
+    var Xincrement=0;
     var line_increment = 0;
     var angle = 0.0;
+    var out_of_bounds = 0;
    // var offset = screen.width *0.55*0.5;
     var updateClient = "none";
     var ctx_l = [];
@@ -21,13 +22,13 @@
         if(gname != "Instructor") {
             initY += iY;
             cy    -= iY;
-            initX += increment;
-            if (increment == 0){
+            initX += (Xincrement + iX);
+            if (Xincrement == 0){
                 
-            } else if (increment<0){
-                cx += Math.abs(increment);
-            }else if (increment >0){
-                cx -= Math.abs(increment);          
+            } else if (Xincrement<0){
+                cx += Math.abs(Xincrement + iX);
+            }else if (Xincrement >0){
+                cx -= Math.abs(Xincrement + iX);          
             }
             
             if(cy >canvasHeight){
@@ -57,19 +58,30 @@
     });
 
     $("#l_but").click(function(){
-        if (increment < 10) {
+        if (angle < 45 && angle > -45) {
             increment +=2;
-            angle-=9;
+            if (cx != 0 ){
+                angle = Math.atan(cy/cx);
+                angle = angle *(180/Math.PI);
+            }else {
+                angle = 0;
+            }
             $("#avatar").rotate(angle);
             $("#needle").rotate(angle);
         }
         
+        
     });
 
     $("#r_but").click(function(){
-        if (increment > -10) {
+        if (angle < 45 && angle > -45) {
             increment -=2;
-            angle += 9;
+            if (cx != 0 ){
+                angle = Math.atan(cy/cx);
+                angle = angle *(180/Math.PI);
+            }else {
+                angle = 0;
+            }
             $("#avatar").rotate(angle);
             $("#needle").rotate(angle);
         }
@@ -196,7 +208,12 @@ function detectCollision(x,y){
     var c = e.getContext('2d');
     var p = c.getImageData(x+offset+60, y-410, 1, 1).data;
     console.log("\np0: " + p[0] + " \np1: " + p[1] + " \np2: " + p[2]);
-    if (p[0]==62 || p[1]== 117 || p[2] == 198){
-        console.log("CRASH "+ "\np0: " + p[0] + " \np1: " + p[1] + " \np2: " + p[2]);
+    if (p[0]==62 || p[1]== 117 || p[2] == 198 || p[0]==24 || p[1]== 119 || p[2] == 192){
+        alert("GAMEOVER. YOU CRASHED");
+    } else if (p[1]== 0){
+        out_of_bounds +=1;
+    }
+    if (out_of_bounds > 10){
+        alert("GAMEOVER. OUT OF BOUNDS");
     }
 }
