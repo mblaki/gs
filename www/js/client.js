@@ -30,12 +30,14 @@
                 cy -= iY;
             }
             Yincrement = iY;
-            initX += (Xincrement + iX);
+            
             if (Xincrement == 0){
                 if (iX <0){
-                    cx += Math.abs(iX);    
+                    cx += Math.abs(iX); 
+                    initX -= Math.abs(iX);
                 } else {
                     cx -= Math.abs(iX);
+                    initX += Math.abs(iX);
                 }
             } else if (Xincrement<0){
                 cx += Math.abs(Xincrement + iX);
