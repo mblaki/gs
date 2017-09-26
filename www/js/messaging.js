@@ -15,6 +15,7 @@
     var Y_INC = 0;
     var X_INC = 0;
     var game_start = false;
+    var dock_ON= false;
     function changeMap(p){
         if (p == 0) {
             $("#avatar").show();
@@ -69,9 +70,10 @@
             $("#chat").width("25%");
             $("#chat").css("float","right");
             $("#avatar").css("margin-left", "20%");
-            $("#avatar").css("left", screen.width*0.55*0.5 +"px");
-            $("#controls").css("left", screen.width*0.55*0.5 +"px");
+            $("#avatar").css("left", screen.width*0.55*0.5 +100+"px");
+            $("#controls").css("left", screen.width*0.55*0.5 +100+"px");
             $(".c_but").css("visibility", "hidden");
+            $(".dock").css("visibility", "hidden");
             $("#compass").css("display", "none");
             $("#needle").css("display", "none");
             game_start = true;
@@ -99,6 +101,13 @@
             var nY = $("#Y_vel").val();
             var nX = $("#Y_vel").val();
             socket.emit('change increment', nX, nY);
+    });
+    $("#apply").click(function(){
+            if (dock_ON == true) {
+                dock_ON = false;
+            } else {
+                dock_ON = true;
+            }
     });
         
     });

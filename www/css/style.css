@@ -91,6 +91,11 @@
 #l_but{
     float:left;
 }
+.dock{
+    width:50px;
+    height: 30px;
+    margin:auto;
+}
 /*
 
  Canvas element that shows the entire map. 

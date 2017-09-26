@@ -22,9 +22,14 @@
     ctx.moveTo(cx+offset+50,cy-400);
     socket.on('game loop', function(iX, iY){
         if(gname != "Instructor") {
+            if (dock_ON){
+                initY += iY/2;
+                cy -= iY/2;
+            } else {
+                initY += iY;
+                cy -= iY;
+            }
             Yincrement = iY;
-            initY += iY;
-            cy    -= iY;
             initX += (Xincrement + iX);
             if (Xincrement == 0){
                 
@@ -96,8 +101,12 @@ function detectCollision(x,y){
     var p = c.getImageData(x+offset+60, y-410, 1, 1).data;
     console.log("\np0: " + p[0] + " \np1: " + p[1] + " \np2: " + p[2]);
     if (p[0]==62 || p[1]== 117 || p[2] == 198 || p[0]==24 || p[1]== 119 || p[2] == 192){
-        alert("GAMEOVER. YOU CRASHED");
-        window.location.reload(true);
+        if(dock_ON){
+            alert("docked");
+        }else {
+            alert("GAMEOVER. YOU CRASHED");
+            window.location.reload(true);
+        }
     } else if (p[1]== 0 && game_start){
         out_of_bounds +=1;
     }

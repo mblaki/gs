@@ -93,7 +93,7 @@ io.on('connection', function(socket){
                 clients["Instructor"].emit("update line", currently_selected,curr_x, curr_y, curr_angl, bgX, bgY);
             }
         }
-        //setInterval(gameLoop, 500);
+        setInterval(gameLoop, 500);
 });
 
 //http.listen(port, function(){
