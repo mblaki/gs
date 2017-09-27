@@ -1,6 +1,10 @@
-
-    var canvasHeight = 3456; // change this to change map image
-    var canvasWidth = 3736; // change this to change map image
+/**
+ * @author Marco de Freitas (19050739@sun.ac.za)
+ * Function:  Detect collision,  move background, draw canvas, and take user input
+ * 			  
+ * Purpose:   Communicate game logic to server
+ *
+ */
     var initX =  0;
     var initY = screen.height;
     var cx = 0;
@@ -50,7 +54,9 @@
             } else {
                 $("#map").empty();
                 $("#map").css("background","white");
-                $("#map").append("h1").text("END");
+                var ender = docment.createElement("h1");
+                ender.syle.fontsize = 50%;
+                $("#map").append(ender);
             }
             document.getElementById('map').style.backgroundPositionY = initY+ "px";
             document.getElementById('map').style.backgroundPositionX = initX+ "px";

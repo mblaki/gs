@@ -1,3 +1,10 @@
+/**
+ * @author Marco de Freitas (19050739@sun.ac.za)
+ * Function:  Connect to clients, and make emits to clients 
+ * 			  
+ * Purpose:   The server that communicates with all clients, identifies the Instructor and Players
+ *
+ */
 var express = require('express');
 var app = express();
 var port = process.env.PORT || 8005;
