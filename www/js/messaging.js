@@ -80,9 +80,13 @@
             $("#chat").css("float","right");
             $("#avatar").css("margin-left", "20%");
             $("#avatar").css("left", screen.width*0.55*0.5 +50 +"px");
+            $("#avatar").css("visibility", "visible");
             $("#controls").css("left", screen.width*0.55*0.5 +"px");
+            $("#controls").css("visibility", "visible");
+            $("#snd").css("visibility", "visible");
             $(".c_but").css("visibility", "hidden");
             $(".dock").css("visibility", "hidden");
+            $(".toggle").css("visibility", "visible");
             $("#compass").css("display", "none");
             $("#needle").css("display", "none");
             game_start = true;
@@ -95,6 +99,10 @@
             $("#chat").css("float","right");
             $("#avatar").css("left", screen.width*0.55*0.5 +50+"px");
             $("#controls").css("left", screen.width*0.55*0.5 +"px");
+            $("#avatar").css("visibility", "visible");
+            $("#controls").css("visibility", "visible");
+            $("#snd").css("visibility", "visible");
+            $(".toggle").css("visibility", "visible");
             game_start = true;
         }
     });
