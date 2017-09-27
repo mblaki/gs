@@ -55,7 +55,7 @@
                 $("#map").empty();
                 $("#map").css("background","white");
                 var ender = docment.createElement("h1");
-                ender.syle.fontsize = 50%;
+                ender.syle.fontsize = "50%";
                 $("#map").append(ender);
             }
             document.getElementById('map').style.backgroundPositionY = initY+ "px";
