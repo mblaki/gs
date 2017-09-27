@@ -16,15 +16,14 @@
     var ctx_l = [];
     var stopper = 0;
     var END = false;
-    console.log("client: + " + screen.width *0.55*0.5);
-
     var l=document.getElementById("list");
     var ctx=l.getContext("2d");
     ctx.beginPath();
-    ctx.moveTo(cx+offset+50,cy-400);
+    ctx.moveTo(cx+offset+150,cy-400);
     socket.on('game loop', function(iX, iY, iA){
         if(gname != "Instructor" ) {
             if(!END) {
+                Yincrement = iY;
                 MAX_ANGLE = iA;
                 if (dock_ON){
                     initY += (iY)/2;
@@ -33,7 +32,6 @@
                     initY += (iY);
                     cy -= (iY);
                 }
-                
                 if (Xincrement<0){
                     cx += Math.abs(Xincrement + iX);
                     initX -= Math.abs(Xincrement + iX);
@@ -90,16 +88,11 @@
         
     });
 
-
 function detectCollision(x,y){
-    
-    //ctx.moveTo(x-60,y-210);
-
-    ctx.lineTo(x+offset+50,y-400);
+    ctx.lineTo(x+offset+150,y-400);
     ctx.lineWidth = 10;
     ctx.strokeStyle = "rgb(0, 0, 222)";
     ctx.stroke();
-  
     var e=document.getElementById("list");
     var c = e.getContext('2d');
     var p = c.getImageData(x+offset+60, y-410, 1, 1).data;

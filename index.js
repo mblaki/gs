@@ -1,11 +1,7 @@
-//var app = require('express')();
-//var http = require('http').Server(app);
-//var io = require('socket.io')(http);
 var express = require('express');
 var app = express();
 var port = process.env.PORT || 8005;
 
-//client["Instructor"] is the webpage for the Instructor, all other clients are Players
 var clients=[];
 var instrX = 0;
 var instrY = 5;
@@ -17,9 +13,6 @@ var bgY = 0;
 var curr_angl = 0;
 var MAX_ANGLE = 5;
 var game_start = false;
-//app.get('/', function(req, res){
-  //  res.sendFile(__dirname + '/www/index.html');
-//});
 app.use(express.static(__dirname + '/www'));
 var server = app.listen(process.env.PORT || 8005, function () {
 	var port = server.address().port;
@@ -100,7 +93,3 @@ io.on('connection', function(socket){
         }
         setInterval(gameLoop, 500);
 });
-
-//http.listen(port, function(){
-  //console.log('listening on *:' + port);
-//});

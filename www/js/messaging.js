@@ -71,7 +71,7 @@
             $("#chat").width("25%");
             $("#chat").css("float","right");
             $("#avatar").css("margin-left", "20%");
-            $("#avatar").css("left", screen.width*0.55*0.5 +"px");
+            $("#avatar").css("left", screen.width*0.55*0.5 +100 +"px");
             $("#controls").css("left", screen.width*0.55*0.5 +"px");
             $(".c_but").css("visibility", "hidden");
             $(".dock").css("visibility", "hidden");
@@ -85,7 +85,7 @@
             $("#map").css("float","left");
             $("#chat").width("25%");
             $("#chat").css("float","right");
-            $("#avatar").css("left", screen.width*0.55*0.5+"px");
+            $("#avatar").css("left", screen.width*0.55*0.5 +100+"px");
             $("#controls").css("left", screen.width*0.55*0.5 +"px");
             game_start = true;
         }
