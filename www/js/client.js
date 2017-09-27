@@ -71,22 +71,12 @@
     });
 
     $("#l_but").click(function(){
-        Xincrement += (10*(1/MAX_ANGLE));
         if (stopper < MAX_ANGLE){
-            if(stopper <0){
-                if (Math.abs(stopper+1) > Math.abs(stopper) ){
-                    Yincrement += (iY*(1/MAX_ANGLE));
-                } else {
-                    Yincrement -= (iY*(1/MAX_ANGLE));
-                }
-            } else if (stopper >0) {
-                if (Math.abs(stopper+1) > Math.abs(stopper) ){
-                    Yincrement -= (iY*(1/MAX_ANGLE));
-                } else {
-                    Yincrement += (iY*(1/MAX_ANGLE));
-                }
+            Xincrement += (10*(1/MAX_ANGLE));
+            if (stopper>0){
+                Yincrement -= (10*(1/MAX_ANGLE));
             } else {
-                Yincrement = 0;
+                Yincrement += (10*(1/MAX_ANGLE));
             }
             angle -= 9;
             $("#avatar").rotate(angle);
@@ -98,20 +88,10 @@
     $("#r_but").click(function(){
         if (stopper > -MAX_ANGLE) {
             Xincrement -= (10*(1/MAX_ANGLE));
-           if(stopper <0){
-                if (Math.abs(stopper+1) > Math.abs(stopper) ){
-                    Yincrement -= (iY*(1/MAX_ANGLE));
-                } else {
-                    Yincrement += (iY*(1/MAX_ANGLE));
-                }
-            } else if (stopper >0) {
-                if (Math.abs(stopper+1) > Math.abs(stopper) ){
-                    Yincrement += (iY*(1/MAX_ANGLE));
-                } else {
-                    Yincrement -= (iY*(1/MAX_ANGLE));
-                }
+            if (stopper>0){
+                Yincrement += (10*(1/MAX_ANGLE));
             } else {
-                Yincrement = 0;
+                Yincrement -= (10*(1/MAX_ANGLE));
             }
             angle += 9;
             $("#avatar").rotate(angle);
