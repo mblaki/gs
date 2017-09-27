@@ -6,7 +6,7 @@
  *
  */
     var initX =  0;
-    var initY = 500;//screen.height;
+    var initY = 1000;//screen.height;
     var cx = 0;
     var cy = canvasHeight;
     var Xincrement=0;
