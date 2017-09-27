@@ -72,31 +72,35 @@
 
     $("#l_but").click(function(){
         if (stopper < MAX_ANGLE){
+            stopper +=1;
             Xincrement += (10*(1/MAX_ANGLE));
             if (stopper>0){
                 Yincrement -= (10*(1/MAX_ANGLE));
-            } else {
+            } else if(stopper<0){
                 Yincrement += (10*(1/MAX_ANGLE));
+            } else {
+                Yincrement = 0;
             }
             angle -= 9;
             $("#avatar").rotate(angle);
             $("#needle").rotate(angle);
-            stopper +=1;
         }
     });
 
     $("#r_but").click(function(){
         if (stopper > -MAX_ANGLE) {
+            stopper -= 1;
             Xincrement -= (10*(1/MAX_ANGLE));
             if (stopper>0){
                 Yincrement += (10*(1/MAX_ANGLE));
-            } else {
+            } else if (stopper < 0){
                 Yincrement -= (10*(1/MAX_ANGLE));
+            } else {
+                Yincrement =0;
             }
             angle += 9;
             $("#avatar").rotate(angle);
             $("#needle").rotate(angle);
-            stopper -= 1;
         }
         
     });
