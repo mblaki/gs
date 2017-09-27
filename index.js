@@ -77,10 +77,9 @@ io.on('connection', function(socket){
                 bgY= bg_y
             }
         });
-        socket.on('change increment', function(x,y, a){
+        socket.on('change increment', function(x,y){
                 instrX = x;
                 instrY = y;
-                MAX_ANGLE = a;
         });
        socket.on('dock', function(gname,type){
                 clients["Instructor"].emit('dock', gname, type);

@@ -99,10 +99,9 @@
             socket.emit('broadcast', selected, warningList);
     });
      $("#apply").click(function(){
-            var nY = parseFloat($("#Y_vel").val());
-            var nX = parseFloat($("#X_vel").val())*-1.0;
-            var nA = $('input[name=radioName]:checked', '#myForm').val()
-            socket.emit('change increment', nX, nY, nA);
+            var nY = parseInt($("#Y_vel").val());
+            var nX = parseInt($("#X_vel").val())*-1.0;
+            socket.emit('change increment', nX, nY);
     });
     $(".dock").click(function(){
             if (dock_ON == true) {
