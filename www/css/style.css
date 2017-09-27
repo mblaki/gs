@@ -60,8 +60,8 @@
         z-index:2;
     }
     #map{
-        background-image: url(../img/dot.jpg);
-        height: 100vh;
+        background: url(../img/dot.jpg) no-repeat center;
+        height: 100%;
         display:block;
         min-width:75px;
     }
