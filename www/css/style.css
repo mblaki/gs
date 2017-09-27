@@ -1,11 +1,11 @@
 * { margin:0; padding: 0; box-sizing: border-box; }
       body { font: 13px Helvetica, Arial;}
-      form { background: #000; padding: 3px;  bottom: 0; right:0; width: 25%; position:fixed}
-      form input { 
+      #snd { background: #000; padding: 3px;  bottom: 0; right:0; width: 25%; position:fixed}
+      #snd input { 
           width: 75%;
           height: 30px;
         }
-      form button { 
+      #snd button { 
           background: rgb(150, 240, 150); 
           border: none;
           width:25%;

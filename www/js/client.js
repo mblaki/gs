@@ -23,39 +23,43 @@
     ctx.beginPath();
     ctx.moveTo(cx+offset+50,cy-400);
     socket.on('game loop', function(iX, iY, iA){
-        if(gname != "Instructor" && END != false) {
-            if (dock_ON){
-                initY += iY/2;
-                cy -= iY/2;
-            } else {
-                initY += iY;
-                cy -= iY;
-            }
-            Yincrement = iY;
-            MAX_ANGLE = iA;
-            if (Xincrement<0){
-                cx += Math.abs(Xincrement + iX);
-                initX -= Math.abs(Xincrement + iX);
-            }else if (Xincrement >0){
-                cx -= Math.abs(Xincrement + iX);
-                initX += Math.abs(Xincrement + iX);
-            } else {
-                if (iX <0){
-                    cx += Math.abs(iX); 
-                    initX -= Math.abs(iX);
-                } else {
-                    cx -= Math.abs(iX);
-                    initX += Math.abs(iX);
-                }
-            }
+        if(gname != "Instructor" ) {
+            if(END != false) {
             
+                if (dock_ON){
+                    initY += iY/2;
+                    cy -= iY/2;
+                } else {
+                    initY += iY;
+                    cy -= iY;
+                }
+                Yincrement = iY;
+                MAX_ANGLE = iA;
+                if (Xincrement<0){
+                    cx += Math.abs(Xincrement + iX);
+                    initX -= Math.abs(Xincrement + iX);
+                } else if (Xincrement >0){
+                    cx -= Math.abs(Xincrement + iX);
+                    initX += Math.abs(Xincrement + iX);
+                } else {
+                    if (iX <0){
+                        cx += Math.abs(iX); 
+                        initX -= Math.abs(iX);
+                    } else {
+                        cx -= Math.abs(iX);
+                        initX += Math.abs(iX);
+                    }
+                }
+            } else {
+                $("#map").empty();
+                $("#map").css("background","white");
+                $("#map").append("h1").text("END");
+            }
             document.getElementById('map').style.backgroundPositionY = initY+ "px";
             document.getElementById('map').style.backgroundPositionX = initX+ "px";
             detectCollision(cx,cy);
             socket.emit('update line', gname, cx, cy, angle, initX, initY);
         }
-                $("#map").empty();
-                $("#map").append("h1").text("END");
             
     });
     socket.on('give update', function(selected){
