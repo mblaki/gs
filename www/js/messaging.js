@@ -15,8 +15,8 @@
     var warningList = [];
     var myWarningList = [];
     var selected = "all";
-   // var canvasHeight = 3456; // change this to change map image
-   // var canvasWidth = 3736; // change this to change map image
+    var canvasHeight; //= 3456; // change this to change map image
+    var canvasWidth; //= 3736; // change this to change map image
     var x_pos = -1;
     var y_pos = -1;
     var Y_INC = 0;
