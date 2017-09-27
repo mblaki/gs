@@ -27,11 +27,11 @@
             if(!END) {
                 MAX_ANGLE = iA;
                 if (dock_ON){
-                    initY += Yincrement/2;
-                    cy -= Yincrement/2;
+                    initY += (iY-Yincrement)/2;
+                    cy -= (iY-Yincrement)/2;
                 } else {
-                    initY += Yincrement;
-                    cy -= Yincrement;
+                    initY += (iY-Yincrement);
+                    cy -= (iY-Yincrement);
                 }
                 
                 
@@ -72,8 +72,22 @@
 
     $("#l_but").click(function(){
         if (stopper < MAX_ANGLE){
-            Xincrement += (Yincrement*(1/MAX_ANGLE));
-            Yincrement -= (Xincrement*(1/MAX_ANGLE));
+            Xincrement += (10*(1/MAX_ANGLE));
+            if(stopper <0){
+                if (Math.abs(stopper+1) > Math.abs(stopper) ){
+                    Yincrement += (iY*(1/MAX_ANGLE));
+                } else {
+                    Yincrement -= (iY*(1/MAX_ANGLE));
+                }
+            } else if (stopper >0) {
+                if (Math.abs(stopper+1) > Math.abs(stopper) ){
+                    Yincrement -= (iY*(1/MAX_ANGLE));
+                } else {
+                    Yincrement += (iY*(1/MAX_ANGLE));
+                }
+            } else {
+                Yincrement = 0;
+            }
             angle -= 9;
             $("#avatar").rotate(angle);
             $("#needle").rotate(angle);
@@ -83,8 +97,8 @@
 
     $("#r_but").click(function(){
         if (stopper > -MAX_ANGLE) {
-            Xincrement -= (Yincrement*(1/MAX_ANGLE));
-            Yincrement -= (Xincrement*(1/MAX_ANGLE));
+            Xincrement -= (10*(1/MAX_ANGLE));
+            Yincrement -= (10*(1/MAX_ANGLE));
             angle += 9;
             $("#avatar").rotate(angle);
             $("#needle").rotate(angle);
@@ -119,8 +133,8 @@ function detectCollision(x,y){
         out_of_bounds +=1;
     }
     if (out_of_bounds > 10 && game_start){
-            socket.emit('dock', gname, 3);
-            END = true;
+        socket.emit('dock', gname, 3);
+        END = true;
         
     }
 }
