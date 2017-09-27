@@ -61,6 +61,7 @@
     $("#join").click(function(){
         gname = $("#username").val();
         $("#prompt").hide();
+        $("#backscreen").hide();
         if (gname == "Instructor"){
             socket.emit('instructor join');
             $("#users").width("20%");
@@ -100,7 +101,8 @@
      $("#apply").click(function(){
             var nY = parseFloat($("#Y_vel").val());
             var nX = parseFloat($("#X_vel").val())*-1.0;
-            socket.emit('change increment', nX, nY);
+            var nA = $('input[name=radioName]:checked', '#myForm').val()
+            socket.emit('change increment', nX, nY, nA);
     });
     $(".dock").click(function(){
             if (dock_ON == true) {

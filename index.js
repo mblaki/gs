@@ -15,6 +15,7 @@ var curr_y= -1;
 var bgX = 0;
 var bgY = 0;
 var curr_angl = 0;
+var MAX_ANGLE = 5;
 var game_start = false;
 //app.get('/', function(req, res){
   //  res.sendFile(__dirname + '/www/index.html');
@@ -83,15 +84,16 @@ io.on('connection', function(socket){
                 bgY= bg_y
             }
         });
-        socket.on('change increment', function(x,y){
+        socket.on('change increment', function(x,y, a){
                 instrX = x;
                 instrY = y;
+                MAX_ANGLE = a;
         });
        socket.on('dock', function(gname,type){
                 clients["Instructor"].emit('dock', gname, type);
         });
         function gameLoop(){
-            io.emit("game loop", instrX, instrY);
+            io.emit("game loop", instrX, instrY, MAX_ANGLE);
             if (game_start){
                 clients["Instructor"].emit("update line", currently_selected,curr_x, curr_y, curr_angl, bgX, bgY);
             }

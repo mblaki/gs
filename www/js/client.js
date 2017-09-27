@@ -10,18 +10,20 @@
     var line_increment = 0;
     var angle = 0.0;
     var out_of_bounds = 0;
+    var MAX_ANGLE = 5;
    // var offset = screen.width *0.55*0.5;
     var updateClient = "none";
     var ctx_l = [];
     var stopper = 0;
+    var END = false;
     console.log("client: + " + screen.width *0.55*0.5);
 
     var l=document.getElementById("list");
     var ctx=l.getContext("2d");
     ctx.beginPath();
     ctx.moveTo(cx+offset+50,cy-400);
-    socket.on('game loop', function(iX, iY){
-        if(gname != "Instructor") {
+    socket.on('game loop', function(iX, iY, iA){
+        if(gname != "Instructor" && END != false) {
             if (dock_ON){
                 initY += iY/2;
                 cy -= iY/2;
@@ -30,6 +32,7 @@
                 cy -= iY;
             }
             Yincrement = iY;
+            MAX_ANGLE = iA;
             if (Xincrement<0){
                 cx += Math.abs(Xincrement + iX);
                 initX -= Math.abs(Xincrement + iX);
@@ -51,6 +54,9 @@
             detectCollision(cx,cy);
             socket.emit('update line', gname, cx, cy, angle, initX, initY);
         }
+                $("#map").empty();
+                $("#map").append("h1").text("END");
+            
     });
     socket.on('give update', function(selected){
        if (gname == selected) {
@@ -61,8 +67,8 @@
     });
 
     $("#l_but").click(function(){
-        if (stopper < 5){
-            Xincrement += (Yincrement*0.2);
+        if (stopper < MAX_ANGLE){
+            Xincrement += (Yincrement*(1/MAX_ANGLE));
             angle -= 9;
             $("#avatar").rotate(angle);
             $("#needle").rotate(angle);
@@ -71,8 +77,8 @@
     });
 
     $("#r_but").click(function(){
-        if (stopper > -5) {
-            Xincrement -= (Yincrement*0.2);
+        if (stopper > -MAX_ANGLE) {
+            Xincrement -= (Yincrement*(1/MAX_ANGLE));
             angle += 9;
             $("#avatar").rotate(angle);
             $("#needle").rotate(angle);
@@ -98,23 +104,18 @@ function detectCollision(x,y){
     if (p[0]==62 || p[1]== 117 || p[2] == 198 || p[0]==24 || p[1]== 119 || p[2] == 192){
         if(dock_ON){
             socket.emit('dock', gname, 0);
-            alert("Dock Success!");
+            END = true;
             
         } else {
             socket.emit('dock', gname, 4);
-           if(!alert('Crash!')){
-               
-               window.location.reload(true);
-           }
+            END = true;
         }
     } else if (p[1]== 0 && game_start){
         out_of_bounds +=1;
     }
     if (out_of_bounds > 10 && game_start){
-        socket.emit('dock', gname, 3);
-        if(!alert('Out of bounds!')){
-            
-            window.location.reload(true);
-        }
+            socket.emit('dock', gname, 3);
+            END = true;
+        
     }
 }
