@@ -30,8 +30,8 @@
                     initY += (iY)/2;
                     cy -= (iY)/2;
                 } else {
-                    initY += (Yincrement);
-                    cy -= (Yincrement);
+                    initY += (iY);
+                    cy -= (iY);
                 }
                 
                 if (Xincrement<0){
@@ -82,7 +82,7 @@
     $("#r_but").click(function(){
         if (stopper > -MAX_ANGLE) {
             stopper -= 1;
-            Xincrement -= (10*(1/MAX_ANGLE));
+            Xincrement -= (5*(1/MAX_ANGLE));
             angle += 9;
             $("#avatar").rotate(angle);
             $("#needle").rotate(angle);
