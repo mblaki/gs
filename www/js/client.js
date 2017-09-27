@@ -19,7 +19,7 @@
     var l=document.getElementById("list");
     var ctx=l.getContext("2d");
     ctx.beginPath();
-    ctx.moveTo(cx+offset+150,cy-400);
+    ctx.moveTo(cx+offset+125,cy-400);
     socket.on('game loop', function(iX, iY, iA){
         if(gname != "Instructor" ) {
             if(!END) {
@@ -70,7 +70,7 @@
     $("#l_but").click(function(){
         if (stopper < MAX_ANGLE){
             stopper +=1;
-            Xincrement += (5*(1/MAX_ANGLE));
+            Xincrement += parseInt(5*(1/MAX_ANGLE));
             angle -= 9;
             $("#avatar").rotate(angle);
             $("#needle").rotate(angle);
@@ -80,7 +80,7 @@
     $("#r_but").click(function(){
         if (stopper > -MAX_ANGLE) {
             stopper -= 1;
-            Xincrement -= (5*(1/MAX_ANGLE));
+            Xincrement -= parent(5*(1/MAX_ANGLE));
             angle += 9;
             $("#avatar").rotate(angle);
             $("#needle").rotate(angle);
@@ -89,7 +89,7 @@
     });
 
 function detectCollision(x,y){
-    ctx.lineTo(x+offset+150,y-400);
+    ctx.lineTo(x+offset+125,y-400);
     ctx.lineWidth = 10;
     ctx.strokeStyle = "rgb(0, 0, 222)";
     ctx.stroke();
