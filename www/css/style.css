@@ -60,7 +60,7 @@
         z-index:2;
     }
     #map{
-        background-image: url(../img/big.png);
+        background-image: url(../img/dot.jpg);
         height: 100vh;
         display:block;
         min-width:75px;
