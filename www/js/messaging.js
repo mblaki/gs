@@ -15,8 +15,8 @@
     var warningList = [];
     var myWarningList = [];
     var selected = "all";
-    var canvasHeight; //= 3456; // change this to change map image
-    var canvasWidth; //= 3736; // change this to change map image
+    var canvasHeight=0; //= 3456; // change this to change map image
+    var canvasWidth=0; //= 3736; // change this to change map image
     var x_pos = -1;
     var y_pos = -1;
     var Y_INC = 0;
@@ -67,8 +67,8 @@
     $(document).ready( function () {
          var img = new Image();
                 img.onload = function(){
-                   canvasWidth=img.width;
-                    canvasHeight=img.height;
+                   canvasWidth= parseInt(img.width);
+                    canvasHeight= parseInt(img.height);
                 };
                 /*
                 To change map change this path!
