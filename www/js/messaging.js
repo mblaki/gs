@@ -8,8 +8,8 @@
     var warningList = [];
     var myWarningList = [];
     var selected = "all";
-    var canvasHeight = 3456; // change this to change map image
-    var canvasWidth = 3736; // change this to change map image
+   // var canvasHeight = 3456; // change this to change map image
+   // var canvasWidth = 3736; // change this to change map image
     var x_pos = -1;
     var y_pos = -1;
     var Y_INC = 0;
@@ -58,6 +58,15 @@
         });
       });
     $(document).ready( function () {
+         var img = new Image();
+                img.onload = function(){
+                   canvasWidth=img.width;
+                    canvasHeight=img.height;
+                };
+                /*
+                To change map change this path!
+                */
+                img.src = "../img/big.png"; 
     $("#join").click(function(){
         gname = $("#username").val();
         $("#prompt").hide();
@@ -135,7 +144,7 @@
                 $('#buts').css("display","none");
                 $("#0").css("display","block");
                 $("#list").css("background", "black");
-                 var img = new Image();
+                var img = new Image();
                 img.onload = function(){
                     var hidden_canvas = document.getElementById("list")
                     hidden_canvas.width = canvasWidth;
@@ -209,30 +218,22 @@
         }
     });
  socket.on('dock', function(name, type){
-     console.log("name: " + name + "type: " + type)
      if (type == 0){
          $("#but"+name).text(name + "- Successful Dock");
-         console.log(gname+" win");
      } else if (type == 1) {
          $("#but"+name).text(name);
-         console.log("type 1");
      } else if (type == 2 ){
         $("#but"+name).text(name + "- Docking");
-         console.log(gname+" good dock");
      } else if (type == 3 ){
         $("#but"+name).text(name + "- Failed (Out of Bounds)");
-         console.log(gname+" border");
      } else if (type == 4 ){
         $("#but"+name).text(name + "- Failed (Crash)");
-         console.log(gname+" crash");
      }
     });
     function setDest(evt, val){
          var i, tabcontent, tablinks;
          this.dest = val;
          selected = val;
-         console.log("Tab id= " + val);
-         console.log("selected= " + selected);
          tabcontent = document.getElementsByClassName("tabcontent");
          for (i = 0; i < tabcontent.length; i++) {
             tabcontent[i].style.display = "none";

@@ -21,8 +21,8 @@ var server = app.listen(process.env.PORT || 8005, function () {
 var io = require('socket.io')(server);
 io.on('connection', function(socket){
     console.log("clients[] length= " + Object.keys(clients).length);
-        socket.on("disconnect", function(){
-            console.log("user disconnected");
+        socket.on("disconnect", function(this){
+            console.log("user disconnected " + this);
         });
         socket.on('instructor join', function(){
             console.log("the instructor has started the simulation");
