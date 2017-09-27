@@ -17,6 +17,7 @@
     var selected = "all";
     var canvasHeight= 3456; // change this to change map image
     var canvasWidth= 3736; // change this to change map image
+    var img_path = "../img/big.png";
     var x_pos = -1;
     var y_pos = -1;
     var Y_INC = 0;
@@ -154,7 +155,7 @@
                 /*
                 To change map change this path!
                 */
-                img.src = "../img/big.png"; 
+                img.src = img_path; 
               // console.log("w:"+img.width +"\nh " + img.height);
             }else {
                 
@@ -163,6 +164,7 @@
 
         socket.on('abroadcast', function(warningList){
              if (gname != "Instructor"){
+                 audio.play();
               console.log("broadcast recieved to " + selected);
                 $('#t').empty();
                 myWarningList.length = 0;
@@ -178,6 +180,7 @@
              if (gname != "Instructor"){
               console.log("broadcast recieved to " + selected);
               if (gname == select ) {
+                  audio.play();
                 $('#t').empty();
                 myWarningList.length = 0;
                 myWarningList = warningList;
