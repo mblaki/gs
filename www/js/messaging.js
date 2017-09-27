@@ -88,8 +88,8 @@
             $(".c_but").css("visibility", "hidden");
             $(".dock").css("visibility", "hidden");
             $(".toggle").css("visibility", "visible");
-            $("#compass").css("display", "none");
-            $("#needle").css("display", "none");
+            $("#compass").css("visibility", "hidden");
+            $("#needle").css("visibility", "hidden");
             game_start = true;
         } else {
             socket.emit('user join', gname);
@@ -104,6 +104,8 @@
             $("#controls").css("visibility", "visible");
             $("#snd").css("visibility", "visible");
             $(".toggle").css("visibility", "visible");
+            $("#compass").css("visibility", "visible");
+            $("#needle").css("visibility", "visible");
             game_start = true;
         }
     });
