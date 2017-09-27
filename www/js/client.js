@@ -24,8 +24,7 @@
     ctx.moveTo(cx+offset+50,cy-400);
     socket.on('game loop', function(iX, iY, iA){
         if(gname != "Instructor" ) {
-            if(END != false) {
-            
+            if(!END) {
                 if (dock_ON){
                     initY += iY/2;
                     cy -= iY/2;
@@ -109,7 +108,6 @@ function detectCollision(x,y){
         if(dock_ON){
             socket.emit('dock', gname, 0);
             END = true;
-            
         } else {
             socket.emit('dock', gname, 4);
             END = true;
