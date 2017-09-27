@@ -104,7 +104,7 @@ function detectCollision(x,y){
     var c = e.getContext('2d');
     var p = c.getImageData(x+offset+110, y-410, 1, 1).data;
     console.log("\np0: " + p[0] + " \np1: " + p[1] + " \np2: " + p[2]);
-   if (p[0]==62 || p[1]== 117 || p[2] == 198 || p[0]==24 || p[1]== 119 || p[2] == 192){
+   if (p[0]==620 || p[1]== 1170 || p[2] == 1980 || p[0]==240 || p[1]== 1190 || p[2] == 1920){
         if(dock_ON){
             socket.emit('dock', gname, 0);
             END = true;
