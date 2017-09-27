@@ -8,7 +8,7 @@
     var initX =  0;
     var initY = screen.height;
     var cx = 0;
-    var cy = canvasHeight;
+    var cy = 0;
     var Xincrement=0;
     var Yincrement=0;
     var line_increment = 0;
