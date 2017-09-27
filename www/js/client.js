@@ -25,15 +25,17 @@
     socket.on('game loop', function(iX, iY, iA){
         if(gname != "Instructor" ) {
             if(!END) {
-                if (dock_ON){
-                    initY += iY/2;
-                    cy -= iY/2;
-                } else {
-                    initY += iY;
-                    cy -= iY;
-                }
                 Yincrement = iY;
                 MAX_ANGLE = iA;
+                if (dock_ON){
+                    initY += Yincrement/2;
+                    cy -= Yincrement/2;
+                } else {
+                    initY += Yincrement;
+                    cy -= Yincrement;
+                }
+                
+                
                 if (Xincrement<0){
                     cx += Math.abs(Xincrement + iX);
                     initX -= Math.abs(Xincrement + iX);
@@ -71,7 +73,8 @@
 
     $("#l_but").click(function(){
         if (stopper < MAX_ANGLE){
-            Xincrement += (10*(1/MAX_ANGLE));
+            Xincrement += (Yincrement*(1/MAX_ANGLE));
+            Yincrement -= (Yincrement*(1/MAX_ANGLE));
             angle -= 9;
             $("#avatar").rotate(angle);
             $("#needle").rotate(angle);
@@ -81,7 +84,8 @@
 
     $("#r_but").click(function(){
         if (stopper > -MAX_ANGLE) {
-            Xincrement -= (10*(1/MAX_ANGLE));
+            Xincrement -= (Yincrement*(1/MAX_ANGLE));
+            Yincrement -= (Yincrement*(1/MAX_ANGLE));
             angle += 9;
             $("#avatar").rotate(angle);
             $("#needle").rotate(angle);
