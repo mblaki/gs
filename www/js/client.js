@@ -73,11 +73,11 @@
     $("#l_but").click(function(){
         if (stopper < MAX_ANGLE){
             stopper +=1;
-            Xincrement += (10*(1/MAX_ANGLE));
+            Xincrement += (5*(1/MAX_ANGLE));
             if (stopper>0){
-                Yincrement -= (10*(1/MAX_ANGLE));
+                Yincrement -= (5*(1/MAX_ANGLE));
             } else if(stopper<0){
-                Yincrement += (10*(1/MAX_ANGLE));
+                Yincrement += (5*(1/MAX_ANGLE));
             } else {
                 Yincrement = 0;
             }
