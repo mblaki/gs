@@ -7,6 +7,7 @@
  */    
     var audio = new Audio('../sound/mario1.wav');
     var offset = screen.width *0.55*0.5+100;
+    var offset = 1000;
     var gname="";
     var dest="Instructor";
     var clientList=[];
