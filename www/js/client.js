@@ -27,13 +27,12 @@
             if(!END) {
                 MAX_ANGLE = iA;
                 if (dock_ON){
-                    initY += (iY+Yincrement)/2;
-                    cy -= (iY+Yincrement)/2;
+                    initY += (iY)/2;
+                    cy -= (iY)/2;
                 } else {
-                    initY += (iY+Yincrement);
-                    cy -= (iY+Yincrement);
+                    initY += (Yincrement);
+                    cy -= (Yincrement);
                 }
-                
                 
                 if (Xincrement<0){
                     cx += Math.abs(Xincrement + iX);
@@ -74,13 +73,6 @@
         if (stopper < MAX_ANGLE){
             stopper +=1;
             Xincrement += (5*(1/MAX_ANGLE));
-            if (stopper>0){
-                Yincrement -= (5*(1/MAX_ANGLE));
-            } else if(stopper<0){
-                Yincrement += (5*(1/MAX_ANGLE));
-            } else {
-                Yincrement = 0;
-            }
             angle -= 9;
             $("#avatar").rotate(angle);
             $("#needle").rotate(angle);
@@ -91,13 +83,6 @@
         if (stopper > -MAX_ANGLE) {
             stopper -= 1;
             Xincrement -= (10*(1/MAX_ANGLE));
-            if (stopper>0){
-                Yincrement += (10*(1/MAX_ANGLE));
-            } else if (stopper < 0){
-                Yincrement -= (10*(1/MAX_ANGLE));
-            } else {
-                Yincrement =0;
-            }
             angle += 9;
             $("#avatar").rotate(angle);
             $("#needle").rotate(angle);
