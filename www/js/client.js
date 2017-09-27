@@ -27,11 +27,11 @@
             if(!END) {
                 MAX_ANGLE = iA;
                 if (dock_ON){
-                    initY += (iY-Yincrement)/2;
-                    cy -= (iY-Yincrement)/2;
+                    initY += (iY+Yincrement)/2;
+                    cy -= (iY+Yincrement)/2;
                 } else {
-                    initY += (iY-Yincrement);
-                    cy -= (iY-Yincrement);
+                    initY += (iY+Yincrement);
+                    cy -= (iY+Yincrement);
                 }
                 
                 
