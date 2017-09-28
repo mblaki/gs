@@ -6,7 +6,7 @@
  *
  */
     var initX =  0;
-    var initY = screen.height;
+    var initY = 768;
     var cx = 0;
     var cy = canvasHeight;
     var Xincrement=0;
@@ -110,8 +110,9 @@ function detectCollision(x,y){
             END = true;
           //  alert("dead");
         } else {
-            socket.emit('dock', gname, 4);
-            END = true;
+        //    socket.emit('dock', gname, 4);
+         //   END = true;
+            
         }
     } else if (p[1]== 0 && game_start){
         out_of_bounds +=1;
