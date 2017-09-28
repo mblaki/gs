@@ -10,15 +10,15 @@ var app = express();
 var port = process.env.PORT || 8050;
 
 var clients=[];
-var instrX = 0;
-var instrY = 5;
+var instrX = 0; // default X velocity
+var instrY = 5; // default Y velocity
 var currently_selected="";
 var curr_x= -1;
 var curr_y= -1;
 var bgX = 0;
 var bgY = 0;
 var curr_angl = 0;
-var MAX_ANGLE = 5;
+var MAX_ANGLE = 5; // max angle, increase by once to increase max angle by 9 degrees
 var game_start = false;
 app.use(express.static(__dirname + '/www'));
 var server = app.listen(port, function () {
@@ -28,7 +28,6 @@ var server = app.listen(port, function () {
 var io = require('socket.io')(server);
 
 io.on('connection', function(socket){
-    console.log("clients[] length= " + Object.keys(clients).length);
         socket.on("disconnect", function(){
             console.log("user disconnected ");
         });
@@ -69,12 +68,10 @@ io.on('connection', function(socket){
         });
         socket.on('paint canvas',function(imgData){
             clients["Instructor"].emit('paint canvas', imgData);
-            console.log("paint canvas with img data");
         });
         socket.on('give update',function(selected){
             currently_selected = selected;
             clients[selected].emit('give update', selected);
-            console.log("get update from: " + selected );
         });
         socket.on('update line', function(selected, x, y, angle, bg_x, bg_y){
             if (currently_selected == selected) {
@@ -98,5 +95,8 @@ io.on('connection', function(socket){
                 clients["Instructor"].emit("update line", currently_selected,curr_x, curr_y, curr_angl, bgX, bgY);
             }
         }
+        /*
+        * change second argument below to change the game clock (time interval the player position is updated) 
+        */
         setInterval(gameLoop, 500);
 });

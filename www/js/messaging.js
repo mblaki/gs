@@ -9,7 +9,7 @@
     var canvasWidth= 3712; // change this to change map image
     var img_path = "../img/big1.png"; // edit this to your map image name
     var audio = new Audio('../sound/mario1.wav');
-    var offset = 300+100; //offset for device
+    var offset = 150+100; //offset for device
     var gname="";
     var dest="Instructor";
     var clientList=[];
@@ -18,10 +18,6 @@
     var warningList = [];
     var myWarningList = [];
     var selected = "all";
-    var x_pos = -1;
-    var y_pos = -1;
-    var Y_INC = 0;
-    var X_INC = 0;
     var game_start = false;
     var dock_ON= false;
     function changeMap(p){
@@ -78,7 +74,7 @@
             $("#map").css("float","left");
             $("#chat").width("25%");
             $("#chat").css("float","right");
-            $("#avatar").css("left", offset+50 +"px");
+            $("#avatar").css("left", offset+100 +"px");
             $("#avatar").css("visibility", "visible");
             $("#controls").css("left", offset +"px");
             $("#controls").css("visibility", "visible");
@@ -136,7 +132,6 @@
         socket.on('instructor join', function(y_increment, x_increment){
             console.log("instructor join emit");
             if (gname == "Instructor"){
-                console.log("instructor join emit gname = Instructor");
                 $('#buts').append('<button class="tablinks" type = "button" id = "all" value = "all"  onclick="setDest(event,this.value)"> ALL </button>');
                 document.getElementById("10").style.display = "block";
             } 
@@ -144,7 +139,6 @@
         socket.on('user join', function(lname){
             if(gname == 'Instructor'){
                 clientList[c_index]= lname;
-                console.log("user join clientList " + c_index + " = " + lname);
                 $("#" + c_index).append('<h3 style="clear:both;">'+ lname +'</h3>');
                 $('#10').append('<button class="tablinks" type = "button" value="'+lname+'"onclick="setDest(event,this.value)"'+'id="but'+lname+'">'+lname+'</button>');             
                 c_index += 1;
@@ -158,14 +152,9 @@
                     hidden_canvas.width = canvasWidth;
                     hidden_canvas.height = canvasHeight;
                     var hidden_context = hidden_canvas.getContext("2d");        
-                    // draw the image on the hidden canvas
                     hidden_context.drawImage(img, 0, 0);
                 };
-                /*
-                To change map change this path!
-                */
                 img.src = img_path; 
-              // console.log("w:"+img.width +"\nh " + img.height);
             }else {
                 
             }
@@ -174,7 +163,6 @@
         socket.on('abroadcast', function(warningList){
              if (gname != "Instructor"){
                  audio.play();
-              console.log("broadcast recieved to " + selected);
                 $('#t').empty();
                 myWarningList.length = 0;
                 myWarningList = warningList;
@@ -187,7 +175,6 @@
         });
         socket.on('sbroadcast', function(select, warningList){
              if (gname != "Instructor"){
-              console.log("broadcast recieved to " + selected);
               if (gname == select ) {
                   audio.play();
                 $('#t').empty();
@@ -198,7 +185,6 @@
                 });
               } 
             } else {
-                console.log("instructor gnore server response but selected=" +select);
             }
         });
         socket.on('paint canvas', function(imgData, x, y){

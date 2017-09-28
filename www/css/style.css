@@ -118,12 +118,6 @@
     margin:auto;
     display: block;
 }
-/*
-
- Canvas element that shows the entire map. 
- If changing map edit width and height to the new images width and height
-
-*/
     #broadcast{
         height: 30px;
         width:100%;

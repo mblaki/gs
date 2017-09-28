@@ -11,13 +11,9 @@
     var cy = canvasHeight;
     var Xincrement=0;
     var Yincrement=0;
-    var line_increment = 0;
     var angle = 0.0;
     var out_of_bounds = 0;
     var MAX_ANGLE = 5;
-   // var offset = screen.width *0.55*0.5;
-    var updateClient = "none";
-    var ctx_l = [];
     var stopper = 0;
     var END = false;
     var l=document.getElementById("list");
@@ -110,7 +106,6 @@ function detectCollision(x,y){
             END = true;
           //  alert("dead");
         } else {
-            alert("ded: r" +p[0] + " g" + p[1] + " b" + p[2]);
             socket.emit('dock', gname, 4);
             END = true;
             
