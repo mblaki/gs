@@ -106,12 +106,12 @@ function detectCollision(x,y){
     console.log("\np0: " + p[0] + " \np1: " + p[1] + " \np2: " + p[2]);
    if (p[0]==62 || p[1]== 117 || p[2] == 198 || p[0]==24 || p[1]== 119 || p[2] == 192){
         if(dock_ON){
-        //    socket.emit('dock', gname, 0);
-          //  END = true;
-            alert("dead");
+            socket.emit('dock', gname, 0);
+            END = true;
+          //  alert("dead");
         } else {
-          //  socket.emit('dock', gname, 4);
-          //  END = true;
+            socket.emit('dock', gname, 4);
+            END = true;
         }
     } else if (p[1]== 0 && game_start){
         out_of_bounds +=1;

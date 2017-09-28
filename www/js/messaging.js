@@ -6,7 +6,7 @@
  *
  */    
     var audio = new Audio('../sound/mario1.wav');
-    var offset = 683+100;
+    var offset = 500+100;
     //var offset = 0;
     var gname="";
     var dest="Instructor";
