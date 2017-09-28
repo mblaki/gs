@@ -9,7 +9,7 @@
     var canvasWidth= 3712; // change this to change map image
     var img_path = "../img/big1.png"; // edit this to your map image name
     var audio = new Audio('../sound/mario1.wav');
-    var offset = 100; //offset for device
+    var offset = 300+100; //offset for device
     var gname="";
     var dest="Instructor";
     var clientList=[];
