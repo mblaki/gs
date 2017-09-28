@@ -4,7 +4,10 @@
  * 			  
  * Purpose:   Communicate messages and warings to server, initialize game
  *
- */    
+ */ 
+    var canvasHeight= 3456; // change this to change map image
+    var canvasWidth= 3712; // change this to change map image
+    var img_path = "../img/big1.png";
     var audio = new Audio('../sound/mario1.wav');
     var offset = 500+100;
     //var offset = 0;
@@ -16,9 +19,7 @@
     var warningList = [];
     var myWarningList = [];
     var selected = "all";
-    var canvasHeight= 3456; // change this to change map image
-    var canvasWidth= 3712; // change this to change map image
-    var img_path = "../img/big1.png";
+
     var x_pos = -1;
     var y_pos = -1;
     var Y_INC = 0;
