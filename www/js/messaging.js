@@ -79,7 +79,6 @@
             $("#map").css("float","left");
             $("#chat").width("25%");
             $("#chat").css("float","right");
-            $("#avatar").css("margin-left", "20%");
             $("#avatar").css("left", offset+50 +"px");
             $("#avatar").css("visibility", "visible");
             $("#controls").css("left", offset +"px");
