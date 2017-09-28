@@ -7,7 +7,7 @@
  */
 var express = require('express');
 var app = express();
-var port = process.env.PORT || 8005;
+var port = process.env.PORT || 8050;
 
 var clients=[];
 var instrX = 0;
@@ -21,7 +21,7 @@ var curr_angl = 0;
 var MAX_ANGLE = 5;
 var game_start = false;
 app.use(express.static(__dirname + '/www'));
-var server = app.listen(process.env.PORT || 8005, function () {
+var server = app.listen(port, function () {
 	var port = server.address().port;
 	console.log('Server running at port %s', port);
 });
