@@ -24,6 +24,7 @@
         if(gname != "Instructor" ) {
             if(!END) {
                 Yincrement = iY;
+                initY = iY;
                 MAX_ANGLE = iA;
                 if (dock_ON){
                     initY += (iY)/2;
