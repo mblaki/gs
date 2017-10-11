@@ -9,7 +9,7 @@
     var canvasWidth= 3712; // change this to change map image
     var img_path = "../img/big1.png"; // edit this to your map image name
     var audio = new Audio('../sound/mario1.wav');
-    var offset = 150+100; //offset for device
+    var offset = 0;//150+100; //offset for device
     var gname="";
     var dest="Instructor";
     var clientList=[];
@@ -68,15 +68,15 @@
         $("#backscreen").hide();
         if (gname == "Instructor"){
             socket.emit('instructor join');
-            $("#users").width("20%");
+            $("#users").width(383);
             $("#users").css("float","left");
-            $("#map").width("55%");
+            $("#map").width(600);
             $("#map").css("float","left");
-            $("#chat").width("25%");
+            $("#chat").width(383);
             $("#chat").css("float","right");
-            $("#avatar").css("left", screen.width *0.55*0.5 + offset);
+            $("#avatar").css("left", 300);
             $("#avatar").css("visibility", "visible");
-            $("#controls").css("left", offset +"px");
+            $("#controls").css("left", 350);
             $("#controls").css("visibility", "visible");
             $("#snd").css("visibility", "visible");
             $(".c_but").css("visibility", "hidden");
@@ -88,12 +88,12 @@
         } else {
             socket.emit('user join', gname);
             $("#users").css("display", "none");
-            $("#map").width("75%");
+            $("#map").width(983);
             $("#map").css("float","left");
-            $("#chat").width("25%");
+            $("#chat").width(383);
             $("#chat").css("float","right");
-            $("#avatar").css("left", offset +50+"px");
-            $("#controls").css("left", offset +"px");
+            $("#avatar").css("left", 540);
+            $("#controls").css("left", 490);
             $("#avatar").css("visibility", "visible");
             $("#controls").css("visibility", "visible");
             $("#snd").css("visibility", "visible");
