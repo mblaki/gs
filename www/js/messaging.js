@@ -73,10 +73,10 @@
             $("#map").width(600);
             $("#map").css("float","left");
             $("#chat").width(383);
-            $("#chat").css("float","right");
-            $("#avatar").css("left", 300);
+            $("#chat").css("float","left");
+            $("#avatar").css("left", 683);
             $("#avatar").css("visibility", "visible");
-            $("#controls").css("left", 350);
+            $("#controls").css("left", 633);
             $("#controls").css("visibility", "visible");
             $("#snd").css("visibility", "visible");
             $(".c_but").css("visibility", "hidden");
@@ -91,7 +91,7 @@
             $("#map").width(983);
             $("#map").css("float","left");
             $("#chat").width(383);
-            $("#chat").css("float","right");
+            $("#chat").css("float","left");
             $("#avatar").css("left", 540);
             $("#controls").css("left", 490);
             $("#avatar").css("visibility", "visible");
