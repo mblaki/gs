@@ -18,7 +18,7 @@ var curr_y= -1;
 var bgX = 0;
 var bgY = 0;
 var curr_angl = 0;
-var MAX_ANGLE = 5; // max angle, increase by once to increase max angle by 9 degrees
+var MAX_ANGLE = 5; // max angle, increase by one to increase max angle by 9 degrees
 var game_start = false;
 app.use(express.static(__dirname + '/www'));
 var server = app.listen(port, function () {
