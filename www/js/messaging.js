@@ -69,24 +69,31 @@
         $("#backscreen").hide();
         if (gname == "Instructor"){
             socket.emit('instructor join');
+            
             $("#users").width(383);
             $("#users").height(772);
             $("#users").css("float","left");
+            
             $("#map").width(600);
             $("#map").height(772);
             $("#map").css("float","left");
+            
             $("#chat").width(383);
             $("#chat").height(772);
             $("#chat").css("float","left");
-            $("#snd").css("left", 983);
-            $("#snd").css("top", 742);
+            
             $("#avatar").css("left", 672);
             $("#avatar").css("top", 286);
             $("#avatar").css("visibility", "visible");
+            
             $("#controls").css("left", 672);
             $("#controls").css("top", 672);
             $("#controls").css("visibility", "visible");
+            
+            $("#snd").css("left", 983);
+            $("#snd").css("top", 742);
             $("#snd").css("visibility", "visible");
+            
             $(".c_but").css("visibility", "hidden");
             $(".dock").css("visibility", "hidden");
             $(".toggle").css("visibility", "visible");
@@ -96,19 +103,27 @@
         } else {
             socket.emit('user join', gname);
             $("#users").css("display", "none");
+            
             $("#map").width(983);
             $("#map").height(772);
             $("#map").css("float","left");
+            
             $("#chat").width(383);
             $("#chat").height(772);
             $("#chat").css("float","left");
+            
             $("#avatar").css("left", 441);
             $("#avatar").css("top", 286);
-            $("#controls").css("left", 391);
-            $("#controls").css("top", 672);
             $("#avatar").css("visibility", "visible");
+            
+            $("#controls").css("left", 391);
+            $("#controls").css("top", 672);           
             $("#controls").css("visibility", "visible");
+            
+            $("#snd").css("left", 983);
+            $("#snd").css("top", 742);
             $("#snd").css("visibility", "visible");
+            
             $(".toggle").css("visibility", "visible");
             $("#compass").css("visibility", "visible");
             $("#needle").css("visibility", "visible");
