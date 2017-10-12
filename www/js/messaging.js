@@ -151,7 +151,7 @@
                 img.onload = function(){
                     var hidden_canvas = document.getElementById("list");
                     hidden_canvas.width = 983//canvasWidth;
-                    hidden_canvas.height = 915//canvasHeight;
+                    hidden_canvas.height = 983//canvasHeight;
                     var hidden_context = hidden_canvas.getContext("2d");        
                     hidden_context.drawImage(img, 0, 0,canvasWidth,canvasHeight,0,0,  hidden_canvas.width,  hidden_canvas.height);
                 };
@@ -195,7 +195,7 @@
                 imageObj.onload = function() {
                 var canvas = document.getElementById("list");
                     canvas.width = 983;//canvasWidth;
-                    canvas.height = 915;//canvasHeight;
+                    canvas.height = 983;//canvasHeight;
                     var h_context = canvas.getContext("2d");        
                     h_context.drawImage(imageObj, 0, 0,canvas.width,canvas.height);
                 };
