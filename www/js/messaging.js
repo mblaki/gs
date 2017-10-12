@@ -78,6 +78,8 @@
             $("#chat").width(383);
             $("#chat").height(772);
             $("#chat").css("float","left");
+            $("#snd").css("left", 983);
+            $("#snd").css("top", 742);
             $("#avatar").css("left", 672);
             $("#avatar").css("top", 286);
             $("#avatar").css("visibility", "visible");
