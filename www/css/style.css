@@ -8,7 +8,7 @@
           padding: 3px;  
           position:absolute;
           bottom: 0; 
-          left: 70%;
+          left: 983;
           width: 383; 
           visibility: hidden;          
     }
@@ -88,7 +88,7 @@
         height: 200px;
         margin: auto;
         position: absolute;
-        bottom:100;
+        bottom:100px;
         z-index: 10;
         visibility: hidden;   
     }

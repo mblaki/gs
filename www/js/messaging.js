@@ -153,7 +153,7 @@
                     hidden_canvas.width = 983//canvasWidth;
                     hidden_canvas.height = 915//canvasHeight;
                     var hidden_context = hidden_canvas.getContext("2d");        
-                    hidden_context.drawImage(img, 0, 0,canvasWidth,canvasHeight);
+                    hidden_context.drawImage(img, 0, 0,canvasWidth,canvasHeight,0,0,  hidden_canvas.width,  hidden_canvas.height);
                 };
                 img.src = img_path; 
             }else {
@@ -197,7 +197,7 @@
                     canvas.width = 983;//canvasWidth;
                     canvas.height = 915;//canvasHeight;
                     var h_context = canvas.getContext("2d");        
-                    h_context.drawImage(imageObj, 0, 0,canvasWidth,canvasHeight,0,0, canvas.width, canvas.height);
+                    h_context.drawImage(imageObj, 0, 0,canvas.width,canvas.height);
                 };
             context.moveTo(x,y);
             context.font = "30px Arial";
