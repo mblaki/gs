@@ -149,8 +149,8 @@
                 var img = new Image();
                 img.onload = function(){
                     var hidden_canvas = document.getElementById("list")
-                    hidden_canvas.width = canvasWidth;
-                    hidden_canvas.height = canvasHeight;
+                    hidden_canvas.width = 983//canvasWidth;
+                    hidden_canvas.height = 915//canvasHeight;
                     var hidden_context = hidden_canvas.getContext("2d");        
                     hidden_context.drawImage(img, 0, 0);
                 };
