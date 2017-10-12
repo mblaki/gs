@@ -10,8 +10,9 @@
       #snd { 
           background: #000; 
           padding: 3px;  
-          display: table-cell;
-          vertical-align: bottom;
+          position: absolute;
+          left:441;
+          bottom:0;
           width: 383; 
           visibility: hidden;          
     }
@@ -60,6 +61,7 @@
         height: 100vh;
         padding-top:10px;
         min-width: 165px;
+        padding-bottom:-10px;
         z-index:2;
     }
     #map{

@@ -78,9 +78,11 @@
             $("#chat").width(383);
             $("#chat").height(772);
             $("#chat").css("float","left");
-            $("#avatar").css("left", 683);
+            $("#avatar").css("left", 672);
+            $("#avatar").css("top", 286);
             $("#avatar").css("visibility", "visible");
-            $("#controls").css("left", 633);
+            $("#controls").css("left", 672);
+            $("#controls").css("top", 672);
             $("#controls").css("visibility", "visible");
             $("#snd").css("visibility", "visible");
             $(".c_but").css("visibility", "hidden");
@@ -99,7 +101,7 @@
             $("#chat").height(772);
             $("#chat").css("float","left");
             $("#avatar").css("left", 441);
-            $("#avatar").css("top", 486);
+            $("#avatar").css("top", 286);
             $("#controls").css("left", 391);
             $("#controls").css("top", 672);
             $("#avatar").css("visibility", "visible");
