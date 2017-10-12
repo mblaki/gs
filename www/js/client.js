@@ -6,9 +6,9 @@
  *
  */
     var initX =  0;
-    var initY = 772; //vertical offset for device
+    var initY = canvasHeight; //vertical offset for device
     var cx = 491;//position line on avatar
-    var cy = canvasHeight-386;//position line on avatar
+    var cy = canvasHeight-486;//position line on avatar
     var Xincrement=0;
     var Yincrement=0;
     var angle = 0.0;
