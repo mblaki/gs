@@ -89,9 +89,7 @@
     #avatar{
         width: 100px;
         height: 200px;
-        margin: auto;
         position: absolute;
-        bottom:100px;
         z-index: 10;
         visibility: hidden;   
     }
