@@ -19,7 +19,7 @@
     var l=document.getElementById("list");
     var ctx=l.getContext("2d");
     ctx.beginPath();
-    ctx.moveTo((cx+offset+100)*0.27,(cy-400) * 0.27);
+    ctx.moveTo((cx+offset)*0.27+100,(cy) * 0.27-400);
     socket.on('game loop', function(iX, iY, iA){
         if(gname != "Instructor" ) {
             if(!END) {
