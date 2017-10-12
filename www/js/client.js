@@ -8,7 +8,7 @@
     var initX =  0;
     var initY = 720; //vertical offset for device
     var cx = 0;
-    var cy = canvasHeight;
+    var cy = 915;//canvasHeight;
     var Xincrement=0;
     var Yincrement=0;
     var angle = 0.0;
@@ -19,7 +19,7 @@
     var l=document.getElementById("list");
     var ctx=l.getContext("2d");
     ctx.beginPath();
-    ctx.moveTo(cx+offset+100,cy-400);
+    ctx.moveTo((cx+offset+100)*0.27,(cy-400) * 0.27;
     socket.on('game loop', function(iX, iY, iA){
         if(gname != "Instructor" ) {
             if(!END) {
@@ -92,13 +92,13 @@
     });
 
 function detectCollision(x,y){
-    ctx.lineTo(x+offset+100,y-400);
+    ctx.lineTo((x+offset+100)*0.27,(y-400)*0.27);
     ctx.lineWidth = 10;
     ctx.strokeStyle = "rgb(0, 0, 222)";
     ctx.stroke();
     var e=document.getElementById("list");
     var c = e.getContext('2d');
-    var p = c.getImageData(x+offset+110, y-410, 1, 1).data;
+    var p = c.getImageData((x+offset+110)*0.27, (y-410)*0.27, 1, 1).data;
     console.log("\np0: " + p[0] + " \np1: " + p[1] + " \np2: " + p[2]);
    if ((p[0]==62 && p[1]== 117 && p[2] == 198) || (p[0]==24 && p[1]== 119 && p[2] == 192)){
         if(dock_ON){
