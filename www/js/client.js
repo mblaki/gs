@@ -110,7 +110,7 @@ function detectCollision(x,y){
             END = true;
             
         }
-    } else if (p[1]== 0 && game_start){
+    } else if (p[1]== 0 && p[2] == 0 && p[3] == 0 && game_start){
         out_of_bounds +=1;
     }
     if (out_of_bounds > 10 && game_start){
