@@ -190,12 +190,15 @@
         socket.on('paint canvas', function(imgData, x, y){
             var canvas = document.getElementById('list');
             // load image from data url
-            canvas.width = 983;//canvasWidth;
-            canvas.height = 915;//canvasHeight;
             var context = canvas.getContext("2d");
             var imageObj = new Image();
                 imageObj.onload = function() {
-                context.drawImage(this, 0, 0,canvasWidth,canvasHeight,0,0, canvas.width,canvas.height);
+                var canvas = document.getElementById("list")
+                    canvas.width = 983//canvasWidth;
+                    canvas.height = 915//canvasHeight;
+                    var hidden_context = canvas.getContext("2d");        
+                    hidden_context.drawImage(imageObj, 0, 0,canvasWidth,canvasHeight,0,0, canvas.width, canvas.height);
+                };
             };
             context.moveTo(x,y);
             context.font = "30px Arial";
@@ -206,7 +209,7 @@
         if (s_selected != 'all' && gname == "Instructor" && x != -1){
             var canvas = document.getElementById('list');
             var ctx = canvas.getContext("2d");
-            ctx.lineTo(x+offset+100,y-400);
+            ctx.lineTo(x+offset,y);
             ctx.lineWidth = 10;
             ctx.strokeStyle = "rgb(0, 0, 222)";
             ctx.stroke();
