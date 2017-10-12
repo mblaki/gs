@@ -193,13 +193,12 @@
             var context = canvas.getContext("2d");
             var imageObj = new Image();
                 imageObj.onload = function() {
-                var canvas = document.getElementById("list")
-                    canvas.width = 983//canvasWidth;
-                    canvas.height = 915//canvasHeight;
+                var canvas = document.getElementById("list");
+                    canvas.width = 983;//canvasWidth;
+                    canvas.height = 915;//canvasHeight;
                     var hidden_context = canvas.getContext("2d");        
                     hidden_context.drawImage(imageObj, 0, 0,canvasWidth,canvasHeight,0,0, canvas.width, canvas.height);
                 };
-            };
             context.moveTo(x,y);
             context.font = "30px Arial";
             context.fillText(selected,10,50);
