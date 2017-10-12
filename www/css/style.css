@@ -125,10 +125,10 @@
         width:100%;
     }
     #list {
-        background: gray; 
-        height: 100vh;
+        background: pink; 
+        height: 915;
         display:none;
-        min-width:75;
+        width:983;
         z-index: 100;
         position: absolute;
         bottom:0;
