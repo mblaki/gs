@@ -7,6 +7,7 @@
  */ 
     var canvasHeight= 3456; // change this to change map image
     var canvasWidth= 3712; // change this to change map image
+    var ratio = 0.2648186;
     var img_path = "../img/big1.png"; // edit this to your map image name
     var audio = new Audio('../sound/mario1.wav');
     var offset = 0;//150+100; //offset for device
@@ -148,7 +149,7 @@
                 $("#list").css("background", "black");
                 var img = new Image();
                 img.onload = function(){
-                    var hidden_canvas = document.getElementById("list")
+                    var hidden_canvas = document.getElementById("list");
                     hidden_canvas.width = 983//canvasWidth;
                     hidden_canvas.height = 915//canvasHeight;
                     var hidden_context = hidden_canvas.getContext("2d");        
@@ -188,7 +189,6 @@
             }
         });
         socket.on('paint canvas', function(imgData, x, y){
-            var canvas = document.getElementById('list');
             // load image from data url
             var context = canvas.getContext("2d");
             var imageObj = new Image();
@@ -196,13 +196,14 @@
                 var canvas = document.getElementById("list");
                     canvas.width = 983;//canvasWidth;
                     canvas.height = 915;//canvasHeight;
-                    var hidden_context = canvas.getContext("2d");        
-                    hidden_context.drawImage(imageObj, 0, 0,canvasWidth,canvasHeight,0,0, canvas.width, canvas.height);
+                    var h_context = canvas.getContext("2d");        
+                    h_context.drawImage(imageObj, 0, 0,canvasWidth,canvasHeight,0,0, canvas.width, canvas.height);
                 };
             context.moveTo(x,y);
             context.font = "30px Arial";
             context.fillText(selected,10,50);
             imageObj.src = imgData;
+            
         });
     socket.on('update line', function(s_selected, x, y,ang,bg_x, bg_y){
         if (s_selected != 'all' && gname == "Instructor" && x != -1){
