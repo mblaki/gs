@@ -84,17 +84,17 @@
     }
 
     #avatar{
-        width: 100px;
-        height: 200px;
+        width: 100;
+        height: 200;
         margin: auto;
         position: absolute;
-        bottom:100px;
+        bottom:100;
         z-index: 10;
         visibility: hidden;   
     }
 #controls{
-        width: 200px;
-        height: 100px;
+        width: 200;
+        height: 100;
         position: absolute;
         bottom:0;
         z-index: 10;
@@ -127,7 +127,7 @@
     }
     #list {
         background: pink; 
-        height: 915;
+        height: 983;
         display:none;
         width:983;
         z-index: 100;

@@ -5,9 +5,9 @@
  * Purpose:   Communicate messages and warings to server, initialize game
  *
  */ 
-    var canvasHeight= 3456; // change this to change map image
+    var canvasHeight= 3712; // change this to change map image
     var canvasWidth= 3712; // change this to change map image
-    var ratio = 0.2648186;
+    var ratio = 0.2648168;
     var img_path = "../img/big1.png"; // edit this to your map image name
     var audio = new Audio('../sound/mario1.wav');
     var offset = 0;//150+100; //offset for device
@@ -153,7 +153,7 @@
                     hidden_canvas.width = 983//canvasWidth;
                     hidden_canvas.height = 915//canvasHeight;
                     var hidden_context = hidden_canvas.getContext("2d");        
-                    hidden_context.drawImage(img, 0, 0,canvasWidth,canvasHeight,0,0, hidden_canvas.width,hidden_canvas.height);
+                    hidden_context.drawImage(img, 0, 0,canvasWidth,canvasHeight);
                 };
                 img.src = img_path; 
             }else {
