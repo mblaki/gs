@@ -153,7 +153,7 @@
                     hidden_canvas.width = 983//canvasWidth;
                     hidden_canvas.height = 983//canvasHeight;
                     var hidden_context = hidden_canvas.getContext("2d");        
-                    hidden_context.drawImage(img, 0, 0,canvasWidth,canvasHeight,0,0,  hidden_canvas.width,  hidden_canvas.height);
+                    hidden_context.drawImage(img, 0, 0, canvasWidth, canvasHeight, 0, 0, hidden_canvas.width, hidden_canvas.height);
                 };
                 img.src = img_path; 
             }else {
@@ -188,9 +188,9 @@
             } else {
             }
         });
-        socket.on('paint canvas', function(imgData, x, y){
+        socket.on('paint canvas', function(imgData){
             // load image from data url
-            var context = canvas.getContext("2d");
+          //  var context = canvas.getContext("2d");
             var imageObj = new Image();
                 imageObj.onload = function() {
                 var canvas = document.getElementById("list");
@@ -199,9 +199,9 @@
                     var h_context = canvas.getContext("2d");        
                     h_context.drawImage(imageObj, 0, 0,canvas.width,canvas.height);
                 };
-            context.moveTo(x,y);
-            context.font = "30px Arial";
-            context.fillText(selected,10,50);
+           // context.moveTo(x,y);
+        //    context.font = "30px Arial";
+        //    context.fillText(selected,10,50);
             imageObj.src = imgData;
             
         });
