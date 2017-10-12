@@ -190,12 +190,12 @@
         socket.on('paint canvas', function(imgData, x, y){
             var canvas = document.getElementById('list');
             // load image from data url
-            canvas.width = canvasWidth;
-            canvas.height = canvasHeight;
+            canvas.width = 983//canvasWidth;
+            canvas.height = 915//canvasHeight;
             var context = canvas.getContext("2d");
             var imageObj = new Image();
                 imageObj.onload = function() {
-                context.drawImage(this, 0, 0);
+                context.drawImage(this, 0, 0,canvasWidth,canvasHeight,0,0, canvas.width,canvas.height);
             };
             context.moveTo(x,y);
             context.font = "30px Arial";

@@ -6,7 +6,7 @@
  *
  */
     var initX =  0;
-    var initY = 720; //vertical offset for device
+    var initY = 0; //vertical offset for device
     var cx = 0;
     var cy = 915;//canvasHeight;
     var Xincrement=0;
