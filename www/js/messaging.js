@@ -7,7 +7,7 @@
  */ 
     var canvasHeight= 3712; // change this to change map image
     var canvasWidth= 3712; // change this to change map image
-    var ratio = 0.2648168;
+    var ratio = 983/3712 ;
     var img_path = "../img/big1.png"; // edit this to your map image name
     var audio = new Audio('../sound/mario1.wav');
     var offset = 0;//150+100; //offset for device
@@ -70,10 +70,13 @@
         if (gname == "Instructor"){
             socket.emit('instructor join');
             $("#users").width(383);
+            $("#users").height(772);
             $("#users").css("float","left");
             $("#map").width(600);
+            $("#map").height(772);
             $("#map").css("float","left");
             $("#chat").width(383);
+            $("#chat").height(772);
             $("#chat").css("float","left");
             $("#avatar").css("left", 683);
             $("#avatar").css("visibility", "visible");
@@ -90,8 +93,10 @@
             socket.emit('user join', gname);
             $("#users").css("display", "none");
             $("#map").width(983);
+            $("#map").height(772);
             $("#map").css("float","left");
             $("#chat").width(383);
+            $("#chat").height(772);
             $("#chat").css("float","left");
             $("#avatar").css("left", 540);
             $("#controls").css("left", 490);
