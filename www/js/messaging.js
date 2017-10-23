@@ -70,16 +70,16 @@
         if (gname == "Instructor"){
             socket.emit('instructor join');
             
-            $("#users").width('20%');
-            $("#users").height('100%');
+            $("#users").width('20vw');
+            $("#users").height('100vh');
             $("#users").css("float","left");
             
-            $("#map").width('50%');
-            $("#map").height('100%');
+            $("#map").width('50vw');
+            $("#map").height('100vh');
             $("#map").css("float","left");
             
-            $("#chat").width('30%');
-            $("#chat").height('100%');
+            $("#chat").width('30vw');
+            $("#chat").height('100vh');
             $("#chat").css("float","left");
             
             $("#avatar").css("left", '45%');
@@ -104,12 +104,12 @@
             socket.emit('user join', gname);
             $("#users").css("display", "none");
             
-            $("#map").width('70%');
-            $("#map").height('100%');
+            $("#map").width('70vw');
+            $("#map").height('100vh');
             $("#map").css("float","left");
             
-            $("#chat").width('30%');
-            $("#chat").height('100%');
+            $("#chat").width('30vw');
+            $("#chat").height('100vh');
             $("#chat").css("float","left");
             
             $("#avatar").css("left", "35%");
