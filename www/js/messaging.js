@@ -235,7 +235,7 @@
         if (s_selected != 'all' && gname == "Instructor" && x != -1){
             var canvas = document.getElementById('list');
             var ctx = canvas.getContext("2d");
-            ctx.lineTo(x+offset,y);
+            ctx.lineTo(x*ratio,y*ratio);
             ctx.lineWidth = 10;
             ctx.strokeStyle = "rgb(0, 0, 222)";
             ctx.stroke();
