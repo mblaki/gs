@@ -11,7 +11,7 @@ var port = process.env.PORT || 8020;
 
 var clients=[];
 var instrX = 0; // default X velocity
-var instrY = 5; // default Y velocity
+var instrY = 1; // default Y velocity
 var currently_selected="";
 var curr_x= -1;
 var curr_y= -1;

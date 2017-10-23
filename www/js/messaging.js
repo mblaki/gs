@@ -176,8 +176,8 @@
                 var img = new Image();
                 img.onload = function(){
                     var hidden_canvas = document.getElementById("list");
-                    hidden_canvas.width = '100%';//canvasWidth;
-                    hidden_canvas.height = '100%';//canvasHeight;
+                    hidden_canvas.width = '100vw';//canvasWidth;
+                    hidden_canvas.height = '100vh';//canvasHeight;
                     var hidden_context = hidden_canvas.getContext("2d");        
                     hidden_context.drawImage(img, 0, 0, canvasWidth, canvasHeight, 0, 0, hidden_canvas.width, hidden_canvas.height);
                 };
@@ -220,8 +220,8 @@
             var imageObj = new Image();
                 imageObj.onload = function() {
                 var canvas = document.getElementById("list");
-                    canvas.width = '100%';//canvasWidth;
-                    canvas.height = '100%';//canvasHeight;
+                    canvas.width = '100vw';//canvasWidth;
+                    canvas.height = '100vh';//canvasHeight;
                     var h_context = canvas.getContext("2d");        
                     h_context.drawImage(imageObj, 0, 0,canvas.width,canvas.height);
                 };

@@ -55,7 +55,6 @@
         background: #26734d;
         height: 100vh;
         padding-top:10px;
-        min-width: 165px;
         z-index:2;
     }
     #map{
