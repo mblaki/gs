@@ -7,7 +7,7 @@
  */
 var express = require('express');
 var app = express();
-var port = process.env.PORT || 8020;
+var port = process.env.PORT || 8059;
 
 var clients=[];
 var instrX = 0; // default X velocity
