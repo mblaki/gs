@@ -242,6 +242,7 @@
             document.getElementById('map').style.backgroundPositionY = bg_y+ "px";
             document.getElementById('map').style.backgroundPositionX = bg_x+ "px";
             $("#avatar").rotate(ang);
+            console.log("recieve updatye");
         }
     });
  socket.on('dock', function(name, type){

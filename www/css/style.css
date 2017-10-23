@@ -4,8 +4,6 @@
 * { margin:0; padding: 0; box-sizing: border-box; }
       body { 
           font: 13px Helvetica, Arial;
-          width:100vw;
-          height:100vh;
     }
       #snd { 
           background: #000;  
