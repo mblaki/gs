@@ -56,7 +56,6 @@
     #chat{
         background: #26734d;
         height: 100vh;
-        min-width: 165px;
         z-index:2;
     }
     #map{
