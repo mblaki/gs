@@ -4,12 +4,11 @@
 * { margin:0; padding: 0; box-sizing: border-box; }
       body { 
           font: 13px Helvetica, Arial;
-          width:1366;
-          height:772;
+          width:1000;
+          height:700;
     }
       #snd { 
-          background: #000; 
-          padding: 3px;  
+          background: #000;  
           position: absolute;
           width: 383; 
           visibility: hidden;          
