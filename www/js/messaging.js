@@ -70,28 +70,28 @@
         if (gname == "Instructor"){
             socket.emit('instructor join');
             
-            $("#users").width(383);
-            $("#users").height(772);
+            $("#users").width('20%');
+            $("#users").height('100%');
             $("#users").css("float","left");
             
-            $("#map").width(600);
-            $("#map").height(772);
+            $("#map").width('50%');
+            $("#map").height('100%');
             $("#map").css("float","left");
             
-            $("#chat").width(383);
-            $("#chat").height(772);
+            $("#chat").width('30%');
+            $("#chat").height('100%');
             $("#chat").css("float","left");
             
-            $("#avatar").css("left", 672);
-            $("#avatar").css("top", 286);
+            $("#avatar").css("left", '45%');
+            $("#avatar").css("top", '50%');
             $("#avatar").css("visibility", "visible");
             
-            $("#controls").css("left", 672);
-            $("#controls").css("top", 672);
+            $("#controls").css("left", '50%');
+            $("#controls").css("top", '90%');
             $("#controls").css("visibility", "visible");
             
-            $("#snd").css("left", 983);
-            $("#snd").css("top", 742);
+            $("#snd").css("left", "70%");
+            $("#snd").css("top", '90%');
             $("#snd").css("visibility", "visible");
             
             $(".c_but").css("visibility", "hidden");
@@ -104,24 +104,24 @@
             socket.emit('user join', gname);
             $("#users").css("display", "none");
             
-            $("#map").width(983);
-            $("#map").height(772);
+            $("#map").width('70%');
+            $("#map").height('100%');
             $("#map").css("float","left");
             
-            $("#chat").width(383);
-            $("#chat").height(772);
+            $("#chat").width('30%');
+            $("#chat").height('100%');
             $("#chat").css("float","left");
             
-            $("#avatar").css("left", 441);
-            $("#avatar").css("top", 286);
+            $("#avatar").css("left", "35%");
+            $("#avatar").css("top", "50%");
             $("#avatar").css("visibility", "visible");
             
-            $("#controls").css("left", 391);
-            $("#controls").css("top", 672);           
+            $("#controls").css("left", "35%");
+            $("#controls").css("top", "90%");           
             $("#controls").css("visibility", "visible");
             
-            $("#snd").css("left", 983);
-            $("#snd").css("top", 742);
+            $("#snd").css("left", "70%");
+            $("#snd").css("top", "90%");
             $("#snd").css("visibility", "visible");
             
             $(".toggle").css("visibility", "visible");
@@ -176,8 +176,8 @@
                 var img = new Image();
                 img.onload = function(){
                     var hidden_canvas = document.getElementById("list");
-                    hidden_canvas.width = 983;//canvasWidth;
-                    hidden_canvas.height = 983;//canvasHeight;
+                    hidden_canvas.width = '100%';//canvasWidth;
+                    hidden_canvas.height = '100%';//canvasHeight;
                     var hidden_context = hidden_canvas.getContext("2d");        
                     hidden_context.drawImage(img, 0, 0, canvasWidth, canvasHeight, 0, 0, hidden_canvas.width, hidden_canvas.height);
                 };
@@ -220,8 +220,8 @@
             var imageObj = new Image();
                 imageObj.onload = function() {
                 var canvas = document.getElementById("list");
-                    canvas.width = 983;//canvasWidth;
-                    canvas.height = 983;//canvasHeight;
+                    canvas.width = '100%';//canvasWidth;
+                    canvas.height = '100%';//canvasHeight;
                     var h_context = canvas.getContext("2d");        
                     h_context.drawImage(imageObj, 0, 0,canvas.width,canvas.height);
                 };
@@ -239,8 +239,8 @@
             ctx.lineWidth = 10;
             ctx.strokeStyle = "rgb(0, 0, 222)";
             ctx.stroke();
-            document.getElementById('map').style.backgroundPositionY = bg_y+ "px";
-            document.getElementById('map').style.backgroundPositionX = bg_x+ "px";
+            document.getElementById('map').style.backgroundPositionY = bg_y+ "%";
+            document.getElementById('map').style.backgroundPositionX = bg_x+ "%";
             $("#avatar").rotate(ang);
         }
     });
