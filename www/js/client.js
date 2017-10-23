@@ -6,7 +6,7 @@
  *
  */
     var initX =  0;
-    var initY = 0; //vertical offset for device
+    var initY = 772; //vertical offset for device
     var cx = 491;//position line on avatar
     var cy = canvasHeight-686;//position line on avatar
     var Xincrement=0;
@@ -106,16 +106,16 @@ function detectCollision(x,y){
             END = true;
           //  alert("dead");
         } else {
-            socket.emit('dock', gname, 4);
-            END = true;
+        //    socket.emit('dock', gname, 4);
+        //   END = true;
             
         }
     } else if (p[1]== 0 && p[2] == 0 && p[3] == 0 && game_start){
         out_of_bounds +=1;
     }
     if (out_of_bounds > 10 && game_start){
-        socket.emit('dock', gname, 3);
-        END = true;
+   //     socket.emit('dock', gname, 3);
+   //     END = true;
         
     }
 }
