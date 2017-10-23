@@ -6,9 +6,9 @@
  *
  */
     var initX =  0;
-    var initY = 50%; //vertical offset for device
-    var cx = 50%;//position line on avatar
-    var cy = 50%;//position line on avatar
+    var initY = 50; //vertical offset for device
+    var cx = 50;//position line on avatar
+    var cy = 50;//position line on avatar
     var Xincrement=0;
     var Yincrement=0;
     var angle = 0.0;
