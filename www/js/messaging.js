@@ -92,10 +92,10 @@
             $("#controls").css("top", game_height - 100);
             $("#controls").css("visibility", "visible");
             
+            $("#snd").width(game_width*0.3);
             $("#snd").css("left", game_width*0.7);
             $("#snd").css("top", game_height - 50);
             $("#snd").css("visibility", "visible");
-            $("#snd").width(game_width*0.3);
             
             $("#list").width(game_width*0.7);
             $("#list").height(game_height);
@@ -126,10 +126,10 @@
             $("#controls").css("top", 672);           
             $("#controls").css("visibility", "visible");
             
+            $("#snd").width(game_width*0.3);
             $("#snd").css("left", game_width*0.7);
             $("#snd").css("top", game_height - 50);
             $("#snd").css("visibility", "visible");
-            $("#snd").width(game_width*0.3);
             
             $("#list").width(game_width*0.7);
             $("#list").height(game_height);
