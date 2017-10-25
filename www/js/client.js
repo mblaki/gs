@@ -36,12 +36,12 @@
                     cy -= (Yincrement);
                 }
                 if (Xincrement<0){
-                    cx += Math.abs(Xincrement + iX);
-                    initX -= Math.abs(Xincrement + iX);
+                    cx += Xincrement + iX;
+                    initX -= Xincrement + iX;
                     console.log("Xincr < 0");
                 } else if (Xincrement >0){
-                    cx -= Math.abs(Xincrement + iX);
-                    initX += Math.abs(Xincrement + iX);
+                    cx -= Xincrement + iX;
+                    initX += Xincrement + iX;
                     console.log("Xincr > 0");
                 } else {
                    // if (iX <0){
