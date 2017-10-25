@@ -85,15 +85,7 @@
             stopper +=1;
             angle += 9;
             rot_angle -= 9;
-            Xincrement -= Math.abs(my_speed * Math.cos((Math.PI/180) * angle));
-            if (angle%360 == 90 || angle%360 == 270) {
-                Xincrement = 0;
-                Yincrement = 5;
-            }
-            if (angle%360 == 0 || angle%360 == 180) {
-                Xincrement = 5;
-                Yincrement = 0;
-            }
+            Xincrement -= my_speed * Math.cos((Math.PI/180) * angle);
             console.log("Xincrement: " + Xincrement + " cx: " + cx);
             console.log("Yincrement: " + Yincrement + " cy: " + cy);
             console.log("angle = " + angle);
@@ -106,7 +98,8 @@
             stopper -= 1;
             angle -= 9;
             rot_angle += 9;
-            Xincrement += Math.abs(my_speed * Math.cos((Math.PI/180) * angle));
+            Xincrement += my_speed * Math.cos((Math.PI/180) * angle);
+        /*
             if (angle%360 == 90 || angle%360 == 270) {
                 Xincrement = 0;
                 Yincrement = 5;
@@ -115,6 +108,7 @@
                 Xincrement = 5;
                 Yincrement = 0;
             }
+            */
             console.log("Xincrement: " + Xincrement + " cx: " + cx);
             console.log("Yincrement: " + Yincrement + " cy: " + cy);
             console.log("angle = " + angle);
