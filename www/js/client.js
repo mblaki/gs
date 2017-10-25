@@ -85,10 +85,11 @@
             angle += 9;
             rot_angle -= 9;
             Xincrement -= Math.abs(my_speed * Math.cos((Math.PI/180) * angle));
-            if (angle == 0 || angle == 180) {
+            if (angle%360 == 90 || angle%360 == 270) {
                 Xincrement = 0;
             }
             console.log("Xincrement: " + Xincrement + " cx: " + cx);
+            console.log("Yincrement: " + Yincrement + " cy: " + cy);
             console.log("angle = " + angle);
             $("#avatar").rotate(rot_angle);
             $("#needle").rotate(rot_angle);
@@ -100,9 +101,10 @@
             angle -= 9;
             rot_angle += 9;
             Xincrement += Math.abs(my_speed * Math.cos((Math.PI/180) * angle));
-            if (angle == 0 || angle == 180) {
+            if (angle%360 == 90 || angle%360 == 270) {
                 Xincrement = 0;
             }
+            console.log("Xincrement: " + Xincrement + " cx: " + cx);
             console.log("Yincrement: " + Yincrement + " cy: " + cy);
             console.log("angle = " + angle);
             $("#avatar").rotate(rot_angle);
