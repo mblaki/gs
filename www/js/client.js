@@ -29,7 +29,7 @@
                 MAX_ANGLE = iA;
                 if (dock_ON){
                     initY += (Yincrement)/2;
-                    cy -= (Yincrement2;
+                    cy -= (Yincrement)/2;
                 } else {
                     initY += (Yincrement);
                     cy -= (Yincrement);
