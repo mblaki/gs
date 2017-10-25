@@ -38,16 +38,19 @@
                 if (Xincrement<0){
                     cx += Math.abs(Xincrement + iX);
                     initX -= Math.abs(Xincrement + iX);
+                    console.log("Xincr < 0");
                 } else if (Xincrement >0){
                     cx -= Math.abs(Xincrement + iX);
                     initX += Math.abs(Xincrement + iX);
+                    console.log("Xincr > 0");
                 } else {
-                    if (iX <0){
-                        cx += Math.abs(iX); 
-                        initX -= Math.abs(iX);
-                    } else {
-                        cx -= Math.abs(iX);
-                        initX += Math.abs(iX);
+                   // if (iX <0){
+                    //    cx += Math.abs(iX); 
+                    //    initX -= Math.abs(iX);
+                //    } else {
+                  //      cx -= Math.abs(iX);
+                    //    initX += Math.abs(iX);
+                    console.log("Yaeji Xincr = 0");
                     }
                 }
             } else {
@@ -77,7 +80,7 @@
             stopper +=1;
             angle -= 9;
             rot_angle -= 9;
-            Xincrement += Math.abs(my_speed * Math.cos(angle));
+            Xincrement += my_speed * Math.cos(angle);
             $("#avatar").rotate(rot_angle);
             $("#needle").rotate(rot_angle);
         
@@ -87,7 +90,7 @@
             stopper -= 1;
             angle += 9;
             rot_angle += 9;
-            Xincrement -= Math.abs(my_speed * Math.cos(angle));
+            Xincrement -= my_speed * Math.cos(angle);
             $("#avatar").rotate(rot_angle);
             $("#needle").rotate(rot_angle);
     });
