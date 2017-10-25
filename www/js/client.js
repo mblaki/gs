@@ -35,10 +35,8 @@
                 } else {
                     initY += (Yincrement);
                     cy -= (Yincrement);
-                    console.log("Yincrement: " + Yincrement + " cy: " + cy);
                 }
                 cx += Xincrement;
-                console.log("Xincrement: " + Xincrement + " cx: " + cx);
                 initX -= Xincrement;
                 /*
                 if (Xincrement<0){
@@ -86,7 +84,12 @@
             stopper +=1;
             angle += 9;
             rot_angle -= 9;
-            Xincrement += Math.abs(my_speed * Math.cos((Math.PI/180) * angle));
+            Xincrement -= Math.abs(my_speed * Math.cos((Math.PI/180) * angle));
+            if (angle == 0 || angle == 180) {
+                Xincrement = 0;
+            }
+            console.log("Xincrement: " + Xincrement + " cx: " + cx);
+            console.log("angle = " + angle);
             $("#avatar").rotate(rot_angle);
             $("#needle").rotate(rot_angle);
         
@@ -96,7 +99,12 @@
             stopper -= 1;
             angle -= 9;
             rot_angle += 9;
-            Xincrement -= Math.abs(my_speed * Math.cos((Math.PI/180) * angle));
+            Xincrement += Math.abs(my_speed * Math.cos((Math.PI/180) * angle));
+            if (angle == 0 || angle == 180) {
+                Xincrement = 0;
+            }
+            console.log("Yincrement: " + Yincrement + " cy: " + cy);
+            console.log("angle = " + angle);
             $("#avatar").rotate(rot_angle);
             $("#needle").rotate(rot_angle);
     });
