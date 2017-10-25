@@ -80,7 +80,7 @@
             stopper +=1;
             angle -= 9;
             rot_angle -= 9;
-            Xincrement += my_speed * Math.cos(angle);
+            Xincrement += Math.abs(my_speed * Math.cos(angle));
             $("#avatar").rotate(rot_angle);
             $("#needle").rotate(rot_angle);
         
@@ -90,7 +90,7 @@
             stopper -= 1;
             angle += 9;
             rot_angle += 9;
-            Xincrement -= my_speed * Math.cos(angle);
+            Xincrement -= Math.abs(my_speed * Math.cos(angle));
             $("#avatar").rotate(rot_angle);
             $("#needle").rotate(rot_angle);
     });
