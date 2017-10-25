@@ -35,6 +35,9 @@
                     initY += (Yincrement);
                     cy -= (Yincrement);
                 }
+                cx += Xincrement + iX;
+                initX -= Xincrement + iX;
+                /*
                 if (Xincrement<0){
                     cx += Xincrement + iX;
                     initX -= Xincrement + iX;
@@ -53,6 +56,7 @@
                     console.log("Yaeji Xincr = 0");
                  //   }
                 }
+                */
             } else {
                 $("#map").empty();
                 $("#map").css("background","white");
@@ -80,7 +84,7 @@
             stopper +=1;
             angle -= 9;
             rot_angle -= 9;
-            Xincrement += Math.abs(my_speed * Math.cos(angle));
+            Xincrement -= Math.abs(my_speed * Math.cos(angle));
             $("#avatar").rotate(rot_angle);
             $("#needle").rotate(rot_angle);
         
@@ -90,7 +94,7 @@
             stopper -= 1;
             angle += 9;
             rot_angle += 9;
-            Xincrement -= Math.abs(my_speed * Math.cos(angle));
+            Xincrement += Math.abs(my_speed * Math.cos(angle));
             $("#avatar").rotate(rot_angle);
             $("#needle").rotate(rot_angle);
     });
