@@ -5,6 +5,11 @@
       body { 
           font: 13px Helvetica, Arial;
     }
+#ALL_Container{
+    width:100vw;
+    height:100vh;
+    display: flex;
+}
       #snd { 
           background: #000;  
           position: absolute;
