@@ -17,14 +17,13 @@
     }
       #snd input { 
           width: 75%;
-          height: 30px;
+          height: 50px;
         }
       #snd button { 
           background: rgb(150, 240, 150); 
           border: none;
           width:25%;
-          float:right;
-          height: 30px;
+          height: 50px;
         }
       #messages { 
           list-style-type: none; 
@@ -92,7 +91,7 @@
         visibility: hidden;   
     }
 #controls{
-        width: 200px;
+        width: 300px;
         height: 100px;
         position: absolute;
         bottom:0;
@@ -101,7 +100,7 @@
 }
 .c_but{
     height: 100px;
-    width: 75px;
+    width: 125px;
     border-radius: 5px;
 }
 #r_but{
@@ -205,14 +204,17 @@
     /* Instructor toggle map or user list */
     .toggle {
         position: absolute;
+        width: 75px;
+        height: 75px;
         top:20px;
         left:25%;
         z-index: 200;
         visibility: hidden;   
     }
-#smallmap{
-    display:none;
-}
+
+    #smallmap{
+        display:none;
+    }
     #t {
         z-index: 2;
         position: absolute;

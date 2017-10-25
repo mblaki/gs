@@ -111,7 +111,7 @@
             $("#users").css("display", "none");
             
             $("#map").width(game_width*0.7);
-            $("#map").height(772);
+            $("#map").height(game_height);
             $("#map").css("float","left");
             
             $("#chat").width(game_width*0.3);
@@ -122,12 +122,12 @@
             $("#avatar").css("top", 286);
             $("#avatar").css("visibility", "visible");
             
-            $("#controls").css("left", 391);
+            $("#controls").css("left", 291);
             $("#controls").css("top", 672);           
             $("#controls").css("visibility", "visible");
             
-            $("#snd").css("left", 983);
-            $("#snd").css("top", 742);
+            $("#snd").css("right", 0);
+            $("#snd").css("bottom", 0);
             $("#snd").css("visibility", "visible");
             $("#snd").width(game_width*0.3);
             
@@ -186,8 +186,8 @@
                 var img = new Image();
                 img.onload = function(){
                     var hidden_canvas = document.getElementById("list");
-                    hidden_canvas.width = 983;//canvasWidth;
-                    hidden_canvas.height = 983;//canvasHeight;
+                    hidden_canvas.width = game_width*0.7;
+                    hidden_canvas.height = game_width*0.7;
                     var hidden_context = hidden_canvas.getContext("2d");        
                     hidden_context.drawImage(img, 0, 0, canvasWidth, canvasHeight, 0, 0, hidden_canvas.width, hidden_canvas.height);
                 };
@@ -226,18 +226,14 @@
         });
         socket.on('paint canvas', function(imgData){
             // load image from data url
-          //  var context = canvas.getContext("2d");
             var imageObj = new Image();
                 imageObj.onload = function() {
                 var canvas = document.getElementById("list");
-                    canvas.width = 983;//canvasWidth;
-                    canvas.height = 983;//canvasHeight;
+                    canvas.width = game_width*0.7;
+                    canvas.height = game_width*0.7;
                     var h_context = canvas.getContext("2d");        
                     h_context.drawImage(imageObj, 0, 0,canvas.width,canvas.height);
                 };
-           // context.moveTo(x,y);
-        //    context.font = "30px Arial";
-        //    context.fillText(selected,10,50);
             imageObj.src = imgData;
             
         });
@@ -252,7 +248,6 @@
             document.getElementById('map').style.backgroundPositionY = bg_y+ "px";
             document.getElementById('map').style.backgroundPositionX = bg_x+ "px";
             $("#avatar").rotate(ang);
-            console.log("recieve updatye");
         }
     });
  socket.on('dock', function(name, type){
