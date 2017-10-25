@@ -36,6 +36,12 @@
                     initY += (Yincrement);
                     cy -= (Yincrement);
                 }
+                if (angle%360 == 0 || angle%360 == 180) {
+                    Yincrement = 0;
+                }
+                if (angle%360 == 90 || angle%360 == 270) {
+                    Yincrement = 5;
+                }
                 cx += Xincrement;
                 initX -= Xincrement;
                 /*
@@ -88,6 +94,9 @@
             if (angle%360 == 90 || angle%360 == 270) {
                 Xincrement = 0;
             }
+            if (angle%360 == 0 || angle%360 == 180) {
+                Xincrement = 5;
+            }
             console.log("Xincrement: " + Xincrement + " cx: " + cx);
             console.log("Yincrement: " + Yincrement + " cy: " + cy);
             console.log("angle = " + angle);
@@ -103,6 +112,9 @@
             Xincrement += Math.abs(my_speed * Math.cos((Math.PI/180) * angle));
             if (angle%360 == 90 || angle%360 == 270) {
                 Xincrement = 0;
+            }
+            if (angle%360 == 0 || angle%360 == 180) {
+                Xincrement = 5;
             }
             console.log("Xincrement: " + Xincrement + " cx: " + cx);
             console.log("Yincrement: " + Yincrement + " cy: " + cy);
