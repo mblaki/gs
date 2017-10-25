@@ -12,12 +12,14 @@ var port = process.env.PORT || 8020;
 var clients=[];
 var instrX = 0; // default X velocity
 var instrY = 5; // default Y velocity
+var speed = 5; //speed in any direction
+var curr_angl = 0;
 var currently_selected="";
 var curr_x= -1;
 var curr_y= -1;
 var bgX = 0;
 var bgY = 0;
-var curr_angl = 0;
+
 var MAX_ANGLE = 5; // max angle, increase by one to increase max angle by 9 degrees
 var game_start = false;
 app.use(express.static(__dirname + '/www'));
@@ -90,7 +92,7 @@ io.on('connection', function(socket){
                 clients["Instructor"].emit('dock', gname, type);
         });
         function gameLoop(){
-            io.emit("game loop", instrX, instrY, MAX_ANGLE);
+            io.emit("game loop", instrX, speed, MAX_ANGLE);
             if (game_start){
                 clients["Instructor"].emit("update line", currently_selected,curr_x, curr_y, curr_angl, bgX, bgY);
             }

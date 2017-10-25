@@ -11,7 +11,8 @@
     var cy = canvasHeight-686;//position line on avatar
     var Xincrement=0;
     var Yincrement=0;
-    var angle = 0.0;
+    var my_speed = 0;
+    var angle = 90.0;
     var out_of_bounds = 0;
     var MAX_ANGLE = 5;
     var stopper = 0;
@@ -20,10 +21,11 @@
     var ctx=l.getContext("2d");
     ctx.beginPath();
     ctx.moveTo((cx+offset)*ratio,(cy) * ratio);
-    socket.on('game loop', function(iX, iY, iA){
+    socket.on('game loop', function(iX, speed, iA){
         if(gname != "Instructor" ) {
+            my_speed = speed;
             if(!END) {
-                Yincrement = iY;
+                Yincrement = speed* Math.sin(angle);
                 MAX_ANGLE = iA;
                 if (dock_ON){
                     initY += (iY)/2;
@@ -73,8 +75,8 @@
     $("#l_but").click(function(){
         if (stopper < MAX_ANGLE){
             stopper +=1;
-            Xincrement += parseInt(5*(1/MAX_ANGLE));
             angle -= 9;
+            Xincrement += my_speed * Math.cos(angle);
             $("#avatar").rotate(angle);
             $("#needle").rotate(angle);
         }
@@ -83,8 +85,8 @@
     $("#r_but").click(function(){
         if (stopper > -MAX_ANGLE) {
             stopper -= 1;
-            Xincrement -= parseInt(5*(1/MAX_ANGLE));
             angle += 9;
+            Xincrement -= my_speed * Math.cos(angle);
             $("#avatar").rotate(angle);
             $("#needle").rotate(angle);
         }
