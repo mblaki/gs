@@ -88,19 +88,14 @@
             $("#avatar").css("top", game_height*0.5 - 100);
             $("#avatar").css("visibility", "visible");
             
-            $("#controls").css("left", game_width*0.45 - 150);
-            $("#controls").css("top", game_height - 100);
-            $("#controls").css("visibility", "visible");
-            
             $("#snd").width(game_width*0.3);
-          //  $("#snd").css("left", game_width*0.7);
             $("#snd").css("top", game_height - 50);
             $("#snd").css("visibility", "visible");
             
             $("#list").width(game_width*0.7);
             $("#list").height(game_height);
             
-            $(".c_but").css("visibility", "hidden");
+            $("controls").css("visibility", "hidden");
             $(".dock").css("visibility", "hidden");
             $(".toggle").css("visibility", "visible");
             $("#compass").css("visibility", "hidden");
@@ -118,12 +113,12 @@
             $("#chat").height(game_height);
             $("#chat").css("left", game_width*0.7);
             
-            $("#avatar").css("left", 441);
-            $("#avatar").css("top", 286);
+            $("#avatar").css("left", game_width*0.35 - 50);
+            $("#avatar").css("top", game_height*0.5 - 100);
             $("#avatar").css("visibility", "visible");
             
-            $("#controls").css("left", 291);
-            $("#controls").css("top", 672);           
+            $("#controls").css("left", game_width*0.35 - 150);
+            $("#controls").css("top", game_height - 100);           
             $("#controls").css("visibility", "visible");
             
             $("#snd").width(game_width*0.3);
