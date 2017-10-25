@@ -51,7 +51,7 @@
                   //      cx -= Math.abs(iX);
                     //    initX += Math.abs(iX);
                     console.log("Yaeji Xincr = 0");
-                    }
+                 //   }
                 }
             } else {
                 $("#map").empty();
