@@ -55,6 +55,7 @@
         min-width: 60px;
     }
     #chat{
+        position: absolute;
         background: #26734d;
         height: 100vh;
         z-index:2;

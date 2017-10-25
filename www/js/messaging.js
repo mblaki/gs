@@ -82,18 +82,18 @@
             
             $("#chat").width(game_width*0.3);
             $("#chat").height(game_height);
-            $("#chat").css("float","left");
+            $("#chat").css("left", game_width*0.7);
             
-            $("#avatar").css("left", 672);
-            $("#avatar").css("top", 286);
+            $("#avatar").css("left", game_width*0.45 - 50);
+            $("#avatar").css("top", game_height*0.5 - 100);
             $("#avatar").css("visibility", "visible");
             
-            $("#controls").css("left", 672);
-            $("#controls").css("top", 672);
+            $("#controls").css("left", game_width*0.45 - 150);
+            $("#controls").css("top", game_height - 100);
             $("#controls").css("visibility", "visible");
             
-            $("#snd").css("left", 983);
-            $("#snd").css("top", 742);
+            $("#snd").css("left", game_width*0.7);
+            $("#snd").css("top", game_height - 50);
             $("#snd").css("visibility", "visible");
             $("#snd").width(game_width*0.3);
             
@@ -116,7 +116,7 @@
             
             $("#chat").width(game_width*0.3);
             $("#chat").height(game_height);
-            $("#chat").css("float","left");
+            $("#chat").css("left", game_width*0.7);
             
             $("#avatar").css("left", 441);
             $("#avatar").css("top", 286);
@@ -126,8 +126,8 @@
             $("#controls").css("top", 672);           
             $("#controls").css("visibility", "visible");
             
-            $("#snd").css("right", 0);
-            $("#snd").css("bottom", 0);
+            $("#snd").css("left", game_width*0.7);
+            $("#snd").css("top", game_height - 50);
             $("#snd").css("visibility", "visible");
             $("#snd").width(game_width*0.3);
             
