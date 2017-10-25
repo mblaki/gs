@@ -26,7 +26,7 @@
         if(gname != "Instructor" ) {
             my_speed = speed;
             if(!END) {
-                Yincrement = my_speed* Math.sin(angle);
+                Yincrement = my_speed* Math.sin((Math.PI/180) * angle));
                 
                 MAX_ANGLE = iA;
                 if (dock_ON){
@@ -86,7 +86,7 @@
             stopper +=1;
             angle += 9;
             rot_angle -= 9;
-            Xincrement += Math.abs(my_speed * Math.cos(angle));
+            Xincrement += Math.abs(my_speed * Math.cos((Math.PI/180) * angle)));
             $("#avatar").rotate(rot_angle);
             $("#needle").rotate(rot_angle);
         
@@ -96,7 +96,7 @@
             stopper -= 1;
             angle -= 9;
             rot_angle += 9;
-            Xincrement -= Math.abs(my_speed * Math.cos(angle));
+            Xincrement -= Math.abs(my_speed * Math.cos((Math.PI/180) * angle));
             $("#avatar").rotate(rot_angle);
             $("#needle").rotate(rot_angle);
     });
