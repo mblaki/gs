@@ -12,7 +12,7 @@
     var Xincrement=0;
     var Yincrement=0;
     var my_speed = 0;
-    var angle = 90.0;
+    var angle = 0.0;
     var out_of_bounds = 0;
     var MAX_ANGLE = 5;
     var stopper = 0;
@@ -25,14 +25,14 @@
         if(gname != "Instructor" ) {
             my_speed = speed;
             if(!END) {
-                Yincrement = speed* Math.sin(angle);
+                Yincrement = speed* Math.sin(angle+90);
                 MAX_ANGLE = iA;
                 if (dock_ON){
-                    initY += (iY)/2;
-                    cy -= (iY)/2;
+                    initY += (Yincrement)/2;
+                    cy -= (Yincrement2;
                 } else {
-                    initY += (iY);
-                    cy -= (iY);
+                    initY += (Yincrement);
+                    cy -= (Yincrement);
                 }
                 if (Xincrement<0){
                     cx += Math.abs(Xincrement + iX);
@@ -76,7 +76,7 @@
         if (stopper < MAX_ANGLE){
             stopper +=1;
             angle -= 9;
-            Xincrement += my_speed * Math.cos(angle);
+            Xincrement += my_speed * Math.cos(angle+90);
             $("#avatar").rotate(angle);
             $("#needle").rotate(angle);
         }
@@ -86,7 +86,7 @@
         if (stopper > -MAX_ANGLE) {
             stopper -= 1;
             angle += 9;
-            Xincrement -= my_speed * Math.cos(angle);
+            Xincrement -= my_speed * Math.cos(angle+90);
             $("#avatar").rotate(angle);
             $("#needle").rotate(angle);
         }
