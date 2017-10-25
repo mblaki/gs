@@ -11,8 +11,9 @@
     var cy = canvasHeight-686;//position line on avatar
     var Xincrement=0;
     var Yincrement=0;
-    var my_speed = 0;
-    var angle = 0.0;
+    var my_speed = 5;
+    var angle = 90.0;
+    var rot_angle = 0.0;
     var out_of_bounds = 0;
     var MAX_ANGLE = 5;
     var stopper = 0;
@@ -25,7 +26,7 @@
         if(gname != "Instructor" ) {
             my_speed = speed;
             if(!END) {
-                Yincrement = speed* Math.sin(angle+90);
+                Yincrement = speed* Math.sin(angle);
                 MAX_ANGLE = iA;
                 if (dock_ON){
                     initY += (Yincrement)/2;
@@ -60,7 +61,7 @@
             document.getElementById('map').style.backgroundPositionY = initY+ "px";
             document.getElementById('map').style.backgroundPositionX = initX+ "px";
             detectCollision(cx,cy);
-            socket.emit('update line', gname, cx, cy, angle, initX, initY);
+            socket.emit('update line', gname, cx, cy, rot_angle, initX, initY);
         }
             
     });
@@ -73,24 +74,22 @@
     });
 
     $("#l_but").click(function(){
-        if (stopper < MAX_ANGLE){
             stopper +=1;
             angle -= 9;
-            Xincrement += my_speed * Math.cos(angle+90);
-            $("#avatar").rotate(angle);
-            $("#needle").rotate(angle);
-        }
+            rot_angle -= 9;
+            Xincrement += Math.abs(my_speed * Math.cos(angle));
+            $("#avatar").rotate(rot_angle);
+            $("#needle").rotate(rot_angle);
+        
     });
 
     $("#r_but").click(function(){
-        if (stopper > -MAX_ANGLE) {
             stopper -= 1;
             angle += 9;
-            Xincrement -= my_speed * Math.cos(angle+90);
-            $("#avatar").rotate(angle);
-            $("#needle").rotate(angle);
-        }
-        
+            rot_angle += 9;
+            Xincrement -= Math.abs(my_speed * Math.cos(angle));
+            $("#avatar").rotate(rot_angle);
+            $("#needle").rotate(rot_angle);
     });
 
 function detectCollision(x,y){
