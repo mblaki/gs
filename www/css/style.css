@@ -13,7 +13,6 @@
       #snd { 
           background: #000;  
           position: absolute;
-          width: 383; 
           visibility: hidden;          
     }
       #snd input { 
@@ -101,8 +100,8 @@
         visibility: hidden;   
 }
 .c_but{
-    height: 30px;
-    width:50px;
+    height: 100px;
+    width: 75px;
     border-radius: 5px;
 }
 #r_but{
@@ -113,7 +112,7 @@
 }
 .dock{
     width:50px;
-    height: 30px;
+    height: 100px;
     margin:auto;
     display: block;
 }
@@ -127,9 +126,7 @@
     }
     #list {
         background: pink; 
-        height:772;
         display:none;
-        width:983;
         z-index: 100;
         position: absolute;
     }

@@ -7,6 +7,8 @@
  */ 
     var canvasHeight= 3712; // change this to change map image
     var canvasWidth= 3712; // change this to change map image
+    var game_width= 1366;
+    var game_height= 772;
     var ratio = 983/3712 ;
     var img_path = "../img/big1.png"; // edit this to your map image name
     var audio = new Audio('../sound/mario1.wav');
@@ -70,16 +72,16 @@
         if (gname == "Instructor"){
             socket.emit('instructor join');
             
-            $("#users").width(383);
-            $("#users").height(772);
+            $("#users").width(game_width *0.2);
+            $("#users").height(game_height);
             $("#users").css("float","left");
             
-            $("#map").width(600);
-            $("#map").height(772);
+            $("#map").width(game_width*0.5);
+            $("#map").height(game_height);
             $("#map").css("float","left");
             
-            $("#chat").width(383);
-            $("#chat").height(772);
+            $("#chat").width(game_width*0.3);
+            $("#chat").height(game_height);
             $("#chat").css("float","left");
             
             $("#avatar").css("left", 672);
@@ -93,6 +95,10 @@
             $("#snd").css("left", 983);
             $("#snd").css("top", 742);
             $("#snd").css("visibility", "visible");
+            $("#snd").width(game_width*0.3);
+            
+            $("#list").width(game_width*0.7);
+            $("#list").height(game_height);
             
             $(".c_but").css("visibility", "hidden");
             $(".dock").css("visibility", "hidden");
@@ -104,12 +110,12 @@
             socket.emit('user join', gname);
             $("#users").css("display", "none");
             
-            $("#map").width(983);
+            $("#map").width(game_width*0.7);
             $("#map").height(772);
             $("#map").css("float","left");
             
-            $("#chat").width(383);
-            $("#chat").height(772);
+            $("#chat").width(game_width*0.3);
+            $("#chat").height(game_height);
             $("#chat").css("float","left");
             
             $("#avatar").css("left", 441);
@@ -123,6 +129,10 @@
             $("#snd").css("left", 983);
             $("#snd").css("top", 742);
             $("#snd").css("visibility", "visible");
+            $("#snd").width(game_width*0.3);
+            
+            $("#list").width(game_width*0.7);
+            $("#list").height(game_height);
             
             $(".toggle").css("visibility", "visible");
             $("#compass").css("visibility", "visible");
