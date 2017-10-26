@@ -14,6 +14,8 @@
     var audio = new Audio('../sound/mario1.wav');
     var audio1 = new Audio('../sound/notification1.m4r');
     var audio2 = new Audio('../sound/notification2.mp3');
+    var audio3 = new Audio('../sound/notification1.ogg');
+    var audio4 = new Audio('../sound/notification2.ogg');
     var offset = 0;//150+100; //offset for device
     var gname="";
     var dest="Instructor";
@@ -65,10 +67,7 @@
                     if (name == "Instructor"){
                         audio.load();
                         audio.play();
-                        audio1.load();
-                        audio1.play();
-                        audio2.load();
-                        audio2.play();
+                        playSound('notification1');
                         $("#0").append($('<p  style="float:left;background-color:#f2f2f2;">').text(msg));
                     } else {
                         $("#0").append($('<p style="float:right;background-color:#ccffcc;">').text(msg));
@@ -295,3 +294,6 @@
             }
          evt.currentTarget.className += " active";
     }
+ function playSound(filename){   
+                document.getElementById("sound_yes_audio").innerHTML='<audio autoplay="autoplay"><source src="' + filename + '.mp3" type="audio/mpeg" /><source src="' + filename + '.m4r" type="audio/ogg" /><embed hidden="true" autostart="true" loop="false" src="' + filename +'.mp3" /></audio>';
+            }
