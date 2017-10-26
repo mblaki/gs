@@ -12,6 +12,8 @@
     var ratio = 983/3712 ;
     var img_path = "../img/big1.png"; // edit this to your map image name
     var audio = new Audio('../sound/mario1.wav');
+    var audio1 = new Audio('../sound/notification1.m4r');
+    var audio2 = new Audio('../sound/notification2.mp3');
     var offset = 0;//150+100; //offset for device
     var gname="";
     var dest="Instructor";
@@ -63,6 +65,10 @@
                     if (name == "Instructor"){
                         audio.load();
                         audio.play();
+                        audio1.load();
+                        audio1.play();
+                        audio2.load();
+                        audio2.play();
                         $("#0").append($('<p  style="float:left;background-color:#f2f2f2;">').text(msg));
                     } else {
                         $("#0").append($('<p style="float:right;background-color:#ccffcc;">').text(msg));
