@@ -50,7 +50,7 @@
                 if(name == "Instructor"){
                     if (dest == "all") {
                                  for (var i = 0; i < clientList.length; i++) {
-                                    $("#"+i).append($('<p style="float:right;background-color:#ccffcc;">').text(msg));
+                                    $("#"+i).append($('<p style="float:right;background-color:#ccffcc;font-weight:bold;">').text(msg));
                                 }
                     } else {
                         $("#"+clientList.indexOf(dest)).append($('<p style="float:right;background-color:#ccffcc;">').text(msg));
@@ -61,6 +61,7 @@
                 }
             } else {
                     if (name == "Instructor"){
+                        audio.load();
                         audio.play();
                         $("#0").append($('<p  style="float:left;background-color:#f2f2f2;">').text(msg));
                     } else {
