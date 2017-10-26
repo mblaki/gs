@@ -11,6 +11,8 @@
     var cy = canvasHeight-686;//position line on avatar
     var Xincrement=0;
     var Yincrement=0;
+    var verticalDrift = 0;
+    var horizontalDrift = 0;
     var my_speed = 5;
     var angle = 90.0;
     var rot_angle = 0.0;
@@ -22,42 +24,30 @@
     var ctx=l.getContext("2d");
     ctx.beginPath();
     ctx.moveTo((cx+offset)*ratio,(cy) * ratio);
-    socket.on('game loop', function(iX, speed, iA){
+    socket.on('speacial change', function(newX, newY, newSpeed, selPlayer){
+        if(gname != "Instructor"){
+            if (selPlayer == 'all' || selPlayer == gname){
+                my_speed = newSpeed;
+                verticalDrift = newY;
+                horizontalDrift = newX;
+            }
+        }
+    });
+    socket.on('game loop', function(){
         if(gname != "Instructor" ) {
-            my_speed = speed;
+            
             if(!END) {
                 Yincrement = my_speed* Math.sin((Math.PI/180) * angle);
-                
-                MAX_ANGLE = iA;
                 if (dock_ON){
-                    initY += (Yincrement)/2;
-                    cy -= (Yincrement)/2;
+                    initY += (Yincrement+verticalDrift)/2;
+                    cy -= (Yincrement+verticalDrift)/2;
                 } else {
-                    initY += (Yincrement);
-                    cy -= (Yincrement);
+                    initY += (Yincrement+verticalDrift);
+                    cy -= (Yincrement+verticalDrift);
                 }
 
-                cx += Xincrement;
-                initX -= Xincrement;
-                /*
-                if (Xincrement<0){
-                    cx += Xincrement + iX;
-                    initX -= Xincrement + iX;
-                    console.log("Xincr < 0");
-                } else if (Xincrement >0){
-                    cx -= Xincrement + iX;
-                    initX += Xincrement + iX;
-                    console.log("Xincr > 0");
-                } else {
-                   // if (iX <0){
-                    //    cx += Math.abs(iX); 
-                    //    initX -= Math.abs(iX);
-                //    } else {
-                  //      cx -= Math.abs(iX);
-                    //    initX += Math.abs(iX);
-                    console.log("Yaeji Xincr = 0");
-                 //   }
-                }*/
+                cx += (Xincrement + horizontalDrift);
+                initX -= (Xincrement + horizontalDrift);
             } else {
                 $("#map").empty();
                 $("#map").css("background","white");

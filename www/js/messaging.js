@@ -48,9 +48,15 @@
         socket.on('chat message', function(msg, name, dest){
             if (gname == 'Instructor'){
                 if(name == "Instructor"){
-                    $("#"+clientList.indexOf(dest)).append($('<p style="float:right;background-color:#ccffcc;">').text(msg));
+                    if (dest == "all") {
+                                 for (var i = 0; i < clientList.length; i++) {
+                                    $("#"+i.append($('<p style="float:right;background-color:#ccffcc;">').text(msg));
+                                }
+                    } else {
+                        $("#"+clientList.indexOf(dest)).append($('<p style="float:right;background-color:#ccffcc;">').text(msg));
+                    }
                 } else {
-                    audio.play();
+                    
                     $("#"+clientList.indexOf(name)).append($('<p style="float:left;background-color:#f2f2f2;">').text(msg));
                 }
             } else {
@@ -122,7 +128,6 @@
             $("#controls").css("visibility", "visible");
             
             $("#snd").width(game_width*0.3);
-         //   $("#snd").css("left", game_width*0.7);
             $("#snd").css("top", game_height - 50);
             $("#snd").css("visibility", "visible");
             
@@ -144,9 +149,10 @@
             socket.emit('broadcast', selected, warningList);
     });
      $("#apply").click(function(){
-            var nY = parseInt($("#Y_vel").val());
-            var nX = parseInt($("#X_vel").val())*-1.0;
-            socket.emit('change increment', nX, nY);
+            var nY = parseFloat($("#Y_vel").val());
+            var nX = parseFloat($("#X_vel").val())*-1.0;
+            var spd = parseFloat($("#vel").val());
+            socket.emit('change increment', nX, nY, spd, selected );
     });
     $(".dock").click(function(){
             if (dock_ON == true) {
@@ -273,9 +279,11 @@
             if (val == 'all'){
                 document.getElementById("10").style.display = "block";
                 $("#broadcast").text("Broadcast All");
+                $("#apply").text("Apply All");
             } else {
                 document.getElementById(clientList.indexOf(val)).style.display = "block";
                 $("#broadcast").text("Broadcast " + val);
+                $("#apply").text("Apply " + val);
                 socket.emit('give update', selected);
             }
          evt.currentTarget.className += " active";

@@ -84,15 +84,21 @@ io.on('connection', function(socket){
                 bgY= bg_y
             }
         });
-        socket.on('change increment', function(x,y){
+        socket.on('change increment', function(x,y,s,p){
                 instrX = x;
                 instrY = y;
+                speed = s;
+                if (p == 'all'){
+                    io.emit('speacial change', intrX, intrY, speed);
+                } else {
+                    clients[p].emit('speacial change', intrX, intrY, speed);
+                }
         });
        socket.on('dock', function(gname,type){
                 clients["Instructor"].emit('dock', gname, type);
         });
         function gameLoop(){
-            io.emit("game loop", instrX, speed, MAX_ANGLE);
+            io.emit("game loop");
             if (game_start){
                 clients["Instructor"].emit("update line", currently_selected,curr_x, curr_y, curr_angl, bgX, bgY);
             }
