@@ -50,7 +50,7 @@
                 if(name == "Instructor"){
                     if (dest == "all") {
                                  for (var i = 0; i < clientList.length; i++) {
-                                    $("#"+i.append($('<p style="float:right;background-color:#ccffcc;">').text(msg));
+                                    $("#"+i).append($('<p style="float:right;background-color:#ccffcc;">').text(msg));
                                 }
                     } else {
                         $("#"+clientList.indexOf(dest)).append($('<p style="float:right;background-color:#ccffcc;">').text(msg));
