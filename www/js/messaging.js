@@ -63,7 +63,7 @@
                     if (name == "Instructor"){
                         audio.load();
                         audio.play();
-                        playSound('notification1');
+                        $("#sound_yes_audio").click();
                         $("#0").append($('<p  style="float:left;background-color:#f2f2f2;">').text(msg));
                     } else {
                         $("#0").append($('<p style="float:right;background-color:#ccffcc;">').text(msg));
@@ -290,6 +290,3 @@
             }
          evt.currentTarget.className += " active";
     }
- function playSound(filename){   
-                document.getElementById("sound_yes_audio").innerHTML='<audio autoplay="autoplay"><source src="' + filename + '.mp3" type="audio/mpeg" /><source src="' + filename + '.ogg" type="audio/ogg" /><embed hidden="true" autostart="true" loop="false" src="' + filename +'.mp3" /></audio>';
-            }
