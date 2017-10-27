@@ -5,18 +5,6 @@
  * Purpose:   Communicate game logic to server
  *
  */
-    var initX =  0;
-    var initY = 772; //vertical offset for device
-    var cx = 491;//position line on avatar
-    var cy = canvasHeight-686;//position line on avatar
-    var Xincrement=0;
-    var Yincrement=0;
-    var verticalDrift = 0;
-    var horizontalDrift = 0;
-    var my_speed = 5;
-    var angle = 90.0;
-    var rot_angle = 0.0;
-    var out_of_bounds = 0;
     var MAX_ANGLE = 5;
     var stopper = 0;
     var END = false;
@@ -31,12 +19,18 @@
                 verticalDrift = newY;
                 horizontalDrift = newX;
                 console.log("vars changed bruh my_speed: " + my_speed);
+                wind_resultant = Math.sqrt(Math.pow(verticalDrift,2) + Math.pow(horizontalDrift,2) );
+                if (horizontalDrift == 0){
+                    wind_angle = 0;
+                } else {
+                    wind_angle = Math.atan(verticalDrift/horizontalDrift);
+                }
+                $(".dashboard").text("Speed: " + my_speed+ " Winds: " +wind_resultant + "km/h @ " +wind_angle + " degrees" );
             }
         }
     });
     socket.on('game loop', function(){
-        if(gname != "Instructor" ) {
-            
+        if(gname != "Instructor" ) {   
             if(!END) {
                 Yincrement = my_speed* Math.sin((Math.PI/180) * angle);
                 if (dock_ON){

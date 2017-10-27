@@ -23,6 +23,20 @@
     var selected = "all";
     var game_start = false;
     var dock_ON= false;
+    var initX =  0;
+    var initY = 772; //vertical offset for device
+    var cx = 491;//position line on avatar
+    var cy = canvasHeight-686;//position line on avatar
+    var Xincrement=0;
+    var Yincrement=0;
+    var verticalDrift = 0;
+    var horizontalDrift = 0;
+    var my_speed = 5;
+    var angle = 90.0;
+    var rot_angle = 0.0;
+    var out_of_bounds = 0;
+    var wind_resultant = 0;
+    var wind_angle = 0.0;
     function changeMap(p){
         if (p == 0) {
             $("#avatar").show();
@@ -135,6 +149,13 @@
             $("#list").width(game_width*0.7);
             $("#list").height(game_height);
             
+            wind_resultant = Math.sqrt(Math.pow(verticalDrift,2) + Math.pow(horizontalDrift,2) );
+            if (horizontalDrift == 0){
+                wind_angle = 0;
+            } else {
+                wind_angle = Math.atan(verticalDrift/horizontalDrift);
+            }
+            $(".dashboard").text("Speed: " + my_speed+ " Winds: " +wind_resultant + "km/h @ " +wind_angle + " degrees" );
             $(".toggle").css("visibility", "visible");
             $("#compass").css("visibility", "visible");
             $("#needle").css("visibility", "visible");
@@ -151,7 +172,7 @@
     });
      $("#apply").click(function(){
             var nY = parseFloat($("#Y_vel").val());
-            var nX = parseFloat($("#X_vel").val())*-1.0;
+            var nX = parseFloat($("#X_vel").val());
             var spd = parseFloat($("#vel").val());
             console.log("updating :" + selected + " x wind: " + nX + "y wind: " + nY + " speed: "+ spd );
             socket.emit('change increment', nX, nY, spd, selected );

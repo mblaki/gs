@@ -203,6 +203,15 @@
         height: 30px;
     }
 */
+    .dashboard {
+        color: darkorange;
+        font-size: 20%;
+        position: absolute;
+        top: 0;
+        left:200px;
+        z-index:19;
+
+    }
     /* Instructor toggle map or user list */
     .toggle {
         position: absolute;
