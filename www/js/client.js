@@ -18,14 +18,18 @@
                 my_speed = newSpeed;
                 verticalDrift = newY;
                 horizontalDrift = newX;
-                console.log("vars changed bruh my_speed: " + my_speed);
-                wind_resultant = Math.sqrt(Math.pow(verticalDrift,2) + Math.pow(horizontalDrift,2) );
+                wind_resultant = parseInt(Math.sqrt(Math.pow(verticalDrift,2) + Math.pow(horizontalDrift,2)) );
+                dashstring = "<p>Speed: " + my_speed+ "</p>";
                 if (horizontalDrift == 0){
                     wind_angle = 0;
                 } else {
-                    wind_angle = Math.atan(verticalDrift/horizontalDrift);
+                    wind_angle = parseInt(Math.atan(verticalDrift/horizontalDrift)*Math.PI/180);
                 }
-                $(".dashboard").text("Speed: " + my_speed+ " Winds: " +wind_resultant + "km/h @ " +wind_angle + " degrees" );
+                dashstring += "<p>Winds: " + wind_resultant +"km/h </p>";
+                if (wind_resultant != 0){
+                    dashstring += "<p> At: " + wind_angle + " degrees </p>"
+                }
+                $(".dashboard").text(dashstring);
             }
         }
     });
