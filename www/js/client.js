@@ -92,16 +92,6 @@
             angle -= 9;
             rot_angle += 9;
             Xincrement = my_speed * Math.cos((Math.PI/180) * angle);
-        /*
-            if (angle%360 == 90 || angle%360 == 270) {
-                Xincrement = 0;
-                Yincrement = 5;
-            }
-            if (angle%360 == 0 || angle%360 == 180) {
-                Xincrement = 5;
-                Yincrement = 0;
-            }
-            */
             console.log("Xincrement: " + Xincrement + " cx: " + cx);
             console.log("Yincrement: " + Yincrement + " cy: " + cy);
             console.log("angle = " + angle);
@@ -113,27 +103,27 @@ function detectCollision(x,y){
     ctx.lineTo((x+offset)*ratio,(y)*ratio);
     ctx.lineWidth = 10;
     ctx.strokeStyle = "rgb(0, 0, 222)";
-    ctx.stroke();
     var e=document.getElementById("list");
     var c = e.getContext('2d');
     var p = c.getImageData((x+offset)*ratio, (y-5)*ratio, 1, 1).data;
-  //  console.log("\np0: " + p[0] + " \np1: " + p[1] + " \np2: " + p[2]);
+    console.log("\np0: " + p[0] + " \np1: " + p[1] + " \np2: " + p[2]);
    if ((p[0]==62 && p[1]== 117 && p[2] == 198) || (p[0]==24 && p[1]== 119 && p[2] == 192)){
         if(dock_ON){
-        //    socket.emit('dock', gname, 0);
-//            END = true;
-          //  alert("dead");
+            socket.emit('dock', gname, 0);
+            END = true;
+            alert("dead");
         } else {
-        //    socket.emit('dock', gname, 4);
-        //   END = true;
+            socket.emit('dock', gname, 4);
+            END = true;
             
         }
     } else if (p[1]== 0 && p[2] == 0 && p[3] == 0 && game_start){
         out_of_bounds +=1;
     }
     if (out_of_bounds > 10 && game_start){
-   //     socket.emit('dock', gname, 3);
-   //     END = true;
+        socket.emit('dock', gname, 3);
+        END = true;
         
     }
+    ctx.stroke();
 }
