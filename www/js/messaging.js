@@ -11,7 +11,7 @@
     var game_height= 772;
     var ratio = 983/3712 ;
     var img_path = "../img/big1.png"; // edit this to your map image name
-    var audio = new Audio('../sound/mario1.wav');
+    var audio = new Audio('../sound/notification1.mp3');
     var offset = 0;//150+100; //offset for device
     var gname="";
     var dest="Instructor";
@@ -63,7 +63,6 @@
                     if (name == "Instructor"){
                         audio.load();
                         audio.play();
-                        $("#sound_yes_audio").click();
                         $("#0").append($('<p  style="float:left;background-color:#f2f2f2;">').text(msg));
                     } else {
                         $("#0").append($('<p style="float:right;background-color:#ccffcc;">').text(msg));
@@ -154,6 +153,7 @@
             var nY = parseFloat($("#Y_vel").val());
             var nX = parseFloat($("#X_vel").val())*-1.0;
             var spd = parseFloat($("#vel").val());
+            console.log("updating :" + selected + " x wind: " + nX + "y wind: " + nY + " speed: "+ spd );
             socket.emit('change increment', nX, nY, spd, selected );
     });
     $(".dock").click(function(){

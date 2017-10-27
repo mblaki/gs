@@ -24,12 +24,13 @@
     var ctx=l.getContext("2d");
     ctx.beginPath();
     ctx.moveTo((cx+offset)*ratio,(cy) * ratio);
-    socket.on('speacial change', function(newX, newY, newSpeed, selPlayer){
+    socket.on('special change', function(newX, newY, newSpeed, selPlayer){
         if(gname != "Instructor"){
             if (selPlayer == 'all' || selPlayer == gname){
                 my_speed = newSpeed;
                 verticalDrift = newY;
                 horizontalDrift = newX;
+                console.log("vars changed bruh my_speed: " + my_speed);
             }
         }
     });

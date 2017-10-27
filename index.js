@@ -89,9 +89,9 @@ io.on('connection', function(socket){
                 instrY = y;
                 speed = s;
                 if (p == 'all'){
-                    io.emit('speacial change', instrX, instrY, speed);
+                    io.emit('special change', instrX, instrY, speed, p);
                 } else {
-                    clients[p].emit('speacial change', instrX, instrY, speed);
+                    clients[p].emit('special change', instrX, instrY, speed, p);
                 }
         });
        socket.on('dock', function(gname,type){
