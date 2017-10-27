@@ -157,7 +157,7 @@
             if (horizontalDrift == 0 ){
                 wind_angle = 90;
             } else {
-                wind_angle = parseInt(Math.atan(verticalDrift/horizontalDrift)*180/Math.Pi);
+                wind_angle = parseInt(Math.atan(verticalDrift/horizontalDrift)*180/Math.PI);
                 console.log("calculated angle " + wind_angle );
             }
             dashstring += "<p>Winds: " + wind_resultant +" km/h </p>";
