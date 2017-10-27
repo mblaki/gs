@@ -149,18 +149,23 @@
             
             $("#list").width(game_width*0.7);
             $("#list").height(game_height);
+            
             wind_resultant = parseInt(Math.sqrt(Math.pow(verticalDrift,2) + Math.pow(horizontalDrift,2)) );
             dashstring = "<p>Speed: " + my_speed+ "</p>";
-            if (horizontalDrift == 0){
-                wind_angle = 0;
+            $(".dashboard").empty();
+            $(".dashboard").append("<p>Speed: " + my_speed+ "</p>");
+            if (horizontalDrift == 0 ){
+                wind_angle = 90;
             } else {
-                wind_angle = parseInt(Math.atan(verticalDrift/horizontalDrift)*Math.PI/180);
+                wind_angle = parseInt(Math.atan(verticalDrift/horizontalDrift)*180/Math.Pi);
+                console.log("calculated angle " + wind_angle );
             }
-            dashstring += "<p>Winds: " + wind_resultant +"km/h </p>";
+            dashstring += "<p>Winds: " + wind_resultant +" km/h </p>";
+            $(".dashboard").append("<p>Winds: " + wind_resultant +" km/h </p>");
             if (wind_resultant != 0){
-                dashstring += "<p> At: " + wind_angle + " degrees </p>"
+                dashstring += "<p>At: " + wind_angle + " degrees </p>";
+                $(".dashboard").append("<p>At: " + wind_angle + " degrees </p>");
             }
-            $(".dashboard").text(dashstring);
             $(".toggle").css("visibility", "visible");
             $("#compass").css("visibility", "visible");
             $("#needle").css("visibility", "visible");
