@@ -326,7 +326,7 @@
                 $("#broadcast").text("Broadcast " + val);
                 $("#apply").text("Apply " + val);
                 socket.emit('give update', selected);
-                $("#but"+name).text(val);
+                $("#but"+val).text(val);
             }
          evt.currentTarget.className += " active";
     }
