@@ -76,7 +76,7 @@
                     $("#"+clientList.indexOf(name)).append($('<p style="float:left;background-color:#f2f2f2;">').text(msg));
                   ////  tablinks = document.getElementsByClassName("tablinks");
                   //  tablinks[clientList.indexOf(name)].innerHTML(name +' &#40'+ clientUnread[clientList.indexOf(name)]+"&#41");
-                    $("#but"+name).text(name +' &#40'+ clientUnread[clientList.indexOf(name)]+"&#41");
+                    $("#but"+name).text(name +' ('+ clientUnread[clientList.indexOf(name)]+")");
                 }
             } else {
                     if (name == "Instructor"){
@@ -326,7 +326,6 @@
                 $("#broadcast").text("Broadcast " + val);
                 $("#apply").text("Apply " + val);
                 socket.emit('give update', selected);
-                tablinks[clientList.indexOf(val)].innerHTML(val);
                 $("#but"+name).text(val);
             }
          evt.currentTarget.className += " active";
