@@ -286,8 +286,8 @@
             ctx.lineWidth = 10;
             ctx.strokeStyle = "rgb(0, 0, 222)";
             ctx.stroke();
-            document.getElementById('map').style.backgroundPositionY = (bg_y);
-            document.getElementById('map').style.backgroundPositionX = (bg_x+ game_width*0.2);
+            document.getElementById('map').style.backgroundPositionY = (bg_y)+"";
+            document.getElementById('map').style.backgroundPositionX = (bg_x+ game_width*0.2)+"";
             $("#avatar").rotate(ang);
         }
     });
