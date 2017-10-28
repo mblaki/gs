@@ -230,7 +230,7 @@
                     hidden_canvas.width = game_width*0.7;
                     hidden_canvas.height = game_width*0.7;
                     var hidden_context = hidden_canvas.getContext("2d");        
-                    hidden_context.drawImage(img, 0, 0, canvasWidth, canvasHeight);//, 0, 0, hidden_canvas.width, hidden_canvas.height);
+                    hidden_context.drawImage(img, 0, 0, canvasWidth, canvasHeight, 0, 0, hidden_canvas.width, hidden_canvas.height);
                 };
                 img.src = img_path; 
             }else {
