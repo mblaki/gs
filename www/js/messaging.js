@@ -9,13 +9,14 @@
     var canvasWidth= 3712; // change this to change map image
     var game_width= 1366;
     var game_height= 772;
-    var ratio = 983/3712 ;
+    var ratio = (game_width*0.7)/canvasWidth ;
     var img_path = "../img/big1.png"; // edit this to your map image name
     var audio = new Audio('../sound/notification1.mp3');
     var offset = 0;//150+100; //offset for device
     var gname="";
     var dest="Instructor";
     var clientList=[];
+    var clientUnread=[];
     var c_index=0;
     var socket = io();
     var warningList = [];
@@ -71,8 +72,10 @@
                         $("#"+clientList.indexOf(dest)).append($('<p style="float:right;background-color:#ccffcc;">').text(msg));
                     }
                 } else {
-                    
+                    clientUnread[clientList.indexOf(name)] +=1;
                     $("#"+clientList.indexOf(name)).append($('<p style="float:left;background-color:#f2f2f2;">').text(msg));
+                    tablinks = document.getElementsByClassName("tablinks");
+                    tablinks[clientList.indexOf(name)].innerHTML(name +' &#40'+ clientUnread[clientList.indexOf(name)]+"&#41");
                 }
             } else {
                     if (name == "Instructor"){
@@ -204,6 +207,9 @@
             console.log("instructor join emit");
             if (gname == "Instructor"){
                 $('#buts').append('<button class="tablinks" type = "button" id = "all" value = "all"  onclick="setDest(event,this.value)"> ALL </button>');
+                for (var i = 0; i < 10; i++) {
+                    clientUnread[i] = 0;
+                }
                 document.getElementById("10").style.display = "block";
             } 
         });
@@ -279,8 +285,8 @@
             ctx.lineWidth = 10;
             ctx.strokeStyle = "rgb(0, 0, 222)";
             ctx.stroke();
-            document.getElementById('map').style.backgroundPositionY = bg_y+ "px";
-            document.getElementById('map').style.backgroundPositionX = bg_x+ "px";
+            document.getElementById('map').style.backgroundPositionY = (bg_y) "px";
+            document.getElementById('map').style.backgroundPositionX = (bg_x+ game_width*0.2) + "px";
             $("#avatar").rotate(ang);
         }
     });
@@ -301,6 +307,7 @@
          var i, tabcontent, tablinks;
          this.dest = val;
          selected = val;
+         clientUnread[clientList.indexOf(val)] = 0;
          tabcontent = document.getElementsByClassName("tabcontent");
          for (i = 0; i < tabcontent.length; i++) {
             tabcontent[i].style.display = "none";
@@ -318,6 +325,7 @@
                 $("#broadcast").text("Broadcast " + val);
                 $("#apply").text("Apply " + val);
                 socket.emit('give update', selected);
+                tablinks[clientList.indexOf(val)].innerHTML(val);
             }
          evt.currentTarget.className += " active";
     }
