@@ -72,11 +72,11 @@
                         $("#"+clientList.indexOf(dest)).append($('<p style="float:right;background-color:#ccffcc;">').text(msg));
                     }
                 } else {
-                    clientUnread[clientList.indexOf(name)] +=1;
+                    if (name != selected) {
+                        clientUnread[clientList.indexOf(name)] +=1;
+                        $("#but"+name).text(name +' ('+ clientUnread[clientList.indexOf(name)]+")");
+                    }
                     $("#"+clientList.indexOf(name)).append($('<p style="float:left;background-color:#f2f2f2;">').text(msg));
-                  ////  tablinks = document.getElementsByClassName("tablinks");
-                  //  tablinks[clientList.indexOf(name)].innerHTML(name +' &#40'+ clientUnread[clientList.indexOf(name)]+"&#41");
-                    $("#but"+name).text(name +' ('+ clientUnread[clientList.indexOf(name)]+")");
                 }
             } else {
                     if (name == "Instructor"){
@@ -286,8 +286,8 @@
             ctx.lineWidth = 10;
             ctx.strokeStyle = "rgb(0, 0, 222)";
             ctx.stroke();
-            document.getElementById('map').style.backgroundPositionY = (bg_y) + "px";
-            document.getElementById('map').style.backgroundPositionX = (bg_x+ game_width*0.2) + "px";
+            document.getElementById('map').style.backgroundPositionY = (bg_y);
+            document.getElementById('map').style.backgroundPositionX = (bg_x+ game_width*0.2);
             $("#avatar").rotate(ang);
         }
     });

@@ -59,8 +59,8 @@
                 ender.innerHTML = "END";
                 $("#map").append(ender);
             }
-            document.getElementById('map').style.backgroundPositionY = initY+ "px";
-            document.getElementById('map').style.backgroundPositionX = initX+ "px";
+            document.getElementById('map').style.backgroundPositionY = initY;
+            document.getElementById('map').style.backgroundPositionX = initX;
             detectCollision(cx,cy);
             socket.emit('update line', gname, cx, cy, rot_angle, initX, initY);
         }
@@ -105,7 +105,7 @@ function detectCollision(x,y){
     ctx.strokeStyle = "rgb(0, 0, 222)";
     var e=document.getElementById("list");
     var c = e.getContext('2d');
-    var p = c.getImageData((x+offset)*ratio, (y-5)*ratio, 1, 1).data;
+    var p = c.getImageData((x+offset)*ratio, (y)*ratio, 1, 1).data;
     console.log("\np0: " + p[0] + " \np1: " + p[1] + " \np2: " + p[2]);
    if ((p[0]==62 && p[1]== 117 && p[2] == 198) || (p[0]==24 && p[1]== 119 && p[2] == 192)){
         if(dock_ON){
