@@ -11,7 +11,7 @@
     var game_height= 772;
     var ratio = (game_width*0.7)/canvasWidth ;
     var img_path = "../img/big1.png"; // edit this to your map image name
-    var audio = new Audio('../sound/notification1.mp3');
+    var audio = new Audio('../sound/notification1.m4r');
     var offset = 0;//150+100; //offset for device
     var gname="";
     var dest="Instructor";
@@ -230,7 +230,7 @@
                     hidden_canvas.width = game_width*0.7;
                     hidden_canvas.height = game_width*0.7;
                     var hidden_context = hidden_canvas.getContext("2d");        
-                    hidden_context.drawImage(img, 0, 0, canvasWidth, canvasHeight, 0, 0, hidden_canvas.width, hidden_canvas.height);
+                    hidden_context.drawImage(img, 0, 0, canvasWidth, canvasHeight);//, 0, 0, hidden_canvas.width, hidden_canvas.height);
                 };
                 img.src = img_path; 
             }else {
