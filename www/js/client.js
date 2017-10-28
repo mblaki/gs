@@ -59,8 +59,8 @@
                 ender.innerHTML = "END";
                 $("#map").append(ender);
             }
-            document.getElementById('map').style.backgroundPositionY = initY+"";
-            document.getElementById('map').style.backgroundPositionX = initX+"";
+            document.getElementById('map').style.backgroundPositionY = initY+"px";
+            document.getElementById('map').style.backgroundPositionX = initX+"px";
             detectCollision(cx,cy);
             socket.emit('update line', gname, cx, cy, rot_angle, initX, initY);
         }
