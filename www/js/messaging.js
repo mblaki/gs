@@ -285,7 +285,7 @@
             ctx.lineWidth = 10;
             ctx.strokeStyle = "rgb(0, 0, 222)";
             ctx.stroke();
-            document.getElementById('map').style.backgroundPositionY = (bg_y) "px";
+            document.getElementById('map').style.backgroundPositionY = (bg_y) + "px";
             document.getElementById('map').style.backgroundPositionX = (bg_x+ game_width*0.2) + "px";
             $("#avatar").rotate(ang);
         }
