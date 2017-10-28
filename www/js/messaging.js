@@ -248,7 +248,6 @@
                     $('#t').append($('<p>').text(value));
                 });
             } else {
-                console.log(" ALL BCast");
             }
         });
         socket.on('sbroadcast', function(select, warningList){
